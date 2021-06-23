@@ -1,0 +1,61 @@
+\documentclass[11pt, letterpaper]{report}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\usepackage{xcolor}
+\definecolor{darkblue}{rgb}{0, 0, 0.5}
+\usepackage[colorlinks=true,linkcolor=black,anchorcolor=black,citecolor=darkblue,filecolor=black,menucolor=black,runcolor=black,urlcolor=darkblue]{hyperref}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} 
+\usepackage{setspace}
+\geometry{lmargin=3cm, rmargin=3cm, tmargin=2.65cm, bmargin=3cm}
+\usepackage[pages=some]{style/background}
+\usepackage{natbib}
+
+\backgroundsetup{
+	scale=1,
+	angle=0,
+	opacity=1,
+	color=black,
+	hshift=-159,
+	contents={\includegraphics[width=0.48\paperwidth,height=\paperheight]{images/portada.png}}
+}
+
+
+\begin{document}
+	\begin{titlepage}
+	\begin{minipage}[t]{0.48\textwidth}
+		\BgThispage
+		\parbox{\textwidth}{}
+	\end{minipage}
+	\begin{minipage}[t]{0.55\textwidth}
+			\parbox{\textwidth}{
+				\includegraphics[width=.8\textwidth]{images/logo.png}\\[0.5cm]
+				\centering\textsc{Facultad de Ciencias Naturales y Exactas}\\[0.2cm]
+				\centering\textsc{Departamento de Ciencia de la Computación}\\[2.2cm]
+				\textbf{\LARGE Trabajo de Diploma en\\[-.1cm]Opción al Título de\\[-.1cm]Licenciado en Ciencia de la\\[-.1cm]Computación\\[2.2cm]}
+				\Large  \textbf{Título}:\\
+				\fontsize{18pt}{20pt}\selectfont Aprendizaje Profundo para el Perfilado de Usuarios en Redes Sociales\\
+				\vspace{10mm}
+				\begin{tabular}{rp{0.7\textwidth}}
+					{\Large \bf Autor:} & {\Large Roberto Labadie Tamyao} \\[.5cm]
+					{\Large \bf Tutores:} & {\Large Dr. Daniel Castro Castro} \\[.5cm]
+					& {\Large M.Sc. Reynier Ortega Bueno} \\[.5cm]
+				\end{tabular}
+				
+				\vspace{10mm}
+				{\Large \textbf{Curso 2020-2021}}
+			}
+	\end{minipage}
+	\end{titlepage}
+	
+	\pagenumbering{roman}
+	\thispagestyle{empty} 
+	\renewcommand{\contentsname}{Contenido} \tableofcontents
+	
+	\input{intro/intro}
+	\bibliographystyle{style/acl_natbib}
+	\renewcommand{\bibname}{Referencias Bibliográficas}
+	\bibliography{bibliography}
+	
+\end{document}

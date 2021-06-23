@@ -1,0 +1,143 @@
+\begin{thebibliography}{16}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Alom et~al.(2019)Alom, Taha, Yakopcic, Westberg, Sidike, Nasrin,
+  Hasan, Van~Essen, Awwal, and Asari}]{electronics8030292}
+Md~Zahangir Alom, Tarek~M. Taha, Chris Yakopcic, Stefan Westberg, Paheding
+  Sidike, Mst~Shamima Nasrin, Mahmudul Hasan, Brian~C. Van~Essen, Abdul A.~S.
+  Awwal, and Vijayan~K. Asari. 2019.
+\newblock \href {https://doi.org/10.3390/electronics8030292} {{A
+  State-of-the-Art Survey on Deep Learning Theory and Architectures}}.
+\newblock \emph{Electronics}, 8(3).
+
+\bibitem[{Cimino et~al.(2020)Cimino, Dell{\textquoteright}Orletta, and
+  Nissim}]{f6032ffbacb14369b7a45d1ba9bd0b8c}
+Andrea Cimino, Felice Dell{\textquoteright}Orletta, and Malvina Nissim. 2020.
+\newblock {TAG-it@ EVALITA 2020: Overview of the Topic, Age, and Gender
+  Prediction Task for Italian}.
+\newblock In \emph{Proceedings of the 7th evaluation campaign of Natural
+  Language Processing and Speech tools for Italian (EVALITA 2020), Online.
+  CEUR. org}. CEUR Workshop Proceedings (CEUR-WS.org).
+\newblock Evaluation Campaign of Natural Language Processing and Speech Tools
+  for Italian, EVALITA 2020 ; Conference date: 17-12-2020.
+
+\bibitem[{Dias and Paraboni(2019)}]{DBLP:conf/clef/DiasP19}
+Rafael Felipe~Sandroni Dias and Ivandr{\'{e}} Paraboni. 2019.
+\newblock \href {http://ceur-ws.org/Vol-2380/paper\_61.pdf} {Combined {CNN+RNN}
+  bot and gender profiling}.
+\newblock In \emph{Working Notes of {CLEF} 2019 - Conference and Labs of the
+  Evaluation Forum, Lugano, Switzerland, September 9-12, 2019}, volume 2380 of
+  \emph{{CEUR} Workshop Proceedings}. CEUR-WS.org.
+
+\bibitem[{Iyer and Vosoughi(2020)}]{iyer:2020}
+Aarish Iyer and Soroush Vosoughi. 2020.
+\newblock \href {http://ceur-ws.org/Vol-2696/} {{Style Change Detection Using
+  BERT---Notebook for PAN at CLEF 2020}}.
+\newblock In \emph{{CLEF 2020 Labs and Workshops, Notebook Papers}}.
+  CEUR-WS.org.
+
+\bibitem[{Johansson(2019)}]{DBLP:conf/clef/Johansson19}
+Fredrik Johansson. 2019.
+\newblock \href {http://ceur-ws.org/Vol-2380/paper\_154.pdf} {{Supervised
+  Classification of Twitter Accounts Based on Textual Content of Tweets}}.
+\newblock In \emph{Working Notes of {CLEF} 2019 - Conference and Labs of the
+  Evaluation Forum, Lugano, Switzerland, September 9-12, 2019}, volume 2380 of
+  \emph{{CEUR} Workshop Proceedings}. CEUR-WS.org.
+
+\bibitem[{Joo and Hwang(2019)}]{DBLP:conf/clef/JooH19}
+Youngjun Joo and Inchon Hwang. 2019.
+\newblock \href {http://ceur-ws.org/Vol-2380/paper\_174.pdf} {{Author Profiling
+  on Social Media: An Ensemble Learning Approach using Various Features}}.
+\newblock In \emph{Working Notes of {CLEF} 2019 - Conference and Labs of the
+  Evaluation Forum, Lugano, Switzerland, September 9-12, 2019}, volume 2380 of
+  \emph{{CEUR} Workshop Proceedings}. CEUR-WS.org.
+
+\bibitem[{L{\'{o}}pez{-}Santill{\'{a}}n
+  et~al.(2019)L{\'{o}}pez{-}Santill{\'{a}}n, Gonz{\'{a}}lez{-}Gurrola,
+  Montes{-}y{-}G{\'{o}}mez, Alonso, and
+  Prieto{-}Ordaz}]{DBLP:conf/clef/Lopez-Santillan19}
+Jesus L{\'{o}}pez{-}Santill{\'{a}}n, Luis~Carlos Gonz{\'{a}}lez{-}Gurrola,
+  Manuel Montes{-}y{-}G{\'{o}}mez, Graciela~Ram{\'{\i}}rez Alonso, and Olanda
+  Prieto{-}Ordaz. 2019.
+\newblock \href {http://ceur-ws.org/Vol-2380/paper\_176.pdf} {{An Evolutionary
+  Approach to Build User Representations for Profiling of Bots and Humans in
+  Twitter}}.
+\newblock In \emph{Working Notes of {CLEF} 2019 - Conference and Labs of the
+  Evaluation Forum, Lugano, Switzerland, September 9-12, 2019}, volume 2380 of
+  \emph{{CEUR} Workshop Proceedings}. CEUR-WS.org.
+
+\bibitem[{Petr{\'{\i}}k and Chud{\'{a}}(2019)}]{DBLP:conf/clef/PetrikC19}
+Juraj Petr{\'{\i}}k and Daniela Chud{\'{a}}. 2019.
+\newblock \href {http://ceur-ws.org/Vol-2380/paper\_214.pdf} {Bots and gender
+  profiling with convolutional hierarchical recurrent neural network}.
+\newblock In \emph{Working Notes of {CLEF} 2019 - Conference and Labs of the
+  Evaluation Forum, Lugano, Switzerland, September 9-12, 2019}, volume 2380 of
+  \emph{{CEUR} Workshop Proceedings}. CEUR-WS.org.
+
+\bibitem[{Pizarro(2019)}]{DBLP:conf/clef/Pizarro19}
+Juan Pizarro. 2019.
+\newblock \href {http://ceur-ws.org/Vol-2380/paper\_183.pdf} {{Using N-grams to
+  detect Bots on Twitter}}.
+\newblock In \emph{Working Notes of {CLEF} 2019 - Conference and Labs of the
+  Evaluation Forum, Lugano, Switzerland, September 9-12, 2019}, volume 2380 of
+  \emph{{CEUR} Workshop Proceedings}. CEUR-WS.org.
+
+\bibitem[{Rangel et~al.(2020)Rangel, Giachanou, Ghanem, and
+  Rosso}]{rangel:2020}
+Francisco Rangel, Anastasia Giachanou, Bilal Ghanem, and Paolo Rosso. 2020.
+\newblock \href {http://ceur-ws.org/Vol-2696/} {{Overview of the 8th Author
+  Profiling Task at PAN 2020: Profiling Fake News Spreaders on Twitter}}.
+\newblock In \emph{{CLEF 2020 Labs and Workshops, Notebook Papers}}.
+  CEUR-WS.org.
+
+\bibitem[{Rangel et~al.(2018)Rangel, {Montes{-}y{-}G{\'{o}}mez}, Potthast, and
+  Stein}]{rangel:2018}
+Francisco Rangel, Manuel {Montes{-}y{-}G{\'{o}}mez}, Martin Potthast, and Benno
+  Stein. 2018.
+\newblock \href {http://ceur-ws.org/Vol-2125/} {{Overview of the 6th Author
+  Profiling Task at PAN 2018: Cross-domain Authorship Attribution and Style
+  Change Detection}}.
+\newblock In \emph{{CLEF 2018 Evaluation Labs and Workshop -- Working Notes
+  Papers, 10-14 September, Avignon, France}}. CEUR-WS.org.
+
+\bibitem[{Rangel and Rosso(2019)}]{rangel:2019}
+Francisco Rangel and Paolo Rosso. 2019.
+\newblock \href {http://ceur-ws.org/Vol-2380/} {{Overview of the 7th Author
+  Profiling Task at PAN 2019: Bots and Gender Profiling}}.
+\newblock In \emph{{CLEF 2019 Labs and Workshops, Notebook Papers}}.
+  CEUR-WS.org.
+
+\bibitem[{Riahi and Riahi(2018)}]{Riahi2018BigDA}
+Youssra Riahi and S.~Riahi. 2018.
+\newblock {Big Data and Big Data Analytics: Concepts, Types and Technologies}.
+\newblock \emph{International Journal of Research and Engineering}, 5:524--528.
+
+\bibitem[{Rosso et~al.(2019)Rosso, Potthast, Stein, Stamatatos, Rangel, and
+  Daelemans}]{Rosso2019}
+Paolo Rosso, Martin Potthast, Benno Stein, Efstathios Stamatatos, Francisco
+  Rangel, and Walter Daelemans. 2019.
+\newblock \href {https://doi.org/10.1007/978-3-030-22948-1_19} {Evolution of
+  the pan lab on digital text forensics}.
+\newblock In Nicola Ferro and Carol Peters, editors, \emph{{Information
+  Retrieval Evaluation in a Changing World: Lessons Learned from 20 Years of
+  CLEF}}, pages 461--485. Springer International Publishing, Cham.
+
+\bibitem[{Rosso and Rangel~Pardo(2020)}]{article}
+Paolo Rosso and Francisco Rangel~Pardo. 2020.
+\newblock \href {https://doi.org/10.1007/s42979-020-0073-1} {{Author Profiling
+  Tracks at FIRE}}.
+\newblock \emph{FIRE 10th Anniversary, SN Computer Science}, 1.
+
+\bibitem[{Valencia{-}Valencia et~al.(2019)Valencia{-}Valencia,
+  G{\'{o}}mez{-}Adorno, Rhodes, and
+  Pineda}]{DBLP:conf/clef/Valencia-Valencia19}
+Alex~I. Valencia{-}Valencia, Helena G{\'{o}}mez{-}Adorno, Christopher~Stephens
+  Rhodes, and Gibran~Fuentes Pineda. 2019.
+\newblock \href {http://ceur-ws.org/Vol-2380/paper\_216.pdf} {{Bots and Gender
+  Identification Based on Stylometry of Tweet Minimal Structure and n-grams
+  Model}}.
+\newblock In \emph{Working Notes of {CLEF} 2019 - Conference and Labs of the
+  Evaluation Forum, Lugano, Switzerland, September 9-12, 2019}, volume 2380 of
+  \emph{{CEUR} Workshop Proceedings}. CEUR-WS.org.
+
+\end{thebibliography}

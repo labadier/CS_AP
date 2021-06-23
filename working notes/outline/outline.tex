@@ -1,0 +1,80 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper]{geometry}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{color,soul}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode} 
+
+
+\title{Thesis Outline. \\
+	
+	Aprendizaje de rasgos estilométricos abstractos para caracterizar usuarios de redes sociales.\\}
+\author{Roberto Labadie Tamayo}
+\date{\today}
+\begin{document}
+	\maketitle 	
+	
+	\section*{Introducción}
+		En esta sección se introduce el Perfilado de Autor (\textit{Author Profiling AP}) como una de las tareas del procesamiento del lenguaje natural. Se explican las subtareas particulares que aborda el AP, así como la expansión que se ha producido en trabajos recientes que incluyen además del análisis de características comúnmente estudiadas como la edad y genero, a los rasgos de la personalidad a nivel psico-social.\\
+		Además se mencionan trabajos previos realizados para resolver estos problemas, resaltando que estos trabajos emplean potencialmente técnicas de Machine Learning. Se introduce brevemente el Deep Learning haciendo explicita su ventaja en el análisis de datos no estructurados como el lenguage natural con respecto al Machine Learning y se exponen los métodos propuestos por otros autores empleando este tipo de técnicas y posteriormente los avances mas recientes del DL en el NLP.\\
+		Finalmente se trata la necesidad de construir sistemas con arquitecturas poco sensibles ante el carácter multilingue que generalmente predomina en las redes sociales como Twitter.
+		
+		
+		
+%		La hipótesis de la investigación
+		
+%		Los métodos y las técnicas de investigación empleados, especificando brevemente en que
+%		parte de la investigación fueron aplicados.
+		
+	\section{Perfilado de Autores}
+	
+		
+		En esta sección se exponen la necesidad de crear sistemas automáticos que sean capaces de desempeñar las tareas de AP, citando el crecimiento de los datos diariamente y el impacto que han tenido en la sociedad el empleo de las redes sociales.\\
+		Se describen ademas las apliaciones fundamentales en la que el AP juega un papel crucial.
+	
+	\subsection{Fundamentos Teóricos}
+		Se exponen los fundamentos técnicos relacionados con  los temas que se tratan en el trabajo y en las arquitecturas propuestas. 
+		\begin{itemize}
+			\item Introducir Modelos de ML usados como basiliense.
+			\item Redes Neuronales Recurrentes
+			\item Redes Neuronales Convolucinonales
+			\item Mecanismo de atención
+			\item Transformes
+			\item Un poquito de teoria de grafo (super-soft)
+			\item Graph Convolutional Neural Network.
+			\item Modular Architectures
+		\end{itemize}
+	
+	
+	\section{Modelos Propuestos}
+	
+	Con el trabajo se introducirán arquitecturas de redes neuronales basadas en distintas formas de aprendizaje profundo que hacen uso mecanismos de atención, modelos recurrentes, convolucionales o sus combinaciones. Estos modelos son entrenados y refinados para procesar informacion textual a distintos niveles sintácticos, i.e a nivel de palabra o caracter. \\El conocimiento extraído a partir de este esa información textual proveniente de mensajes posteados en perfiles de usuarios de redes sociales como Twitter, es empleado para establecer modelaciones del estilo de redacción del usuario del perfil que nos permitan atribuirle características especificas como edad, sexo u otros rasgos mas complejos que describan el comportamiento de la persona dentro de la red social.\\	
+	En las tareas de AP, debido a la cantidad y composición de los datos que se pueden obtener de un perfil y la limitada longitudes de secuencia que son capaces de analizar los modelos empleados, se hace difícil de tratar simultáneamente estos datos sin perder información, es por esto que primero se especializa un modulo en representar los mensajes  con una tarea intermedia y otro en modelar los perfiles.\\
+	
+		Se describen los 3 modelos propuestos:
+	
+	\begin{enumerate}
+		\item La primera arquitectura (RCS). Combina la representación aprendida por una arquitectura LSTM-CNN a nivel de palabras y caracteres de cada mensaje del perfil y luego esta representación es representada como una secuencia que es clasificada por una Red Recurrente (LSTM), que fusiona la información extraída de la secuencia con rasgos estadísticos del perfil.[\textit{PAN 2020}]
+		
+		\item (EnRTS) Combina representaciones del perfil obtenidas con una arquitectura LSTM-CNN a nivel de palabra con una representación obtenida por una arquitectura Transformer-LSTM e información estadística a través de un clasificador basado en una red neuronal densa y una unidad multimodal de compuertas (no sabia que lo emplee pero si! ). [\textit{EVALITA 2020}]  [esta me parece que podemos quitarla].
+		
+		\item (PGraph) Los mensajes son codificados a través de un codificador de oraciones basado en Transformers. El perfil es modelado como una estructura de grafo, a partir del cual se emplea una Red Neuronal basada en esta estructura como clasificador. [\textit{PAN 2021}]
+	\end{enumerate}
+	
+	\section{Experimentos y Análisis}
+		\subsection{Métricas y Datos empleados}
+		Se introducen las métricas empleadas: F1, Accuracy, Pressision, Recall. Asi como los datos de evaluación y entrenamiento de PAN 2020, PAN 2021 y EVALITA. 
+		\subsection{Análisis}
+			En esta sección se analizan los problemas enfrentados por los modelos propuestos. Particularmente se analiza coste temporal y espacial de entrenamiento de los modelos, cantidad de parametros e hyperparametros en cada uno. \\Desempeño de los modelos  por idioma y tarea.\\
+			Análisis de error (Aqui tengo duda, de con respecto a que hacer el analysis de error, o sea si lo hago para cada tarea independiente por cada modelo M*T ??)
+		
+	\section{Conclusiones }
+	\subsection{Trabajos Futuros}
+	\subsection{Publicaciones}
+	
+
+\end{document}
