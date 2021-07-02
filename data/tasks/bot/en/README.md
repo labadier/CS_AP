@@ -1,0 +1,1 @@
+https://www.kaggle.com/charvijain27/detecting-twitter-bot-data?select=training_data_2_csv_UTF.csv
