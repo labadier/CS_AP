@@ -23,8 +23,8 @@ def save_csvs(pclass, nclass, split, path, criterion):
     faketrain, fakedev = partition(pclass, split, criterion)
     nofaketrain, nofakedev = partition(nclass, split, criterion)
 
-    train_labels = np.concatenate([np.ones((len(faketrain),)), np.zeros((len(nofaketrain),))]) 
-    dev_labels = np.concatenate([np.ones((len(fakedev),)), np.zeros((len(nofakedev),))]) 
+    train_labels = np.concatenate([np.ones((len(faketrain),), dtype=int), np.zeros((len(nofaketrain),), dtype=int)]) 
+    dev_labels = np.concatenate([np.ones((len(fakedev),), dtype=int), np.zeros((len(nofakedev),), dtype=int)]) 
     train_examples = np.array(faketrain+nofaketrain)
     dev_examples = np.array(fakedev+nofakedev)
     
@@ -40,7 +40,7 @@ def save_fake_en(path):
     fake = pd.concat([chunk[chunk['ratingName'] == 'FALSE'] for chunk in iter_csv]).to_numpy()
     iter_csv = pd.read_csv(path + 'claimskg_result.csv', iterator=True, chunksize=1000, usecols=['text', 'ratingName', 'source'])
     nofake = pd.concat([chunk[chunk['ratingName'] == 'TRUE'] for chunk in iter_csv]).to_numpy()
-    save_csvs(fake, nofake, 0.8, path)
+    save_csvs(fake, nofake, 0.8, path, 2)
 
 def save_bot_en(path):
     iter_csv = pd.read_csv(path + 'training_data_2_csv_UTF.csv', iterator=True, chunksize=1000, usecols=['description', 'bot', 'verified'])
@@ -57,7 +57,8 @@ def save_hate(path):
     train = pd.DataFrame({'tweets':train[:,0], 'label':train[:,1]})
     train.to_csv(path+'train.csv')
     
-# %%
 save_hate('tasks/hater/en/')
 save_hate('tasks/hater/es/')
+save_fake_en('tasks/faker/en/')
+save_bot_en('tasks/bot/en/')
 # %%
