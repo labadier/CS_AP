@@ -43,6 +43,7 @@ class RawDataset(Dataset):
     if dataframe == False:
       self.data_frame = pd.read_csv(csv_file)
     else: self.data_frame = csv_file
+    self.testing = 1
 
   def __len__(self):
     return len(self.data_frame)
@@ -56,7 +57,10 @@ class RawDataset(Dataset):
     try:
       value = self.data_frame.loc[idx, 'label']
     except:
-      value =  0.
+      if self.testing:
+        print('##Data for Test')
+        self.testing = 0
+      value =  0
 
     sample = {'tweet': text, 'label': value}
     return sample
@@ -96,7 +100,7 @@ class Encoder(torch.nn.Module):
     self.language = language
     self.interm_neurons = interm_size
     self.transformer, self.tokenizer = HuggTransformer(language, mode_weigth)
-    self.intermediate = torch.nn.Sequential(torch.nn.Linear(in_features=768, out_features=self.interm_neurons), torch.nn.LeakyReLU())
+    self.intermediate = torch.nn.Sequential(torch.nn.Dropout(p=0.3), torch.nn.Linear(in_features=768, out_features=self.interm_neurons), torch.nn.LeakyReLU())
     self.classifier = torch.nn.Linear(in_features=self.interm_neurons, out_features=2)
     self.loss_criterion = torch.nn.CrossEntropyLoss()
     self.device = torch.device("cuda:0") if torch.cuda.is_available() else torch.device("cpu")
@@ -217,7 +221,7 @@ def train_Encoder(data_path, language, mode_weigth, splits = 5, epoches = 4, bat
 
       if (j+1)*100.0/batches - perc  >= 1 or j == batches-1:
         perc = (1+j)*100.0/batches
-        last_printed = '\rEpoch:{} step {} of {}. {}% loss: {}'.format(epoch+1, j+1, batches, np.round(perc, decimals=1), np.round(running_loss, decimals=3))
+        last_printed = f'\rEpoch:{epoch+1:3d} of {epoches} step {j+1} of {batches}. {perc:.1f}% loss: {running_loss:.3f}'
         print(last_printed, end="")
     
     model.eval()
@@ -249,11 +253,10 @@ def train_Encoder(data_path, language, mode_weigth, splits = 5, epoches = 4, bat
       model.best_acc = dev_acc
       band = True
 
-    ep_finish_print = " acc: {} ||| dev_loss: {} dev_acc: {}".format(np.round(acc, decimals=3), np.round(dev_loss, decimals=3), np.round(dev_acc.reshape(1, -1)[0], decimals=3))
-
+    ep_finish_print = f' dev_loss: {dev_loss:.3f}'
     if band == True:
       print(bcolors.OKBLUE + bcolors.BOLD + last_printed + ep_finish_print + '\t[Weights Updated]' + bcolors.ENDC)
-    else: print(ep_finish_print)
+    else: print(ep_finish_print)  
 
     
   print(f'{bcolors.OKBLUE}Training Finished{bcolors.ENDC}')
