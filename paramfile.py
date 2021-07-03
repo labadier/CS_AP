@@ -5,4 +5,4 @@ tmode = 'offline'
 ml = 130
 interm_layer = 64
 mode = 'encoder'
-bs = 12
+bs = 200

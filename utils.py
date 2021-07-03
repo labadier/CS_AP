@@ -17,18 +17,6 @@ class bcolors:
     BOLD = '\033[1m'
     UNDERLINE = '\033[4m'
     
-def conver_to_class(tweets, labels):
-
-    example =[]
-    label = []
-
-    for i, j in zip(tweets, labels):
-        example += list(i)
-        label += [j]*len(i)
-    example, label = np.array(example), np.array(label)
-    m = np.random.permutation(len(example))
-    return example[m], label[m]
-
 def read_truth(data_path):
     
     with open(data_path + '/truth.txt') as target_file:
@@ -41,7 +29,7 @@ def read_truth(data_path):
 
     return target
 
-def load_data_PAN(data_path, labeled=True):
+def load_Profiling_Data(data_path, labeled=True):
 
     addrs = np.array(glob.glob(data_path + '/*.xml'));addrs.sort()
 
@@ -69,6 +57,8 @@ def load_data_PAN(data_path, labeled=True):
         tweets[-1] = np.array(tweets[-1])
     if labeled == True:
         return tweets, indx, np.array(label)
+
+    print(f'{bcolors.OKBLUE}Loaded {len(tweets)} Profiles{bcolors.ENDC}' )
     return tweets, indx
 
 def plot_training(history, language, measure='loss'):

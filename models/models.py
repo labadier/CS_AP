@@ -160,7 +160,7 @@ class Encoder(torch.nn.Module):
       log = None
       for k, data in enumerate(devloader, 0):
         torch.cuda.empty_cache() 
-        inputs = data['text']
+        inputs = data['tweet']
 
         dev_out, dev_log = self.forward(inputs, True)
         if k == 0:
@@ -173,7 +173,6 @@ class Encoder(torch.nn.Module):
     out = out.cpu().numpy()
     log = torch.max(log, 1).indices.cpu().numpy() 
     del devloader
-    os.system('rm to_encode.csv')
     return out, log
 
 def train_Encoder(data_path, language, mode_weigth, splits = 5, epoches = 4, batch_size = 64, max_length = 120, interm_layer_size = 64, lr = 1e-5,  decay=2e-5, multiplier=1, increase=0.1):
@@ -258,7 +257,6 @@ def train_Encoder(data_path, language, mode_weigth, splits = 5, epoches = 4, bat
 
     
   print(f'{bcolors.OKBLUE}Training Finished{bcolors.ENDC}')
-  os.system('rm to_train.csv to_dev.csv')
   del trainloader
   del model
   del devloader

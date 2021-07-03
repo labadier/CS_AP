@@ -1,6 +1,3 @@
-data/tasks/faker/en/gossipcop_fake.csv
-data/tasks/faker/en/gossipcop_real.csv
-data/tasks/faker/en/politifact_fake.csv
-data/tasks/faker/en/politifact_real.csv
+
 logs
 *__pycache__*
