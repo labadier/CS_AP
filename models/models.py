@@ -100,7 +100,7 @@ class Encoder(torch.nn.Module):
     self.language = language
     self.interm_neurons = interm_size
     self.transformer, self.tokenizer = HuggTransformer(language, mode_weigth)
-    self.intermediate = torch.nn.Sequential(torch.nn.Dropout(p=0.3), torch.nn.Linear(in_features=768, out_features=self.interm_neurons), torch.nn.LeakyReLU())
+    self.intermediate = torch.nn.Sequential(torch.nn.Dropout(p=0.5), torch.nn.Linear(in_features=768, out_features=self.interm_neurons), torch.nn.LeakyReLU())
     self.classifier = torch.nn.Linear(in_features=self.interm_neurons, out_features=2)
     self.loss_criterion = torch.nn.CrossEntropyLoss()
     self.device = torch.device("cuda:0") if torch.cuda.is_available() else torch.device("cpu")
@@ -156,7 +156,7 @@ class Encoder(torch.nn.Module):
   def get_encodings(self, text, batch_size):
 
     self.eval()    
-    text = pd.DataFrame({'tweets': text, 'labels': np.zeros((len(text),))})
+    text = pd.DataFrame({'tweets': text, 'label': np.zeros((len(text),))})
     devloader = DataLoader(RawDataset(text, dataframe=True), batch_size=batch_size, shuffle=False, num_workers=4, worker_init_fn=seed_worker)
  
     with torch.no_grad():
@@ -253,7 +253,7 @@ def train_Encoder(data_path, language, mode_weigth, splits = 5, epoches = 4, bat
       model.best_acc = dev_acc
       band = True
 
-    ep_finish_print = f' dev_loss: {dev_loss:.3f}'
+    ep_finish_print = f' acc: {acc:.3f} | dev_loss: {dev_loss:.3f} dev_acc: {dev_acc.reshape(-1)[0]:.3f}'
     if band == True:
       print(bcolors.OKBLUE + bcolors.BOLD + last_printed + ep_finish_print + '\t[Weights Updated]' + bcolors.ENDC)
     else: print(ep_finish_print)  

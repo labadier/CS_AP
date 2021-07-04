@@ -204,7 +204,7 @@ if __name__ == '__main__':
       unk_labels = labels[test_index] 
 
       if up == "prototipical":
-        y_hat = K_Impostor(encodings[P_Set], encodings[N_Set], unk, checkp=coef, method=metric, model=model)
+        # y_hat = K_Impostor(encodings[P_Set], encodings[N_Set], unk, checkp=coef, method=metric, model=model)
         Y_Test += K_Impostor(encodings[P_Set], encodings[N_Set], encodings_test, checkp=coef, method=metric, model=model)
       else:
         known = encodings[train_index]
@@ -213,17 +213,17 @@ if __name__ == '__main__':
         P_idx = list(np.argwhere(labels==1).reshape(-1))
         N_idx = list(np.argwhere(labels==0).reshape(-1))
 
-        y_hat = K_Impostor(encodings[P_idx], encodings[N_idx], unk, checkp=coef, method=metric, model=model)
+        # y_hat = K_Impostor(encodings[P_idx], encodings[N_idx], unk, checkp=coef, method=metric, model=model)
         Y_Test += K_Impostor(encodings[P_idx], encodings[N_idx], encodings_test, checkp=coef, method=metric, model=model)
       
-      metrics = classification_report(unk_labels, y_hat, target_names=['No Hate', 'Hate'],  digits=4, zero_division=1)
-      acc = accuracy_score(unk_labels, y_hat)
-      overl_acc += acc
-      print('Report Split: {} - acc: {}{}'.format(i+1, np.round(acc, decimals=2), '\n'))
-      print(metrics)
+      # metrics = classification_report(unk_labels, y_hat, target_names=['No Hate', 'Hate'],  digits=4, zero_division=1)
+      # acc = accuracy_score(unk_labels, y_hat)
+      # overl_acc += acc
+      # print('Report Split: {} - acc: {}{}'.format(i+1, np.round(acc, decimals=2), '\n'))
+      # print(metrics)
 
-    print('Accuracy {}: {}'.format(language, np.round(overl_acc/splits, decimals=2)))
-    print('Accuracy Test {}: {}'.format(language, np.round(accuracy_score(labels_test, Y_Test), decimals=2)))
+    # print('Accuracy {}: {}'.format(language, np.round(overl_acc/splits, decimals=2)))
+    print('Accuracy Test {}: {}'.format(language, np.round(accuracy_score(labels_test, np.int32(np.round(Y_Test/splits, decimals=0))), decimals=2)))
     # save_predictions(idx, np.int32(np.round(Y_Test/splits, decimals=0)), language, output)
     # print(classification_report(labels, np.int32(np.round(Y_Test/splits, decimals=0)), target_names=['No Hate', 'Hate'],  digits=4, zero_division=1))
       
