@@ -1,7 +1,6 @@
 #%%
-from functools import WRAPPER_ASSIGNMENTS
 import torch, os
-
+from sklearn.metrics import accuracy_score
 from torch._C import device
 from torch.nn.modules import dropout
 from torch.nn.modules.activation import ReLU
@@ -70,9 +69,9 @@ def K_Impostor(spreader, no_spreader, unk, checkp=0.25, method='euclidean', mode
     # print(f'Spreaders Protos: {spreader.shape} No Spreaders Protos: {no_spreader.shape}')
     for i, u in zip(range(len(unk)), unk):
         ansp = predict_example(spreader, no_spreader, u, checkp, method)
-        ansn = predict_example(no_spreader, spreader, u, checkp, method)
+        # ansn = predict_example(no_spreader, spreader, u, checkp, method)
         # print(ansp, ansn)
-        Y[i] = (ansp > ansn)
+        Y[i] = ansp#(ansp > ansn)
     # print(Y)
     return Y
 
@@ -106,10 +105,10 @@ class FNN_Classifier(torch.nn.Module):
         self.interm_neurons = interm_size
         self.encoder = torch.nn.Sequential(Aditive_Attention(units=32, input=self.interm_neurons[0]), 
                     # torch.nn.BatchNorm1d(num_features=self.interm_neurons[0]), torch.nn.LeakyReLU(),
-                    torch.nn.Linear(in_features=self.interm_neurons[0], out_features=self.interm_neurons[1]))
+                    torch.nn.Linear(in_features=self.interm_neurons[0], out_features=self.interm_neurons[1]),
+                    torch.nn.Dropout(p=0.2))
         self.encoder1 = torch.nn.Sequential(
                     torch.nn.BatchNorm1d(num_features=self.interm_neurons[1]), torch.nn.LeakyReLU(),
-                    torch.nn.Dropout(p=0.3),
                     torch.nn.Linear(in_features=self.interm_neurons[1], out_features=2))
         self.loss_criterion = torch.nn.CrossEntropyLoss() 
 
@@ -251,7 +250,7 @@ def train_classifier(model_name, task_data, language, splits = 5, epoches = 4, b
     print(f"{bcolors.OKGREEN}{bcolors.BOLD}{50*'*'}\nOveral Accuracy {language}: {overall_acc/splits}\n{50*'*'}{bcolors.ENDC}")
     return history
 
-def predict(model, model_name, encodings, idx, language, output, splits, batch_size, interm_layer_size, save_predictions):
+def predict(model, model_name, encodings, idx, language, output, splits, batch_size, labels, save_predictions):
 
     devloader = DataLoader(FNNData([encodings, np.array(idx)]), batch_size=batch_size, shuffle=False, num_workers=4, worker_init_fn=seed_worker)
 
@@ -273,8 +272,9 @@ def predict(model, model_name, encodings, idx, language, output, splits, batch_s
             y_hat += torch.argmax(torch.nn.functional.softmax(out, dim=-1), axis=-1).cpu().numpy()
 
     y_hat = np.int32(np.round(y_hat/splits, decimals=0))
-
-    save_predictions(idx, y_hat , language, output)
+    # print(labels)
+    print('Accuracy Test {}: {}'.format(language, np.round(accuracy_score(labels, y_hat), decimals=3)))
+    # save_predictions(idx, y_hat , language, output)
 
 
 class AttentionLSTM(torch.nn.Module):

@@ -44,6 +44,19 @@ def check_params(args=None):
   parser.add_argument('-lstm_size', metavar='LSTM_hidden_size', type=int,help='LSTM classfifier hidden size')
   return parser.parse_args(args)
 
+
+def get_encodings(model, data_path, modelname):
+
+  infosave = data_path.split("/")[-2:]
+  encodings = torch.load(f'logs/{infosave[0]}_train_encodings_{language[:2]}.pt')
+  encodingstest = torch.load(f'logs/{infosave[0]}_dev_encodings_{language[:2]}.pt')
+  
+  encs = model.get_encodings(encodings, batch_size)
+  torch.save(np.array(encs), f'logs/train_Profile_{modelname}_{infosave[0]}_{language[:2]}.pt')
+  encs = model.get_encodings(encodingstest, batch_size)
+  torch.save(np.array(encs), f'logs/dev_Profile_{modelname}_{infosave[0]}_{language[:2]}.pt')
+  print(f"{bcolors.OKCYAN}{bcolors.BOLD}Encodings Saved Successfully{bcolors.ENDC}")
+  
 if __name__ == '__main__':
 
 
@@ -223,7 +236,7 @@ if __name__ == '__main__':
       # print(metrics)
 
     # print('Accuracy {}: {}'.format(language, np.round(overl_acc/splits, decimals=2)))
-    print('Accuracy Test {}: {}'.format(language, np.round(accuracy_score(labels_test, np.int32(np.round(Y_Test/splits, decimals=0))), decimals=2)))
+    print('Accuracy Test {}: {}'.format(language, np.round(accuracy_score(labels_test, np.int32(np.round(Y_Test/splits, decimals=0))), decimals=3)))
     # save_predictions(idx, np.int32(np.round(Y_Test/splits, decimals=0)), language, output)
     # print(classification_report(labels, np.int32(np.round(Y_Test/splits, decimals=0)), target_names=['No Hate', 'Hate'],  digits=4, zero_division=1))
       
@@ -245,103 +258,81 @@ if __name__ == '__main__':
       plot_training(history[-1], language + '_fcnn', 'acc')
       
     elif phase ==  'test':
-
+      _, _, labels = load_Profiling_Data(os.path.join(data_path, language.lower()), labeled=True)
       model = FNN_Classifier(interm_size=[interm_layer_size, 64, 32], language=language)
-      tweets_test, idx  = load_Profiling_Data(os.path.join(data_path, language.lower()), labeled=True)
+      tweets_test, idx  = load_Profiling_Data(os.path.join(data_path, language.lower()), labeled=False)
       infosave = data_path.split("/")[-2:]
       encodings = torch.load(f'logs/{infosave[0]}_{infosave[1]}_encodings_{language[:2]}.pt')
-      predict(model, 'fcnn', encodings, idx, language, output, splits, batch_size, [interm_layer_size, 64, 32], save_predictions)
+      predict(model, 'fcnn', encodings, idx, language, output, splits, batch_size, labels, save_predictions)
 
     elif phase == 'encode':
 
       model = FNN_Classifier(interm_size=[interm_layer_size, 64, 32], language=language)
       model.load(f'logs/fcnn_{language[:2]}_1.pt')
-
-      infosave = data_path.split("/")[-2:]
-      encodings = torch.load(f'logs/{infosave[0]}_train_encodings_{language[:2]}.pt')
-      encodingstest = torch.load(f'logs/{infosave[0]}_dev_encodings_{language[:2]}.pt')
-      
-      encs = model.get_encodings(encodings, batch_size)
-      torch.save(np.array(encs), f'logs/train_Profile_fcnn_{infosave[0]}_{language[:2]}.pt')
-      encs = model.get_encodings(encodingstest, batch_size)
-      torch.save(np.array(encs), f'logs/dev_Profile_fcnn_{infosave[0]}_{language[:2]}.pt')
-      print(f"{bcolors.OKCYAN}{bcolors.BOLD}Encodings Saved Successfully{bcolors.ENDC}")
+      get_encodings(model, data_path, 'fcnn')
       
     exit(0)
 
-  # if mode == 'cgnn':
+  if mode == 'cgnn':
 
-  #   if epoches == -1:
-  #     epoches = 80
+    if epoches == -1:
+      epoches = 80
 
-  #   '''
-  #     Train Train Graph Concolutional Neural Network
-  #   ''' 
-  #   from models.CGNN import train_GCNN, GCN, predicgcn
-  #   if phase == 'train':
+    '''
+      Train Train Graph Concolutional Neural Network
+    ''' 
+    from models.CGNN import train_GCNN, GCN, predicgcn
+    if phase == 'train':
 
-  #     _, _, labels = load_data_PAN(os.path.join(data_path, language.lower()), labeled=True)
-  #     encodings = torch.load('logs/train_Encodings_{}.pt'.format(language))
+      _, _, labels = load_Profiling_Data(os.path.join(data_path, language.lower()), labeled=True)
+      infosave = data_path.split("/")[-2:]
+      encodings = torch.load(f'logs/{infosave[0]}_{infosave[1]}_encodings_{language[:2]}.pt')
 
-  #     history = train_GCNN(encodings, labels, language, splits = splits, epoches = epoches, batch_size = batch_size, hidden_channels = interm_layer_size, lr=learning_rate, decay=decay)
-  #     plot_training(history[-1], language + '_cgnn', 'acc')
-  #   elif phase == 'test':
+      history = train_GCNN(encodings, labels, language, splits = splits, epoches = epoches, batch_size = batch_size, hidden_channels = interm_layer_size, lr=learning_rate, decay=decay)
+      plot_training(history[-1], language + '_cgnn', 'acc')
+    elif phase == 'test':
 
-  #     tweets_test, idx  = load_data_PAN(os.path.join(test_path, language.lower()), labeled=False)
-  #     encodings = torch.load('logs/test_Encodings_{}.pt'.format(language))
-  #     predicgcn(encodings, idx, language, splits, output, batch_size, interm_layer_size, save_predictions)
-  #   elif phase == 'encode':
+      tweets_test, idx  = load_Profiling_Data(os.path.join(test_path, language.lower()), labeled=False)
+      infosave = data_path.split("/")[-2:]
+      encodings = torch.load(f'logs/{infosave[0]}_{infosave[1]}_encodings_{language[:2]}.pt')
+      predicgcn(encodings, idx, language, splits, output, batch_size, interm_layer_size, save_predictions)
+    elif phase == 'encode':
       
-  #     weight_path = os.path.join(weight_path, f'gcn_{language[:2]}_1.pt')
+      model = GCN(language, interm_layer_size, encodings.shape[-1])
+      model.load(f'logs/gcn_{language[:2]}_1.pt')
+      get_encodings(model, data_path, 'cgnn')
+    exit(0)
 
-  #     if os.path.isfile(weight_path) == False:
-  #       print( f"{bcolors.FAIL}{bcolors.BOLD}ERROR: Weight path set unproperly{bcolors.ENDC}")
-  #       exit(1)
-  #     encodings = torch.load(f'logs/train_Encodings_{language}.pt')
-  #     encodingstest = torch.load(f'logs/test_Encodings_{language}.pt')
-  #     model = GCN(language, interm_layer_size, encodings.shape[-1])
-	
-  #     model.load(weight_path)
-  #     encs = model.get_encodings(encodings, batch_size)
-  #     torch.save(np.array(encs), f'logs/train_Profile_gcn_Encodings_{language[:2]}.pt')
-  #     encs = model.get_encodings(encodingstest, batch_size)
-  #     torch.save(np.array(encs), f'logs/test_Profile_gcn_Encodings_{language[:2]}.pt')
-  #     print(f"{bcolors.OKCYAN}{bcolors.BOLD}Encodings Saved Successfully{bcolors.ENDC}")
-  #     exit(0)
+  if mode == 'lstm':
 
-  # if mode == 'lstm':
-
-  #   '''
-  #     Train Train Att-FCNN
-  #   ''' 
-  #   if phase == 'train':
+    '''
+      Train Train Att-LSTM
+    ''' 
+    if phase == 'train':
   
-  #     _, _, labels = load_data_PAN(os.path.join(data_path, language.lower()), labeled=True)
-  #     encodings = torch.load('logs/train_Encodings_{}.pt'.format(language))
+      _, _, labels = load_Profiling_Data(os.path.join(data_path, language.lower()), labeled=True)
+      infosave = data_path.split("/")[-2:]
+      encodings = torch.load(f'logs/{infosave[0]}_{infosave[1]}_encodings_{language[:2]}.pt')
 
-  #     history = train_classifier('lstm', [encodings, labels], language, splits, epoches, batch_size, interm_layer_size = [interm_layer_size, 32, lstm_hidden_size], lr=learning_rate, decay=decay)
-  #     plot_training(history[-1], language + '_lstm', 'acc')
-  #   elif phase == 'test':
-  #     model = LSTMAtt_Classifier(interm_layer_size, 32, lstm_hidden_size, language)
-  #     tweets_test, idx  = load_data_PAN(os.path.join(test_path, language.lower()), labeled=False)
-  #     encodings = torch.load('logs/test_Encodings_{}.pt'.format(language))
-  #     predict(model, 'lstm', encodings, idx, language, output, splits, batch_size, [interm_layer_size, 64, 32], save_predictions)
+      history = train_classifier('lstm', [encodings, labels], language, splits, epoches, batch_size, interm_layer_size = [interm_layer_size, 32, lstm_hidden_size], lr=learning_rate, decay=decay)
+      plot_training(history[-1], language + '_lstm', 'acc')
+    elif phase == 'test':
+
+      _, _, labels = load_Profiling_Data(os.path.join(data_path, language.lower()), labeled=True)
+      model = LSTMAtt_Classifier(interm_layer_size, 32, lstm_hidden_size, language)
+      tweets_test, idx  = load_Profiling_Data(os.path.join(data_path, language.lower()), labeled=False)
+
+      infosave = data_path.split("/")[-2:]
+      encodings = torch.load(f'logs/{infosave[0]}_{infosave[1]}_encodings_{language[:2]}.pt')
+      predict(model, 'lstm', encodings, idx, language, output, splits, batch_size, labels, save_predictions)
     
-  #   elif phase == 'encode':
+    elif phase == 'encode':
 
-  #     model = LSTMAtt_Classifier(interm_layer_size, 32, lstm_hidden_size, language)
-  #     model.load(f'logs/lstm_{language[:2]}_1.pt')
-
-
-  #     encodings = torch.load(f'logs/train_Encodings_{language}.pt')
-  #     encodingstest = torch.load(f'logs/test_Encodings_{language}.pt')
-  #     encs = model.get_encodings(encodings, batch_size)
-  #     torch.save(np.array(encs), f'logs/train_Profile_lstm_Encodings_{language[:2]}.pt')
-  #     encs = model.get_encodings(encodingstest, batch_size)
-  #     torch.save(np.array(encs), f'logs/test_Profile_lstm_Encodings_{language[:2]}.pt')
-  #     print(f"{bcolors.OKCYAN}{bcolors.BOLD}Encodings Saved Successfully{bcolors.ENDC}")
+      model = LSTMAtt_Classifier(interm_layer_size, 32, lstm_hidden_size, language)
+      model.load(f'logs/lstm_{language[:2]}_1.pt')
+      get_encodings(model, data_path, 'lstm')
       
-  #   exit(0)
+    exit(0)
 
   # if mode == 'svm':
   #   tweets, _, labels = load_data_PAN(os.path.join(data_path, language.lower()), labeled=True)
