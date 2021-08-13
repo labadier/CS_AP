@@ -1,6 +1,6 @@
 \documentclass[11pt, letterpaper]{report}
 \usepackage{geometry}
-\usepackage{graphicx}
+\usepackage{graphicx, subfigure}
 \usepackage[spanish]{babel}
 \usepackage{xcolor}
 \definecolor{darkblue}{rgb}{0, 0, 0.5}
@@ -9,8 +9,10 @@
 \usepackage[T1]{fontenc} 
 \usepackage{setspace}
 \geometry{lmargin=3cm, rmargin=3cm, tmargin=2.65cm, bmargin=3cm}
-\usepackage[pages=some]{style/background}
+\usepackage[pages=some]{background}
 \usepackage{natbib}
+\usepackage{sectsty}
+\usepackage{amssymb,amsmath}
 
 \backgroundsetup{
 	scale=1,
@@ -50,10 +52,18 @@
 	\end{titlepage}
 	
 	\pagenumbering{roman}
-	\thispagestyle{empty} 
+	\thispagestyle{empty} 	
+	\chapterfont{\flushright}
 	\renewcommand{\contentsname}{Contenido} \tableofcontents
+	\renewcommand{\listfigurename}{Lista de Figuras}
+	\renewcommand{\tablename}{Tabla}
+
+	\listoffigures
 	
+%	\renewcommand{\listtablename}{Lista de Tablas}
+%	\listoftables
 	\input{intro/intro}
+	\input{chapters/chp1}
 	\bibliographystyle{style/acl_natbib}
 	\renewcommand{\bibname}{Referencias Bibliográficas}
 	\bibliography{bibliography}

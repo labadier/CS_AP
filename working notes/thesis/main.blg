@@ -7,50 +7,47 @@ Reallocated global_strs (elt_size=200001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=8) to 20 items from 10.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
 Database file #1: bibliography.bib
-A bad cross reference---entry "iyer:2020"
-refers to entry "pan:2020", which doesn't exist
 Warning--I didn't find a database entry for ""
-Warning--I didn't find a database entry for "pan:2020"
 Reallocated wiz_functions (elt_size=8) to 6000 items from 3000.
-You've used 16 entries,
+You've used 38 entries,
             3571 wiz_defined-function locations,
-            793 strings with 10181 characters,
-and the built_in function-call counts, 11797 in all, are:
-= -- 984
-> -- 555
-< -- 17
-+ -- 174
-- -- 158
-* -- 810
-:= -- 1755
-add.period$ -- 78
-call.type$ -- 16
-change.case$ -- 159
-chr.to.int$ -- 16
-cite$ -- 16
-duplicate$ -- 830
-empty$ -- 901
-format.name$ -- 217
-if$ -- 2608
+            924 strings with 15770 characters,
+and the built_in function-call counts, 28596 in all, are:
+= -- 2384
+> -- 1469
+< -- 27
++ -- 467
+- -- 425
+* -- 1953
+:= -- 4259
+add.period$ -- 175
+call.type$ -- 38
+change.case$ -- 380
+chr.to.int$ -- 38
+cite$ -- 38
+duplicate$ -- 1959
+empty$ -- 2102
+format.name$ -- 552
+if$ -- 6303
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 179
-newline$ -- 85
-num.names$ -- 66
-pop$ -- 393
+missing$ -- 415
+newline$ -- 194
+num.names$ -- 154
+pop$ -- 930
 preamble$ -- 1
-purify$ -- 116
+purify$ -- 293
 quote$ -- 0
-skip$ -- 560
+skip$ -- 1338
 stack$ -- 0
-substring$ -- 231
-swap$ -- 444
-text.length$ -- 8
+substring$ -- 699
+swap$ -- 1012
+text.length$ -- 13
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 144
+type$ -- 336
 warning$ -- 0
-while$ -- 53
+while$ -- 135
 width$ -- 0
-write$ -- 221
-(There was 1 error message)
+write$ -- 505
+(There was 1 warning)

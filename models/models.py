@@ -186,8 +186,8 @@ def train_Encoder(data_path, language, mode_weigth, splits = 5, epoches = 4, bat
   model = Encoder(interm_layer_size, max_length, language, mode_weigth)
   
   optimizer = model.makeOptimizer(lr, decay, multiplier, increase)
-  trainloader = DataLoader(RawDataset(os.path.join(data_path, language.lower(), 'train.csv')), batch_size=batch_size, shuffle=True, num_workers=4, worker_init_fn=seed_worker)
-  devloader = DataLoader(RawDataset(os.path.join(data_path, language.lower(), 'dev.csv')), batch_size=batch_size, shuffle=True, num_workers=4, worker_init_fn=seed_worker)
+  trainloader = DataLoader(RawDataset(os.path.join(data_path, language.lower(), 'pdata_train.csv')), batch_size=batch_size, shuffle=True, num_workers=4, worker_init_fn=seed_worker)
+  devloader = DataLoader(RawDataset(os.path.join(data_path, language.lower(), 'pdata_dev.csv')), batch_size=batch_size, shuffle=True, num_workers=4, worker_init_fn=seed_worker)
   batches = len(trainloader)
 
   for epoch in range(epoches):

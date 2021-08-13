@@ -317,7 +317,6 @@ if __name__ == '__main__':
       history = train_classifier('lstm', [encodings, labels], language, splits, epoches, batch_size, interm_layer_size = [interm_layer_size, 32, lstm_hidden_size], lr=learning_rate, decay=decay)
       plot_training(history[-1], language + '_lstm', 'acc')
     elif phase == 'test':
-
       _, _, labels = load_Profiling_Data(os.path.join(data_path, language.lower()), labeled=True)
       model = LSTMAtt_Classifier(interm_layer_size, 32, lstm_hidden_size, language)
       tweets_test, idx  = load_Profiling_Data(os.path.join(data_path, language.lower()), labeled=False)

@@ -47,11 +47,11 @@ void main(){
     pthread_t tid[12];
     strcpy(models[0], "fcnn");
     // strcpy(models[1], "gcn");
-    // strcpy(models[2], "lstm");
+    strcpy(models[2], "lstm");
     strcpy(models[1], "transformer");
     struct info send[8];
     
-    for(int i = 0; i < 2; i++){
+    for(int i = 0; i < 3; i++){
 
         
         send[i].index = i;

@@ -1,5 +1,11 @@
-\begin{thebibliography}{16}
+\begin{thebibliography}{38}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Agarwala et~al.(2017)Agarwala, Inoue, and Sly}]{agarwala2017music}
+Nipun Agarwala, Yuki Inoue, and Alex Sly. 2017.
+\newblock Music composition using recurrent neural networks.
+\newblock \emph{CS 224n: Natural Language Processing with Deep Learning,
+  Spring}.
 
 \bibitem[{Alom et~al.(2019)Alom, Taha, Yakopcic, Westberg, Sidike, Nasrin,
   Hasan, Van~Essen, Awwal, and Asari}]{electronics8030292}
@@ -9,6 +15,56 @@ Md~Zahangir Alom, Tarek~M. Taha, Chris Yakopcic, Stefan Westberg, Paheding
 \newblock \href {https://doi.org/10.3390/electronics8030292} {{A
   State-of-the-Art Survey on Deep Learning Theory and Architectures}}.
 \newblock \emph{Electronics}, 8(3).
+
+\bibitem[{Bakhteev et~al.(2020)Bakhteev, Ogaltsov, and
+  Ostroukhov}]{bakhteev:2020}
+Oleg Bakhteev, Aleksandr Ogaltsov, and Petr Ostroukhov. 2020.
+\newblock \href {http://ceur-ws.org/Vol-2696/} {{Fake News Spreader Detection
+  Using Neural Tweet Aggregation---Notebook for PAN at CLEF 2020}}.
+\newblock In \emph{{CLEF 2020 Labs and Workshops, Notebook Papers}}.
+  CEUR-WS.org.
+
+\bibitem[{Baruah et~al.(2020)Baruah, Das, Barbhuiya, and Dey}]{baruah:2020}
+Arup Baruah, {Kaushik Amar} Das, {Ferdous Ahmed} Barbhuiya, and Kuntal Dey.
+  2020.
+\newblock \href {http://ceur-ws.org/Vol-2696/} {{Automatic Detection of Fake
+  News Spreaders Using BERT---Notebook for PAN at CLEF 2020}}.
+\newblock In \emph{{CLEF 2020 Labs and Workshops, Notebook Papers}}.
+  CEUR-WS.org.
+
+\bibitem[{Basile et~al.(2017)Basile, Dwyer, Medvedeva, Rawee, Haagsma, and
+  Nissim}]{basile:2017}
+Angelo Basile, Gareth Dwyer, Maria Medvedeva, Josine Rawee, Hessel Haagsma, and
+  Malvina Nissim. 2017.
+\newblock \href {http://ceur-ws.org/Vol-1866/} {{N-GrAM: New Groningen
+  Author-profiling Model---Notebook for PAN at CLEF 2017}}.
+\newblock In \emph{{CLEF 2017 Evaluation Labs and Workshop -- Working Notes
+  Papers, 11-14 September, Dublin, Ireland}}. CEUR-WS.org.
+
+\bibitem[{Bojanowski et~al.(2016)Bojanowski, Grave, Joulin, and
+  Mikolov}]{bojanowski2016enriching}
+Piotr Bojanowski, Edouard Grave, Armand Joulin, and Tomas Mikolov. 2016.
+\newblock Enriching word vectors with subword information.
+\newblock \emph{arXiv preprint arXiv:1607.04606}.
+
+\bibitem[{Brown et~al.(1988)Brown, Conference~on Fixed Point Theory~(1986,
+  Society, and International Congress~of Mathematicians~(1986}]{brown1988fixed}
+R.F. Brown, Calif.) Conference~on Fixed Point Theory~(1986, Berkeley,
+  American~Mathematical Society, and Calif.) International Congress~of
+  Mathematicians~(1986, Berkeley. 1988.
+\newblock \href {https://books.google.com.cu/books?id=vegbCAAAQBAJ}
+  {\emph{Fixed Point Theory and Its Applications: Proceedings of a Conference
+  Held at the International Congress of Mathematicians, August 4-6, 1986}}.
+\newblock Contemporary mathematics - American Mathematical Society. American
+  Mathematical Society.
+
+\bibitem[{Buda and Bolonyai(2020)}]{buda:2020}
+Jakab Buda and Flora Bolonyai. 2020.
+\newblock \href {http://ceur-ws.org/Vol-2696/} {{An Ensemble Model Using
+  N-grams and Statistical Featuresto Identify Fake News Spreaders on
+  Twitter---Notebook for PAN at CLEF 2020}}.
+\newblock In \emph{{CLEF 2020 Labs and Workshops, Notebook Papers}}.
+  CEUR-WS.org.
 
 \bibitem[{Cimino et~al.(2020)Cimino, Dell{\textquoteright}Orletta, and
   Nissim}]{f6032ffbacb14369b7a45d1ba9bd0b8c}
@@ -52,6 +108,27 @@ Youngjun Joo and Inchon Hwang. 2019.
   Evaluation Forum, Lugano, Switzerland, September 9-12, 2019}, volume 2380 of
   \emph{{CEUR} Workshop Proceedings}. CEUR-WS.org.
 
+\bibitem[{Kipf and Welling(2017)}]{kipf2017semisupervised}
+Thomas~N. Kipf and Max Welling. 2017.
+\newblock \href {https://openreview.net/forum?id=SJU4ayYgl} {{Semi-Supervised
+  Classification with Graph Convolutional Networks}}.
+\newblock In \emph{5th International Conference on Learning Representations,
+  {ICLR} 2017, Toulon, France, April 24-26, 2017, Conference Track
+  Proceedings}. OpenReview.net.
+
+\bibitem[{Koller and Sahami(1996)}]{10.5555/3091696.3091731}
+Daphne Koller and Mehran Sahami. 1996.
+\newblock Toward optimal feature selection.
+\newblock In \emph{Proceedings of the Thirteenth International Conference on
+  International Conference on Machine Learning}, ICML'96, page 284–292, San
+  Francisco, CA, USA. Morgan Kaufmann Publishers Inc.
+
+\bibitem[{LeCun et~al.(1998)LeCun, Bottou, Bengio, and
+  Haffner}]{lecun1998gradient}
+Yann LeCun, L{\'e}on Bottou, Yoshua Bengio, and Patrick Haffner. 1998.
+\newblock Gradient-based learning applied to document recognition.
+\newblock \emph{Proceedings of the IEEE}, 86(11):2278--2324.
+
 \bibitem[{L{\'{o}}pez{-}Santill{\'{a}}n
   et~al.(2019)L{\'{o}}pez{-}Santill{\'{a}}n, Gonz{\'{a}}lez{-}Gurrola,
   Montes{-}y{-}G{\'{o}}mez, Alonso, and
@@ -65,6 +142,49 @@ Jesus L{\'{o}}pez{-}Santill{\'{a}}n, Luis~Carlos Gonz{\'{a}}lez{-}Gurrola,
 \newblock In \emph{Working Notes of {CLEF} 2019 - Conference and Labs of the
   Evaluation Forum, Lugano, Switzerland, September 9-12, 2019}, volume 2380 of
   \emph{{CEUR} Workshop Proceedings}. CEUR-WS.org.
+
+\bibitem[{Martinc et~al.(2017)Martinc, \v{S}krjanec, Zupan, and
+  Pollak}]{martinc:2017}
+Matej Martinc, Iza \v{S}krjanec, Katja Zupan, and Senja Pollak. 2017.
+\newblock \href {http://ceur-ws.org/Vol-1866/} {{PAN 2017: Author Profiling -
+  Gender and Language Variety Prediction---Notebook for PAN at CLEF 2017}}.
+\newblock In \emph{{CLEF 2017 Evaluation Labs and Workshop -- Working Notes
+  Papers, 11-14 September, Dublin, Ireland}}. CEUR-WS.org.
+
+\bibitem[{Mikolov et~al.(2013)Mikolov, Sutskever, Chen, Corrado, and
+  Dean}]{DBLP:conf/nips/MikolovSCCD13}
+Tomas Mikolov, Ilya Sutskever, Kai Chen, Gregory~S. Corrado, and Jeffrey Dean.
+  2013.
+\newblock \href
+  {http://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality}
+  {Distributed representations of words and phrases and their
+  compositionality}.
+\newblock In \emph{Advances in Neural Information Processing Systems 26: 27th
+  Annual Conference on Neural Information Processing Systems 2013. Proceedings
+  of a meeting held December 5-8, 2013, Lake Tahoe, Nevada, United States},
+  pages 3111--3119.
+
+\bibitem[{Newman et~al.(2008)Newman, Groom, Handelman, and
+  Pennebaker}]{Newman2008GenderDI}
+M.~Newman, Carla~J. Groom, Lori~D. Handelman, and J.~Pennebaker. 2008.
+\newblock Gender differences in language use: An analysis of 14,000 text
+  samples.
+\newblock \emph{Discourse Processes}, 45:211 -- 236.
+
+\bibitem[{Pennebaker et~al.(2015)Pennebaker, Boyd, Jordan, and
+  Blackburn}]{pennebaker2015development}
+{James W.} Pennebaker, Ryan Boyd, Kayla Jordan, and Kate Blackburn. 2015.
+\newblock \href {https://doi.org/10.15781/T29G6Z} {\emph{The development and
+  psychometric properties of LIWC2015}}.
+\newblock University of Texas at Austin.
+
+\bibitem[{Pennington et~al.(2014)Pennington, Socher, and
+  Manning}]{pennington2014glove}
+Jeffrey Pennington, Richard Socher, and Christopher~D. Manning. 2014.
+\newblock \href {http://www.aclweb.org/anthology/D14-1162} {Glove: Global
+  vectors for word representation}.
+\newblock In \emph{Empirical Methods in Natural Language Processing (EMNLP)},
+  pages 1532--1543.
 
 \bibitem[{Petr{\'{\i}}k and Chud{\'{a}}(2019)}]{DBLP:conf/clef/PetrikC19}
 Juraj Petr{\'{\i}}k and Daniela Chud{\'{a}}. 2019.
@@ -81,6 +201,13 @@ Juan Pizarro. 2019.
 \newblock In \emph{Working Notes of {CLEF} 2019 - Conference and Labs of the
   Evaluation Forum, Lugano, Switzerland, September 9-12, 2019}, volume 2380 of
   \emph{{CEUR} Workshop Proceedings}. CEUR-WS.org.
+
+\bibitem[{Pizarro(2020)}]{pizarro:2020}
+Juan Pizarro. 2020.
+\newblock \href {http://ceur-ws.org/Vol-2696/} {{Using N-grams to detect Fake
+  News Spreaders on Twitter---Notebook for PAN at CLEF 2020}}.
+\newblock In \emph{{CLEF 2020 Labs and Workshops, Notebook Papers}}.
+  CEUR-WS.org.
 
 \bibitem[{Rangel et~al.(2020)Rangel, Giachanou, Ghanem, and
   Rosso}]{rangel:2020}
@@ -128,6 +255,35 @@ Paolo Rosso and Francisco Rangel~Pardo. 2020.
   Tracks at FIRE}}.
 \newblock \emph{FIRE 10th Anniversary, SN Computer Science}, 1.
 
+\bibitem[{Schler et~al.(2006)Schler, Koppel, Argamon, and
+  Pennebaker}]{schler2006effects}
+Jonathan Schler, Moshe Koppel, Shlomo Argamon, and James~W Pennebaker. 2006.
+\newblock Effects of age and gender on blogging.
+\newblock In \emph{AAAI spring symposium: Computational approaches to analyzing
+  weblogs}, volume~6, pages 199--205.
+
+\bibitem[{Schwartz et~al.(2013)Schwartz, Eichstaedt, Kern, Dziurzynski,
+  Ramones, Agrawal, Shah, Kosinski, Stillwell, Seligman, and
+  Ungar}]{Schwartz2013PersonalityGA}
+H.~A. Schwartz, J.~Eichstaedt, Margaret~L. Kern, Lukasz Dziurzynski, Stephanie
+  Ramones, Megha Agrawal, Achal Shah, M.~Kosinski, D.~Stillwell, M.~Seligman,
+  and L.~Ungar. 2013.
+\newblock Personality, gender, and age in the language of social media: The
+  open-vocabulary approach.
+\newblock \emph{PLoS ONE}, 8.
+
+\bibitem[{Sebastiani(2002)}]{sebastiani2002machine}
+Fabrizio Sebastiani. 2002.
+\newblock Machine learning in automated text categorization.
+\newblock \emph{ACM computing surveys (CSUR)}, 34(1):1--47.
+
+\bibitem[{Siino et~al.(2021)Siino, Nuovo, Tinnirello, and Cascia}]{sinno:2021}
+Marco Siino, Elisa~Di Nuovo, Ilenia Tinnirello, and Marco~La Cascia. 2021.
+\newblock {Detection of Hate Speech Spreaders using Convolutional Neural
+  Networks}.
+\newblock In \emph{{CLEF 2021 Labs and Workshops, Notebook Papers}}.
+  CEUR-WS.org.
+
 \bibitem[{Valencia{-}Valencia et~al.(2019)Valencia{-}Valencia,
   G{\'{o}}mez{-}Adorno, Rhodes, and
   Pineda}]{DBLP:conf/clef/Valencia-Valencia19}
@@ -139,5 +295,19 @@ Alex~I. Valencia{-}Valencia, Helena G{\'{o}}mez{-}Adorno, Christopher~Stephens
 \newblock In \emph{Working Notes of {CLEF} 2019 - Conference and Labs of the
   Evaluation Forum, Lugano, Switzerland, September 9-12, 2019}, volume 2380 of
   \emph{{CEUR} Workshop Proceedings}. CEUR-WS.org.
+
+\bibitem[{Vaswani et~al.(2017)Vaswani, Shazeer, Parmar, Uszkoreit, Jones,
+  Gomez, Kaiser, and Polosukhin}]{vaswani2017attention}
+Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
+  Aidan~N. Gomez, Lukasz Kaiser, and Illia Polosukhin. 2017.
+\newblock \href {http://arxiv.org/abs/1706.03762} {Attention is all you need}.
+
+\bibitem[{Wu et~al.(2021)Wu, Pan, Chen, Long, Zhang, and Yu}]{Wu_2021}
+Zonghan Wu, Shirui Pan, Fengwen Chen, Guodong Long, Chengqi Zhang, and
+  Philip~S. Yu. 2021.
+\newblock \href {https://doi.org/10.1109/tnnls.2020.2978386} {A comprehensive
+  survey on graph neural networks}.
+\newblock \emph{IEEE Transactions on Neural Networks and Learning Systems},
+  32(1):4–24.
 
 \end{thebibliography}
