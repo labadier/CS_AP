@@ -1,16 +1,19 @@
 \babel@toc {spanish}{}
-\contentsline {chapter}{Introducción}{\es@scroman {ii}}{chapter*.2}%
-\contentsline {section}{Problemática}{3}{chapter*.3}%
-\contentsline {section}{Hipótesis}{3}{section*.4}%
-\contentsline {section}{Objetivos}{3}{section*.5}%
-\contentsline {chapter}{\numberline {1}Fundamentos}{5}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Estado del Arte}{5}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Marco Teórico}{7}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}LSTM: Long Short-Term Memory Neural Networks}{7}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}Redes Neuronales Convolucionales sobre secuencias}{8}{subsection.1.2.2}%
-\contentsline {subsection}{\numberline {1.2.3}Mecanismos de Atención}{9}{subsection.1.2.3}%
-\contentsline {subsubsection}{Self-Attention}{9}{section*.10}%
-\contentsline {subsubsection}{Scaled Dot-Product Attention}{10}{section*.11}%
-\contentsline {subsection}{\numberline {1.2.4}Transformes}{10}{subsection.1.2.4}%
-\contentsline {subsection}{\numberline {1.2.5}Redes Neuronales Convolucionales en Grafos}{11}{subsection.1.2.5}%
-\contentsline {subsection}{\numberline {1.2.6}Information Gain}{13}{subsection.1.2.6}%
+\contentsline {chapter}{Introducción}{1}{chapter*.2}%
+\contentsline {section}{Problemática}{4}{chapter*.3}%
+\contentsline {section}{Hipótesis}{4}{section*.4}%
+\contentsline {section}{Objetivos}{4}{section*.5}%
+\contentsline {chapter}{\numberline {1}Fundamentos}{6}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Estado del Arte}{6}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Marco Teórico}{8}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}LSTM: Long Short-Term Memory Neural Networks}{8}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Redes Neuronales Convolucionales sobre secuencias}{9}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}Mecanismos de Atención}{10}{subsection.1.2.3}%
+\contentsline {subsubsection}{Self-Attention}{10}{section*.10}%
+\contentsline {subsubsection}{Scaled Dot-Product Attention}{11}{section*.11}%
+\contentsline {subsection}{\numberline {1.2.4}Transformers}{11}{subsection.1.2.4}%
+\contentsline {subsection}{\numberline {1.2.5}Redes Neuronales Convolucionales en Grafos}{13}{subsection.1.2.5}%
+\contentsline {subsection}{\numberline {1.2.6}Information Gain}{14}{subsection.1.2.6}%
+\contentsline {chapter}{\numberline {2}Framework}{15}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Representación de Rasgos a Nivel de Tweet}{15}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}CNN + Attention + LSTM}{16}{subsection.2.1.1}%

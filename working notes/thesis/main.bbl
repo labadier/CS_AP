@@ -1,4 +1,4 @@
-\begin{thebibliography}{38}
+\begin{thebibliography}{40}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{Agarwala et~al.(2017)Agarwala, Inoue, and Sly}]{agarwala2017music}
@@ -84,6 +84,13 @@ Rafael Felipe~Sandroni Dias and Ivandr{\'{e}} Paraboni. 2019.
 \newblock In \emph{Working Notes of {CLEF} 2019 - Conference and Labs of the
   Evaluation Forum, Lugano, Switzerland, September 9-12, 2019}, volume 2380 of
   \emph{{CEUR} Workshop Proceedings}. CEUR-WS.org.
+
+\bibitem[{Hochreiter et~al.(2001)Hochreiter, Bengio, Frasconi, Schmidhuber
+  et~al.}]{hochreiter2001gradient}
+Sepp Hochreiter, Yoshua Bengio, Paolo Frasconi, J{\"u}rgen Schmidhuber, et~al.
+  2001.
+\newblock Gradient flow in recurrent nets: the difficulty of learning long-term
+  dependencies.
 
 \bibitem[{Iyer and Vosoughi(2020)}]{iyer:2020}
 Aarish Iyer and Soroush Vosoughi. 2020.
@@ -233,6 +240,13 @@ Francisco Rangel and Paolo Rosso. 2019.
   Profiling Task at PAN 2019: Bots and Gender Profiling}}.
 \newblock In \emph{{CLEF 2019 Labs and Workshops, Notebook Papers}}.
   CEUR-WS.org.
+
+\bibitem[{Rangel et~al.(2021)Rangel, Sarrac{\'e}n, Chulvi, Fersini, and
+  Rosso}]{rangel2021profiling}
+Francisco Rangel, GLDLP Sarrac{\'e}n, BERTa Chulvi, Elisabetta Fersini, and
+  Paolo Rosso. 2021.
+\newblock Profiling hate speech spreaders on twitter task at pan 2021.
+\newblock In \emph{CLEF}.
 
 \bibitem[{Riahi and Riahi(2018)}]{Riahi2018BigDA}
 Youssra Riahi and S.~Riahi. 2018.

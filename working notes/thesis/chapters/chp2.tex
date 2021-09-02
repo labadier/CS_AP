@@ -1,0 +1,28 @@
+
+\chapter{Framework}
+
+	El esquema común para clasificar perfiles teniendo en cuenta cierta característica consiste en: i) extraer rasgos textuales de los documentos del autor, en nuestro caso de los tweets; ii) construir una representación a nivel de tweet o del perfil y finalmente iii) entrenar un modelo de clasificación a partir de la representación elaborada. 
+	\\
+	Como se puede observar, existe un proceso de identificación de los features empleados para contrastar las características entre tipos de perfiles, haciendo que el desempeño del modelo de clasificación dependa directamente de la robustez de este paso. 
+	\\
+	Mediante la explotación de modelos de Aprendizaje Profundo, se pretende prescindir de rasgos extraídos manualmente que pudieran resultar ruidosos a los modelos clasificadores o dejar de capturar relaciones claves de la estructura semántica y/o sintáctica, como se expone en la Sección \ref{SOTA}.
+	\\\\
+	En este Capítulo se describe un \textit{framework} para llevar a cabo el perfilado de autores, basado en el empleo de rasgos abstractos obtenidos a partir de diferentes arquitecturas de DL y la combinación de las mismas.
+	De manera general sus principales contribuciones son:
+
+	\begin{itemize}
+			\item Se propone un framework para el perfilado semi-supervisado de autores en redes sociales. El mismo lleva a cabo el aprendizaje de rasgos abstractos para la representación en un espacio latente de los tweets, y construye a partir de los mismos el modelado del perfil.
+			
+			\item Es presenta una combinación de rasgos de estilo a niveles de palabra, oración y otras estructuras gramaticales, para evaluar su influencia sobre la representación exclusiva mediante features extraidos por los modelos de DL. 
+		
+			\item  Se exponen distintas arquitecturas para modelar tweets y perfiles de usuarios dentro del mismo framework, que relacionen de manera diferente la información para realizar un estudio comparativo.			
+	\end{itemize}
+
+	\section{Representación de Rasgos a Nivel de Tweet}
+	
+	El análisis del historial de un perfil de usuario en redes sociales como Twitter, involucra una cantidad considerable de información textual, lo cual puede resultar desafiante para el entrenamiento de algunos modelos de DL, sobretodo debido a las relaciones a largo plazo que es necesario contemplar a la hora de clasificar un perfil o extraer sus rasgos.	
+	Este fenómeno es independiente del nivel de supervisado con que se afronte la tarea y es conocido como \textit{information vanishing} \citep{hochreiter2001gradient}. Otros modelos son capaces de lidiar con este problema, sin embargo, están limitados por la complejidad temporal que poseen para analizar secuencias de texto, tal es el caso de la popular arquitectura \textit{transformer} donde cada capa de atención tiene  $O (n^2*d)$, donde $n \text{ y } d$ son la longitud de la secuencia y la dimensionalidad de sus elementos respectivamente.\\
+	El enfoque empleado para este trabajo se apoya en una arquitectura modular para modelar la información textual primeramente a nivel de tweets. 
+	
+	\subsection{CNN + Attention + LSTM}
+

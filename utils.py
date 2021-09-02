@@ -393,3 +393,236 @@ def compute_centers_PSC(language, labels, num_protos=10):
 def copy_pred(file, path):
 
     os.system(f'cp -r {file}/* {path}')
+
+def read_embedding(path):
+
+  with open(path, mode='rU') as file:
+    embeddings_matrix = None
+    dicc = {}
+    embed_dim = 0
+
+    for line in file:
+
+      if embeddings_matrix is None:
+        shape = line.split()
+        embeddings_matrix = np.zeros((int(shape[0])+1, int(shape[1])))
+        continue
+
+      word, coefs = line.split(maxsplit=1)
+      if dicc.get(word) is not None:
+          print(word)
+          continue
+      dicc[word] = int(len(dicc))
+      embeddings_matrix[dicc[word]] = np.fromstring(coefs, 'f', sep=' ')
+
+    return embeddings_matrix, dicc
+
+
+def translate_words(twits, dic, seqlen):
+
+  emoji = {':-)': 'smile', '(-:': 'smile', ':)': 'smile', '(:': 'smile', '=]': 'smile', ':]': 'smile',
+            ':d': 'laughing', '8d': 'laughing', 'xd': 'laughing', '=d': 'laughing', ':-d': 'laughing',
+            'x-d': 'laughing', ':(': 'sad', '):': 'sad', ':c': 'sad', ':[': 'sad', ':\'(': 'crying', ':,( ': 'crying',
+            ':"(': 'crying', ':((': 'crying', ':|': 'neutral', '=_=': 'neutral', '-_-': 'neutral', ':-\\': 'neutral',
+            ':O': 'neutral', ':-!': 'neutral'}
+
+  kafka = []
+  Spl = []
+  percrev = []
+  word_count = {}
+  for i in range(len(twits)):
+
+    tmp = twits[i].lower()
+    tmp = tmp.split(' ')
+    sp = []
+    for j in range(len(tmp)):
+     sp += tmp[j].split('\n')
+
+    hs = []
+    j = 0
+    tmp = ''
+
+    if int(100 * i / len(twits)) % 10 == 0 and int(100 * i / len(twits)) not in percrev:
+        print(str(int(100 * i / len(twits))) + ' %\r', end="")
+        percrev.append(int(100 * i / len(twits)))
+
+    while j < len(sp):
+
+        if len(sp[j]) == 0:
+            j += 1
+            continue
+
+        for k in emoji.keys():
+
+            if str.find(sp[j], k) != -1:
+                sp[j] = 'emoticon'
+                break
+
+        if str.find(sp[j], '@') == 0:
+            sp[j] = 'reference'
+        if str.find(sp[j], 'http') == 0:
+            sp[j] = 'url'
+
+        havenumbers = False
+        for k in range(10):
+            if str.find(sp[j], str(k)) != -1:
+                havenumbers = True
+                break
+
+        if havenumbers == True:
+            j += 1
+            continue
+
+        # Remove extra characters at the end or beginning of the words
+
+        symblofront = 0
+        while symblofront < len(sp[j]) and (sp[j][symblofront] > 'z' or sp[j][symblofront] < 'a'):
+            symblofront += 1
+
+        symbolback = len(sp[j]) - 1
+        while symbolback >= 0 and (sp[j][symbolback] > 'z' or sp[j][symbolback] < 'a'):
+            symbolback -= 1
+
+        if symblofront < symbolback and symbolback >= 0:
+            lf = len(sp[j])
+            if symbolback != len(sp[j]) - 1:
+                list.insert(sp, j + 1, sp[j][symbolback + 1:])
+                lf = symbolback + 1
+            if symblofront != 0:
+                list.insert(sp, j + 1, sp[j][symblofront:symbolback + 1])
+                lf = symblofront
+            sp[j] = sp[j][:lf]
+
+        if str.find(sp[j], '#') == 0:
+            sp[j] = 'hashtag'
+
+        emb = dic.get(sp[j])
+
+        if emb is not None:
+            hs.append(emb)
+        else:
+            hs.append(len(dic))
+
+        if len(tmp) != 0:
+            tmp += ' '
+        tmp += sp[j]
+
+        k = 0
+        word = ''
+        while k < len(sp[j]):
+
+            word += sp[j][k]
+            k += 1
+            if k >= len(sp[j]) or sp[j][k] != sp[j][k - 1]:
+                continue
+
+            word += sp[j][k]
+            while k < len(sp[j]) and sp[j][k] == sp[j][k - 1]:
+                k += 1
+
+        if word != sp[j]:
+            sp[j] = word
+            emb = dic.get(sp[j])
+            if len(tmp) != 0:
+                tmp += ' '
+            tmp += sp[j]
+
+            if emb is not None:
+                hs.append(emb)
+
+        if word != sp[j] and emb is None:
+            emb = dic.get(word)
+            if emb is not None:
+                hs.append(emb)
+                if len(tmp) != 0:
+                    tmp += ' '
+                tmp += word
+
+        j += 1
+    if word_count.get(len(hs)) is not None:
+        word_count[len(hs)] += 1
+    else:
+        word_count[len(hs)] = 1
+
+    if len(hs) > seqlen:
+        hs = hs[:seqlen]
+
+    hs = np.array(hs)
+
+    Spl.append(hs)
+    kafka.append(tmp)
+
+  txt = np.zeros((len(Spl), seqlen), dtype=int)
+  for i in range(len(Spl)):
+    if len(Spl[i]) == 0: 
+      continue
+    txt[i] += np.pad(Spl[i], (0, seqlen - Spl[i].shape[0]), 'constant', constant_values=(len(dic)))
+
+  return txt, kafka, word_count
+
+def translate_char(twits, dic, seqlen):
+  Spl = []
+  char_count = {}
+  for i in range(len(twits)):
+
+    sp = twits[i]
+    hs = []
+
+    for j in sp:
+
+        emb = dic.get(j)
+        if emb is not None:
+            hs.append(emb)
+        else:
+            hs.append(len(dic))
+
+    if char_count.get(len(hs)) is not None:
+        char_count[len(hs)] += 1
+    else:
+        char_count[len(hs)] = 1
+
+    if len(hs) > seqlen:
+        hs = hs[:seqlen]
+    hs = np.array(hs)
+    Spl.append(hs)
+
+  txt = np.zeros((len(Spl), seqlen), dtype=int)
+  for i in range(len(Spl)):
+      txt[i] += np.pad(Spl[i], (0, seqlen - Spl[i].shape[0]), 'constant', constant_values=(len(dic)))
+
+  return txt, char_count    
+
+def read_data(data_path, dicc):
+  addrs = glob.glob(os.path.join(data_path, '*.xml'))
+  author = {}
+
+  twit_train = []
+  label_train = []
+
+  target = read_truth(data_path)
+
+
+  for adr in addrs:
+
+      author = adr.split('/')[-1][:-4]
+
+      tree = XT.parse(adr)
+      root = tree.getroot()[0]
+      for twit in root:
+          twit_train.append(twit.text)
+          label_train.append(target[author])
+
+  dic = {' ': 0}
+  for i in range(26):
+      dic[chr(i + 97)] = i + 1
+  dic['\''] = 27
+
+  twit_train, kafka, word_count = translate_words(twit_train, dicc, 120)
+  twitchar_train, char_count = translate_char(kafka, dic, 200)
+
+  x = np.random.permutation(twit_train.shape[0])
+  twit_train = twit_train[x, :]
+  label_train = np.array(label_train)[x]
+  twitchar_train = twitchar_train[x, :]
+
+  return label_train, twit_train, twitchar_train, word_count, char_count, kafka

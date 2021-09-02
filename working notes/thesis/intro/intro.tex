@@ -2,8 +2,6 @@
 \chapter*{Introducción}
 
 
-\pagenumbering{arabic}
-
 Internet se define como la interconexión mundial de redes individuales operadas por el gobierno, la industria, el mundo académico y las partes privadas. En cuestión de muy pocos años, Internet se consolidó como una plataforma muy poderosa que ha cambiado para siempre la forma de comunicarse.  Esta manera tan simple y accesible de compartir datos, ha propiciado un desplazamiento de los entes sociales hacia el uso casi exclusivo de este medio.
 \\
 Un rol fundamental dentro de este universo comunicativo lo juegan las redes sociales donde de acuerdo al sitio DataReportal\footnote{\url{https://datareportal.com/}} a finales de 2020 existían más de 3.8 mil millones de usuarios de los 4.5 mil millones de personas conectadas a Internet, lo cual implica un crecimiento desmedido de la cantidad de datos multimodales que se genera a diario.
@@ -16,11 +14,11 @@ Diversos estudios se han dirigido al diseño de métodos para manejar tal cantid
 Dentro del NLP, la tarea de Perfilado de Autores (\textit{Author Profiling AP}) \citep{Rosso2019,article} se encarga específicamente de realizar un análisis de la información textual elaborada por una persona que permita establecer atributos y patrones de comportamiento para caracterizarla en cuanto sexo, rango de edades o rasgos personales (e.g si la persona es extrovertida o no, ideología política). Sin embargo, para el AP el hecho de que la información recuperada de estos textos varíe enormemente en términos de su formato aun cuando proviene de la misma persona, sumado a que las secuencias texuales constituyen información digital no estructurada, hacen desafiante el proceso de analizarla y clasificarla automáticamente. 
 \\
 Inicialmente este tipo de tareas se desarrollaban sobre contenido generado en textos formales, periódicos, cartas o revistas, sin embargo determinar el perfil de una persona mediante el análisis de su cuenta en una red social ha tomado un gran auge en los últimos años \citep{rangel:2018,rangel:2019,f6032ffbacb14369b7a45d1ba9bd0b8c}.
- Las redes sociales además de haber logrado acelerar la comunicación entre las personas así como reunir varias formas del pensamiento individual en un mismo espacio, se han convertido en un medio donde se desarrollan procesos negativos tales como, la divulgación de discursos de odio \citep{}, \textit{bullying} o de noticias falsas \citep{rangel:2020}. Este hecho introduce nuevos retos al AP con tareas que involucran la detección de características altamente subjetivas como la ofensa, la toxicidad en el lenguaje y otros patrones psicológicos de comunicación que hacen más complejo el perfilado en relación a otras tareas.  
+ Las redes sociales además de haber logrado acelerar la comunicación entre las personas así como reunir varias formas del pensamiento individual en un mismo espacio, se han convertido en un medio donde se desarrollan procesos negativos tales como, la divulgación de discursos de odio \citep{rangel2021profiling}, \textit{bullying} o de noticias falsas \citep{rangel:2020}. Este hecho introduce nuevos retos al AP con tareas que involucran la detección de características altamente subjetivas como la ofensa, la toxicidad en el lenguaje y otros patrones psicológicos de comunicación que hacen más complejo el perfilado en relación a otras tareas.  
 \\
  La mayor parte de los avances en el desarrollo de sistemas de AP han sentado sus bases dentro del ambiente académico, reuniendo estudios tanto de la Ciencia de la Computación como de la Lingüística. Algunas de las campañas de evaluación más importantes donde se han compartido tareas de este tipo son \textit{Plagiarism, Authorship and Social Software Misuse} PAN\footnote{https://pan.webis.de/} y \textit{Evaluation of NLP and Speech Tools for Italian} EVALITA\footnote{http://www.evalita.it/}, los que se han dirigido últimamente al análisis del genero textual de micro-blogging  con un enfoque multilingüe, empleado en medios sociales como Twitter\footnote{https://twitter.com/}.
 \\
-Tradicionalmente se han empleado dos tipos de acercamientos que han probado empíricamente ser efectivos para tratar el AP en redes sociales: los \textit{basados en estilo}  y los \textit{basados en contenido}. Las propuestas basadas en estilo se refieren al hecho de analizar como los autores se expresan cuando escriben, en cambio la basada en contenido se apoyan en el área temática del texto analizado. La mayor contribución de varios trabajos se ha basado en la selección de atributos que permitan medir el estilo autor y el contenido simultáneamente mediante el empleo de métodos de Prendizaje de Máquina (\textit{Machine Learning} ML).
+Tradicionalmente se han empleado dos tipos de acercamientos que han probado empíricamente ser efectivos para tratar el AP en redes sociales: los \textit{basados en estilo}  y los \textit{basados en contenido}. Las propuestas basadas en estilo se refieren al hecho de analizar como los autores se expresan cuando escriben, en cambio la basada en contenido se apoyan en el área temática del texto analizado. La mayor contribución de varios trabajos se ha basado en la selección de atributos que permitan medir el estilo autor y el contenido simultáneamente mediante el empleo de métodos de Aprendizaje de Máquina (\textit{Machine Learning} ML).
 \\
 Un proceso fundamental en este tipo de propuestas es la selección de rasgos para representar vectorialmente los elementos del texto, este a su vez es un punto crítico en el cual pueden ser eliminados elementos que ayuden al modelo a discernir entre una clase u otra, en el caso de tareas de clasificación, pero también se puede introducir información ruidosa y de igual forma afectar su desempeño. 
 \\
@@ -48,7 +46,7 @@ Dividir el proceso de clasificación de un perfil dentro de una tarea en: (1) co
 \section*{Objetivos}
 \subsection*{Objetivo General}
 
-Diseñar una arquitectura de Aprendizaje Profundo modular para resolver la tarea de Perfilado de Autores en redes sociales bajo diversas subtareas teniendo en cuenta un enfoque multilingüe.
+Diseñar una arquitectura de Aprendizaje Profundo modular para resolver la tarea de Perfilado de Autores en redes sociales teniendo en cuenta un enfoque multilingüe.
 \subsection*{Objetivos Específicos}
 \begin{enumerate}
 	\item Diseñar una arquitectura que capture rasgos abstractos que permitan clasificar un perfil de usuario de una red social atendiendo tanto a tareas relacionadas con características demográficas de los autores, como con aspectos psicológicos de los mismos.
@@ -62,7 +60,7 @@ Este trabajo esta estructurado en tres capítulos además del introductorio y un
 
 %%Poner la reerencia de cada capitulo cuando este listo
 \begin{itemize}
-	\item En el Capítulo 1 se describen de manera breve métodos del estado del arte así como conceptos básicos relacionados con el Machine Learning y son necesarios para la comprensión de este trabajo.
+	\item En el Capítulo 1 se describen de manera breve métodos del estado del arte así como conceptos básicos relacionados con el Machine Learning necesarios para la comprensión de este trabajo.
 	\item El Capítulo 2 describe las tareas de AP en las que se evaluarán las arquitecturas propuestas, así como los datos anotados sobre los cuales se basan los procesos de entrenamiento y evaluación.
 	\item En el Capítulo 3 se exponen los experimentos realizados en el proceso de ajuste de cada unos de los modelos y sus módulos sobre los lenguajes estudiados. 
 \end{itemize}

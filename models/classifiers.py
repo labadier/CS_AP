@@ -1,10 +1,6 @@
 #%%
 import torch, os
 from sklearn.metrics import accuracy_score
-from torch._C import device
-from torch.nn.modules import dropout
-from torch.nn.modules.activation import ReLU
-from transformers.tokenization_utils_base import TruncationStrategy
 from models.models import  Aditive_Attention, seed_worker
 from torch.utils.data import Dataset, DataLoader
 import numpy as np
@@ -282,13 +278,13 @@ class AttentionLSTM(torch.nn.Module):
     def __init__(self, neurons, dimension):
         super(AttentionLSTM, self).__init__()
         self.neurons = neurons
+        self.dimension = dimension
         self.Wx = torch.nn.Linear(dimension, neurons)
         self.Wxhat = torch.nn.Linear(dimension, neurons)
         self.Att = torch.nn.Sequential(torch.nn.Linear(neurons, 1), torch.nn.Sigmoid())
         
 
     def forward(self, X):
-        
         Wx = self.Wx(X)
         Wthat = torch.repeat_interleave(torch.unsqueeze(X, dim=1), Wx.shape[1], dim=1)
         Wxhat = self.Wxhat(Wthat)
@@ -306,25 +302,36 @@ class LSTMAtt_Classifier(torch.nn.Module):
         self.best_acc = -1
         self.language = language
         self.att = AttentionLSTM(neurons=attention_neurons, dimension=hidden_size)
-        self.bilstm = torch.nn.LSTM(batch_first=True, input_size=hidden_size, hidden_size=lstm_size, bidirectional=True, proj_size=0)
-        self.lstm = torch.nn.LSTM(batch_first=True, input_size=hidden_size, hidden_size=lstm_size, proj_size=0)
-        self.dense = torch.nn.Linear(in_features=lstm_size, out_features=2)
+        self.bilstm = torch.nn.LSTM(batch_first=True, input_size=hidden_size, hidden_size=lstm_size, bidirectional=True, proj_size=0) 
+        self.lstm = torch.nn.LSTM(batch_first=True, input_size=lstm_size*2, hidden_size=lstm_size, proj_size=0)
+                                        
+        self.dense =  torch.nn.Linear(in_features=lstm_size, out_features=32)
+        self.clasifier = torch.nn.Linear(in_features=32, out_features=2)
         self.loss_criterion = torch.nn.CrossEntropyLoss() 
 
         self.device = torch.device("cuda:0") if torch.cuda.is_available() else torch.device("cpu")
         self.to(device=self.device)
 
-    def forward(self, A, encode=False):
+
+    def forward(self, A, F = None, encode=False):
         
         X = self.att(A.to(device=self.device))
-        # X, _ = self.bilstm(X)
+  
+        X, _ = self.bilstm(X)
+
+        if self.training:
+          X = X + torch.randn_like(X)*1e-4
         X, _  = self.lstm(X)
+        if self.training:
+          X = X + torch.randn_like(X)*1e-3
 
         if encode == True:
             return X[:,-1]
-
-        return  self.dense(X[:,-1])
-
+        if F == None:
+          return  self.clasifier(X[:,-1])
+        X = torch.cat([X, F], dim = -1)
+        X = self.dense(X)
+        return self.clasifier(X)
 
     def load(self, path):
         self.load_state_dict(torch.load(path, map_location=self.device))

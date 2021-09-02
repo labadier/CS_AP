@@ -1,7 +1,7 @@
 
 \chapter{Fundamentos}
 
-\section{Estado del Arte}
+\section{Estado del Arte}\label{SOTA}
 
 El Procesamiento del Lenguaje Natural, como cualquier tarea llevada a cabo por un algoritmo de Machine Learning, se basa en el análisis de un conjunto de rasgos del objeto a procesar, con la finalidad de realizar inferencias que permitan al sistema computarizado interactuar con el usuario.
 \\
@@ -10,7 +10,7 @@ Para la tarea de  AP no es diferente, por lo que la mayoría de los trabajos se 
 El análisis de estilo se enfoca en la detección de rasgos estilísticos del autor que sean lo suficientemente invariantes a lo largo de los pasajes escritos, pero que varíen de un autor a otro. Ejemplos de estos podrían ser la longitud media de las oraciones o la cantidad esperada de símbolos de puntuación, emoticones, preposiciones o  adverbios que usa en un párrafo.
 \\
 Por otra parte el análisis de contenido se enfoca en la información contextual siguiendo la misma estrategia del análisis de estilo, i.e., llevar información estadística de la presencia de determinado conjunto de palabras o estructuras gramaticales. Este tipo de rasgos incluye el uso de n-gramas de palabras y caracteres, \textit{slang words}\footnote{ \textit{slang} se refiere a un lenguaje muy informal empleado por un grupo particular de personas.}, Bolsas de Palabras (\textit{Bag of Words} BoW) \citep{DBLP:conf/clef/Pizarro19,DBLP:conf/clef/Valencia-Valencia19}, palabras concluyentes (e.g., finalmente, para concluir, en conclusión, etc.)  y lexicones de palabras.
-Dentro de este último método para categorizar palabras, el más empleado es el sistema \textit{Linguistic Inquiry and WordCount LIWC} \citep{pennebaker2015development} el cual contiene alrededor de 70 diccionarios de lexicones divididos en categorías como; Preocupaciones personales, Discurso informal, Impulsos y necesidades fundamentales, etc.
+Dentro de este último método para categorizar palabras, el más empleado es el sistema \textit{Linguistic Inquiry and WordCount LIWC} \citep{pennebaker2015development} el cual contiene alrededor de 70 diccionarios de lexicones divididos en categorías como; Preocupaciones personales (\textit{Personal Concerns}), Discurso informal (\textit{Informal Speech}), Impulsos (\textit{Drives}) y necesidades fundamentales (\textit{Basics Needs}), etc.
 \\\\
 Estos dos grupos de rasgos, de estilo y contenido, son ortogonales puesto que los rasgos que se tienen en cuenta para capturar estilo, son precisamente aquellos que son independientes del tópico, por lo cual se ha hecho habitual el uso de enfoques que los combinen a ambos. Por otro lado el empleo de elementos contextuales implica introducir en el proceso de clasificación un sesgo hacia una clase que este más representada por determinado tema, e.g., según \citep{schler2006effects} estos rasgos pueden facilitar la determinación del sexo del autor ya que por ejemplo los hombres mayormente tienden a hablar de política y noticias, mientras que las mujeres se muestran más interesadas por la moda, fiestas y prendas de vestir; sin embargo es posible encontrar una mujer que regularmente postee tweets relacionados con deportes o automóviles, luego este perfil sería potencialmente mal clasificado por un modelo de AP basado en rasgos de contenido.
 \\
@@ -19,14 +19,14 @@ La mayoría de los trabajos de Machine Learning han usado métodos de clasificac
 \\
  Con la introducción del Deep Learning en el NLP esta tendencia a la extracción manual de rasgos de tipo estadístico ha sido desplazada por el aprendizaje de rasgos abstractos que representan a las estructuras gramaticales atendiendo no solamente a su significado semántico como elementos aislados del texto, sino que tienen en cuenta además el contexto en el que son empleados, facilitando la comprensión y clasificación de los textos tanto a los propios modelos de DL como a los tradicionales de ML. Este tipo de enfoques se basan fundamentalmente en el uso de \textit{embeddings} preentrenados con distintas estrategias \citep{DBLP:conf/clef/JooH19,DBLP:conf/clef/Lopez-Santillan19}, principalmente Word2Vec \citep{DBLP:conf/nips/MikolovSCCD13}, Glove\citep{pennington2014glove} y Fasttext\citep{bojanowski2016enriching}.
  \\
- Las Redes Neuronales Artificiales como mecanismos de aprendizaje y clasificación, por su parte han logrado un desempeño superior a los métodos tradicionales de ML en muchas tareas de NLP, teniendo en cuenta que aprenden a decidir que elemento del texto tomar como rasgo significativo a la hora de modelar los objetos. Esquemas especializados en análisis de secuencias, como las Redes Neuronales Recurrentes (RNN) \citep{DBLP:conf/clef/DiasP19,bakhteev:2020} y las arquitecturas \textit{Transformers} \citep{iyer:2020,baruah:2020} se han empleado satisfactoriamente para el perfilado de autores en los últimos años, pero también se ha extendido el uso de arquitecturas diseñadas inicialmente para el tratamiento de otro tipo de información estructurada como las imágenes, tal es el caso de las Redes Neuronales Convolucionales (CNN) \citep{DBLP:conf/clef/PetrikC19,DBLP:conf/clef/Lopez-Santillan19}.
+ Las Redes Neuronales Artificiales como mecanismos de aprendizaje y clasificación, por su parte han logrado un desempeño superior a los métodos tradicionales de ML en muchas tareas de NLP, teniendo en cuenta que aprenden a decidir que elemento del texto tomar como rasgo significativo a la hora de modelar los objetos. Esquemas especializados en análisis de secuencias, como las Redes Neuronales Recurrentes (RNN) \citep{DBLP:conf/clef/DiasP19,bakhteev:2020} y las arquitecturas \textit{Transformers} (Transformadoras) \citep{iyer:2020,baruah:2020} se han empleado satisfactoriamente para el perfilado de autores en los últimos años, pero también se ha extendido el uso de arquitecturas diseñadas inicialmente para el tratamiento de otro tipo de información estructurada como las imágenes, tal es el caso de las Redes Neuronales Convolucionales (CNN) \citep{DBLP:conf/clef/PetrikC19,DBLP:conf/clef/Lopez-Santillan19}.
  \\
  \\
- En los últimos años dentro de PAN se han propuesto tareas de perfilado que van desde la predicción de sexo y variedad del idioma  hasta la detección de perfiles manejados por bots y perfiles que tienden a difundir discursos de odio en el medio social. En la mayoría de estas tareas los trabajos con un mejor desempeño se han enmarcado en técnicas tradicionales de ML, tal es el caso en la tarea \textit{Gender and Language Variety Identification in Twitter at} PAN 2017 de \citep{basile:2017}, quien empleo rasgos a partir de una medida no estándar de frecuencia de términos sobre unigrama de palabras y n-gramas de caracteres para entrenar una SVM y \citep{martinc:2017}  que combinó n-gramas de palabras, caracteres y Elementos del Discurso (\textit{Part of Speech} POS), además de información de sentimientos relacionada con el uso de emojis, conteo de elongación de caracteres, con otros rasgos de estilo para modelar el perfil y entrenar un Regresor Logístico. 
+ En los últimos años dentro de PAN se han propuesto tareas de perfilado que van desde la predicción de sexo y variedad del idioma  hasta la detección de perfiles manejados por bots y perfiles que tienden a difundir discursos de odio en el medio social. En la mayoría de estas tareas los trabajos con un mejor desempeño se han enmarcado en técnicas tradicionales de ML, tal es el caso de \citep{basile:2017} en la tarea \textit{Gender and Language Variety Identification in Twitter at} PAN 2017, quien empleó rasgos a partir de una medida no estándar de frecuencia de términos sobre unigrama de palabras y n-gramas de caracteres para entrenar una SVM y \citep{martinc:2017}  que combinó n-gramas de palabras, caracteres y Elementos del Discurso (\textit{Part of Speech} POS), además de información de sentimientos relacionada con el uso de emojis, conteo de elongación de caracteres, con otros rasgos de estilo para modelar el perfil y entrenar un Regresor Logístico. 
  \\
- En la tarea \textit{Bots and Gender Profiling in Twitter at} PAN 2019 consistente en determinar si una cuenta de Twitter pertenece a un bot o a un humano y en el segundo caso, inferir el sexo; \citep{DBLP:conf/clef/Pizarro19} obtuvo la mejor precisión con una SVM combinando representaciones de los tweets mediante \textit{tf-idf} de n-gramas de palabras y caracteres. De igual forma \citep{DBLP:conf/clef/Johansson19} trató de dar solución a la tarea empleando ML con Random Forest y rasgos de estilo como logitud de los tweets, número de letras mayúsculas, URLs, menciones, cantidad de RTs, así como rasgos de contenido, específicamente ocurrencia de términos y etiquetas de POS.
+ La tarea \textit{Bots and Gender Profiling in Twitter at} PAN 2019 consistente en determinar si una cuenta de Twitter pertenece a un bot o a un humano y en el segundo caso, inferir el sexo; \citep{DBLP:conf/clef/Pizarro19} obtuvo la mejor precisión con una SVM combinando representaciones de los tweets mediante \textit{tf-idf} de n-gramas de palabras y caracteres. De igual forma \citep{DBLP:conf/clef/Johansson19} trató de dar solución a la tarea empleando ML con Random Forest y rasgos de estilo como logitud de los tweets, número de letras mayúsculas, URLs, menciones, cantidad de RTs, así como rasgos de contenido, específicamente ocurrencia de términos y etiquetas de POS.
  \\ 
- Nuevamente en PAN 2020 en la tarea \textit{Profiling Fake News Spreaders on Twitter}, para detectar divulgadores de noticias falsas \citep{pizarro:2020} se basó en la combinación de vectores de \textit{tf-idf} de n-gramas de palabras y caracteres para representar los tweets y clasificar los perfiles con una SVM. Mientras el modelo propuesto por \citep{buda:2020} consistió en un Regresor Logístico que combina las predicciones de cinco submodelos: (i) n-gramas con Regresor Logístico,(ii) n-gramas con SVM, (iii) n-gramas con Random Forest, (iv) n-gramas con XGBoost y (v) XGBoost con features de estilo.
+ Nuevamente en PAN 2020 en la tarea \textit{Profiling Fake News Spreaders on Twitter}, para detectar divulgadores de noticias falsas, \citep{pizarro:2020} se basó en la combinación de vectores de \textit{tf-idf} de n-gramas de palabras y caracteres para representar los tweets y clasificar los perfiles con una SVM. Mientras el modelo propuesto por \citep{buda:2020} consistió en un Regresor Logístico que combina las predicciones de cinco submodelos: (i) n-gramas con Regresor Logístico,(ii) n-gramas con SVM, (iii) n-gramas con Random Forest, (iv) n-gramas con XGBoost y (v) XGBoost con features de estilo.
  \\
 Diversos modelos de DL empleando las arquitecturas citadas anteriormente (e.g., RNN y CNN) han sido propuestos a lo largo de estas competiciones, aunque ninguno de ellos mostró una precisión superior a la de los métodos tradicionales de ML. Sin embargo en la tarea \textit{Profiling Hate Speech Spreaders on Twitter at} PAN 2021, el modelo con mejor desempeño, propuesto por \citep{sinno:2021} empleó una Red Neuronal Convolucional sobre la representación de los perfiles con \textit{embeddings} de palabras. 
 \\\\
@@ -34,12 +34,12 @@ Uno de los mayores problemas con los enfoques predominantes es que los rasgos ex
 
 \section{Marco Teórico}
 
-En este epígrafe se realiza un acercamiento hacia los temas y arquitecturas de Machine Learing necesarios para la comprensión de los modelos propuestos en el trabajo.
+En este epígrafe se realiza un acercamiento hacia los temas y arquitecturas de Machine Learning necesarios para la comprensión de los modelos propuestos en el trabajo.
 
 \subsection{LSTM: Long Short-Term Memory Neural Networks}
 
 	Las LSTM son un tipo de Redes Neuronales Recurrentes, las cuales están especializadas en el análisis de datos secuenciales. 
-	Las RNNs tienen una unidad principal (la unidad recurrente) la cual explora la secuencia de datos de entrada de un elemento a la vez ya sea de izquierda a derecha o viceversa. Al analizar un elemento para la determinación de su estado oculto, se comparte la información capturada en pasos anteriores del recorriendo. Esto es, sea $h_{t-1}$ el último estado oculto computado, $x_t \in \Re^d$ el $t-ésimo$ elemento de la secuencia de entrada y $f$ una función de no linealidad. El estado oculto actual, se define como:
+	Las RNNs tienen una unidad principal (la unidad recurrente) la cual explora la secuencia de datos de entrada de un elemento a la vez, ya sea de izquierda a derecha o viceversa. Al analizar un elemento para la determinación de su estado oculto, se comparte la información capturada en pasos anteriores del recorriendo. Esto es, sea $h_{t-1}$ el último estado oculto computado, $x_t \in \Re^d$ el $t-esimo$ elemento de la secuencia de entrada y $f$ una función de no linealidad. El estado oculto actual, se define como:
 	
 	\begin{equation}
 		h_t = f(W_xx_t + W_hh_{t-1} + b_h)
@@ -117,7 +117,7 @@ En este epígrafe se realiza un acercamiento hacia los temas y arquitecturas de 
 
 	\subsubsection{Self-Attention}
 	
-		Sea $x_t$ la representación del $t-ésimo$ elemento de la secuencia, una capa de \textit{self-attention}, captura en una matriz $A$ cuan similar es $x_t$ con sus vecinos. Específicamente $\alpha_{t, t'} \in A$ expresa la relación de $x_t$ con $x_t'$ y de manera similar al de una red recurrente este valor se calcula como:
+		Sea $x_t$ la representación del $t-esimo$ elemento de la secuencia, una capa de \textit{self-attention} (auto-atención), captura en una matriz $A$ cuan similar es $x_t$ con sus vecinos. Específicamente $\alpha_{t, t'} \in A$ expresa la relación de $x_t$ con $x_t'$ y de manera similar al de una red recurrente este valor se calcula como:
 		\begin{equation}
 			\begin{split}
 				g_{t, t'} &= \tanh(W_{x}x_t + W_{x{t'}}x_{t'} + b_g)\\
@@ -135,7 +135,7 @@ En este epígrafe se realiza un acercamiento hacia los temas y arquitecturas de 
 	
 	\subsubsection{Scaled Dot-Product Attention}
 		
-		En este mecanismo de atención primero se mapea cada elemento de la secuencia con tres representaciones (\textit{query} y un par \textit{key-value}) para calcular el índice de compatibilidad entre cada par de elementos. Luego, para cada $x_t$ es evaluada su compatibilidad con respecto a cada uno de los  elementos vecinos relacionando su \textit{query} ($q_t$) con las \textit{keys} de los vecinos ($k_{t'}$), estos valores de compatibilidad son escalados y normalizados con la función $softmax$ y empleados para ponderar los vectores de \textit{value} ($v_t$). Finalmente la representación de $\hat{x}_t$ es calculada como la suma ponderada de los $v_t$. En forma matricial queda expresado como:
+		El mecanismo \textit{Scaled Dot-Product Attention} (Atención con Producto-Punto Escalado) primero se mapea cada elemento de la secuencia con tres representaciones (\textit{query} y un par \textit{key-value}) para calcular el índice de compatibilidad entre cada par de elementos. Luego, para cada $x_t$ es evaluada su compatibilidad con respecto a cada uno de los  elementos vecinos relacionando su \textit{query} ($q_t$) con las \textit{keys} de los vecinos ($k_{t'}$), estos valores de compatibilidad son escalados y normalizados con la función $softmax$ y empleados para ponderar los vectores de \textit{value} ($v_t$). Finalmente la representación de $\hat{x}_t$ es calculada como la suma ponderada de los $v_t$. En forma matricial queda expresado como:
 		
 		\begin{equation}
 			Attention(Q, V, K) = softmax(\frac{Q\times K^T}{\sqrt{d_k}})\times V
@@ -143,7 +143,7 @@ En este epígrafe se realiza un acercamiento hacia los temas y arquitecturas de 
 		\end{equation} 
 		Donde $Q, K \in \Re^{n\times d_k} \text{ y } V \in \Re^{n\times d_v} $ son el resultado del producto de las matrices de parámetros de \textit{query}, \textit{key} y \textit{value} con los elementos de la secuencia respectivamente, por tanto en la fila $t$ contienen el mapeo del elemento $x_t$ y  $d_k,d_v$ corresponden a la dimensionalidad de las vectores de \textit{key} y \textit{value} respectivamente.
 		
-\subsection{Transformes}
+\subsection{Transformers}
 
 	La arquitectura Transformer (\figurename~\ref{transformer}) basada en mecanismos de atención, específicamente \textit{multihead attention} \citep{vaswani2017attention}, está diseñada para tratar problemas de \textit{machine translation} y la conforman dos módulos, el primero conocido como \textit{Encoder} (Codificador) es alimentado con una secuencia textual y se encarga de encontrar una codificación para cada elemento teniendo en cuenta la información de su contexto. El segundo módulo, \textit{Decoder} produce los elementos de una nueva secuencia en el modelado de lenguaje, haciéndolo de uno a la vez y teniendo en cuenta los elementos generados anteriormente y las codificaciones obtenidas por el Encoder de la secuencia de entrada.
 	\\
@@ -166,8 +166,8 @@ En este epígrafe se realiza un acercamiento hacia los temas y arquitecturas de 
 	
 	\begin{figure}[!thb]
 		\centering
-		\subfigure[Euclidian Structured Data]{\includegraphics[width=0.35\textwidth]{images/cnn-gnn.png}} \hspace{10mm}
-		\subfigure[Non-Euclidian Structured Data]{\includegraphics[width=0.35\textwidth]{images/gnn-gnn.png}} 
+		\subfigure[Datos Estructurados Euclideanos]{\includegraphics[width=0.35\textwidth]{images/cnn-gnn.png}} \hspace{10mm}
+		\subfigure[Datos con Estructura No Euclideana]{\includegraphics[width=0.35\textwidth]{images/gnn-gnn.png}} 
 		\caption[Relación de Estructura en los Datos]{Relación de Estructura en los Datos. \citep{Wu_2021}}
 		\label{euclidian-non}
 	\end{figure}
@@ -188,10 +188,10 @@ En este epígrafe se realiza un acercamiento hacia los temas y arquitecturas de 
 	
 \subsection{Information Gain}
 
-	\textit{Information Gain }IG (Recuperación de Información) \citep{10.5555/3091696.3091731,sebastiani2002machine} mide cuanta información aporta un rasgo sobre una clase tomando en cuenta tanto la presencia como la ausencia del término en los documentos pertenecientes a la misma. El IG de un término $t$ en una clase $C$ está definido por:
+	El índice de \textit{Information Gain }IG (Captura de Información) \citep{10.5555/3091696.3091731,sebastiani2002machine} mide cuanta información aporta un rasgo sobre una clase tomando en cuenta tanto la presencia como la ausencia del término en los documentos pertenecientes a la misma. El IG de un término $t$ en una clase $C$ está definido por:
 	
 	\begin{equation}
 		IG(t, C) = \sum_{c \in \{C, \bar{C}\}} \sum_{x \in \{t, \bar{t}\}} P(x, c) \log_2\frac{P(x, c)}{P(x)P(c)}
 	\end{equation}
 
-	Donde las probabilidades están interpretada en un espacio de eventos sobre los documentos, e.g., $P(\bar{t}, C)$ indica la probabilidad de que para un documento aleatorio $d$, el termino $t$ no ocurra en $d$ y $d$ pertenezca a la categoría $C$. 
+	Donde las probabilidades están interpretadas en un espacio de eventos sobre los documentos, e.g., $P(\bar{t}, C)$ indica la probabilidad de que para un documento aleatorio $d$, el término $t$ no ocurra en $d$ y $d$ pertenezca a la categoría $C$. 

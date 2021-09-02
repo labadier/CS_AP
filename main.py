@@ -1,13 +1,15 @@
 #%%
 import argparse, sys, os, numpy as np, torch, random
 from matplotlib.pyplot import axis
+from torch._C import parse_schema
 from models.models import Encoder, train_Encoder, train_Siamese, Siamese_Encoder, Siamese_Metric
 from utils import plot_training, load_Profiling_Data, make_pairs
-from utils import make_triplets,make_profile_pairs, save_predictions, copy_pred
-from utils import make_pairs_with_protos, compute_centers_PSC
+from utils import make_triplets,make_profile_pairs, save_predictions, read_embedding, translate_char
+from utils import make_pairs_with_protos, compute_centers_PSC, read_data, translate_words
 from sklearn.metrics import f1_score
 from models.classifiers import K_Impostor, train_classifier, predict, FNN_Classifier, LSTMAtt_Classifier
 from models.classifiers import svm
+from models.Sequential import SeqEncoder, train_Seq
 from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import classification_report, accuracy_score
 from utils import bcolors
@@ -364,3 +366,44 @@ if __name__ == '__main__':
   #   print(features.shape)
 
 
+  if mode == 'CNN_LSTM_Encoder' :
+
+    language = language.lower()
+    emb_path = None
+    if language == "en":
+      emb_path = 'data/embeddings/glove_en_100d'
+    elif language == "es": emb_path = 'data/embeddings/glove_es_200d'
+    
+    matrix, dic = read_embedding(emb_path)
+
+    if phase == 'train':
+      # data_path = "../data/profiling/faker/train"
+      model = SeqEncoder(language, matrix)
+      labels, tweets_word, tweets_char, _, _, _ = read_data(os.path.join(data_path, language), dic)
+      
+      hist = train_Seq(model, [tweets_word, tweets_char, labels], language, "CNN_LSTM_ENC", splits, epoches, batch_size, lr = learning_rate,  decay=decay)
+      plot_training(hist[-1], language + '_CNN_LSTM_ENC', 'acc')
+    
+    if phase == 'encode':
+      
+      model = SeqEncoder(language, matrix)
+      model.load(f'logs/CNN_LSTM_ENC_{language}_1.pt')
+
+      tweets, _ = load_Profiling_Data(os.path.join(data_path, language[:2].lower()), False)
+      encs = []
+      dicc = {' ': 0}
+      for i in range(26):
+          dicc[chr(i + 97)] = i + 1
+      dicc['\''] = 27
+
+      for i in tweets:
+        tw, _, _ = translate_words(i, dic, 120)
+        tc, _ = translate_char(i, dicc, 200)
+        e = model.get_encodings([tw, tc], 200)
+        encs.append(e)
+      infosave = data_path.split("/")[-2:]
+      torch.save(np.array(encs), f'logs/{infosave[0]}_{infosave[1]}_encodings_{language[:2].upper()}.pt')
+      
+      print(f"{bcolors.OKCYAN}{bcolors.BOLD}Encodings Saved Successfully as {infosave[0]}_{infosave[1]}_encodings_{language[:2]}.pt {bcolors.ENDC}")
+
+# %%
