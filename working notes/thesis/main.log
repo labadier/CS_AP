@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.6.26)  2 SEP 2021 16:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.6.26)  4 SEP 2021 16:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -788,7 +788,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 32.
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<images/logo.png, id=71, 192.72pt x 78.2925pt>
+<images/logo.png, id=95, 192.72pt x 78.2925pt>
 File: images/logo.png Graphic file (type png)
 <use images/logo.png>
 Package pdftex.def Info: images/logo.png  used on input line 51.
@@ -833,7 +833,7 @@ Overfull \hbox (32.72842pt too wide) in paragraph at lines 30--53
 [][] [] 
  []
 
-<images/portada.png, id=73, 679.53876pt x 1730.465pt>
+<images/portada.png, id=97, 679.53876pt x 1730.465pt>
 File: images/portada.png Graphic file (type png)
 <use images/portada.png>
 Package pdftex.def Info: images/portada.png  used on input line 53.
@@ -857,27 +857,28 @@ LaTeX Info: Redefining \% on input line 1.
 \tf@lof=\write6
 \openout6 = `main.lof'.
 
- (./intro/intro.texpdfTeX warning (ext4): destination with the same identifier 
-(name{page.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.2 \chapter
-            *{Introducción} [1
+ [2
 
-]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 7
+] (./intro/intro.tex
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 6
 .
 
 (/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 5--31
+Underfull \hbox (badness 10000) in paragraph at lines 4--30
 
  []
 
-[2
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.30 
+      [1
 
-] [3] [4]) (./chapters/chp1.tex [5]
+
+] [2] [3]) (./chapters/chp1.tex [4]
 Cap\'{\i }tulo 1.
 
 Underfull \hbox (badness 10000) in paragraph at lines 6--34
@@ -899,15 +900,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--34
 
  []
 
-[6
+[5
 
-] [7]
-<images/rnn.png, id=276, 702.625pt x 183.68625pt>
+] [6]
+<images/rnn.png, id=312, 702.625pt x 183.68625pt>
 File: images/rnn.png Graphic file (type png)
 <use images/rnn.png>
-Package pdftex.def Info: images/rnn.png  used on input line 54.
+Package pdftex.def Info: images/rnn.png  used on input line 51.
 (pdftex.def)             Requested size: 250.0pt x 65.3562pt.
- [8] [9 <./images/rnn.png>]
+ [7] [8 <./images/rnn.png>]
 Package epstopdf Info: Source file: <images/cnn.eps>
 (epstopdf)                    date: 2021-08-08 15:19:00
 (epstopdf)                    size: 90923 bytes
@@ -916,44 +917,116 @@ Package epstopdf Info: Source file: <images/cnn.eps>
 (epstopdf)                    size: 84034 bytes
 (epstopdf)             Command: <repstopdf --outfile=images/cnn-eps-converted-t
 o.pdf images/cnn.eps>
-(epstopdf)             \includegraphics on input line 100.
+(epstopdf)             \includegraphics on input line 101.
 Package epstopdf Info: Output file is already uptodate.
-<images/cnn-eps-converted-to.pdf, id=309, 277.035pt x 236.885pt>
+<images/cnn-eps-converted-to.pdf, id=346, 277.035pt x 236.885pt>
 File: images/cnn-eps-converted-to.pdf Graphic file (type pdf)
 <use images/cnn-eps-converted-to.pdf>
 Package pdftex.def Info: images/cnn-eps-converted-to.pdf  used on input line 10
-0.
+1.
 (pdftex.def)             Requested size: 250.0pt x 213.76924pt.
- [10 <./images/cnn-eps-converted-to.pdf>]
-[11]
-<images/transformer.png, id=335, 771.63281pt x 1207.51125pt>
+ [9 <./images/cnn-eps-converted-to.pdf>]
+<images/transformer.png, id=359, 771.63281pt x 1207.51125pt>
 File: images/transformer.png Graphic file (type png)
 <use images/transformer.png>
-Package pdftex.def Info: images/transformer.png  used on input line 154.
+Package pdftex.def Info: images/transformer.png  used on input line 155.
 (pdftex.def)             Requested size: 221.78972pt x 317.0962pt.
- [12 <./images/transformer.png>]
-<images/cnn-gnn.png, id=347, 511.15968pt x 481.04718pt>
+
+[10] [11 <./images/transformer.png>]
+<images/cnn-gnn.png, id=383, 511.15968pt x 481.04718pt>
 File: images/cnn-gnn.png Graphic file (type png)
 <use images/cnn-gnn.png>
-Package pdftex.def Info: images/cnn-gnn.png  used on input line 169.
+Package pdftex.def Info: images/cnn-gnn.png  used on input line 170.
 (pdftex.def)             Requested size: 155.25517pt x 146.10626pt.
-<images/gnn-gnn.png, id=348, 505.89pt x 450.9347pt>
+<images/gnn-gnn.png, id=384, 505.89pt x 450.9347pt>
 File: images/gnn-gnn.png Graphic file (type png)
 <use images/gnn-gnn.png>
-Package pdftex.def Info: images/gnn-gnn.png  used on input line 170.
+Package pdftex.def Info: images/gnn-gnn.png  used on input line 171.
 (pdftex.def)             Requested size: 155.25517pt x 138.39153pt.
- [13 <./images/cnn-gnn.png> <./images/gnn-gnn.png>]) (./chapters/chp2.tex [14]
+ [12 <./images/cnn-gnn.png> <./images/gnn-gnn.png>]) (./chapters/chp2.tex [13]
 Cap\'{\i }tulo 2.
 
 Underfull \hbox (badness 10000) in paragraph at lines 4--12
 
  []
 
-[15
+[14
 
-]) (./main.bbl [16] [17
+]
+Package epstopdf Info: Source file: <images/cnn_lstm.eps>
+(epstopdf)                    date: 2021-09-02 22:28:21
+(epstopdf)                    size: 118109 bytes
+(epstopdf)             Output file: <images/cnn_lstm-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-09-02 22:28:30
+(epstopdf)                    size: 110669 bytes
+(epstopdf)             Command: <repstopdf --outfile=images/cnn_lstm-eps-conver
+ted-to.pdf images/cnn_lstm.eps>
+(epstopdf)             \includegraphics on input line 33.
+Package epstopdf Info: Output file is already uptodate.
+<images/cnn_lstm-eps-converted-to.pdf, id=426, 454.69875pt x 200.75pt>
+File: images/cnn_lstm-eps-converted-to.pdf Graphic file (type pdf)
+<use images/cnn_lstm-eps-converted-to.pdf>
+Package pdftex.def Info: images/cnn_lstm-eps-converted-to.pdf  used on input li
+ne 33.
+(pdftex.def)             Requested size: 454.69763pt x 200.7495pt.
 
-] [18] [19]) [20] (./main.aux
+Overfull \hbox (11.11916pt too wide) in paragraph at lines 33--34
+ [] 
+ []
+
+[15 <./images/cnn_lstm-eps-converted-to.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 53--58
+
+ []
+
+[16]
+Package epstopdf Info: Source file: <images/att_lstm.eps>
+(epstopdf)                    date: 2021-09-03 15:45:10
+(epstopdf)                    size: 75637 bytes
+(epstopdf)             Output file: <images/att_lstm-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-09-03 15:45:25
+(epstopdf)                    size: 70178 bytes
+(epstopdf)             Command: <repstopdf --outfile=images/att_lstm-eps-conver
+ted-to.pdf images/att_lstm.eps>
+(epstopdf)             \includegraphics on input line 68.
+Package epstopdf Info: Output file is already uptodate.
+<images/att_lstm-eps-converted-to.pdf, id=454, 204.765pt x 130.4875pt>
+File: images/att_lstm-eps-converted-to.pdf Graphic file (type pdf)
+<use images/att_lstm-eps-converted-to.pdf>
+Package pdftex.def Info: images/att_lstm-eps-converted-to.pdf  used on input li
+ne 68.
+(pdftex.def)             Requested size: 204.76448pt x 130.48717pt.
+ [17 <./images/att_lstm-eps-converted-to.pdf>] [18]
+Underfull \hbox (badness 10000) in paragraph at lines 109--114
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 138--141
+
+ []
+
+[19]
+Package epstopdf Info: Source file: <images/trepre.eps>
+(epstopdf)                    date: 2021-09-04 16:05:50
+(epstopdf)                    size: 19836 bytes
+(epstopdf)             Output file: <images/trepre-eps-converted-to.pdf>
+(epstopdf)                    date: 2021-09-04 16:06:40
+(epstopdf)                    size: 9466 bytes
+(epstopdf)             Command: <repstopdf --outfile=images/trepre-eps-converte
+d-to.pdf images/trepre.eps>
+(epstopdf)             \includegraphics on input line 153.
+Package epstopdf Info: Output file is already uptodate.
+<images/trepre-eps-converted-to.pdf, id=504, 181.67876pt x 91.34125pt>
+File: images/trepre-eps-converted-to.pdf Graphic file (type pdf)
+<use images/trepre-eps-converted-to.pdf>
+Package pdftex.def Info: images/trepre-eps-converted-to.pdf  used on input line
+ 153.
+(pdftex.def)             Requested size: 288.35774pt x 126.84688pt.
+) (./main.bbl [20 <./images/trepre-eps-converted-to.pdf>] [21
+
+] [22]
+[23]) [24] (./main.aux
 LaTeX Info: Redefining \. on input line 26.
 LaTeX Info: Redefining \% on input line 26.
 )
@@ -962,18 +1035,21 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.72pt have occurred.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 392F709BB47A186AC100E4BD0D74A82B;2683.
+(rerunfilecheck)             Checksum: F74CBBC3500E56C19E67176249127B87;3919.
  ) 
 Here is how much of TeX's memory you used:
- 22548 strings out of 478994
- 394456 string characters out of 5864751
- 716415 words of memory out of 5000000
- 39466 multiletter control sequences out of 15000+600000
+ 22632 strings out of 478994
+ 396204 string characters out of 5864751
+ 717216 words of memory out of 5000000
+ 39519 multiletter control sequences out of 15000+600000
  427294 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,17n,102p,1036b,756s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exi
+pdfTeX warning (dest): name{Hfootnote.6} has been referenced but does not exi
 st, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.5} has been referenced but does not exist
+, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.4} has been referenced but does not exist
 , replaced by a fixed one
@@ -992,27 +1068,27 @@ mf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/a
 msfonts/cm/cmmi6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
 8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/sha
-re/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmsy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr
-/share/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-di
-st/fonts/type1/public/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/
-public/cm-super/sfbx1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super
-/sfbx2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb><
-/usr/share/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/share/texm
-f-dist/fonts/type1/public/cm-super/sfrm0600.pfb></usr/share/texmf-dist/fonts/ty
-pe1/public/cm-super/sfrm0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-s
-uper/sfrm0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.p
-fb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/
-texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf-dist/font
-s/type1/public/cm-super/sfti0900.pfb></usr/share/texmf-dist/fonts/type1/public/
-cm-super/sfti1095.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt09
-00.pfb>
-Output written on main.pdf (22 pages, 1082108 bytes).
+re/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/c
+msy6.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/
+share/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf-dis
+t/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/type1/p
+ublic/cm-super/sfbx1440.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/
+sfbx1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb></
+usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb></usr/share/texmf
+-dist/fonts/type1/public/cm-super/sfcc1095.pfb></usr/share/texmf-dist/fonts/typ
+e1/public/cm-super/sfrm0600.pfb></usr/share/texmf-dist/fonts/type1/public/cm-su
+per/sfrm0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pf
+b></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/t
+exmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf-dist/fonts
+/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf-dist/fonts/type1/public/c
+m-super/sfti0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti109
+5.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb>
+Output written on main.pdf (27 pages, 1299270 bytes).
 PDF statistics:
- 569 PDF objects out of 1000 (max. 8388607)
- 499 compressed objects within 5 object streams
- 113 named destinations out of 1000 (max. 500000)
- 176 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 714 PDF objects out of 1000 (max. 8388607)
+ 618 compressed objects within 7 object streams
+ 141 named destinations out of 1000 (max. 500000)
+ 239 words of extra memory for PDF output out of 10000 (max. 10000000)
 

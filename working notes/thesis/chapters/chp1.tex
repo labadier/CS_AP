@@ -40,15 +40,12 @@ En este epígrafe se realiza un acercamiento hacia los temas y arquitecturas de 
 
 	Las LSTM son un tipo de Redes Neuronales Recurrentes, las cuales están especializadas en el análisis de datos secuenciales. 
 	Las RNNs tienen una unidad principal (la unidad recurrente) la cual explora la secuencia de datos de entrada de un elemento a la vez, ya sea de izquierda a derecha o viceversa. Al analizar un elemento para la determinación de su estado oculto, se comparte la información capturada en pasos anteriores del recorriendo. Esto es, sea $h_{t-1}$ el último estado oculto computado, $x_t \in \Re^d$ el $t-esimo$ elemento de la secuencia de entrada y $f$ una función de no linealidad. El estado oculto actual, se define como:
-	
 	\begin{equation}
 		h_t = f(W_xx_t + W_hh_{t-1} + b_h)
 		\label{rrn_form}
 	\end{equation}
-
 	Donde $W_x \in Re^{n_u\times d}$ y $W_h \in Re^{n_u\times n_u}$ son matrices de parámetros y $b_h \in R^{n_u}$ el término de sesgo (\textit{bias}), con $n_u$ el número de neuronas y $d$ la dimensión de los vectores que representan a los elementos de la secuencia.
 	De esta forma la arquitectura aprende a considerar la información que tiene determinada influencia sobre el elemento de la secuencia que se analiza en cada paso como se muestra en la \figurename~\ref{rnn}, lo que le otorga una especie de ``memoria''.
-	
 	\begin{figure}[!thb]
 		\begin{center}
 			\includegraphics[width=250pt]{images/rnn.png}
@@ -56,6 +53,7 @@ En este epígrafe se realiza un acercamiento hacia los temas y arquitecturas de 
 		\caption[Red Neuronal Recurrente]{Red Neuronal Recurrente sobre la secuencia $X_t$. \citep{agarwala2017music}}
 		\label{rnn}
 	\end{figure}
+	\\
 	Sin embargo, debido a que en las RNNs durante el proceso de \textit{backpropagation}, en el que se ajustan los parámetros de la red, cada neurona en la unidad principal calcula su gradiente para un paso del recorrido de la secuencia con respecto a su estado en el paso posterior, mediante la ley de la cadena, ocurre un decrecimiento exponencial de los valores de las derivadas parciales conocido como \textit{gradient vanishing}, lo que hace que los parámetros a penas se actualicen y se dificulte el aprendizaje de relaciones a largo plazo, de aquí su ``Short-Term Memory''.
 	\\
 	Esta limitación es lo que las LSTM tratan de solucionar introduciendo compuertas que deciden que información preservar u ``olvidar'' de los estados previos en el recorrido por la secuencia de la siguiente forma:
@@ -70,11 +68,13 @@ En este epígrafe se realiza un acercamiento hacia los temas y arquitecturas de 
 		\end{split}
 		\label{lstm_gates}
 	\end{equation}
+	\\
 	Una codificación potencial $\hat{c}_t$ considerando el elemento $x_t$ de la secuencia y el estado previo $h_{t-1}$ esta dado por:
 	\begin{equation}
 		\hat{c}_{t} = \sigma(W_cx_t + U_c h_{t-1} + b_c)
 		\label{lstm_pu}
 	\end{equation}
+	\\
 	Donde $W_c\in\Re^{n_u\times d}$, $U_c\in\Re^{n_u\times n_u}$ y  $b_c\in\Re^{n_u}$. Luego la codificación $x_t$ teniendo en cuenta la codificación del elemento anterior y $h_t$ quedan definidos por:
 	 \begin{equation}
 	 	\begin{split}
@@ -83,6 +83,7 @@ En este epígrafe se realiza un acercamiento hacia los temas y arquitecturas de 
 	 	\end{split}
 	 	\label{lstm_hstate}
 	 \end{equation}
+ 
  
 \subsection{Redes Neuronales Convolucionales sobre secuencias}
 	
@@ -93,8 +94,8 @@ En este epígrafe se realiza un acercamiento hacia los temas y arquitecturas de 
 	\begin{equation}
 		X'_{ij} = \sum X_{[i:i+k]} * {F_k}_j ~~~ para ~~~ j \in [0, F_k-1], \;i \in [0, l-k]
 	\end{equation}
+	\\
 	Como se puede observar en la \figurename~\ref{cnn}:
-
 	\begin{figure}[!thb]
 		\begin{center}
 			\includegraphics[width=250pt]{images/cnn.eps}
@@ -102,16 +103,15 @@ En este epígrafe se realiza un acercamiento hacia los temas y arquitecturas de 
 		\caption[Operación Convolución. CNN]{Operación convolución sobre $X$ con filtros de tamaño de ventana k. }
 		\label{cnn}
 	\end{figure}
-
+	\\
 	Vinculada a la \textit{conv-op} en este tipo de arquitectura se suele emplear además una capa de \textit{pooling}, en la cual se combinan los valores de elementos en una vecindad para reducir la dimensionalidad de la secuencia o se seleccionan los valores más importantes de dicha vecindad, esta operación de \textit{pooling} con una ventana de tamaño $k$  sobre una secuencia $X$ esta definida por:
-
 	\begin{equation}
 		X'_i = f(X_{[i:i+k]}) ~~ para ~~~  \;i \in [0, l-k]
 	\end{equation}
-
+	\\
 	Donde $f$ es la función de \textit{pooling}, regularmente empleadas las funciones $Max$ o $Avg$.
 		
-\subsection{Mecanismos de Atención}
+\subsection{Mecanismos de Atención}\label{atencion}
 
 	Los mecanismos de atención, son técnicas de procesamiento de las entradas de una arquitectura o de algún resultado intermedio que permiten a la red prestar mas ``atención'' a elementos específicos de una secuencia o establecer la importancia relativa sobre un elemento del resto. En la práctica, la atención permite a las redes neuronales aproximarse al mecanismo de atención visual que utilizan los humanos.
 
@@ -124,6 +124,7 @@ En este epígrafe se realiza un acercamiento hacia los temas y arquitecturas de 
 				a_{t, t'} &= \sigma({W_{a}g_{t, t'} + b_{a}}) 
 			\end{split}
 		\end{equation}
+		\\
 		Donde $\sigma$ es la función sigmoide, $W_{x}, W_{x{t'}} \in \Re^{n_u \times d} $ son las matrices de parámetros encargadas de codificar la información de $x \text{ y } x'$ para expresar su compatibilidad, $W_a \in \Re^{n_u \times n_u}$ la matriz de parámetros correspondiente a su combinación no lineal y $b_g \text{ y } b_a$ los correspondientes términos de bias.
 		\\
 		A partir de $A$ el estado correspondiente al vector $x_t$, $\hat{x}_t$ está dado por la suma ponderada de sus elementos vecinos $x'_t$:
@@ -131,6 +132,7 @@ En este epígrafe se realiza un acercamiento hacia los temas y arquitecturas de 
 		\begin{equation} \label{attention}
 			\hat{x}_t = \sum \limits_{i=0} a_{t,t'}x_{t'}
 		\end{equation}
+		\\
 		Luego $\hat{x}_t$ expresa cuan atendido debe ser $x_t$ condicionado por el contexto de su vecindad.
 	
 	\subsubsection{Scaled Dot-Product Attention}
@@ -140,7 +142,7 @@ En este epígrafe se realiza un acercamiento hacia los temas y arquitecturas de 
 		\begin{equation}
 			Attention(Q, V, K) = softmax(\frac{Q\times K^T}{\sqrt{d_k}})\times V
 			\label{dotP-att}
-		\end{equation} 
+		\end{equation} \\
 		Donde $Q, K \in \Re^{n\times d_k} \text{ y } V \in \Re^{n\times d_v} $ son el resultado del producto de las matrices de parámetros de \textit{query}, \textit{key} y \textit{value} con los elementos de la secuencia respectivamente, por tanto en la fila $t$ contienen el mapeo del elemento $x_t$ y  $d_k,d_v$ corresponden a la dimensionalidad de las vectores de \textit{key} y \textit{value} respectivamente.
 		
 \subsection{Transformers}
@@ -148,7 +150,6 @@ En este epígrafe se realiza un acercamiento hacia los temas y arquitecturas de 
 	La arquitectura Transformer (\figurename~\ref{transformer}) basada en mecanismos de atención, específicamente \textit{multihead attention} \citep{vaswani2017attention}, está diseñada para tratar problemas de \textit{machine translation} y la conforman dos módulos, el primero conocido como \textit{Encoder} (Codificador) es alimentado con una secuencia textual y se encarga de encontrar una codificación para cada elemento teniendo en cuenta la información de su contexto. El segundo módulo, \textit{Decoder} produce los elementos de una nueva secuencia en el modelado de lenguaje, haciéndolo de uno a la vez y teniendo en cuenta los elementos generados anteriormente y las codificaciones obtenidas por el Encoder de la secuencia de entrada.
 	\\
 	La principal ventaja de las Transformers con respecto a las arquitecturas secuenciales más tradicionales, e.g., GRU y LSTM es que en vez de analizar la información textual en una dirección, esta toma en consideración la entrada completa relacionando cada elemento con el contexto de su vecindad simultáneamente lo cual evita el problema de ``memoria'' a corto plazo de las RNN.  Sin embargo pudiera parecer que existe una pérdida de la percepción del tiempo al analizarlo todo a la vez, es por esto que ademas de representar el texto con un \textit{embedding} de palabras, se tiene en cuenta un \textit{encoding} de posición. 
-	
 	\begin{figure}[!thb]
 		\begin{center}
 			\includegraphics[width=.5\linewidth, height=.5\textheight]{images/transformer.png}
@@ -156,14 +157,14 @@ En este epígrafe se realiza un acercamiento hacia los temas y arquitecturas de 
 		\caption[Arquitectura Transformer]{Arquitectura Transformer. Módulo Izquierdo, Codificador. Módulo Derecho, Decodificador. \citep{vaswani2017attention} }
 		\label{transformer}
 	\end{figure}
+	\\
 	En la \figurename~\ref{transformer} se observan cada uno de los módulos los cuales se apilan ($N_x$), i.e., antes de que el Decoder reciba la informacion codificada de la secuencia de entrada, esta transita por una serie de bloques codificadores haciendo uso de una red residual para prevenir cualquier pérdida de la información.
 	\\
-	Dentro de la mayoría de las tareas de NLP este tipo de modelo ha alcanzado nuevos estados del arte simplemente haciendo \textit{transfer learning} del modulo de Encoder hacia la tarea específica. Este módulo es entrenado en dos tareas, (i) predecir palabras enmascaradas de la secuencia, (ii) dadas dos oraciones, predecir si una está a continuación de la otra en el texto, lo cual parece hacer que el modelo llegue a ``entender'' el funcionamiento del lenguaje y sea relativamente fácil de entrenar sobre otras tareas como el análisis de sentimientos. 
+	Dentro de la mayoría de las tareas de NLP este tipo de modelo ha alcanzado nuevos estados del arte simplemente haciendo \textit{transfer learning} del modulo de Encoder hacia la tarea específica. Este módulo es entrenado en dos tareas: (i) predecir palabras enmascaradas de la secuencia; (ii) dadas dos oraciones, predecir si una está a continuación de la otra en el texto, lo cual hace que el modelo llegue a ``entender'' el funcionamiento del lenguaje y sea relativamente fácil de entrenar sobre otras tareas como el análisis de sentimientos. Para esta última tarea, dado el par de oraciones como una secuencia, se añade un \textit{token} [CLS] al inicio del cual su estado oculto se toma para realizar la clasificación y otro [SEP] al final de cada oración. 
 	
 \subsection{Redes Neuronales Convolucionales en Grafos}
 	
 	La principal diferencia entre las CNNs y las Redes Neuronales Convolucionales en Grafos (\textit{Graph Convolutional Neural Nets }GNN) es que las primeras están diseñadas especialmente para tratar datos regularmente estructurados (Euclideanos), mientras que las GNN son su versión generalizada capaz de extraer información en datos donde no existe una relación de orden entre un nodo y otro y las conexiones entre cada uno de ellos es variable (datos irregulares o datos estructurados no Euclideanos), estas dos propiedades son totalmente opuestas a las relaciones que existen entre los píxeles de una imagen (\figurename~\ref{euclidian-non}).
-	
 	\begin{figure}[!thb]
 		\centering
 		\subfigure[Datos Estructurados Euclideanos]{\includegraphics[width=0.35\textwidth]{images/cnn-gnn.png}} \hspace{10mm}
@@ -171,19 +172,24 @@ En este epígrafe se realiza un acercamiento hacia los temas y arquitecturas de 
 		\caption[Relación de Estructura en los Datos]{Relación de Estructura en los Datos. \citep{Wu_2021}}
 		\label{euclidian-non}
 	\end{figure}
-	
+	\\
 	Un uso típico de las GNN es la clasificación de nodos en una estructura. En este tipo de problema el nodo $v$ se caracteriza por un conjunto de features $x_v$ y corresponde a una clase $t_v$. Dado un grafo $G = (V, E)$ parcialmente etiquetado, nuestro objetivo es predecir a que clase corresponde cada nodo no etiquetado. Mediante una GNN, cada nodo comparte información con su vecindad y transforma su representación a un estado $h_v$ de manera que exprese como este pertenece a su contexto. Específicamente,	
-		\begin{equation}
-			h_v = f(x_v, E_v, H_v, X_v)
-		\end{equation}
+	\begin{equation}
+		h_v = f(x_v, E_v, H_v, X_v)
+	\end{equation}
+	\\
 	Donde $E_v = \{(i, j)| (i, j) \in E, v \in \{i, j\}\}$,  $H_v = \{h_u| u \in \mathcal{N}(v)\}$ con $\mathcal{N}(v)$ el conjunto de nodos de la vecindad de v y $X_v = \{x_u| u \in \mathcal{N}(v)\}$. Dentro del espacio imagen de $f$ es de nuestro interés que cada nodo tenga un estado $h_v$ unívoco, por lo que apoyándose en el teorema del punto fijo \citep{brown1988fixed} es posible encontrar en un proceso iterativo de actualizaciones con determinados parámetros para nuestra función $f$ este $h_v$ contextualizado. El proceso de actualizaciones llevado a cabo dado $f$ es conocido como paso de mensajes. Luego, en forma matricial el estado de todos los nodos en la actualización $t+1$ esta dado por:
+	
 	\begin{equation}
 		H^{t+1} = F(H^t, X)
 	\end{equation} 
+	\\
 	Con $H$ y $X$ matrices donde a cada fila $i$ le corresponde $h_i \text{ y } x_i$ respectivamente. Luego, la clasificación de un nodo es llevada a cabo mediante la una nueva función $g$:	
+	
 	\begin{equation}
 		t_v = g(h_v, x_v)
 	\end{equation}
+	\\
 	Muchos diseños de la función de agregación han sido estudiados \citep{kipf2017semisupervised} teniendo en cuenta propiedades de la topología del grafo y la simetría que debe cumplir el análisis de $\mathcal{N}$ i.e., $F$ no puede ser sensible al orden de agregación de la información. En este trabajo, hacemos uso específicamente de las GNN de tipo espectral \citep{Wu_2021} y la clasificación de G. Este tipo de enfoque no difiere mucho de la clasificación de nodos, pues sigue siendo fundamental la determinación de un estado para cada nodo que exprese su información contextual. Esta información contextual es agregada mediante una operación de \textit{pooling} para alimentar una red densa y proceder con la clasificación de la estructura.
 	
 \subsection{Information Gain}
@@ -193,5 +199,5 @@ En este epígrafe se realiza un acercamiento hacia los temas y arquitecturas de 
 	\begin{equation}
 		IG(t, C) = \sum_{c \in \{C, \bar{C}\}} \sum_{x \in \{t, \bar{t}\}} P(x, c) \log_2\frac{P(x, c)}{P(x)P(c)}
 	\end{equation}
-
+	\\
 	Donde las probabilidades están interpretadas en un espacio de eventos sobre los documentos, e.g., $P(\bar{t}, C)$ indica la probabilidad de que para un documento aleatorio $d$, el término $t$ no ocurra en $d$ y $d$ pertenezca a la categoría $C$. 

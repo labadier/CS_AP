@@ -1,7 +1,6 @@
+\pagenumbering{arabic}
 \addcontentsline{toc}{chapter}{Introducción}
 \chapter*{Introducción}
-
-
 Internet se define como la interconexión mundial de redes individuales operadas por el gobierno, la industria, el mundo académico y las partes privadas. En cuestión de muy pocos años, Internet se consolidó como una plataforma muy poderosa que ha cambiado para siempre la forma de comunicarse.  Esta manera tan simple y accesible de compartir datos, ha propiciado un desplazamiento de los entes sociales hacia el uso casi exclusivo de este medio.
 \\
 Un rol fundamental dentro de este universo comunicativo lo juegan las redes sociales donde de acuerdo al sitio DataReportal\footnote{\url{https://datareportal.com/}} a finales de 2020 existían más de 3.8 mil millones de usuarios de los 4.5 mil millones de personas conectadas a Internet, lo cual implica un crecimiento desmedido de la cantidad de datos multimodales que se genera a diario.
@@ -31,21 +30,17 @@ Por otro lado, las necesidades que cubren las tareas de AP van más allá del id
 
 \addcontentsline{toc}{section}{Problemática}
 \section*{Problemática}
-
 La mayoría de los trabajos existentes que emplean DL para resolver tareas de perfilado de autores en redes sociales, tanto tradicionales (e.g., determinar rango de edades, sexo, etc.) como las más recientes (e.g. detección de divulgadores de discursos de odio en redes sociales o noticias falsas) ven afectado su desempeño al tratar con las secuencias muy largas que se pueden generar al analizar un perfil completo a la vez, en vez de mensaje a mensaje. La perdida de información (\textit{information vanishing}) en este tipo de secuencias en términos de relaciones a largo plazo que presentan las estructuras sintácticas del lenguaje, es la causa fundamental de esta dificultad. Por esta razón sería conveniente dividir el problema de ``clasificar un perfil'' en subproblemas y construir una arquitectura modular, en la que primero se modele el perfil y luego este sea clasificado.
 \\
 Por otro lado en Cuba existe un limitado tratamiento y aplicación de este tipo de métodos automatizados para llevar acabo tareas de impacto como las mencionadas, ya sea en el área forense o empresarial .
 
 \addcontentsline{toc}{section}{Hipótesis}
 \section*{Hipótesis}
-
-
 Dividir el proceso de clasificación de un perfil dentro de una tarea en: (1) codificar los mensajes individualmente y (2) modelar-clasificar el perfil, puede ayudar a prevenir la perdida de información generada del análisis de largas secuencias. Esto sumado a la capacidad de representar la información no estructurada de los métodos de DL puede influir positivamente en la precisión de las predicciones.  Además, proponer un modelo lo suficientemente robusto, podría incentivar el empleo de esos métodos automatizados  de AP en nuestro país.
 
 \addcontentsline{toc}{section}{Objetivos}
 \section*{Objetivos}
 \subsection*{Objetivo General}
-
 Diseñar una arquitectura de Aprendizaje Profundo modular para resolver la tarea de Perfilado de Autores en redes sociales teniendo en cuenta un enfoque multilingüe.
 \subsection*{Objetivos Específicos}
 \begin{enumerate}
@@ -53,9 +48,7 @@ Diseñar una arquitectura de Aprendizaje Profundo modular para resolver la tarea
 	\item Extender la arquitectura propuesta a un enfoque multilingüe de las tareas evaluadas.
 	\item Evaluar y analizar el empleo de arquitecturas modulares basadas en DL sobre colecciones de datos propuestas en tareas de AP compartidas en las plataformas PAN (2020, 2021) y EVALITA (2020).
 \end{enumerate}
-
 \section*{Estructura del Trabajo}
-
 Este trabajo esta estructurado en tres capítulos además del introductorio y una última sección en la que se describen las conclusiones de las modelaciones y se proponen  caminos a seguir para trabajos futuros. Cada uno de los capítulos se listan a continuación: 
 
 %%Poner la reerencia de cada capitulo cuando este listo

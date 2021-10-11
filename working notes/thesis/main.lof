@@ -1,9 +1,12 @@
 \babel@toc {spanish}{}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Red Neuronal Recurrente}}{9}{figure.1.1}%
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Operación Convolución. CNN}}{10}{figure.1.2}%
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Arquitectura Transformer}}{12}{figure.1.3}%
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Relación de Estructura en los Datos}}{13}{figure.1.4}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Datos Estructurados Euclideanos}}}{13}{figure.1.4}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Datos con Estructura No Euclideana}}}{13}{figure.1.4}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Red Neuronal Recurrente}}{8}{figure.1.1}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Operación Convolución. CNN}}{9}{figure.1.2}%
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Arquitectura Transformer}}{11}{figure.1.3}%
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Relación de Estructura en los Datos}}{12}{figure.1.4}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Datos Estructurados Euclideanos}}}{12}{figure.1.4}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Datos con Estructura No Euclideana}}}{12}{figure.1.4}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces CNN - LSTM}}{15}{figure.2.1}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Att - LSTM}}{17}{figure.2.2}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Rasgos Manuales}}{20}{figure.2.3}%
