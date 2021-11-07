@@ -1,7 +1,7 @@
 #!/bin/bash
 
 hs=64
-tmode=offline
+tmode=online
 # clear
 
 ############################################# Train CNN_LSTM_Encoder ############################################
@@ -42,13 +42,13 @@ tmode=offline
 # python main.py -l EN -mode CNN_LSTM_Encoder -phase encode -dp data/profiling/faker/train -lr 2e-3 -epoch 12 -bs 64 -decay 0
 
 ############################################# Train Transformer Encoder ############################################
-python main.py -l ES -mode encoder -phase train -task faker -dp data/tasks/faker -ml 120 -tmode $tmode -bs 12  -epoches 1 -interm_layer $hs -lr 2e-5
-python main.py -l ES -mode encoder -phase train -task bot -dp data/tasks/bot -ml 120 -tmode $tmode -bs 12  -epoches 1 -interm_layer $hs -lr 2e-5
-python main.py -l ES -mode encoder -phase train -task hater -dp data/tasks/hater -ml 120 -tmode $tmode -bs 12  -epoches 1 -interm_layer $hs -lr 2e-5
+python main.py -l ES -mode encoder -phase train -task faker -dp data/profiling/faker -ml 120 -tmode $tmode -bs 64  -epoches 12 -interm_layer $hs -lr 2e-5
+python main.py -l ES -mode encoder -phase train -task bot -dp data/profiling/bot -ml 120 -tmode $tmode -bs 64  -epoches 12 -interm_layer $hs -lr 2e-5
+python main.py -l ES -mode encoder -phase train -task hater -dp data/profiling/hater -ml 120 -tmode $tmode -bs 64  -epoches 12 -interm_layer $hs -lr 2e-5
 
-python main.py -l EN -mode encoder -phase train -task faker -dp data/tasks/faker -ml 120 -tmode $tmode -bs 12  -epoches 1 -interm_layer $hs -lr 2e-5
-python main.py -l EN -mode encoder -phase train -task bot -dp data/tasks/bot -ml 120 -tmode $tmode -bs 12  -epoches 1 -interm_layer $hs -lr 2e-5
-python main.py -l EN -mode encoder -phase train -task hater -dp data/tasks/hater -ml 120 -tmode $tmode -bs 12  -epoches 1 -interm_layer $hs -lr 2e-5
+python main.py -l EN -mode encoder -phase train -task faker -dp data/profiling/faker -ml 120 -tmode $tmode -bs 64  -epoches 12 -interm_layer $hs -lr 2e-5
+python main.py -l EN -mode encoder -phase train -task bot -dp data/profiling/bot -ml 120 -tmode $tmode -bs 64  -epoches 12 -interm_layer $hs -lr 2e-5
+python main.py -l EN -mode encoder -phase train -task hater -dp data/profiling/hater -ml 120 -tmode $tmode -bs 64  -epoches 12 -interm_layer $hs -lr 2e-5
 
 
 

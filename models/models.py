@@ -70,7 +70,7 @@ class TW_Data(Dataset):
   def __init__(self, data):
 
     self.wordl = data[0] 
-    self.label = data[2]
+    self.label = data[1]
 
   def __len__(self):
     return self.wordl.shape[0]
@@ -82,7 +82,7 @@ class TW_Data(Dataset):
     tweetword = self.wordl[idx] 
     label = self.label[idx]
 
-    sample = {'word': tweetword, 'label':label}
+    sample = {'tweet': tweetword, 'label':label}
     return sample
 
 

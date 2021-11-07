@@ -615,7 +615,7 @@ def read_data(data_path, dicc = None, trans = False):
 
   if trans == True:
     x = np.random.permutation(len(label_train))
-    twit_train = np.array(twit_train)[x, :]
+    twit_train = np.array(twit_train)[x]
     label_train = np.array(label_train)[x]
     return label_train, twit_train
 
