@@ -25,7 +25,7 @@ def read_truth(data_path):
 
         for line in target_file:
             inf = line.split(':::')
-            target[inf[0]] = int(inf[1])
+            target[inf[0]] = int(inf[-1])
 
     return target
 
@@ -61,7 +61,7 @@ def load_Profiling_Data(data_path, labeled=True):
     print(f'{bcolors.OKBLUE}Loaded {len(tweets)} Profiles{bcolors.ENDC}' )
     return tweets, indx
 
-def plot_training(history, language, measure='loss'):
+def plot_training(history, model_name, measure='loss'):
     
     plotdev = 'dev_' + measure
 
@@ -79,7 +79,8 @@ def plot_training(history, language, measure='loss'):
     if os.path.exists('./logs') == False:
         os.system('mkdir logs')
 
-    plt.savefig('./logs/train_history_{}.png'.format(language))
+    plt.savefig(f'./logs/train_history_{model_name}_{measure}.png')
+    plt.clf()
 
 def make_triplets( authors, kexamples, dimesion ):
 
@@ -583,7 +584,7 @@ def translate_char(twits, dic, seqlen):
 
     if len(hs) > seqlen:
         hs = hs[:seqlen]
-    hs = np.array(hs)
+    hs = np.array(hs, dtype=int)
     Spl.append(hs)
 
   txt = np.zeros((len(Spl), seqlen), dtype=int)

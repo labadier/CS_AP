@@ -238,7 +238,7 @@ def train_Seq(model, data, language, model_name, splits = 5, epoches = 4, batch_
     del devloader
     spl += 1
     break
-  print(f"{bcolors.OKGREEN}{bcolors.BOLD}{50*'*'}\nOveral Accuracy {language} in {spl} slpits: {overall_acc/spl}\n{50*'*'}{bcolors.ENDC}")
+  print(f"{bcolors.OKGREEN}{bcolors.BOLD}{50*'*'}\nOveral Accuracy {model_name} {language} in {spl} slpits: {overall_acc/spl}\n{50*'*'}{bcolors.ENDC}")
   return history
 
 

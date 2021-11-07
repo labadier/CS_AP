@@ -23,6 +23,7 @@ def check_params(args=None):
   parser = argparse.ArgumentParser(description='Language Model Encoder')
 
   parser.add_argument('-l', metavar='language', default=paramfile.l, help='Task Language')
+  parser.add_argument('-task', metavar='task', default=paramfile.l, help='Task')  
   parser.add_argument('-phase', metavar='phase', default=paramfile.phase, help='Phase')
   # parser.add_argument('-f', metavar='filee', help='Phase')
   parser.add_argument('-output', metavar='output', help='Output Path')
@@ -85,6 +86,7 @@ if __name__ == '__main__':
   phase = parameters.phase
   output = parameters.output
   up = parameters.up
+  task = parameters.task
 
   if mode == 'encoder':
 
@@ -95,14 +97,15 @@ if __name__ == '__main__':
       if os.path.exists('./logs') == False:
         os.system('mkdir logs')
       history = train_Encoder(data_path, language, mode_weigth, splits, epoches, batch_size, max_length, interm_layer_size, learning_rate, decay, 1, 0.1)
-      plot_training(history[-1], language, 'acc')
+      plot_training(history[-1], f'encoder_trans_{language[:2]}', 'acc')
+      plot_training(history[-1], f'encoder_trans_{language[:2]}')
     
     elif phase == 'encode':
 
       '''
         Get Encodings for each author's message from the Transformer based encoders
       '''
-      weight_path = os.path.join(weight_path, 'encoder_{}.pt'.format(language[:2]))
+      weight_path = os.path.join(weight_path, f'encoder_trans_{language[:2]}.pt')
       
       if os.path.isfile(weight_path) == False:
         print( f"{bcolors.FAIL}{bcolors.BOLD}ERROR: Weight path set unproperly{bcolors.ENDC}")
@@ -125,59 +128,6 @@ if __name__ == '__main__':
       torch.save(np.array(encs), f'logs/{infosave[0]}_{infosave[1]}_encodings_{language[:2]}.pt')
       # torch.save(np.array(preds),f'logs/{}_pred_{}.pt'.format(phase, language[:2]))
       print(f"{bcolors.OKCYAN}{bcolors.BOLD}Encodings Saved Successfully{bcolors.ENDC}")
-
-  # if mode == 'tSiamese':
-    
-  #   '''
-  #     Train Siamese over authorship verification task with encodings obtained from Transformer based encoders
-  #   '''
-
-  #   authors = torch.load('logs/train_Encodings_{}.pt'.format(language))
-  #   if loss == 'triplet':
-  #     train, dev = make_triplets( authors, 40, 64 )
-  #   else: train, dev = make_pairs( authors, 40, 64 )
-  #   model = Siamese_Encoder([64, 32], language, loss=loss)
-  #   history = train_Siamese(model, train, dev, mode='siamese_encoder', language=language, lossm=loss, splits=splits, epoches=epoches, batch_size=batch_size, lr = learning_rate,  decay=2e-5)
-  #   plot_training(history, language + '_Siamese')
-    
-  #   print(f"{bcolors.OKCYAN}{bcolors.BOLD}Training Finish{bcolors.ENDC}")
-
-  # if mode == 'eSiamese':
-
-  #   '''
-  #     Get each author's message encoding from the Verification Siamese.
-  #   '''
-  #   weight_path = os.path.join(weight_path, 'siamese_encoder_{}_.pt'.format(language[:2]))
-    
-  #   if os.path.isfile(weight_path) == False:
-  #     print( f"{bcolors.FAIL}{bcolors.BOLD}ERROR: Weight path set unproperly{bcolors.ENDC}")
-  #     exit(1)
-
-  #   model = Siamese_Encoder([64, 32], language)
-  #   model.load(weight_path)
-  #   authors = torch.load('logs/{}_Encodings_{}.pt'.format(phase, language))
-  #   out = [model.get_encodings(i, batch_size) for i in authors.astype(np.float32)]
-
-  #   torch.save(np.array(out), 'logs/{}_Encodingst_{}.pt'.format(phase, language))
-  #   print(f"{bcolors.OKCYAN}{bcolors.BOLD}Encodings Saved Successfully{bcolors.ENDC}")
-
-  # if mode == 'metriclearn':
-  #   '''
-  #     Train Siamese with profiles classification task for metric learning
-  #   '''
-  #   _, _, labels = load_data_PAN(os.path.join(data_path, language.lower()), labeled=True)
-  #   authors = torch.load('logs/train_Encodings_{}.pt'.format(language))
-  #   P_Set, N_Set = compute_centers_PSC(language, labels, num_protos=10)
-  #   train, dev = make_pairs_with_protos(P_Set, N_Set, authors, labels)
-  #   # train, dev = make_profile_pairs( authors, labels, 15, 64 )
-
-  #   model = Siamese_Metric([interm_layer_size, 32], language=language, loss=loss)
-  #   history = train_Siamese(model, train, dev, mode = 'metriclearn', language=language, lossm=loss, splits=splits, epoches=epoches, batch_size=batch_size, lr = learning_rate,  decay=decay)
-  #   plot_training(history, language + '_MetricL')
-  #   np.save(f'logs/PostitivePrototypeIndexes_{language}', P_Set)
-  #   np.save(f'logs/NegativePrototypeIndexes_{language}', N_Set)
-  #   print(f"{bcolors.OKCYAN}{bcolors.BOLD}Metric Learning Finish{bcolors.ENDC}")
-
 
   if mode == 'Impostor':
 
@@ -375,19 +325,21 @@ if __name__ == '__main__':
     elif language == "es": emb_path = 'data/embeddings/glove_es_200d'
     
     matrix, dic = read_embedding(emb_path)
+    model_name = f'CNN_LSTM_ENC_{task}_{learning_rate}'
 
     if phase == 'train':
       # data_path = "../data/profiling/faker/train"
       model = SeqEncoder(language, matrix)
       labels, tweets_word, tweets_char, _, _, _ = read_data(os.path.join(data_path, language), dic)
       
-      hist = train_Seq(model, [tweets_word, tweets_char, labels], language, "CNN_LSTM_ENC", splits, epoches, batch_size, lr = learning_rate,  decay=decay)
-      plot_training(hist[-1], language + '_CNN_LSTM_ENC', 'acc')
+      hist = train_Seq(model, [tweets_word, tweets_char, labels], language, model_name, splits, epoches, batch_size, lr = learning_rate,  decay=decay)
+      plot_training(hist[-1], f'{model_name}_{language}', 'acc')
+      plot_training(hist[-1], f'{model_name}_{language}')
     
     if phase == 'encode':
       
       model = SeqEncoder(language, matrix)
-      model.load(f'logs/CNN_LSTM_ENC_{language}_1.pt')
+      model.load(f'logs/{model_name}_{language}_1.pt')
 
       tweets, _ = load_Profiling_Data(os.path.join(data_path, language[:2].lower()), False)
       encs = []

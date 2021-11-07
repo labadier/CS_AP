@@ -1,4 +1,4 @@
-\begin{thebibliography}{45}
+\begin{thebibliography}{48}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{Agarwala et~al.(2017)Agarwala, Inoue, and Sly}]{agarwala2017music}
@@ -224,18 +224,19 @@ Juan Pizarro. 2020.
 \newblock In \emph{{CLEF 2020 Labs and Workshops, Notebook Papers}}.
   CEUR-WS.org.
 
-\bibitem[{Rangel et~al.(2020)Rangel, Giachanou, Ghanem, and
+\bibitem[{Rangel et~al.(2020{\natexlab{a}})Rangel, Giachanou, Ghanem, and
   Rosso}]{rangel:2020}
-Francisco Rangel, Anastasia Giachanou, Bilal Ghanem, and Paolo Rosso. 2020.
+Francisco Rangel, Anastasia Giachanou, Bilal Ghanem, and Paolo Rosso.
+  2020{\natexlab{a}}.
 \newblock \href {http://ceur-ws.org/Vol-2696/} {{Overview of the 8th Author
   Profiling Task at PAN 2020: Profiling Fake News Spreaders on Twitter}}.
 \newblock In \emph{{CLEF 2020 Labs and Workshops, Notebook Papers}}.
   CEUR-WS.org.
 
-\bibitem[{Rangel et~al.(2018)Rangel, {Montes{-}y{-}G{\'{o}}mez}, Potthast, and
-  Stein}]{rangel:2018}
+\bibitem[{Rangel et~al.(2018{\natexlab{a}})Rangel, {Montes{-}y{-}G{\'{o}}mez},
+  Potthast, and Stein}]{rangel:2018}
 Francisco Rangel, Manuel {Montes{-}y{-}G{\'{o}}mez}, Martin Potthast, and Benno
-  Stein. 2018.
+  Stein. 2018{\natexlab{a}}.
 \newblock \href {http://ceur-ws.org/Vol-2125/} {{Overview of the 6th Author
   Profiling Task at PAN 2018: Cross-domain Authorship Attribution and Style
   Change Detection}}.
@@ -248,6 +249,28 @@ Francisco Rangel and Paolo Rosso. 2019.
   Profiling Task at PAN 2019: Bots and Gender Profiling}}.
 \newblock In \emph{{CLEF 2019 Labs and Workshops, Notebook Papers}}.
   CEUR-WS.org.
+
+\bibitem[{Rangel et~al.(2020{\natexlab{b}})Rangel, Rosso, Ghanem, and
+  Giachanou}]{francisco_rangel_2020_4039435}
+Francisco Rangel, Paolo Rosso, Bilal Ghanem, and Anastasia Giachanou.
+  2020{\natexlab{b}}.
+\newblock \href {https://doi.org/10.5281/zenodo.4039435} {Profiling fake news
+  spreaders on twitter}.
+
+\bibitem[{Rangel et~al.(2018{\natexlab{b}})Rangel, Rosso, Montes-y G{\'o}mez,
+  Potthast, and Stein}]{rangel2018overview}
+Francisco Rangel, Paolo Rosso, Manuel Montes-y G{\'o}mez, Martin Potthast, and
+  Benno Stein. 2018{\natexlab{b}}.
+\newblock Overview of the 6th author profiling task at pan 2018: multimodal
+  gender identification in twitter.
+\newblock \emph{Working Notes Papers of the CLEF}, pages 1--38.
+
+\bibitem[{Rangel et~al.(2017)Rangel, Rosso, Potthast, and
+  Stein}]{rangel2017overview}
+Francisco Rangel, Paolo Rosso, Martin Potthast, and Benno Stein. 2017.
+\newblock Overview of the 5th author profiling task at pan 2017: Gender and
+  language variety identification in twitter.
+\newblock \emph{Working notes papers of the CLEF}, pages 1613--0073.
 
 \bibitem[{Rangel et~al.(2021)Rangel, Sarrac{\'e}n, Chulvi, Fersini, and
   Rosso}]{rangel2021profiling}

@@ -23,7 +23,7 @@
 	El análisis del historial de un perfil de usuario en redes sociales como Twitter, involucra una cantidad considerable de información textual, lo cual puede resultar desafiante para el entrenamiento de algunos modelos de DL, sobretodo debido a las relaciones a largo plazo que es necesario contemplar a la hora de clasificar un perfil o extraer sus rasgos.	
 	Este fenómeno es independiente del nivel de supervisado con que se afronte la tarea y es conocido como \textit{information vanishing} \citep{hochreiter2001gradient}. Otros modelos son capaces de lidiar con este problema, sin embargo, están limitados por la complejidad temporal que poseen para analizar secuencias de texto, tal es el caso de la popular arquitectura \textit{transformer} donde cada capa de atención tiene  $O (n^2*d)$, con $n \text{ y } d$ la longitud de la secuencia y la dimensionalidad de sus elementos respectivamente. 
 	Por estas razones separar la clasificación del perfil en distintos momentos analizando primero estructuras menos extensas (i.e., los tweets) y luego el perfil completo, constituye una alternativa en el empleo de DL.\\
-	El enfoque empleado para este trabajo se apoya en una arquitectura modular para modelar la información textual primeramente a nivel de tweets  y luego conformar una agregación de los mismos que sirva para describir y clasificar el perfil.
+	El enfoque empleado para este trabajo se apoya en una arquitectura modular para modelar la información textual primeramente a nivel de tweets  (\textit{Codificador}) y luego conformar una agregación de los mismos que sirva para describir y clasificar el perfil (\textit{Clasificador}).
 	
 	\subsection{CNN - LSTM}~\label{cnn-lstm}
 	
@@ -110,7 +110,7 @@
 	 \\\\
 	 Como en el método original, para realizar una predicción sobre un objeto desconocido (en este caso un perfil de autor) es definido previamente un conjunto $H$ y $K$ de ejemplos positivos y negativos respectivamente y el objeto desconocido $u$.
 	 \\
-	 De $H$ es muestreado con de manera uniforme un subconjunto $\bar{H}$ como prototipos de la clase positiva y es analizado para cada $\bar{H}_i$ si $u$ es mas similar a este prototipo que a los elementos de un conjunto $\bar{K}_i$, i.e., $\mathcal{F}(u, \bar{H}_i) > \mathcal{F}(u, \bar{K}_{ij})$ donde $\mathcal{F}$ es una función de similitud; en este caso coseno. Luego de esto, se dice que $u$ teniendo en cuenta $\bar{H}_i$ es un candidato a pertenecer a una clase positiva según un voto por mayoría, esto es:
+	 De $H$ es muestreado de manera uniforme un subconjunto $\bar{H}$ como prototipos de la clase positiva y es analizado para cada $\bar{H}_i$ si $u$ es mas similar a este prototipo que a los elementos de un conjunto $\bar{K}_i$, i.e., $\mathcal{F}(u, \bar{H}_i) > \mathcal{F}(u, \bar{K}_{ij})$ donde $\mathcal{F}$ es una función de similitud; en este caso coseno. Luego de esto, se dice que $u$ teniendo en cuenta $\bar{H}_i$ es un candidato a pertenecer a una clase positiva según un voto por mayoría, esto es:
 	 
 	\begin{equation*}
 	 	P_i(u,  \bar{H}_i) = 
@@ -135,7 +135,7 @@
 	 
 	 \section{Rasgos Manuales de Estilo}
 	 
-	 Para la representación del del perfil es analizado un conjunto de 177 rasgos que capturen características relevantes del estilo de escritura. Los rasgos son estructurados en seis subconjuntos considerando diferentes capas textuales. Las capas son: booleanas; caracteres; oraciones; párrafo; sintáctica y de documento.
+	 Para la representación del perfil es analizado un conjunto de 177 rasgos que capturen características relevantes del estilo de escritura. Los rasgos son estructurados en seis subconjuntos considerando diferentes capas textuales. Las capas son: booleanas; caracteres; oraciones; párrafo; sintáctica y de documento.
 	 \\
 	 Ejemplos de los elementos de estas capas son:	 \\
 	 \begin{enumerate}

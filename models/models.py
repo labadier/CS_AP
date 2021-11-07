@@ -249,7 +249,7 @@ def train_Encoder(data_path, language, mode_weigth, splits = 5, epoches = 4, bat
 
     band = False
     if model.best_acc is None or model.best_acc < dev_acc:
-      model.save(f'encoder_{language[:2]}.pt')
+      model.save(f'encoder_trans_{language[:2]}.pt')
       model.best_acc = dev_acc
       band = True
 

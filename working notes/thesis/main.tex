@@ -1,6 +1,6 @@
 \documentclass[11pt, letterpaper]{report}
 \usepackage{geometry}
-\usepackage{graphicx, subfigure}
+\usepackage{graphicx, subfigure,multirow, booktabs}
 \usepackage[spanish]{babel}
 \usepackage{xcolor}
 \definecolor{darkblue}{rgb}{0, 0, 0.5}
@@ -56,17 +56,16 @@
 	\thispagestyle{empty} 	
 	\chapterfont{\flushright}
 	\renewcommand{\contentsname}{Contenido} \tableofcontents
-	\renewcommand{\listfigurename}{Lista de Figuras}
-	\renewcommand{\listtablename}{Lista de Tablas}
+	\renewcommand{\listfigurename}{Lista de Figuras} \listoffigures	
+	\renewcommand{\listtablename}{Lista de Tablas} \listoftables
 	\renewcommand{\tablename}{Tabla}
-
-	\listoffigures	
-%	\listoftables
 	\clearpage
+
 	
 	\input{intro/intro}
 	\input{chapters/chp1}
 	\input{chapters/chp2}
+	\input{chapters/chp3}
 	\bibliographystyle{style/acl_natbib}
 	\renewcommand{\bibname}{Referencias Bibliográficas}
 	\bibliography{bibliography}

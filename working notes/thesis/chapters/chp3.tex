@@ -1,0 +1,92 @@
+\chapter{Marco Experimental}
+
+En este capítulo, son descritos los conjuntos de datos sobre los que se evaluará el desempeño de la estrategia de análisis modular propuesta para abordar el perfilado de autores. Luego se exponen las metricas empleadas y finalmente se presentan los resultados experimentales asociados a cada módulo (i.e., Codificador y Clasificador) de manera independiente y a las combinaciones de los mismos.
+	
+\section{Tareas}
+	 
+	 Las colecciones de datos existente relacionadas con tareas de AP mayormente se encuentran anotadas a nivel de perfil y con información relativa a tareas especificas. Para evaluar los modelos propuestos, siguiendo este esquema, en este trabajo se introducen los conjuntos de datos de las tareas compartidas en las ediciones de 2019-2021 de PAN, cada una de estas propuestas con un enfoque multilingüe, analizando el problema para perfiles de usuarios del idioma ingles y español.
+	 
+	 \subsection{Bots and Gender Profiling at PAN 2019}
+	 
+	 En la tarea Bots and Gender Profiling, dado conjunto de exactamente 100 posts  pertenecientes a un perfil de usuario de Twitter y teniendo en cuenta que no existe ningún tipo anotación a nivel de tweets, debe determinarse si este corresponde a un bot o a un ser humano y para el segundo caso predecirse el genero sexual de la persona.
+	 \\
+	 Para evaluar el desempeño de los modelos propuestos, en nuestro trabajo se prestará atención solamente al problema de discernir entre perfiles de usuarios humano hombres o mujeres. El conjunto de datos de perfiles humanos está construido a partir de cuentas de usuarios tomadas de corpus creados en ediciones previas de la tarea de perfilado de PAN \citep{rangel2017overview, rangel2018overview}. Además los datos se encuentran distribuidos uniformemente tanto para el idioma ingles como para el español, entre las clases `\textit{Male}' y `\textit{Female}' como puede ser observado en la \tablename~\ref{pan19data}.	 
+	 		\begin{table}[thb!]
+			 	\begin{center} 					 		
+			 		\begin{tabular}{lcccccc} 
+			 			\specialrule{.1em}{.05em}{.05em}
+			 			 \multirow{2}{*}{}&\multicolumn{3}{c}{(EN) Ingles}&\multicolumn{3}{c}{(ES) Español}\\	 			\cline{2-7}
+			 			&~~Female~~&~~Male~~&~~Total~~ &~~Female~~ &~~Male~~&~~Total~~\\
+			 			\specialrule{.1em}{.05em}{.05em} 
+			 			Training & 1030&1030&2060&750&750&1500\\
+			 			Test  &660&660&1320&450&450&900\\
+			 			\cline{1-7}
+			 			Total &1690&1690&3380&1200&1200&2400\\
+			 			\specialrule{.1em}{.05em}{.05em} 
+			 		\end{tabular}
+			 		\label{pan19data}	
+			 		\caption[Corpus Profiling PAN 2019]{Distribución de los datos para la tarea Bots and Gender Profiling at PAN 2019}	
+			 	\end{center}
+			 \end{table}	
+		 \\
+	 \subsection{Profiling Fake News Spreaders on Twitter at PAN 2020}
+	 
+	 Profiling Fake News Spreaders on Twitter, dentro de PAN 2020, introduce el análisis de rasgos de la personalidad de los autores, proponiendo la tarea de discriminar entre usuarios de Twitter que han compartido noticias falsas de aquellos que nunca lo han hecho, basándose en un conjunto de 100 tweets (carentes de algún tipo de anotación) tomados de su perfil.\\
+	 El corpus propuesto por los organizadores de la tarea \citep{francisco_rangel_2020_4039435}, fue construido seleccionando de sitios web  \textit{fact-checking } (comprobadores de hechos) noticias etiquetadas como falsas, luego mediante la búsqueda de tweets relacionados con estas \textit{fake news}, se identificaron a sus correspondientes usuarios como ejemplos positivos de \textit{fake news spreaders} (faker) tomando aquellos con un mayor número de noticias falsas compartidas y teniendo en cuenta que el contenido del tweet no fuera para desmentir la noticia falsa.	 En el caso de que el usuario no hubiera compartido información relacionada con las noticias falsas identificadas, este fue etiquetado como \textit{real news spreader} (no faker).
+	 
+	 El la \tablename~\ref{pan20data} se muestra la distribución uniforme de los perfiles para los idiomas español e ingles en los que fue compartida la tarea.	 
+	 
+	 	\begin{table}[thb!]
+	 	\begin{center} 					 		
+	 		\begin{tabular}{lcccccc} 
+	 			\specialrule{.1em}{.05em}{.05em}
+	 			\multirow{2}{*}{}&\multicolumn{3}{c}{(EN) Ingles}&\multicolumn{3}{c}{(ES) Español}\\	 			\cline{2-7}
+	 			&~~faker~~&~~no faker~~&~~Total~~ &~~faker~~ &~~no faker~~&~~Total~~\\
+	 			\specialrule{.1em}{.05em}{.05em} 
+	 			Training & 150&150&300&150&150&300\\
+	 			Test  &100&100&200&100&100&200\\
+	 			\cline{1-7}
+	 			Total &250&250&500&250&250&500\\
+	 			\specialrule{.1em}{.05em}{.05em} 
+	 		\end{tabular}
+	 		\label{pan20data}	
+	 		\caption[Corpus Profiling PAN 2020]{Distribución de los datos para la tarea Profiling Fake News Spreaders on Twitter at PAN 2020}	
+	 	\end{center}
+	 \end{table}	
+	 
+	 \subsection{Profiling Hate Speech Spreaders on Twitter at PAN 2021}
+	 
+	 Para esta tarea dado un perfil de usuario, debía ser determinado cuando este corresponde a un autor que ha difundido en el pasado un discurso de odio teniendo en cuenta 200 tweets tomados de su perfil.\\
+	 El corpus propuesto por los organizadores fue construido considerando usuarios que han empleado palabras con cierto nivel de toxicidad fundamentalmente relacionadas con la misoginia y xenofobia, ademas se inspeccionaron cuentas de usuarios conocidos como \textit{haters} con apariciones en reportes, asi como su red i.e., followers. Luego para estos usuarios identificados, fueron anotados manualmente los tweets que comunicaban un discurso de odio y finalmente fueron clasificados como \textit{hate speech spreaders} aquellos usuarios con mas de 10 de estos posts. El conjunto de datos esta distribuido uniformemente para las clases divulgador de discurso de odio (\textit{hater})  y no divulgador de discurso de odio (\textit{no hater}) como se muestra en la \tablename~\ref{pan21data}
+	 
+	 
+	 	\begin{table}[thb!]
+		 	\begin{center} 					 		
+		 		\begin{tabular}{lcccccc} 
+		 			\specialrule{.1em}{.05em}{.05em}
+		 			\multirow{2}{*}{}&\multicolumn{3}{c}{(EN) Ingles}&\multicolumn{3}{c}{(ES) Español}\\	 			\cline{2-7}
+		 			&~~hater~~&~~no hater~~&~~Total~~ &~~hater~~ &~~no hater~~&~~Total~~\\
+		 			\specialrule{.1em}{.05em}{.05em} 
+		 			Training & 150&150&300&150&150&300\\
+		 			Test  &100&100&200&100&100&200\\
+		 			\cline{1-7}
+		 			Total &250&250&500&250&250&500\\
+		 			\specialrule{.1em}{.05em}{.05em} 
+		 		\end{tabular}
+		 		\label{pan21data}	
+		 		\caption[Corpus Profiling PAN 2021]{Distribución de los datos para la tarea Profiling Hate Speech Spreaders on Twitter at PAN 2021}	
+		 	\end{center}
+		 \end{table}	
+	 
+	 \section{Resultados Experimentales}
+	 
+	 La robustez de los sistemas modulares descansan en el optimo aprendizaje de cada uno de los módulos de manera independiente, en nuestro caso del Codificador y el Clasificador. De manera general en nuestro trabajo introducimos una tarea intermedia semisupervisada para entrenar los modelos Codificadores \footnote{El objeto de predicción de esta tarea semisupervisada, estuvo condicionado por la carencia de anotación a nivel de tweet en cada uno de los corpus y se relaciona con la pertenencia o no a determinado tipo de perfil.}, de esta forma los mismos aprenden relaciones del lenguaje dentro de cada tweet sobre la tarea en cuestión.\\
+	 Para medir el cuan efectivos resulta cada modelo empleamos las métricas \textit{accuracy} (\ref{accuracy}) y\textit{ recall} (\ref{recall}), esta última para los modelos de clasificación sobre la clase positiva en las tareas en las que es necesario la correcta identificacion de una clase sobre otra, i.e., clase positiva (hater) en \textit{Profiling Hate Speech Spreaders on Twitter}  y clase positiva (faker) en \textit{Profiling Fake News Spreaders on Twitter}.
+	 
+	 \begin{flalign}
+	 	acc=~& \frac{TP + TN}{TP + FP + TN + FN}\label{accuracy}\\
+	 	recall =~& \frac{TP}{TP + FN}\label{recall}
+	 \end{flalign}
+ 
+ 	\subsection{Codificador CNN - LSTM}
+ 	\subsection{Codificador Transformer}
