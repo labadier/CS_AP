@@ -90,24 +90,26 @@ if __name__ == '__main__':
 
   if mode == 'encoder':
 
+    prefix_path = '/content/drive/MyDrive/Profiling/logs'
+    model_name = f'{sys.prefix}/encoder_trans_{task}_{language[:2]}'
     if phase == 'train':
       '''
         Train Transdormers based encoders BETo for spanish and BERTweet for English
       '''
-      if os.path.exists('./logs') == False:
-        os.system('mkdir logs')
-      labels, tweets_word, = read_data(os.path.join(data_path, language), trans=True)
+      if os.path.exists(prefix_path) == False:
+        os.system(f'mkdir {prefix_path}')
+      labels, tweets_word, = read_data(os.path.join(data_path, language.lower()), trans=True)
       
-      history = train_Encoder(data_path, language, mode_weigth, [tweets_word, labels], splits, epoches, batch_size, max_length, interm_layer_size, learning_rate, decay, 1, 0.1)
-      plot_training(history[-1], f'encoder_trans_{language[:2]}', 'acc')
-      plot_training(history[-1], f'encoder_trans_{language[:2]}')
+      history = train_Encoder(model_name, data_path, language, mode_weigth, [tweets_word, labels], splits, epoches, batch_size, max_length, interm_layer_size, learning_rate, decay, 1, 0.1)
+      plot_training(history[-1], model_name, 'acc')
+      plot_training(history[-1], model_name)
     
     elif phase == 'encode':
 
       '''
         Get Encodings for each author's message from the Transformer based encoders
       '''
-      weight_path = os.path.join(weight_path, f'encoder_trans_{language[:2]}.pt')
+      weight_path = os.path.join(weight_path, f'{model_name}.pt')
       
       if os.path.isfile(weight_path) == False:
         print( f"{bcolors.FAIL}{bcolors.BOLD}ERROR: Weight path set unproperly{bcolors.ENDC}")
@@ -127,7 +129,7 @@ if __name__ == '__main__':
         encs.append(e)
         # preds.append(l)
       infosave = data_path.split("/")[-2:]
-      torch.save(np.array(encs), f'logs/{infosave[0]}_{infosave[1]}_encodings_{language[:2]}.pt')
+      torch.save(np.array(encs), f'{prefix_path}/{infosave[0]}_{infosave[1]}_encodings_{language[:2]}.pt')
       # torch.save(np.array(preds),f'logs/{}_pred_{}.pt'.format(phase, language[:2]))
       print(f"{bcolors.OKCYAN}{bcolors.BOLD}Encodings Saved Successfully{bcolors.ENDC}")
 
@@ -327,9 +329,10 @@ if __name__ == '__main__':
     elif language == "es": emb_path = 'data/embeddings/glove_es_200d'
     
     matrix, dic = read_embedding(emb_path)
-    model_name = f'CNN_LSTM_ENC_{task}_{learning_rate}'
+   
 
     if phase == 'train':
+      model_name = f'CNN_LSTM_ENC_{task}_{learning_rate}'
       # data_path = "../data/profiling/faker/train"
       model = SeqEncoder(language, matrix)
       labels, tweets_word, tweets_char, _, _, _ = read_data(os.path.join(data_path, language), dic)
@@ -339,7 +342,7 @@ if __name__ == '__main__':
       plot_training(hist[-1], f'{model_name}_{language}')
     
     if phase == 'encode':
-      
+      model_name = f'CNN_LSTM_ENC_{task}'
       model = SeqEncoder(language, matrix)
       model.load(f'logs/{model_name}_{language}_1.pt')
 

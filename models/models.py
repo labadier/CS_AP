@@ -147,11 +147,7 @@ class Encoder(torch.nn.Module):
     self.load_state_dict(torch.load(path, map_location=self.device))
 
   def save(self, path):
-    if os.path.exists('./logs') == False:
-      os.system('mkdir logs')
-    torch.save(self.state_dict(), os.path.join('logs', path))
-    if self.language[-1] == '_':
-      self.transformer.save_all_adapters('logs')
+    torch.save(self.state_dict(), path)
 
   def makeOptimizer(self, lr=1e-5, decay=2e-5, multiplier=1, increase=0.1):
 
@@ -200,7 +196,7 @@ class Encoder(torch.nn.Module):
     del devloader
     return out, log
 
-def train_Encoder(data_path, language, mode_weigth, dataf = None, splits = 5, epoches = 4, batch_size = 64, max_length = 120, interm_layer_size = 64, lr = 1e-5,  decay=2e-5, multiplier=1, increase=0.1):
+def train_Encoder(prefixpath, data_path, language, mode_weigth, dataf = None, splits = 5, epoches = 4, batch_size = 64, max_length = 120, interm_layer_size = 64, lr = 1e-5,  decay=2e-5, multiplier=1, increase=0.1):
   
   skf = StratifiedKFold(n_splits=5, shuffle=True, random_state = 23) 
   history = []
@@ -274,7 +270,7 @@ def train_Encoder(data_path, language, mode_weigth, dataf = None, splits = 5, ep
 
       band = False
       if model.best_acc is None or model.best_acc < dev_acc:
-        model.save(f'encoder_trans_{language[:2]}.pt')
+        model.save(f'{prefixpath}.pt')
         model.best_acc = dev_acc
         band = True
 

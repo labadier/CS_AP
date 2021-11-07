@@ -76,10 +76,7 @@ def plot_training(history, model_name, measure='loss'):
 
     plt.plot(x,history['dev_' + measure][x], marker="o", color="red")
 
-    if os.path.exists('./logs') == False:
-        os.system('mkdir logs')
-
-    plt.savefig(f'./logs/train_history_{model_name}_{measure}.png')
+    plt.savefig(f'{model_name}_{measure}.png')
     plt.clf()
 
 def make_triplets( authors, kexamples, dimesion ):
