@@ -65,6 +65,27 @@ class RawDataset(Dataset):
     sample = {'tweet': text, 'label': value}
     return sample
 
+class TW_Data(Dataset):
+
+  def __init__(self, data):
+
+    self.wordl = data[0] 
+    self.label = data[2]
+
+  def __len__(self):
+    return self.wordl.shape[0]
+
+  def __getitem__(self, idx):
+    if torch.is_tensor(idx):
+      idx = idx.tolist()
+
+    tweetword = self.wordl[idx] 
+    label = self.label[idx]
+
+    sample = {'word': tweetword, 'label':label}
+    return sample
+
+
 class SiameseData(Dataset):
   def __init__(self, data):
 
@@ -179,91 +200,95 @@ class Encoder(torch.nn.Module):
     del devloader
     return out, log
 
-def train_Encoder(data_path, language, mode_weigth, splits = 5, epoches = 4, batch_size = 64, max_length = 120, interm_layer_size = 64, lr = 1e-5,  decay=2e-5, multiplier=1, increase=0.1):
-
-  history = []
-  history.append({'loss': [], 'acc':[], 'dev_loss': [], 'dev_acc': []})
-  model = Encoder(interm_layer_size, max_length, language, mode_weigth)
+def train_Encoder(data_path, language, mode_weigth, dataf = None, splits = 5, epoches = 4, batch_size = 64, max_length = 120, interm_layer_size = 64, lr = 1e-5,  decay=2e-5, multiplier=1, increase=0.1):
   
-  optimizer = model.makeOptimizer(lr, decay, multiplier, increase)
-  trainloader = DataLoader(RawDataset(os.path.join(data_path, language.lower(), 'pdata_train.csv')), batch_size=batch_size, shuffle=True, num_workers=4, worker_init_fn=seed_worker)
-  devloader = DataLoader(RawDataset(os.path.join(data_path, language.lower(), 'pdata_dev.csv')), batch_size=batch_size, shuffle=True, num_workers=4, worker_init_fn=seed_worker)
-  batches = len(trainloader)
+  skf = StratifiedKFold(n_splits=5, shuffle=True, random_state = 23) 
+  history = []
 
-  for epoch in range(epoches):
-
-    running_loss = 0.0
-    perc = 0
-    acc = 0
+  for i, (train_index, test_index) in enumerate(skf.split(dataf[0], dataf[-1])):  
     
-    model.train()
-    last_printed = ''
-    for j, data in enumerate(trainloader, 0):
+    history.append({'loss': [], 'acc':[], 'dev_loss': [], 'dev_acc': []})
+    model = Encoder(interm_layer_size, max_length, language, mode_weigth)
+    
+    optimizer = model.makeOptimizer(lr, decay, multiplier, increase)
+    trainloader = DataLoader(TW_Data([dataf[0][train_index], dataf[1][train_index]]), batch_size=batch_size, shuffle=True, num_workers=4, worker_init_fn=seed_worker)
+    devloader = DataLoader(TW_Data([dataf[0][test_index], dataf[1][test_index]]), batch_size=batch_size, shuffle=True, num_workers=4, worker_init_fn=seed_worker)
+    batches = len(trainloader)
 
-      torch.cuda.empty_cache()         
-      inputs, labels = data['tweet'], data['label'].to(model.device)      
-      
-      optimizer.zero_grad()
-      outputs = model(inputs)
-      loss = model.loss_criterion(outputs, labels)
-      
-      loss.backward()
-      optimizer.step()
+    for epoch in range(epoches):
 
-      # print statistics
+      running_loss = 0.0
+      perc = 0
+      acc = 0
+      
+      model.train()
+      last_printed = ''
+      for j, data in enumerate(trainloader, 0):
+
+        torch.cuda.empty_cache()         
+        inputs, labels = data['tweet'], data['label'].to(model.device)      
+        
+        optimizer.zero_grad()
+        outputs = model(inputs)
+        loss = model.loss_criterion(outputs, labels)
+        
+        loss.backward()
+        optimizer.step()
+
+        # print statistics
+        with torch.no_grad():
+          if j == 0:
+            acc = ((1.0*(torch.max(outputs, 1).indices == labels)).sum()/len(labels)).cpu().numpy()
+            running_loss = loss.item()
+          else: 
+            acc = (acc + ((1.0*(torch.max(outputs, 1).indices == labels)).sum()/len(labels)).cpu().numpy())/2.0
+            running_loss = (running_loss + loss.item())/2.0
+
+        if (j+1)*100.0/batches - perc  >= 1 or j == batches-1:
+          perc = (1+j)*100.0/batches
+          last_printed = f'\rEpoch:{epoch+1:3d} of {epoches} step {j+1} of {batches}. {perc:.1f}% loss: {running_loss:.3f}'
+          print(last_printed, end="")
+      
+      model.eval()
+      history[-1]['loss'].append(running_loss)
       with torch.no_grad():
-        if j == 0:
-          acc = ((1.0*(torch.max(outputs, 1).indices == labels)).sum()/len(labels)).cpu().numpy()
-          running_loss = loss.item()
-        else: 
-          acc = (acc + ((1.0*(torch.max(outputs, 1).indices == labels)).sum()/len(labels)).cpu().numpy())/2.0
-          running_loss = (running_loss + loss.item())/2.0
+        out = None
+        log = None
+        for k, data in enumerate(devloader, 0):
+          torch.cuda.empty_cache() 
+          inputs, label = data['tweet'], data['label'].to(model.device)
 
-      if (j+1)*100.0/batches - perc  >= 1 or j == batches-1:
-        perc = (1+j)*100.0/batches
-        last_printed = f'\rEpoch:{epoch+1:3d} of {epoches} step {j+1} of {batches}. {perc:.1f}% loss: {running_loss:.3f}'
-        print(last_printed, end="")
-    
-    model.eval()
-    history[-1]['loss'].append(running_loss)
-    with torch.no_grad():
-      out = None
-      log = None
-      for k, data in enumerate(devloader, 0):
-        torch.cuda.empty_cache() 
-        inputs, label = data['tweet'], data['label'].to(model.device)
+          dev_out = model(inputs)
+          if k == 0:
+            out = dev_out
+            log = label
+          else: 
+            out = torch.cat((out, dev_out), 0)
+            log = torch.cat((log, label), 0)
 
-        dev_out = model(inputs)
-        if k == 0:
-          out = dev_out
-          log = label
-        else: 
-          out = torch.cat((out, dev_out), 0)
-          log = torch.cat((log, label), 0)
+        dev_loss = model.loss_criterion(out, log).item()
+        dev_acc = ((1.0*(torch.max(out, 1).indices == log)).sum()/len(log)).cpu().numpy() 
+        history[-1]['acc'].append(acc)
+        history[-1]['dev_loss'].append(dev_loss)
+        history[-1]['dev_acc'].append(dev_acc) 
 
-      dev_loss = model.loss_criterion(out, log).item()
-      dev_acc = ((1.0*(torch.max(out, 1).indices == log)).sum()/len(log)).cpu().numpy() 
-      history[-1]['acc'].append(acc)
-      history[-1]['dev_loss'].append(dev_loss)
-      history[-1]['dev_acc'].append(dev_acc) 
+      band = False
+      if model.best_acc is None or model.best_acc < dev_acc:
+        model.save(f'encoder_trans_{language[:2]}.pt')
+        model.best_acc = dev_acc
+        band = True
 
-    band = False
-    if model.best_acc is None or model.best_acc < dev_acc:
-      model.save(f'encoder_trans_{language[:2]}.pt')
-      model.best_acc = dev_acc
-      band = True
+      ep_finish_print = f' acc: {acc:.3f} | dev_loss: {dev_loss:.3f} dev_acc: {dev_acc.reshape(-1)[0]:.3f}'
+      if band == True:
+        print(bcolors.OKBLUE + bcolors.BOLD + last_printed + ep_finish_print + '\t[Weights Updated]' + bcolors.ENDC)
+      else: print(ep_finish_print)  
 
-    ep_finish_print = f' acc: {acc:.3f} | dev_loss: {dev_loss:.3f} dev_acc: {dev_acc.reshape(-1)[0]:.3f}'
-    if band == True:
-      print(bcolors.OKBLUE + bcolors.BOLD + last_printed + ep_finish_print + '\t[Weights Updated]' + bcolors.ENDC)
-    else: print(ep_finish_print)  
-
-    
-  print(f'{bcolors.OKBLUE}Training Finished{bcolors.ENDC}')
-  del trainloader
-  del model
-  del devloader
-  return history
+      
+    print(f'{bcolors.OKBLUE}Training Finished{bcolors.ENDC}')
+    del trainloader
+    del model
+    del devloader
+    return history
 
 class ContrastiveLoss(torch.nn.Module):
 

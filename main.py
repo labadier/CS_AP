@@ -96,7 +96,9 @@ if __name__ == '__main__':
       '''
       if os.path.exists('./logs') == False:
         os.system('mkdir logs')
-      history = train_Encoder(data_path, language, mode_weigth, splits, epoches, batch_size, max_length, interm_layer_size, learning_rate, decay, 1, 0.1)
+      labels, tweets_word, = read_data(os.path.join(data_path, language), trans=True)
+      
+      history = train_Encoder(data_path, language, mode_weigth, [tweets_word, labels], splits, epoches, batch_size, max_length, interm_layer_size, learning_rate, decay, 1, 0.1)
       plot_training(history[-1], f'encoder_trans_{language[:2]}', 'acc')
       plot_training(history[-1], f'encoder_trans_{language[:2]}')
     

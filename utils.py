@@ -593,7 +593,7 @@ def translate_char(twits, dic, seqlen):
 
   return txt, char_count    
 
-def read_data(data_path, dicc):
+def read_data(data_path, dicc = None, trans = False):
   addrs = glob.glob(os.path.join(data_path, '*.xml'))
   author = {}
 
@@ -612,6 +612,12 @@ def read_data(data_path, dicc):
       for twit in root:
           twit_train.append(twit.text)
           label_train.append(target[author])
+
+  if trans == True:
+    x = np.random.permutation(len(label_train))
+    twit_train = np.array(twit_train)[x, :]
+    label_train = np.array(label_train)[x]
+    return label_train, twit_train
 
   dic = {' ': 0}
   for i in range(26):
