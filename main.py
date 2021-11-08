@@ -1,8 +1,7 @@
 #%%
 import argparse, sys, os, numpy as np, torch, random
 from matplotlib.pyplot import axis
-from torch._C import parse_schema
-from models.models import Encoder, train_Encoder, train_Siamese, Siamese_Encoder, Siamese_Metric
+from models.models import Encoder, train_Encoder
 from utils import plot_training, load_Profiling_Data, make_pairs
 from utils import make_triplets,make_profile_pairs, save_predictions, read_embedding, translate_char
 from utils import make_pairs_with_protos, compute_centers_PSC, read_data, translate_words
@@ -94,7 +93,7 @@ if __name__ == '__main__':
     model_name = f'{prefix_path}/encoder_trans_{task}_{language[:2]}'
     if phase == 'train':
       '''
-        Train Transdormers based encoders BETo for spanish and BERTweet for English
+        Train Transformers based encoders BETo for spanish and BERTweet for English
       '''
       if os.path.exists(prefix_path) == False:
         os.system(f'mkdir {prefix_path}')
@@ -111,12 +110,12 @@ if __name__ == '__main__':
       '''
       weight_path = os.path.join(weight_path, f'{model_name}.pt')
       
-      if os.path.isfile(weight_path) == False:
+      if os.path.isfile(f'{model_name}.pt') == False:
         print( f"{bcolors.FAIL}{bcolors.BOLD}ERROR: Weight path set unproperly{bcolors.ENDC}")
         exit(1)
 
       model = Encoder(interm_layer_size, max_length, language, mode_weigth)
-      model.load(weight_path)
+      model.load(f'{model_name}.pt')
       if language[-1] == '_':
         model.transformer.load_adapter("logs/hate_adpt_{}".format(language[:2].lower()))
       
