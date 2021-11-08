@@ -5,6 +5,7 @@ import torch, os
 from fcmeans import FCM
 from sklearn.metrics.pairwise import euclidean_distances, cosine_similarity
 from sklearn.manifold import TSNE
+import json
 
 class bcolors:
     HEADER = '\033[95m'
@@ -630,3 +631,15 @@ def read_data(data_path, dicc = None, trans = False):
   twitchar_train = twitchar_train[x, :]
 
   return label_train, twit_train, twitchar_train, word_count, char_count, kafka
+
+
+def load_mixed_features(path):
+    data = json.load(open(path))
+    features = {}
+
+    for i in data.keys():
+        if i == 'Language' or i == 'Type':
+            continue
+        features[i] = np.clip(np.fromstring(data[i]['xml']['document']['vec'], 'f', sep=','), -10, 10)
+
+    return features

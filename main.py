@@ -91,7 +91,7 @@ if __name__ == '__main__':
   if mode == 'encoder':
 
     prefix_path = '/content/drive/MyDrive/Profiling/logs'
-    model_name = f'{sys.prefix}/encoder_trans_{task}_{language[:2]}'
+    model_name = f'{prefix_path}/encoder_trans_{task}_{language[:2]}'
     if phase == 'train':
       '''
         Train Transdormers based encoders BETo for spanish and BERTweet for English
