@@ -146,12 +146,12 @@ if __name__ == '__main__':
       N_Set = list(np.load(f'logs/NegativePrototypeIndexes_{language}.npy'))
 
     model = None
-    if metric == 'deepmetric':
-      model = Siamese_Metric([interm_layer_size, 32], language=language, loss=loss)
-      model.load(os.path.join('logs', 'metriclearn_{}.pt'.format(language)))
-      encodings = torch.load(f'logs/train_{infosave[0]}_encodings_{language}.pt')
-      encodings_test = torch.load(f'logs/dev_{infosave[0]}_encodings_{language}.pt')
-    elif ecnImp != 'transformer':
+    # if metric == 'deepmetric':
+    #   model = Siamese_Metric([interm_layer_size, 32], language=language, loss=loss)
+    #   model.load(os.path.join('logs', 'metriclearn_{}.pt'.format(language)))
+    #   encodings = torch.load(f'logs/train_{infosave[0]}_encodings_{language}.pt')
+    #   encodings_test = torch.load(f'logs/dev_{infosave[0]}_encodings_{language}.pt')
+    if ecnImp != 'transformer':
 
       encodings = torch.load(f'logs/train_Profile_{ecnImp}_{infosave[0]}_{language}.pt')
       encodings_test = torch.load(f'logs/dev_Profile_{ecnImp}_{infosave[0]}_{language}.pt')

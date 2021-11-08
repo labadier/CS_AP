@@ -1,4 +1,4 @@
-\begin{thebibliography}{48}
+\begin{thebibliography}{56}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{Agarwala et~al.(2017)Agarwala, Inoue, and Sly}]{agarwala2017music}
@@ -66,6 +66,13 @@ Jakab Buda and Flora Bolonyai. 2020.
 \newblock In \emph{{CLEF 2020 Labs and Workshops, Notebook Papers}}.
   CEUR-WS.org.
 
+\bibitem[{Cañete et~al.(2020)Cañete, Chaperon, Fuentes, Ho, Kang, and
+  Pérez}]{CaneteCFP2020}
+José Cañete, Gabriel Chaperon, Rodrigo Fuentes, Jou-Hui Ho, Hojin Kang, and
+  Jorge Pérez. 2020.
+\newblock {Spanish Pre-Trained BERT Model and Evaluation Data}.
+\newblock In \emph{PML4DC at ICLR 2020}.
+
 \bibitem[{Cimino et~al.(2020)Cimino, Dell{\textquoteright}Orletta, and
   Nissim}]{f6032ffbacb14369b7a45d1ba9bd0b8c}
 Andrea Cimino, Felice Dell{\textquoteright}Orletta, and Malvina Nissim. 2020.
@@ -77,6 +84,13 @@ Andrea Cimino, Felice Dell{\textquoteright}Orletta, and Malvina Nissim. 2020.
 \newblock Evaluation Campaign of Natural Language Processing and Speech Tools
   for Italian, EVALITA 2020 ; Conference date: 17-12-2020.
 
+\bibitem[{Devlin et~al.(2018)Devlin, Chang, Lee, and
+  Toutanova}]{DBLP:journals/corr/abs-1810-04805}
+Jacob Devlin, Ming{-}Wei Chang, Kenton Lee, and Kristina Toutanova. 2018.
+\newblock \href {http://arxiv.org/abs/1810.04805} {{BERT: Pre-training of Deep
+  Bidirectional Transformers for Language Understanding}}.
+\newblock \emph{CoRR}, abs/1810.04805.
+
 \bibitem[{Dias and Paraboni(2019)}]{DBLP:conf/clef/DiasP19}
 Rafael Felipe~Sandroni Dias and Ivandr{\'{e}} Paraboni. 2019.
 \newblock \href {http://ceur-ws.org/Vol-2380/paper\_61.pdf} {Combined {CNN+RNN}
@@ -84,6 +98,13 @@ Rafael Felipe~Sandroni Dias and Ivandr{\'{e}} Paraboni. 2019.
 \newblock In \emph{Working Notes of {CLEF} 2019 - Conference and Labs of the
   Evaluation Forum, Lugano, Switzerland, September 9-12, 2019}, volume 2380 of
   \emph{{CEUR} Workshop Proceedings}. CEUR-WS.org.
+
+\bibitem[{Hinton et~al.(2012)Hinton, Srivastava, and
+  Swersky}]{hinton2012lecture}
+Geoffrey Hinton, Nitish Srivastava, and Kevin Swersky. 2012.
+\newblock Lecture 6a overview of mini--batch gradient descent.
+\newblock \emph{Coursera Lecture slides https://class. coursera.
+  org/neuralnets-2012-001/lecture,[Online}.
 
 \bibitem[{Hochreiter et~al.(2001)Hochreiter, Bengio, Frasconi, Schmidhuber
   et~al.}]{hochreiter2001gradient}
@@ -115,6 +136,14 @@ Youngjun Joo and Inchon Hwang. 2019.
   Evaluation Forum, Lugano, Switzerland, September 9-12, 2019}, volume 2380 of
   \emph{{CEUR} Workshop Proceedings}. CEUR-WS.org.
 
+\bibitem[{Kingma and Ba(2015)}]{DBLP:journals/corr/KingmaB14}
+Diederik~P. Kingma and Jimmy Ba. 2015.
+\newblock \href {http://arxiv.org/abs/1412.6980} {Adam: {A} method for
+  stochastic optimization}.
+\newblock In \emph{3rd International Conference on Learning Representations,
+  {ICLR} 2015, San Diego, CA, USA, May 7-9, 2015, Conference Track
+  Proceedings}.
+
 \bibitem[{Kipf and Welling(2017)}]{kipf2017semisupervised}
 Thomas~N. Kipf and Max Welling. 2017.
 \newblock \href {https://openreview.net/forum?id=SJU4ayYgl} {{Semi-Supervised
@@ -130,11 +159,26 @@ Daphne Koller and Mehran Sahami. 1996.
   International Conference on Machine Learning}, ICML'96, page 284–292, San
   Francisco, CA, USA. Morgan Kaufmann Publishers Inc.
 
+\bibitem[{Labadie et~al.(2021)Labadie, Cisneros, Bueno, and Rosso}]{Sem}
+Roberto Labadie, Mariano Jason~Rodirguez Cisneros, Reynier~Ortega Bueno, and
+  Paolo Rosso. 2021.
+\newblock {A Transformer-based Approach for Detecting and Rating Humor and
+  Offense}.
+\newblock In \emph{Proceedings of the 15th International Workshop on Semantic
+  Evaluation}.
+
 \bibitem[{LeCun et~al.(1998)LeCun, Bottou, Bengio, and
   Haffner}]{lecun1998gradient}
 Yann LeCun, L{\'e}on Bottou, Yoshua Bengio, and Patrick Haffner. 1998.
 \newblock Gradient-based learning applied to document recognition.
 \newblock \emph{Proceedings of the IEEE}, 86(11):2278--2324.
+
+\bibitem[{Liu et~al.(2019)Liu, Ott, Goyal, Du, Joshi, Chen, Levy, Lewis,
+  Zettlemoyer, and Stoyanov}]{liu2019roberta}
+Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer
+  Levy, Mike Lewis, Luke Zettlemoyer, and Veselin Stoyanov. 2019.
+\newblock {RoBERTa: A Robustly Optimized BERT Pretraining Approach}.
+\newblock \emph{arXiv preprint arXiv:1907.11692}.
 
 \bibitem[{L{\'{o}}pez{-}Santill{\'{a}}n
   et~al.(2019)L{\'{o}}pez{-}Santill{\'{a}}n, Gonz{\'{a}}lez{-}Gurrola,
@@ -178,6 +222,12 @@ M.~Newman, Carla~J. Groom, Lori~D. Handelman, and J.~Pennebaker. 2008.
   samples.
 \newblock \emph{Discourse Processes}, 45:211 -- 236.
 
+\bibitem[{Nguyen et~al.(2020)Nguyen, Vu, and Nguyen}]{bertweet}
+Dat~Quoc Nguyen, Thanh Vu, and Anh~Tuan Nguyen. 2020.
+\newblock {BERTweet: A pre-trained language model for English Tweets}.
+\newblock In \emph{Proceedings of the 2020 Conference on Empirical Methods in
+  Natural Language Processing: System Demonstrations}.
+
 \bibitem[{Ortega-Mendoza et~al.(2018)Ortega-Mendoza, L{\'o}pez-Monroy,
   Franco-Arcega, and y~G{\'o}mez}]{OrtegaMendoza2018EmphasizingPI}
 R.~M. Ortega-Mendoza, A.~P. L{\'o}pez-Monroy, A.~Franco-Arcega, and M.~Montes
@@ -185,6 +235,15 @@ R.~M. Ortega-Mendoza, A.~P. L{\'o}pez-Monroy, A.~Franco-Arcega, and M.~Montes
 \newblock Emphasizing personal information for author profiling: New approaches
   for term selection and weighting.
 \newblock \emph{Knowl. Based Syst.}, 145:169--181.
+
+\bibitem[{Palomino and Ochoa-Luna(2020)}]{palomino-ochoa-luna-2020-palomino}
+Daniel Palomino and Jos{\'e} Ochoa-Luna. 2020.
+\newblock \href {https://www.aclweb.org/anthology/2020.semeval-1.124}
+  {{Palomino-Ochoa at SemEval-2020 Task 9: Robust System Based on Transformer
+  for Code-Mixed Sentiment Classification}}.
+\newblock In \emph{Proceedings of the Fourteenth Workshop on Semantic
+  Evaluation}, pages 963--967, Barcelona (online). International Committee for
+  Computational Linguistics.
 
 \bibitem[{Pennebaker et~al.(2015)Pennebaker, Boyd, Jordan, and
   Blackburn}]{pennebaker2015development}

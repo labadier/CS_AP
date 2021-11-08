@@ -48,7 +48,7 @@
 	\\
 	Una vez combinada la información a través del mecanismo de atención, la secuencia es explorada y condensada por una LSTM, en la cual el fenómeno de \textit{information vanishing} estará inhibido gracias al mecanismo de atención. De la salida de la LSTM es preservado solamente el último estado oculto en el cual quedan capturadas relaciones a largo plazo en del estilo del autor y contenido del texto, finalmente es transformado a un elemento de un espacio latente por medio de una capa densa. Esta transformación constituye la representación del tweet con el que fue alimentado el modelo. 
 	
-	\subsection{Codificación basada en Transformers}
+	\subsection{Codificación basada en Transformers}\label{ref_trans}
 	
 	Teniendo en cuenta que al analizar individualmente los tweets la cantidad de información a procesar es reducida considerablemente y la capacidad de ``comprensión'' del lenguaje que han demostrado los modelos basados en arquitecturas Transformers (TM), se propone el empleo de modelos pre-entrenados para modelar representaciones abstractas de los tweets. Para ello primeramente se realiza un proceso de refinado (\textit{fine-tuning}) empleando la librería HuggingFace Transformers\footnote{\url{https://huggingface.co/transformers}} con datos que respondan a la tarea sobre la cual se llevará a cabo el perfilado. 
 	\\\\

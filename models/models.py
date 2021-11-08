@@ -205,7 +205,6 @@ def train_Encoder(prefixpath, data_path, language, mode_weigth, dataf = None, sp
     
     history.append({'loss': [], 'acc':[], 'dev_loss': [], 'dev_acc': []})
     model = Encoder(interm_layer_size, max_length, language, mode_weigth)
-    model.load(f'{prefixpath}.pt')### remove
     
     optimizer = model.makeOptimizer(lr, decay, multiplier, increase)
     trainloader = DataLoader(TW_Data([dataf[0][train_index], dataf[1][train_index]]), batch_size=batch_size, shuffle=True, num_workers=4, worker_init_fn=seed_worker)

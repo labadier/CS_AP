@@ -123,8 +123,9 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
 	\\ 
 	Para el idioma español se emplea el modelo BETO \citep{CaneteCFP2020} y para ingles BERTweet \citep{bertweet}, ambos de la biblioteca Transformers de HuggingFace \footnote{\url{https://huggingface.co/transformers}}. BERTweet fue preentrenado con un corpus de tweets en ingles, mientras que para BETO , se emplearon textos de otras fuentes como wikis en español, OpenSubtitles y ParaCrawl \footnote{\url{https://github.com/josecannete/spanish-corpora}}.
 	\\\\
-	En el proceso de finetuning al igual que con la arquitectura CNN - LSTM estos modelos fueron refinados atendiendo a la tarea de predecir cuando un tweet pertenece o no a una clase, siguiendo la estrategia descrita en la Sección~\ref{ref_trans} de aplicar un coeficiente $\alpha$ dinámico a medida que se profundiza en la red, el cual ha sido empleado con resultados alentadores por \citep{palomino-ochoa-luna-2020-palomino,Sem}. Los parámetros de los modelos fueron ajustados empleando el optimizador RMSprop \citep{hinton2012lecture}, bajo la función de perdida de \textit{Cross-Entropy} y con el mismo esquema de partición de los datos 1:5.	
-	En la \tablename~\ref{transf_finet} se muestran los resultados obtenidos en el proceso de refinado.
+	En el proceso de finetuning al igual que con la arquitectura CNN - LSTM estos modelos fueron refinados atendiendo a la tarea de predecir cuando un tweet pertenece o no a una clase, siguiendo la estrategia descrita en la Sección~\ref{ref_trans} de aplicar un coeficiente $\alpha$ dinámico a medida que se profundiza en la red, el cual ha sido empleado con resultados alentadores por \citep{palomino-ochoa-luna-2020-palomino,Sem}. Los parámetros de los modelos fueron ajustados empleando el optimizador RMSprop \citep{hinton2012lecture}, bajo la función de perdida de \textit{Cross-Entropy} y con el mismo esquema de partición de los datos 1:5.
+	\\	
+	En la \tablename~\ref{transf_finet} se muestran los resultados obtenidos en el proceso de refinado
 	
 		\begin{table}[thb!]
 		\begin{center} 					 		

@@ -109,6 +109,7 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces CNN - LSTM}}{15}{figure.2.1}\protected@file@percent }
 \newlabel{cnn_lstm}{{2.1}{15}{CNN - LSTM}{figure.2.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1.2}Codificación basada en Transformers}{16}{subsection.2.1.2}\protected@file@percent }
+\newlabel{ref_trans}{{2.1.2}{16}{Codificación basada en Transformers}{subsection.2.1.2}{}}
 \citation{DBLP:journals/tsp/SchusterP97}
 \@writefile{toc}{\contentsline {section}{\numberline {2.2}Modelado y Clasificación del Perfil}{17}{section.2.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Modelado Secuencial. Att-LSTM}{17}{subsection.2.2.1}\protected@file@percent }
@@ -140,15 +141,26 @@
 \newlabel{pan20data}{{3.1.2}{22}{Profiling Fake News Spreaders on Twitter at PAN 2020}{subsection.3.1.2}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {3.2}{\ignorespaces Corpus Profiling PAN 2020}}{22}{table.3.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1.3}Profiling Hate Speech Spreaders on Twitter at PAN 2021}{22}{subsection.3.1.3}\protected@file@percent }
-\bibstyle{style/acl_natbib}
-\bibdata{bibliography}
+\citation{DBLP:journals/corr/KingmaB14}
 \newlabel{pan21data}{{3.1.3}{23}{Profiling Hate Speech Spreaders on Twitter at PAN 2021}{subsection.3.1.3}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {3.3}{\ignorespaces Corpus Profiling PAN 2021}}{23}{table.3.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {3.2}Resultados Experimentales}{23}{section.3.2}\protected@file@percent }
 \newlabel{accuracy}{{3.1}{23}{Resultados Experimentales}{equation.3.2.1}{}}
 \newlabel{recall}{{3.2}{23}{Resultados Experimentales}{equation.3.2.2}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2.1}Codificador CNN - LSTM}{23}{subsection.3.2.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Codificador Transformer}{23}{subsection.3.2.2}\protected@file@percent }
+\citation{DBLP:journals/corr/abs-1810-04805}
+\citation{liu2019roberta}
+\citation{CaneteCFP2020}
+\citation{bertweet}
+\citation{palomino-ochoa-luna-2020-palomino,Sem}
+\citation{hinton2012lecture}
+\newlabel{cnn_lstm_train}{{3.2.1}{24}{Codificador CNN - LSTM}{subsection.3.2.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.4}{\ignorespaces CNN-LSTM $\alpha $ tuning }}{24}{table.3.4}\protected@file@percent }
+\bibstyle{style/acl_natbib}
+\bibdata{bibliography}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Codificador Transformer}{25}{subsection.3.2.2}\protected@file@percent }
+\newlabel{transf_finet}{{3.2.2}{25}{Codificador Transformer}{subsection.3.2.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.5}{\ignorespaces CNN-LSTM $\alpha $ tuning }}{25}{table.3.5}\protected@file@percent }
 \bibcite{agarwala2017music}{{1}{2017}{{Agarwala et~al.}}{{Agarwala, Inoue, and Sly}}}
 \bibcite{electronics8030292}{{2}{2019}{{Alom et~al.}}{{Alom, Taha, Yakopcic, Westberg, Sidike, Nasrin, Hasan, Van~Essen, Awwal, and Asari}}}
 \bibcite{bakhteev:2020}{{3}{2020}{{Bakhteev et~al.}}{{Bakhteev, Ogaltsov, and Ostroukhov}}}
@@ -157,44 +169,52 @@
 \bibcite{bojanowski2016enriching}{{6}{2016}{{Bojanowski et~al.}}{{Bojanowski, Grave, Joulin, and Mikolov}}}
 \bibcite{brown1988fixed}{{7}{1988}{{Brown et~al.}}{{Brown, Conference~on Fixed Point Theory~(1986, Society, and International Congress~of Mathematicians~(1986}}}
 \bibcite{buda:2020}{{8}{2020}{{Buda and Bolonyai}}{{}}}
-\bibcite{f6032ffbacb14369b7a45d1ba9bd0b8c}{{9}{2020}{{Cimino et~al.}}{{Cimino, Dell{\textquoteright }Orletta, and Nissim}}}
-\bibcite{DBLP:conf/clef/DiasP19}{{10}{2019}{{Dias and Paraboni}}{{}}}
-\bibcite{hochreiter2001gradient}{{11}{2001}{{Hochreiter et~al.}}{{Hochreiter, Bengio, Frasconi, Schmidhuber et~al.}}}
-\bibcite{iyer:2020}{{12}{2020}{{Iyer and Vosoughi}}{{}}}
-\bibcite{DBLP:conf/clef/Johansson19}{{13}{2019}{{Johansson}}{{}}}
-\bibcite{DBLP:conf/clef/JooH19}{{14}{2019}{{Joo and Hwang}}{{}}}
-\bibcite{kipf2017semisupervised}{{15}{2017}{{Kipf and Welling}}{{}}}
-\bibcite{10.5555/3091696.3091731}{{16}{1996}{{Koller and Sahami}}{{}}}
-\bibcite{lecun1998gradient}{{17}{1998}{{LeCun et~al.}}{{LeCun, Bottou, Bengio, and Haffner}}}
-\bibcite{DBLP:conf/clef/Lopez-Santillan19}{{18}{2019}{{L{\'{o}}pez{-}Santill{\'{a}}n et~al.}}{{L{\'{o}}pez{-}Santill{\'{a}}n, Gonz{\'{a}}lez{-}Gurrola, Montes{-}y{-}G{\'{o}}mez, Alonso, and Prieto{-}Ordaz}}}
-\bibcite{martinc:2017}{{19}{2017}{{Martinc et~al.}}{{Martinc, \v {S}krjanec, Zupan, and Pollak}}}
-\bibcite{DBLP:conf/nips/MikolovSCCD13}{{20}{2013}{{Mikolov et~al.}}{{Mikolov, Sutskever, Chen, Corrado, and Dean}}}
-\bibcite{Newman2008GenderDI}{{21}{2008}{{Newman et~al.}}{{Newman, Groom, Handelman, and Pennebaker}}}
-\bibcite{OrtegaMendoza2018EmphasizingPI}{{22}{2018}{{Ortega-Mendoza et~al.}}{{Ortega-Mendoza, L{\'o}pez-Monroy, Franco-Arcega, and y~G{\'o}mez}}}
-\bibcite{pennebaker2015development}{{23}{2015}{{Pennebaker et~al.}}{{Pennebaker, Boyd, Jordan, and Blackburn}}}
-\bibcite{pennington2014glove}{{24}{2014}{{Pennington et~al.}}{{Pennington, Socher, and Manning}}}
-\bibcite{DBLP:conf/clef/PetrikC19}{{25}{2019}{{Petr{\'{\i }}k and Chud{\'{a}}}}{{}}}
-\bibcite{DBLP:conf/clef/Pizarro19}{{26}{2019}{{Pizarro}}{{}}}
-\bibcite{pizarro:2020}{{27}{2020}{{Pizarro}}{{}}}
-\bibcite{rangel:2020}{{28}{2020{a}}{{Rangel et~al.}}{{Rangel, Giachanou, Ghanem, and Rosso}}}
-\bibcite{rangel:2018}{{29}{2018{a}}{{Rangel et~al.}}{{Rangel, {Montes{-}y{-}G{\'{o}}mez}, Potthast, and Stein}}}
-\bibcite{rangel:2019}{{30}{2019}{{Rangel and Rosso}}{{}}}
-\bibcite{francisco_rangel_2020_4039435}{{31}{2020{b}}{{Rangel et~al.}}{{Rangel, Rosso, Ghanem, and Giachanou}}}
-\bibcite{rangel2018overview}{{32}{2018{b}}{{Rangel et~al.}}{{Rangel, Rosso, Montes-y G{\'o}mez, Potthast, and Stein}}}
-\bibcite{rangel2017overview}{{33}{2017}{{Rangel et~al.}}{{Rangel, Rosso, Potthast, and Stein}}}
-\bibcite{rangel2021profiling}{{34}{2021}{{Rangel et~al.}}{{Rangel, Sarrac{\'e}n, Chulvi, Fersini, and Rosso}}}
-\bibcite{reddy2016survey}{{35}{2016}{{Reddy et~al.}}{{Reddy, Vardhan, and Reddy}}}
-\bibcite{Riahi2018BigDA}{{36}{2018}{{Riahi and Riahi}}{{}}}
-\bibcite{Rosso2019}{{37}{2019}{{Rosso et~al.}}{{Rosso, Potthast, Stein, Stamatatos, Rangel, and Daelemans}}}
-\bibcite{article}{{38}{2020}{{Rosso and Rangel~Pardo}}{{}}}
-\bibcite{schler2006effects}{{39}{2006}{{Schler et~al.}}{{Schler, Koppel, Argamon, and Pennebaker}}}
-\bibcite{DBLP:journals/tsp/SchusterP97}{{40}{1997}{{Schuster and Paliwal}}{{}}}
-\bibcite{Schwartz2013PersonalityGA}{{41}{2013}{{Schwartz et~al.}}{{Schwartz, Eichstaedt, Kern, Dziurzynski, Ramones, Agrawal, Shah, Kosinski, Stillwell, Seligman, and Ungar}}}
-\bibcite{sebastiani2002machine}{{42}{2002}{{Sebastiani}}{{}}}
-\bibcite{seidman2013authorship}{{43}{2013}{{Seidman}}{{}}}
-\bibcite{sinno:2021}{{44}{2021}{{Siino et~al.}}{{Siino, Nuovo, Tinnirello, and Cascia}}}
-\bibcite{szegedy2014going}{{45}{2014}{{Szegedy et~al.}}{{Szegedy, Liu, Jia, Sermanet, Reed, Anguelov, Erhan, Vanhoucke, and Rabinovich}}}
-\bibcite{DBLP:conf/clef/Valencia-Valencia19}{{46}{2019}{{Valencia{-}Valencia et~al.}}{{Valencia{-}Valencia, G{\'{o}}mez{-}Adorno, Rhodes, and Pineda}}}
-\bibcite{vaswani2017attention}{{47}{2017}{{Vaswani et~al.}}{{Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, and Polosukhin}}}
-\bibcite{Wu_2021}{{48}{2021}{{Wu et~al.}}{{Wu, Pan, Chen, Long, Zhang, and Yu}}}
-\gdef \@abspage@last{31}
+\bibcite{CaneteCFP2020}{{9}{2020}{{Cañete et~al.}}{{Cañete, Chaperon, Fuentes, Ho, Kang, and Pérez}}}
+\bibcite{f6032ffbacb14369b7a45d1ba9bd0b8c}{{10}{2020}{{Cimino et~al.}}{{Cimino, Dell{\textquoteright }Orletta, and Nissim}}}
+\bibcite{DBLP:journals/corr/abs-1810-04805}{{11}{2018}{{Devlin et~al.}}{{Devlin, Chang, Lee, and Toutanova}}}
+\bibcite{DBLP:conf/clef/DiasP19}{{12}{2019}{{Dias and Paraboni}}{{}}}
+\bibcite{hinton2012lecture}{{13}{2012}{{Hinton et~al.}}{{Hinton, Srivastava, and Swersky}}}
+\bibcite{hochreiter2001gradient}{{14}{2001}{{Hochreiter et~al.}}{{Hochreiter, Bengio, Frasconi, Schmidhuber et~al.}}}
+\bibcite{iyer:2020}{{15}{2020}{{Iyer and Vosoughi}}{{}}}
+\bibcite{DBLP:conf/clef/Johansson19}{{16}{2019}{{Johansson}}{{}}}
+\bibcite{DBLP:conf/clef/JooH19}{{17}{2019}{{Joo and Hwang}}{{}}}
+\bibcite{DBLP:journals/corr/KingmaB14}{{18}{2015}{{Kingma and Ba}}{{}}}
+\bibcite{kipf2017semisupervised}{{19}{2017}{{Kipf and Welling}}{{}}}
+\bibcite{10.5555/3091696.3091731}{{20}{1996}{{Koller and Sahami}}{{}}}
+\bibcite{Sem}{{21}{2021}{{Labadie et~al.}}{{Labadie, Cisneros, Bueno, and Rosso}}}
+\bibcite{lecun1998gradient}{{22}{1998}{{LeCun et~al.}}{{LeCun, Bottou, Bengio, and Haffner}}}
+\bibcite{liu2019roberta}{{23}{2019}{{Liu et~al.}}{{Liu, Ott, Goyal, Du, Joshi, Chen, Levy, Lewis, Zettlemoyer, and Stoyanov}}}
+\bibcite{DBLP:conf/clef/Lopez-Santillan19}{{24}{2019}{{L{\'{o}}pez{-}Santill{\'{a}}n et~al.}}{{L{\'{o}}pez{-}Santill{\'{a}}n, Gonz{\'{a}}lez{-}Gurrola, Montes{-}y{-}G{\'{o}}mez, Alonso, and Prieto{-}Ordaz}}}
+\bibcite{martinc:2017}{{25}{2017}{{Martinc et~al.}}{{Martinc, \v {S}krjanec, Zupan, and Pollak}}}
+\bibcite{DBLP:conf/nips/MikolovSCCD13}{{26}{2013}{{Mikolov et~al.}}{{Mikolov, Sutskever, Chen, Corrado, and Dean}}}
+\bibcite{Newman2008GenderDI}{{27}{2008}{{Newman et~al.}}{{Newman, Groom, Handelman, and Pennebaker}}}
+\bibcite{bertweet}{{28}{2020}{{Nguyen et~al.}}{{Nguyen, Vu, and Nguyen}}}
+\bibcite{OrtegaMendoza2018EmphasizingPI}{{29}{2018}{{Ortega-Mendoza et~al.}}{{Ortega-Mendoza, L{\'o}pez-Monroy, Franco-Arcega, and y~G{\'o}mez}}}
+\bibcite{palomino-ochoa-luna-2020-palomino}{{30}{2020}{{Palomino and Ochoa-Luna}}{{}}}
+\bibcite{pennebaker2015development}{{31}{2015}{{Pennebaker et~al.}}{{Pennebaker, Boyd, Jordan, and Blackburn}}}
+\bibcite{pennington2014glove}{{32}{2014}{{Pennington et~al.}}{{Pennington, Socher, and Manning}}}
+\bibcite{DBLP:conf/clef/PetrikC19}{{33}{2019}{{Petr{\'{\i }}k and Chud{\'{a}}}}{{}}}
+\bibcite{DBLP:conf/clef/Pizarro19}{{34}{2019}{{Pizarro}}{{}}}
+\bibcite{pizarro:2020}{{35}{2020}{{Pizarro}}{{}}}
+\bibcite{rangel:2020}{{36}{2020{a}}{{Rangel et~al.}}{{Rangel, Giachanou, Ghanem, and Rosso}}}
+\bibcite{rangel:2018}{{37}{2018{a}}{{Rangel et~al.}}{{Rangel, {Montes{-}y{-}G{\'{o}}mez}, Potthast, and Stein}}}
+\bibcite{rangel:2019}{{38}{2019}{{Rangel and Rosso}}{{}}}
+\bibcite{francisco_rangel_2020_4039435}{{39}{2020{b}}{{Rangel et~al.}}{{Rangel, Rosso, Ghanem, and Giachanou}}}
+\bibcite{rangel2018overview}{{40}{2018{b}}{{Rangel et~al.}}{{Rangel, Rosso, Montes-y G{\'o}mez, Potthast, and Stein}}}
+\bibcite{rangel2017overview}{{41}{2017}{{Rangel et~al.}}{{Rangel, Rosso, Potthast, and Stein}}}
+\bibcite{rangel2021profiling}{{42}{2021}{{Rangel et~al.}}{{Rangel, Sarrac{\'e}n, Chulvi, Fersini, and Rosso}}}
+\bibcite{reddy2016survey}{{43}{2016}{{Reddy et~al.}}{{Reddy, Vardhan, and Reddy}}}
+\bibcite{Riahi2018BigDA}{{44}{2018}{{Riahi and Riahi}}{{}}}
+\bibcite{Rosso2019}{{45}{2019}{{Rosso et~al.}}{{Rosso, Potthast, Stein, Stamatatos, Rangel, and Daelemans}}}
+\bibcite{article}{{46}{2020}{{Rosso and Rangel~Pardo}}{{}}}
+\bibcite{schler2006effects}{{47}{2006}{{Schler et~al.}}{{Schler, Koppel, Argamon, and Pennebaker}}}
+\bibcite{DBLP:journals/tsp/SchusterP97}{{48}{1997}{{Schuster and Paliwal}}{{}}}
+\bibcite{Schwartz2013PersonalityGA}{{49}{2013}{{Schwartz et~al.}}{{Schwartz, Eichstaedt, Kern, Dziurzynski, Ramones, Agrawal, Shah, Kosinski, Stillwell, Seligman, and Ungar}}}
+\bibcite{sebastiani2002machine}{{50}{2002}{{Sebastiani}}{{}}}
+\bibcite{seidman2013authorship}{{51}{2013}{{Seidman}}{{}}}
+\bibcite{sinno:2021}{{52}{2021}{{Siino et~al.}}{{Siino, Nuovo, Tinnirello, and Cascia}}}
+\bibcite{szegedy2014going}{{53}{2014}{{Szegedy et~al.}}{{Szegedy, Liu, Jia, Sermanet, Reed, Anguelov, Erhan, Vanhoucke, and Rabinovich}}}
+\bibcite{DBLP:conf/clef/Valencia-Valencia19}{{54}{2019}{{Valencia{-}Valencia et~al.}}{{Valencia{-}Valencia, G{\'{o}}mez{-}Adorno, Rhodes, and Pineda}}}
+\bibcite{vaswani2017attention}{{55}{2017}{{Vaswani et~al.}}{{Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, and Polosukhin}}}
+\bibcite{Wu_2021}{{56}{2021}{{Wu et~al.}}{{Wu, Pan, Chen, Long, Zhang, and Yu}}}
+\gdef \@abspage@last{34}
