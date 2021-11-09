@@ -31,3 +31,4 @@
 \contentsline {section}{\numberline {3.2}Resultados Experimentales}{23}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Codificador CNN - LSTM}{23}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Codificador Transformer}{25}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Clasificador Att-LSTM}{26}{subsection.3.2.3}%

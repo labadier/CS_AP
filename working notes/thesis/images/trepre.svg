@@ -23,12 +23,12 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="4.1406846"
-     inkscape:cx="205.03856"
-     inkscape:cy="215.06105"
+     inkscape:zoom="2.1891301"
+     inkscape:cx="206.01791"
+     inkscape:cy="183.40619"
      inkscape:window-width="1920"
      inkscape:window-height="1052"
-     inkscape:window-x="1366"
+     inkscape:window-x="0"
      inkscape:window-y="28"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"
@@ -81,7 +81,7 @@
     <g
        id="g138189">
       <rect
-         style="fill:none;fill-opacity:0.746719;stroke:#48d9ec;stroke-width:0.0642329;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.8;stroke-dasharray:none;stroke-opacity:0.825326"
+         style="fill:none;fill-opacity:0.746719;stroke:#000004;stroke-width:0.0642329;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.8;stroke-dasharray:none;stroke-opacity:0.82532603"
          id="rect929-0"
          width="20.089859"
          height="7.8509583"
@@ -140,7 +140,7 @@
          id="g118152"
          transform="translate(-0.04340704,-2.5353404)">
         <rect
-           style="fill:none;fill-opacity:0.746719;stroke:#48d9ec;stroke-width:0.0489363;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.8;stroke-dasharray:none;stroke-opacity:0.825326"
+           style="fill:none;fill-opacity:0.746719;stroke:#000000;stroke-width:0.0489363;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.8;stroke-dasharray:none;stroke-opacity:0.82532603"
            id="rect929-9"
            width="3.9456456"
            height="23.202267"
@@ -216,9 +216,9 @@
     <g
        id="g138203">
       <rect
-         style="fill:none;fill-opacity:0.746719;stroke:#48d9ec;stroke-width:0.107266;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.8;stroke-dasharray:none;stroke-opacity:0.825326"
+         style="fill:none;fill-opacity:0.746719;stroke:#000001;stroke-width:0.107266;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:2.8;stroke-dasharray:none;stroke-opacity:0.82532603"
          id="rect929"
-         width="15.806573"
+         width="15.807"
          height="27.827335"
          x="41.39415"
          y="40.831245"

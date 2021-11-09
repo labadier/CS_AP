@@ -24,7 +24,7 @@ def check_params(args=None):
   parser.add_argument('-l', metavar='language', default=paramfile.l, help='Task Language')
   parser.add_argument('-task', metavar='task', default=paramfile.l, help='Task')  
   parser.add_argument('-phase', metavar='phase', default=paramfile.phase, help='Phase')
-  # parser.add_argument('-f', metavar='filee', help='Phase')
+  parser.add_argument('-rep', metavar='rep', help='Represenations to use')
   parser.add_argument('-output', metavar='output', help='Output Path')
   parser.add_argument('-lr', metavar='lrate', default = 1e-5, type=float, help='learning rate')
   parser.add_argument('-tmode', metavar='tmode', default = paramfile.tmode, help='Encoder Weights Mode')
@@ -86,6 +86,7 @@ if __name__ == '__main__':
   output = parameters.output
   up = parameters.up
   task = parameters.task
+  rep = parameters.rep 
 
   if mode == 'encoder':
 
@@ -132,6 +133,93 @@ if __name__ == '__main__':
       # torch.save(np.array(preds),f'logs/{}_pred_{}.pt'.format(phase, language[:2]))
       print(f"{bcolors.OKCYAN}{bcolors.BOLD}Encodings Saved Successfully{bcolors.ENDC}")
 
+  if mode == 'CNN_LSTM_Encoder' :
+
+    language = language.lower()
+    emb_path = None
+    if language == "en":
+      emb_path = 'data/embeddings/glove_en_100d'
+    elif language == "es": emb_path = 'data/embeddings/glove_es_200d'
+    
+    matrix, dic = read_embedding(emb_path)
+   
+
+    if phase == 'train':
+      model_name = f'CNN_LSTM_ENC_{task}_{learning_rate}'
+      # data_path = "../data/profiling/faker/train"
+      model = SeqEncoder(language, matrix)
+      labels, tweets_word, tweets_char, _, _, _ = read_data(os.path.join(data_path, language), dic)
+      
+      hist = train_Seq(model, [tweets_word, tweets_char, labels], language, model_name, splits, epoches, batch_size, lr = learning_rate,  decay=decay)
+      plot_training(hist[-1], f'logs/{model_name}_{language}', 'acc')
+      plot_training(hist[-1], f'logs/{model_name}_{language}')
+    
+    if phase == 'encode':
+      model_name = f'CNN_LSTM_ENC_{task}'
+      model = SeqEncoder(language, matrix)
+      model.load(f'logs/{model_name}_{language}_1.pt')
+
+      tweets, _ = load_Profiling_Data(os.path.join(data_path, language[:2].lower()), False)
+      encs = []
+      dicc = {' ': 0}
+      for i in range(26):
+          dicc[chr(i + 97)] = i + 1
+      dicc['\''] = 27
+
+      for i in tweets:
+        tw, _, _ = translate_words(i, dic, 120)
+        tc, _ = translate_char(i, dicc, 200)
+        e = model.get_encodings([tw, tc], 200)
+        encs.append(e)
+      infosave = data_path.split("/")[-2:]
+      torch.save(np.array(encs), f'logs/{infosave[0]}_{infosave[1]}_encodings_{language[:2].upper()}.pt')
+      
+      print(f"{bcolors.OKCYAN}{bcolors.BOLD}Encodings Saved Successfully as {infosave[0]}_{infosave[1]}_encodings_{language[:2]}.pt {bcolors.ENDC}")
+
+  if mode == 'lstm':
+
+    '''
+      Train Train Att-LSTM
+    ''' 
+    if phase == 'train':
+
+      encodings_train = None
+      encodings_dev = None
+
+      handed_train = None
+      handed_dev = None
+      phanded_train = None
+      phanded_dev = None
+
+      if 't' in rep:
+        encodings_train = torch.load(f'logs/transformers/{task}_train_encodings_{language[:2]}.pt')
+        encodings_dev = torch.load(f'logs/transformers/{task}_dev_encodings_{language[:2]}.pt')
+      elif 'c' in rep:
+        encodings_train = torch.load(f'logs/cnn_lstm/{task}_train_encodings_{language[:2]}.pt')
+        encodings_dev = torch.load(f'logs/cnn_lstm/{task}_dev_encodings_{language[:2]}.pt')
+
+      if 'h' in rep:
+        phanded_train = f'logs/handcrafted/{task}_train_{language[:2].lower()}.json'
+        phanded_dev = f'logs/handcrafted/{task}_dev_{language[:2].lower()}.json'
+
+      _, _, labels_train, handed_train = load_Profiling_Data(f'{data_path}/train/{language.lower()}', labeled=True, w_features = phanded_train )
+      _, _, labels_dev, handed_dev = load_Profiling_Data(f'{data_path}/dev/{language.lower()}', labeled=True, w_features = phanded_dev )
+
+      history = train_classifier(rep, 'lstm', data_train = [encodings_train, labels_train], data_dev = [encodings_dev, labels_dev], 
+                                  language = language, hfeaat={'train':handed_train, 'dev':handed_dev},splits = splits, epoches= epoches, batch_size = batch_size, 
+                                  interm_layer_size = [interm_layer_size, 32, lstm_hidden_size], lr=learning_rate, decay=decay)
+      
+      plot_training(history[-1], f'logs/LSTM_{task}_{language}_{learning_rate}', 'acc')
+      plot_training(history[-1], f'logs/LSTM_{task}_{language}_{learning_rate}')
+
+    elif phase == 'encode':
+
+      model = LSTMAtt_Classifier(interm_layer_size, 32, lstm_hidden_size, language)
+      model.load(f'logs/lstm_{language[:2]}_1.pt')
+      get_encodings(model, data_path, 'lstm')
+      
+    exit(0)
+    
   if mode == 'Impostor':
 
     ''' 
@@ -195,38 +283,6 @@ if __name__ == '__main__':
     # save_predictions(idx, np.int32(np.round(Y_Test/splits, decimals=0)), language, output)
     # print(classification_report(labels, np.int32(np.round(Y_Test/splits, decimals=0)), target_names=['No Hate', 'Hate'],  digits=4, zero_division=1))
       
-  
-  if mode == 'fcnn':
-
-    if epoches == -1:
-      epoches = 80
-    '''
-      Train Train Att-FCNN
-    ''' 
-    if phase == 'train':
-      
-      _, _, labels = load_Profiling_Data(os.path.join(data_path, language.lower()), labeled=True)
-      infosave = data_path.split("/")[-2:]
-      encodings = torch.load(f'logs/{infosave[0]}_{infosave[1]}_encodings_{language[:2]}.pt')
-
-      history = train_classifier('fcnn',[encodings, labels], language, splits, epoches, batch_size, interm_layer_size = [interm_layer_size, 64, 32], lr=learning_rate, decay=decay)
-      plot_training(history[-1], language + '_fcnn', 'acc')
-      
-    elif phase ==  'test':
-      _, _, labels = load_Profiling_Data(os.path.join(data_path, language.lower()), labeled=True)
-      model = FNN_Classifier(interm_size=[interm_layer_size, 64, 32], language=language)
-      tweets_test, idx  = load_Profiling_Data(os.path.join(data_path, language.lower()), labeled=False)
-      infosave = data_path.split("/")[-2:]
-      encodings = torch.load(f'logs/{infosave[0]}_{infosave[1]}_encodings_{language[:2]}.pt')
-      predict(model, 'fcnn', encodings, idx, language, output, splits, batch_size, labels, save_predictions)
-
-    elif phase == 'encode':
-
-      model = FNN_Classifier(interm_size=[interm_layer_size, 64, 32], language=language)
-      model.load(f'logs/fcnn_{language[:2]}_1.pt')
-      get_encodings(model, data_path, 'fcnn')
-      
-    exit(0)
 
   if mode == 'cgnn':
 
@@ -258,35 +314,6 @@ if __name__ == '__main__':
       get_encodings(model, data_path, 'cgnn')
     exit(0)
 
-  if mode == 'lstm':
-
-    '''
-      Train Train Att-LSTM
-    ''' 
-    if phase == 'train':
-  
-      _, _, labels = load_Profiling_Data(os.path.join(data_path, language.lower()), labeled=True)
-      infosave = data_path.split("/")[-2:]
-      encodings = torch.load(f'logs/{infosave[0]}_{infosave[1]}_encodings_{language[:2]}.pt')
-
-      history = train_classifier('lstm', [encodings, labels], language, splits, epoches, batch_size, interm_layer_size = [interm_layer_size, 32, lstm_hidden_size], lr=learning_rate, decay=decay)
-      plot_training(history[-1], language + '_lstm', 'acc')
-    elif phase == 'test':
-      _, _, labels = load_Profiling_Data(os.path.join(data_path, language.lower()), labeled=True)
-      model = LSTMAtt_Classifier(interm_layer_size, 32, lstm_hidden_size, language)
-      tweets_test, idx  = load_Profiling_Data(os.path.join(data_path, language.lower()), labeled=False)
-
-      infosave = data_path.split("/")[-2:]
-      encodings = torch.load(f'logs/{infosave[0]}_{infosave[1]}_encodings_{language[:2]}.pt')
-      predict(model, 'lstm', encodings, idx, language, output, splits, batch_size, labels, save_predictions)
-    
-    elif phase == 'encode':
-
-      model = LSTMAtt_Classifier(interm_layer_size, 32, lstm_hidden_size, language)
-      model.load(f'logs/lstm_{language[:2]}_1.pt')
-      get_encodings(model, data_path, 'lstm')
-      
-    exit(0)
 
   # if mode == 'svm':
   #   tweets, _, labels = load_data_PAN(os.path.join(data_path, language.lower()), labeled=True)
@@ -318,48 +345,5 @@ if __name__ == '__main__':
   #     plot_training(history[-1], language + '_gmu', 'acc')
   #   print(features.shape)
 
-
-  if mode == 'CNN_LSTM_Encoder' :
-
-    language = language.lower()
-    emb_path = None
-    if language == "en":
-      emb_path = 'data/embeddings/glove_en_100d'
-    elif language == "es": emb_path = 'data/embeddings/glove_es_200d'
-    
-    matrix, dic = read_embedding(emb_path)
-   
-
-    if phase == 'train':
-      model_name = f'CNN_LSTM_ENC_{task}_{learning_rate}'
-      # data_path = "../data/profiling/faker/train"
-      model = SeqEncoder(language, matrix)
-      labels, tweets_word, tweets_char, _, _, _ = read_data(os.path.join(data_path, language), dic)
-      
-      hist = train_Seq(model, [tweets_word, tweets_char, labels], language, model_name, splits, epoches, batch_size, lr = learning_rate,  decay=decay)
-      plot_training(hist[-1], f'{model_name}_{language}', 'acc')
-      plot_training(hist[-1], f'{model_name}_{language}')
-    
-    if phase == 'encode':
-      model_name = f'CNN_LSTM_ENC_{task}'
-      model = SeqEncoder(language, matrix)
-      model.load(f'logs/{model_name}_{language}_1.pt')
-
-      tweets, _ = load_Profiling_Data(os.path.join(data_path, language[:2].lower()), False)
-      encs = []
-      dicc = {' ': 0}
-      for i in range(26):
-          dicc[chr(i + 97)] = i + 1
-      dicc['\''] = 27
-
-      for i in tweets:
-        tw, _, _ = translate_words(i, dic, 120)
-        tc, _ = translate_char(i, dicc, 200)
-        e = model.get_encodings([tw, tc], 200)
-        encs.append(e)
-      infosave = data_path.split("/")[-2:]
-      torch.save(np.array(encs), f'logs/{infosave[0]}_{infosave[1]}_encodings_{language[:2].upper()}.pt')
-      
-      print(f"{bcolors.OKCYAN}{bcolors.BOLD}Encodings Saved Successfully as {infosave[0]}_{infosave[1]}_encodings_{language[:2]}.pt {bcolors.ENDC}")
 
 # %%

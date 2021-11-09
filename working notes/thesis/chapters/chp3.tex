@@ -25,8 +25,8 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
 			 			Total &1690&1690&3380&1200&1200&2400\\
 			 			\specialrule{.1em}{.05em}{.05em} 
 			 		\end{tabular}
-			 		\label{pan19data}	
 			 		\caption[Corpus Profiling PAN 2019]{Distribución de los datos para la tarea Bots and Gender Profiling at PAN 2019}	
+			 		\label{pan19data}	
 			 	\end{center}
 			 \end{table}	
 		 \\
@@ -50,8 +50,8 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
 	 			Total &250&250&500&250&250&500\\
 	 			\specialrule{.1em}{.05em}{.05em} 
 	 		\end{tabular}
-	 		\label{pan20data}	
 	 		\caption[Corpus Profiling PAN 2020]{Distribución de los datos para la tarea Profiling Fake News Spreaders on Twitter at PAN 2020}	
+	 		\label{pan20data}	
 	 	\end{center}
 	 \end{table}	
 	 
@@ -73,8 +73,8 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
 		 			Total &250&250&500&250&250&500\\
 		 			\specialrule{.1em}{.05em}{.05em} 
 		 		\end{tabular}
-		 		\label{pan21data}	
 		 		\caption[Corpus Profiling PAN 2021]{Distribución de los datos para la tarea Profiling Hate Speech Spreaders on Twitter at PAN 2021}	
+		 		\label{pan21data}	
 		 	\end{center}
 		 \end{table}	
 	 
@@ -98,7 +98,7 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
  	\\
  	En el proceso de entrenamiento, el conjunto de datos de entrenamiento de cada uno de los corpus es dividido a una razón de 1:5 en un subconjunto de validación y otro de entrenamiento, de manera que se preserve la distribución uniforme de ejemplos positivos y negativos en cada subconjunto.
  	Para la arquitectura es añadida una neurona en el tope del modelo encargada de responder la probabilidad de que el tweet pertenezca a una clase de cuenta y los pesos del modelo son ajustados por el oprimizador de Adam \citep{DBLP:journals/corr/KingmaB14} empleando la función de perdida de \textit{Cross-Entropy}.  	\\\\
- 	Durante los experimentos exploramos como afectaba la variación hiper-parametro del coeficiente de aprendizaje $\alpha \in \{1e\text{-}3,~15e\text{-}4,~2e\text{-}3,~3e\text{-}3\}$  en el optimizador de Adam a través de cada tarea, i.e., Bots and Gender Profiling at PAN 2019 (\textit{gender}), Profiling Fake News Spreaders on Twitter (\textit{faker}) y Profiling Hate Speech Spreaders on Twitter (\textit{hater}) como se muestra en la \tablename~\ref{cnn_lstm_train}. Resultando para cada modelo en cada variación de lenguaje valores óptimos de  $alpha$ entre $1e\text{-}3\text{ y }2e\text{-}3$.
+ 	Durante los experimentos exploramos como afectaba la variación hiper-parametro del coeficiente de aprendizaje $\alpha \in \{1e\text{-}3,~15e\text{-}4,~2e\text{-}3,~3e\text{-}3\}$  en el optimizador de Adam a través de cada tarea, i.e., Bots and Gender Profiling at PAN 2019 (\textit{gender}), Profiling Fake News Spreaders on Twitter (\textit{faker}) y Profiling Hate Speech Spreaders on Twitter (\textit{hater}) como se muestra en la \tablename~\ref{cnn_lstm_train} en términos de \textit{accuracy}. Resultando para cada modelo en cada variación de lenguaje valores óptimos de  $alpha$ entre $1e\text{-}3\text{ y }2e\text{-}3$.
  	\\
  	\begin{table}[thb!]
  		\begin{center} 					 		
@@ -112,8 +112,8 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
  				hater &0.696&0.692&\textbf{0.698}&0.694&0.611&0.608&\textbf{0.611}&0.584\\
  				\specialrule{.1em}{.05em}{.05em} 
  			\end{tabular}
+ 			\caption[CNN-LSTM $\alpha$ tuning ]{Resultados del entrenamiento para el modelo CNN-LSTM en cada tarea según el coeficiente de aprendizaje $\alpha$}	
  			\label{cnn_lstm_train}
- 			\caption[CNN-LSTM $\alpha$ tuning ]{Resultados del entrenamiento para el modelo CNN-LSTM para cada tarea según el coeficiente de aprendizaje $\alpha$}	
  		\end{center}
  	\end{table}	
  
@@ -123,22 +123,24 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
 	\\ 
 	Para el idioma español se emplea el modelo BETO \citep{CaneteCFP2020} y para ingles BERTweet \citep{bertweet}, ambos de la biblioteca Transformers de HuggingFace \footnote{\url{https://huggingface.co/transformers}}. BERTweet fue preentrenado con un corpus de tweets en ingles, mientras que para BETO , se emplearon textos de otras fuentes como wikis en español, OpenSubtitles y ParaCrawl \footnote{\url{https://github.com/josecannete/spanish-corpora}}.
 	\\\\
-	En el proceso de finetuning al igual que con la arquitectura CNN - LSTM estos modelos fueron refinados atendiendo a la tarea de predecir cuando un tweet pertenece o no a una clase, siguiendo la estrategia descrita en la Sección~\ref{ref_trans} de aplicar un coeficiente $\alpha$ dinámico a medida que se profundiza en la red, el cual ha sido empleado con resultados alentadores por \citep{palomino-ochoa-luna-2020-palomino,Sem}. Los parámetros de los modelos fueron ajustados empleando el optimizador RMSprop \citep{hinton2012lecture}, bajo la función de perdida de \textit{Cross-Entropy} y con el mismo esquema de partición de los datos 1:5.	
-	En la \tablename~\ref{transf_finet} se muestran los resultados obtenidos en el proceso de refinado.
-	
+	En el proceso de finetuning al igual que con la arquitectura CNN - LSTM estos modelos fueron refinados atendiendo a la tarea de predecir cuando un tweet pertenece o no a una clase, siguiendo la estrategia descrita en la Sección~\ref{ref_trans} de aplicar un coeficiente $\alpha$ dinámico a medida que se profundiza en la red, el cual ha sido empleado con resultados alentadores por \citep{palomino-ochoa-luna-2020-palomino,Sem}. Los parámetros de los modelos fueron ajustados empleando el optimizador RMSprop \citep{hinton2012lecture} con un descenso $\delta$ de learning rate lineal por cada epoch, bajo la función de perdida de \textit{Cross-Entropy} y con el mismo esquema de partición de los datos 1:5.	\\
+	En la \tablename~\ref{transf_finet} se muestra el \textit{accuracy} obtenido para cada tarea en el proceso de refinado, donde se hace evidente un mejor desempeño respecto a los resultados alcanzados con la arquitectura CNN - LSTM de la \tablename~\ref{cnn_lstm_train}. 
 		\begin{table}[thb!]
 		\begin{center} 					 		
-			\begin{tabular}{l|cccc|cccc} 
+			\begin{tabular}{lcc} 
 				\specialrule{.1em}{.05em}{.05em}
-				\multirow{2}{*}{Tarea}&\multicolumn{4}{c}{(EN) Ingles}&\multicolumn{4}{c}{(ES) Español}\\	 			\cline{2-9}
-				&~~$1e\text{-}3$~~&~~$15e\text{-}4$~~&~~$2e\text{-}3$~~ &~~$3e\text{-}3$~~ &~~$1e\text{-}3$~~&~~$15e\text{-}4$~~&~~$2e\text{-}3$~~ &~~$3e\text{-}3$\\
+				Tarea&EN& ES\\	
 				\specialrule{.1em}{.05em}{.05em} 
-				gender & \textbf{0.684}&0.68&0.681&0.677&\textbf{0.698}&0.693&0.696&0.691\\
-				faker  &0.734&\textbf{0.738}&0.727&0.726&0.741&\textbf{0.742}&0.736&0.730\\
-				hater &0.696&0.692&\textbf{0.698}&0.694&0.611&0.608&\textbf{0.611}&0.584\\
+				gender & 0.84&0.767\\
+				faker  &0.65&0.726\\
+				hater &0.836&0.805\\
 				\specialrule{.1em}{.05em}{.05em} 
 			\end{tabular}
-			\label{transf_finet}
-			\caption[CNN-LSTM $\alpha$ tuning ]{Resultados del entrenamiento para el modelo CNN-LSTM para cada tarea según el coeficiente de aprendizaje $\alpha$}	
+			\caption{Finetuning Transformers en cada tarea con $\alpha=1e\text{-}5,~\delta = 2e\text{-}5, ~\lambda=0.1$}\label{transf_finet}	
 		\end{center}
-	\end{table}	
+	\end{table}		\\
+	En particular en ninguna de las dos variantes de idioma sobre la tarea faker, existe tal mejora. Teniendo en cuenta que para la tarea de determinar si un tweet corresponde a un autor \textit{faker} o no, la existencia de sesgo en la representación dado por la información semántica del mensaje podría afectar el rendimiento del modelo, podemos hipotetizar que esta es la causa de la clasificación errónea de algunos tweets. \\
+	Por otro lado el desempeño alcanzado en las tareas \textit{gender} y \textit{hater} es razonable dada la forma en que el mecanismo de atención empleado relaciona la información y a la cantidad de parámetros de estos modelos, lo cual permite que cada neurona  preste atención a estructuras particulares del lenguaje. Esto último pudiera resultar en un sobreajuste a los datos de entrenamiento de no ser por la enorme cantidad datos de diversas fuentes con las que fueron preentrenados y el $\alpha$ suave empleado en el proceso de \textit{finetuning}. 
+	
+	
+	\subsection{Clasificador Att-LSTM}

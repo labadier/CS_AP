@@ -1,4 +1,5 @@
 #%%
+from numpy.lib.function_base import select
 import torch, os
 from sklearn.metrics import accuracy_score
 from models.models import  Aditive_Attention, seed_worker
@@ -75,6 +76,7 @@ class FNNData(Dataset):
   def __init__(self, data):
 
     self.profile = data[0] 
+    self.hfeatures = data[2]
     self.label = data[1]
 
   def __len__(self):
@@ -86,9 +88,11 @@ class FNNData(Dataset):
 
     profile  = self.profile[idx] 
     label = self.label[idx]
-
-    sample = {'profile': profile, 'label':label}
-    return sample
+    hf = label
+    if self.hfeatures is not None:
+      hf = self.hfeatures[idx]
+ 
+    return {'profile': profile, 'label':label, 'handed_features':hf}
 
 class FNN_Classifier(torch.nn.Module):
 
@@ -147,104 +151,97 @@ class FNN_Classifier(torch.nn.Module):
         return out 
 
 
-def train_classifier(model_name, task_data, language, splits = 5, epoches = 4, batch_size = 64, interm_layer_size = [64, 32], lr = 1e-5,  decay=0):
+def train_classifier(rep, model_name, data_train, data_dev, language, hfeaat = None, splits = 5, epoches = 4, batch_size = 64, interm_layer_size = [64, 32], lr = 1e-5,  decay=0):
  
-    skf = StratifiedKFold(n_splits=splits, shuffle=True, random_state = 23)
+  overall_acc = 0
+  last_printed = None
 
-    history = []
-    overall_acc = 0
-    last_printed = None
-    for i, (train_index, test_index) in enumerate(skf.split(np.zeros_like(task_data[1]), task_data[1])):  
+  history = [{'loss': [], 'acc':[], 'dev_loss': [], 'dev_acc': []}]
+  if model_name == 'fcnn':
+      model = FNN_Classifier(interm_layer_size, language)
+  elif model_name == 'lstm':
+      model = LSTMAtt_Classifier(interm_layer_size[0], interm_layer_size[1], interm_layer_size[2], language, (hfeaat['train'] is not None))
+  elif model_name == 'gmu':
+      model = GMU(interm_layer_size, language)
 
-        history.append({'loss': [], 'acc':[], 'dev_loss': [], 'dev_acc': []})
-        if model_name == 'fcnn':
-            model = FNN_Classifier(interm_layer_size, language)
-        elif model_name == 'lstm':
-            model = LSTMAtt_Classifier(interm_layer_size[0], interm_layer_size[1], interm_layer_size[2], language)
-        elif model_name == 'gmu':
-            model = GMU(interm_layer_size, language)
+  optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=decay)
+  trainloader = DataLoader(FNNData([data_train[0], data_train[1], hfeaat['train']]), batch_size=batch_size, shuffle=True, num_workers=4, worker_init_fn=seed_worker)
+  devloader = DataLoader(FNNData([data_dev[0], data_dev[1], hfeaat['dev']]), batch_size=batch_size, shuffle=True, num_workers=4, worker_init_fn=seed_worker)
+  batches = len(trainloader)
 
-        optimizer = torch.optim.Adam(model.parameters(), lr=lr, weight_decay=decay)
-        trainloader = DataLoader(FNNData([task_data[0][train_index], task_data[1][train_index]]), batch_size=batch_size, shuffle=True, num_workers=4, worker_init_fn=seed_worker)
-        devloader = DataLoader(FNNData([task_data[0][test_index], task_data[1][test_index]]), batch_size=batch_size, shuffle=True, num_workers=4, worker_init_fn=seed_worker)
-        batches = len(trainloader)
+  for epoch in range(epoches):
 
-        for epoch in range(epoches):
+      running_loss = 0.0
+      perc = 0
+      acc = 0
 
-            running_loss = 0.0
-            perc = 0
-            acc = 0
+      model.train()
+      
+      for j, data in enumerate(trainloader, 0):
 
-            model.train()
-            
-            for j, data in enumerate(trainloader, 0):
+          torch.cuda.empty_cache()         
+          inputs, labels, features = data['profile'], data['label'].to(model.device), data['handed_features']      
+          
+          optimizer.zero_grad()
+          outputs = model(inputs, F = (features if hfeaat['train'] is not None else None), encode = False)
+          loss = model.loss_criterion(outputs, labels)
 
-                torch.cuda.empty_cache()         
-                inputs, labels = data['profile'], data['label'].to(model.device)      
+          loss.backward()
+          optimizer.step()
 
-                optimizer.zero_grad()
-                outputs = model(inputs)
-                loss = model.loss_criterion(outputs, labels)
+          # print statistics
+          with torch.no_grad():
+              if j == 0:
+                  acc = ((1.0*(torch.max(outputs, 1).indices == labels)).sum()/len(labels)).cpu().numpy()
+                  running_loss = loss.item()
+              else: 
+                  acc = (acc + ((1.0*(torch.max(outputs, 1).indices == labels)).sum()/len(labels)).cpu().numpy())/2.0
+                  running_loss = (running_loss + loss.item())/2.0
 
-                loss.backward()
-                optimizer.step()
+          if (j+1)*100.0/batches - perc  >= 1 or j == batches-1:
+              perc = (1+j)*100.0/batches
+              last_printed = f'\rEpoch:{epoch+1:3d} of {epoches} step {j+1} of {batches}. {perc:.1f}% loss: {running_loss:.3f}'
+    
+              print(last_printed, end="")
 
-                # print statistics
-                with torch.no_grad():
-                    if j == 0:
-                        acc = ((1.0*(torch.max(outputs, 1).indices == labels)).sum()/len(labels)).cpu().numpy()
-                        running_loss = loss.item()
-                    else: 
-                        acc = (acc + ((1.0*(torch.max(outputs, 1).indices == labels)).sum()/len(labels)).cpu().numpy())/2.0
-                        running_loss = (running_loss + loss.item())/2.0
+      model.eval()
+      history[-1]['loss'].append(running_loss)
+      with torch.no_grad():
+          out = None
+          log = None
+          for k, data in enumerate(devloader, 0):
+              torch.cuda.empty_cache() 
+              inputs, label, features = data['profile'], data['label'].to(model.device), data['handed_features'] 
+              dev_out = model(inputs, F = (features if hfeaat['train'] is not None else None), encode = False)
+              if k == 0:
+                  out = dev_out
+                  log = label
+              else: 
+                  out = torch.cat((out, dev_out), 0)
+                  log = torch.cat((log, label), 0)
 
-                if (j+1)*100.0/batches - perc  >= 1 or j == batches-1:
-                    perc = (1+j)*100.0/batches
-                    last_printed = f'\rEpoch:{epoch+1:3d} of {epoches} step {j+1} of {batches}. {perc:.1f}% loss: {running_loss:.3f}'
-					
-                    print(last_printed, end="")
+          dev_loss = model.loss_criterion(out, log).item()
+          dev_acc = ((1.0*(torch.max(out, 1).indices == log)).sum()/len(log)).cpu().numpy()
+          history[-1]['acc'].append(acc)
+          history[-1]['dev_loss'].append(dev_loss)
+          history[-1]['dev_acc'].append(dev_acc) 
 
-            model.eval()
-            history[-1]['loss'].append(running_loss)
-            with torch.no_grad():
-                out = None
-                log = None
-                for k, data in enumerate(devloader, 0):
-                    torch.cuda.empty_cache() 
-                    inputs, label = data['profile'], data['label'].to(model.device)
+          band = False
+          if model.best_acc < dev_acc:
+              model.save(f'{model_name}_{language}_{rep}.pt')
+              model.best_acc = dev_acc
+              band = True
+          ep_finish_print = f' acc: {acc:.3f} | dev_loss: {dev_loss:.3f} dev_acc: {dev_acc.reshape(-1)[0]:.3f}'
 
-                    dev_out = model(inputs)
-                    if k == 0:
-                        out = dev_out
-                        log = label
-                    else: 
-                        out = torch.cat((out, dev_out), 0)
-                        log = torch.cat((log, label), 0)
-
-                dev_loss = model.loss_criterion(out, log).item()
-                dev_acc = ((1.0*(torch.max(out, 1).indices == log)).sum()/len(log)).cpu().numpy()
-                history[-1]['acc'].append(acc)
-                history[-1]['dev_loss'].append(dev_loss)
-                history[-1]['dev_acc'].append(dev_acc) 
-
-                band = False
-                if model.best_acc < dev_acc:
-                    model.save(f'{model_name}_{language}_{i+1}.pt')
-                    model.best_acc = dev_acc
-                    band = True
-                ep_finish_print = f' acc: {acc:.3f} | dev_loss: {dev_loss:.3f} dev_acc: {dev_acc.reshape(-1)[0]:.3f}'
-
-                if band == True:
-                    print(bcolors.OKBLUE + bcolors.BOLD + last_printed + ep_finish_print + '\t[Weights Updated]' + bcolors.ENDC)
-                else: print(ep_finish_print)
-                        
-        overall_acc += model.best_acc
-        print('Training Finished Split: {}'. format(i+1))
-        del trainloader
-        del model
-        del devloader
-    print(f"{bcolors.OKGREEN}{bcolors.BOLD}{50*'*'}\nOveral Accuracy {language}: {overall_acc/splits}\n{50*'*'}{bcolors.ENDC}")
-    return history
+          if band == True:
+              print(bcolors.OKBLUE + bcolors.BOLD + last_printed + ep_finish_print + '\t[Weights Updated]' + bcolors.ENDC)
+          else: print(ep_finish_print)
+                  
+  print(f"{bcolors.OKGREEN}{bcolors.BOLD}{50*'*'}\nModel {model_name.upper()} Representation {rep} ~~ {language}: {model.best_acc}\n{50*'*'}{bcolors.ENDC}")
+  del trainloader
+  del model
+  del devloader
+  return history
 
 def predict(model, model_name, encodings, idx, language, output, splits, batch_size, labels, save_predictions):
 
@@ -295,7 +292,7 @@ class AttentionLSTM(torch.nn.Module):
 
 class LSTMAtt_Classifier(torch.nn.Module):
 
-    def __init__(self, hidden_size, attention_neurons, lstm_size, language='EN'):
+    def __init__(self, hidden_size, attention_neurons, lstm_size, language='EN', using_features=False):
 
         super(LSTMAtt_Classifier, self).__init__()
 
@@ -305,16 +302,21 @@ class LSTMAtt_Classifier(torch.nn.Module):
         self.bilstm = torch.nn.LSTM(batch_first=True, input_size=hidden_size, hidden_size=lstm_size, bidirectional=True, proj_size=0) 
         self.lstm = torch.nn.LSTM(batch_first=True, input_size=lstm_size*2, hidden_size=lstm_size, proj_size=0)
                                         
-        self.dense =  torch.nn.Linear(in_features=lstm_size, out_features=32)
         self.clasifier = torch.nn.Linear(in_features=32, out_features=2)
         self.loss_criterion = torch.nn.CrossEntropyLoss() 
+
+        self.using_features = using_features
+        if using_features == True:
+          self.dense_features = torch.nn.Linear(in_features=177, out_features=32)
+          self.dense =  torch.nn.Linear(in_features=lstm_size+32, out_features=32)
+        else : self.dense =  torch.nn.Linear(in_features=lstm_size, out_features=32)
 
         self.device = torch.device("cuda:0") if torch.cuda.is_available() else torch.device("cpu")
         self.to(device=self.device)
 
 
     def forward(self, A, F = None, encode=False):
-        
+       
         X = self.att(A.to(device=self.device))
   
         X, _ = self.bilstm(X)
@@ -325,12 +327,17 @@ class LSTMAtt_Classifier(torch.nn.Module):
         if self.training:
           X = X + torch.randn_like(X)*1e-3
 
+        if F is None:
+          return  self.clasifier(X[:,-1])
+        else:
+          F = self.dense_features(F.to(device=self.device))
+          X = torch.cat([X[:,-1], F], dim = -1)
+      
+        X = self.dense(X)
+
         if encode == True:
             return X[:,-1]
-        if F == None:
-          return  self.clasifier(X[:,-1])
-        X = torch.cat([X, F], dim = -1)
-        X = self.dense(X)
+
         return self.clasifier(X)
 
     def load(self, path):

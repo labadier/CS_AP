@@ -35,22 +35,22 @@ tmode=online
 
 
 
-python main.py -l ES -mode CNN_LSTM_Encoder -task faker -phase encode -dp data/profiling/faker/dev -lr 2e-3 -epoch 12 -bs 64 -decay 0
-python main.py -l EN -mode CNN_LSTM_Encoder -task faker -phase encode -dp data/profiling/faker/dev -lr 2e-3 -epoch 12 -bs 64 -decay 0
-python main.py -l ES -mode CNN_LSTM_Encoder -task faker -phase encode -dp data/profiling/faker/train -lr 2e-3 -epoch 12 -bs 64 -decay 0
-python main.py -l EN -mode CNN_LSTM_Encoder -task faker -phase encode -dp data/profiling/faker/train -lr 2e-3 -epoch 12 -bs 64 -decay 0
+# python main.py -l ES -mode CNN_LSTM_Encoder -task faker -phase encode -dp data/profiling/faker/dev -lr 2e-3 -epoch 12 -bs 64 -decay 0
+# python main.py -l EN -mode CNN_LSTM_Encoder -task faker -phase encode -dp data/profiling/faker/dev -lr 2e-3 -epoch 12 -bs 64 -decay 0
+# python main.py -l ES -mode CNN_LSTM_Encoder -task faker -phase encode -dp data/profiling/faker/train -lr 2e-3 -epoch 12 -bs 64 -decay 0
+# python main.py -l EN -mode CNN_LSTM_Encoder -task faker -phase encode -dp data/profiling/faker/train -lr 2e-3 -epoch 12 -bs 64 -decay 0
 
 
-python main.py -l ES -mode CNN_LSTM_Encoder -task hater -phase encode -dp data/profiling/hater/dev -lr 2e-3 -epoch 12 -bs 64 -decay 0
-python main.py -l EN -mode CNN_LSTM_Encoder -task hater -phase encode -dp data/profiling/hater/dev -lr 2e-3 -epoch 12 -bs 64 -decay 0
-python main.py -l ES -mode CNN_LSTM_Encoder -task hater -phase encode -dp data/profiling/hater/train -lr 2e-3 -epoch 12 -bs 64 -decay 0
-python main.py -l EN -mode CNN_LSTM_Encoder -task hater -phase encode -dp data/profiling/hater/train -lr 2e-3 -epoch 12 -bs 64 -decay 0
+# python main.py -l ES -mode CNN_LSTM_Encoder -task hater -phase encode -dp data/profiling/hater/dev -lr 2e-3 -epoch 12 -bs 64 -decay 0
+# python main.py -l EN -mode CNN_LSTM_Encoder -task hater -phase encode -dp data/profiling/hater/dev -lr 2e-3 -epoch 12 -bs 64 -decay 0
+# python main.py -l ES -mode CNN_LSTM_Encoder -task hater -phase encode -dp data/profiling/hater/train -lr 2e-3 -epoch 12 -bs 64 -decay 0
+# python main.py -l EN -mode CNN_LSTM_Encoder -task hater -phase encode -dp data/profiling/hater/train -lr 2e-3 -epoch 12 -bs 64 -decay 0
 
 
-python main.py -l ES -mode CNN_LSTM_Encoder -task bot -phase encode -dp data/profiling/bot/dev -lr 2e-3 -epoch 12 -bs 64 -decay 0
-python main.py -l EN -mode CNN_LSTM_Encoder -task bot -phase encode -dp data/profiling/bot/dev -lr 2e-3 -epoch 12 -bs 64 -decay 0
-python main.py -l ES -mode CNN_LSTM_Encoder -task bot -phase encode -dp data/profiling/bot/train -lr 2e-3 -epoch 12 -bs 64 -decay 0
-python main.py -l EN -mode CNN_LSTM_Encoder -task bot -phase encode -dp data/profiling/bot/train -lr 2e-3 -epoch 12 -bs 64 -decay 0
+# python main.py -l ES -mode CNN_LSTM_Encoder -task bot -phase encode -dp data/profiling/bot/dev -lr 2e-3 -epoch 12 -bs 64 -decay 0
+# python main.py -l EN -mode CNN_LSTM_Encoder -task bot -phase encode -dp data/profiling/bot/dev -lr 2e-3 -epoch 12 -bs 64 -decay 0
+# python main.py -l ES -mode CNN_LSTM_Encoder -task bot -phase encode -dp data/profiling/bot/train -lr 2e-3 -epoch 12 -bs 64 -decay 0
+# python main.py -l EN -mode CNN_LSTM_Encoder -task bot -phase encode -dp data/profiling/bot/train -lr 2e-3 -epoch 12 -bs 64 -decay 0
 
 
 ############################################# Train - Encode Transformer Encoder ############################################
@@ -81,7 +81,9 @@ python main.py -l EN -mode CNN_LSTM_Encoder -task bot -phase encode -dp data/pro
 
 
 
+############################################# Train - Encode - Predict LSTM Classifier ############################################
 
+# python main.py -l EN -mode lstm -phase train -dp data/profiling/faker/train -lr 1e-4 -epoch 20 -bs 64 -lstm_size 32 -interm_layer 64 -decay 0
 
 
 

@@ -30,7 +30,7 @@ def read_truth(data_path):
 
     return target
 
-def load_Profiling_Data(data_path, labeled=True):
+def load_Profiling_Data(data_path, labeled=True, w_features = None):
 
     addrs = np.array(glob.glob(data_path + '/*.xml'));addrs.sort()
 
@@ -38,6 +38,11 @@ def load_Profiling_Data(data_path, labeled=True):
     indx = []
     label = []
     tweets = []
+    
+    features = []
+    feat = None 
+    if w_features != None:
+      feat = load_mixed_features(w_features)
 
     if labeled == True:
         target = read_truth(data_path)
@@ -50,14 +55,19 @@ def load_Profiling_Data(data_path, labeled=True):
         authors[author] = len(tweets)
         indx.append(author)
         tweets.append([])
+        if feat != None:
+          features.append(feat[author])
 
         tree = XT.parse(adr)
         root = tree.getroot()[0]
         for twit in root:
             tweets[-1].append(twit.text)
         tweets[-1] = np.array(tweets[-1])
+    
+    if feat is not None:
+      return tweets, indx, np.array(label), np.array(features)
     if labeled == True:
-        return tweets, indx, np.array(label)
+        return tweets, indx, np.array(label), None
 
     print(f'{bcolors.OKBLUE}Loaded {len(tweets)} Profiles{bcolors.ENDC}' )
     return tweets, indx

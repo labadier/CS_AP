@@ -6,4 +6,4 @@
 \contentsline {table}{\numberline {3.2}{\ignorespaces Corpus Profiling PAN 2020}}{22}{table.3.2}%
 \contentsline {table}{\numberline {3.3}{\ignorespaces Corpus Profiling PAN 2021}}{23}{table.3.3}%
 \contentsline {table}{\numberline {3.4}{\ignorespaces CNN-LSTM $\alpha $ tuning }}{24}{table.3.4}%
-\contentsline {table}{\numberline {3.5}{\ignorespaces CNN-LSTM $\alpha $ tuning }}{25}{table.3.5}%
+\contentsline {table}{\numberline {3.5}{\ignorespaces Finetuning Transformers en cada tarea con $\alpha =1e\text {-}5,~\delta = 2e\text {-}5, ~\lambda =0.1$}}{25}{table.3.5}%

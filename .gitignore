@@ -6,3 +6,4 @@ experiments
 !data/datamodeling.py
 mixedFeaturesRepresentation
 .vscode
+log
