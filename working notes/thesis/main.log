@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.6.26)  9 NOV 2021 13:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.6.26)  10 NOV 2021 16:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -815,7 +815,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 34.
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<images/logo.png, id=131, 192.72pt x 78.2925pt>
+<images/logo.png, id=135, 192.72pt x 78.2925pt>
 File: images/logo.png Graphic file (type png)
 <use images/logo.png>
 Package pdftex.def Info: images/logo.png  used on input line 53.
@@ -860,7 +860,7 @@ Overfull \hbox (32.72842pt too wide) in paragraph at lines 32--55
 [][] [] 
  []
 
-<images/portada.png, id=133, 679.53876pt x 1730.465pt>
+<images/portada.png, id=137, 679.53876pt x 1730.465pt>
 File: images/portada.png Graphic file (type png)
 <use images/portada.png>
 Package pdftex.def Info: images/portada.png  used on input line 55.
@@ -939,7 +939,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--34
 [5
 
 ] [6]
-<images/rnn.png, id=382, 702.625pt x 183.68625pt>
+<images/rnn.png, id=389, 702.625pt x 183.68625pt>
 File: images/rnn.png Graphic file (type png)
 <use images/rnn.png>
 Package pdftex.def Info: images/rnn.png  used on input line 51.
@@ -955,26 +955,26 @@ Package epstopdf Info: Source file: <images/cnn.eps>
 o.pdf images/cnn.eps>
 (epstopdf)             \includegraphics on input line 101.
 Package epstopdf Info: Output file is already uptodate.
-<images/cnn-eps-converted-to.pdf, id=415, 277.035pt x 236.885pt>
+<images/cnn-eps-converted-to.pdf, id=422, 277.035pt x 236.885pt>
 File: images/cnn-eps-converted-to.pdf Graphic file (type pdf)
 <use images/cnn-eps-converted-to.pdf>
 Package pdftex.def Info: images/cnn-eps-converted-to.pdf  used on input line 10
 1.
 (pdftex.def)             Requested size: 250.0pt x 213.76924pt.
  [9 <./images/cnn-eps-converted-to.pdf>]
-<images/transformer.png, id=429, 771.63281pt x 1207.51125pt>
+<images/transformer.png, id=436, 771.63281pt x 1207.51125pt>
 File: images/transformer.png Graphic file (type png)
 <use images/transformer.png>
 Package pdftex.def Info: images/transformer.png  used on input line 155.
 (pdftex.def)             Requested size: 221.78972pt x 317.0962pt.
 
 [10] [11 <./images/transformer.png>]
-<images/cnn-gnn.png, id=452, 511.15968pt x 481.04718pt>
+<images/cnn-gnn.png, id=459, 511.15968pt x 481.04718pt>
 File: images/cnn-gnn.png Graphic file (type png)
 <use images/cnn-gnn.png>
 Package pdftex.def Info: images/cnn-gnn.png  used on input line 170.
 (pdftex.def)             Requested size: 155.25517pt x 146.10626pt.
-<images/gnn-gnn.png, id=453, 505.89pt x 450.9347pt>
+<images/gnn-gnn.png, id=460, 505.89pt x 450.9347pt>
 File: images/gnn-gnn.png Graphic file (type png)
 <use images/gnn-gnn.png>
 Package pdftex.def Info: images/gnn-gnn.png  used on input line 171.
@@ -999,7 +999,7 @@ Package epstopdf Info: Source file: <images/cnn_lstm.eps>
 ted-to.pdf images/cnn_lstm.eps>
 (epstopdf)             \includegraphics on input line 33.
 Package epstopdf Info: Output file is already uptodate.
-<images/cnn_lstm-eps-converted-to.pdf, id=496, 454.69875pt x 200.75pt>
+<images/cnn_lstm-eps-converted-to.pdf, id=503, 454.69875pt x 200.75pt>
 File: images/cnn_lstm-eps-converted-to.pdf Graphic file (type pdf)
 <use images/cnn_lstm-eps-converted-to.pdf>
 Package pdftex.def Info: images/cnn_lstm-eps-converted-to.pdf  used on input li
@@ -1026,7 +1026,7 @@ Package epstopdf Info: Source file: <images/att_lstm.eps>
 ted-to.pdf images/att_lstm.eps>
 (epstopdf)             \includegraphics on input line 68.
 Package epstopdf Info: Output file is already uptodate.
-<images/att_lstm-eps-converted-to.pdf, id=523, 204.765pt x 130.4875pt>
+<images/att_lstm-eps-converted-to.pdf, id=530, 204.765pt x 130.4875pt>
 File: images/att_lstm-eps-converted-to.pdf Graphic file (type pdf)
 <use images/att_lstm-eps-converted-to.pdf>
 Package pdftex.def Info: images/att_lstm-eps-converted-to.pdf  used on input li
@@ -1053,7 +1053,7 @@ Package epstopdf Info: Source file: <images/trepre.eps>
 d-to.pdf images/trepre.eps>
 (epstopdf)             \includegraphics on input line 153.
 Package epstopdf Info: Output file is already uptodate.
-<images/trepre-eps-converted-to.pdf, id=573, 181.67876pt x 91.34125pt>
+<images/trepre-eps-converted-to.pdf, id=580, 181.67876pt x 91.34125pt>
 File: images/trepre-eps-converted-to.pdf Graphic file (type pdf)
 <use images/trepre-eps-converted-to.pdf>
 Package pdftex.def Info: images/trepre-eps-converted-to.pdf  used on input line
@@ -1093,7 +1093,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 122--144
 
  []
 
-[24]) (./main.bbl [25] [26] [27
+[24] [25]) (./main.bbl [26] [27
 
 ] [28] [29] [30]) [31] (./main.aux
 LaTeX Info: Redefining \. on input line 26.
@@ -1104,13 +1104,13 @@ LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.72pt have occurred.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 5841FA5B552064D1A2003702B332B9DE;5822.
+(rerunfilecheck)             Checksum: 77BAA7409F0FFC285E110C5630BE6911;5967.
  ) 
 Here is how much of TeX's memory you used:
- 22863 strings out of 478994
- 399926 string characters out of 5864751
- 722671 words of memory out of 5000000
- 39693 multiletter control sequences out of 15000+600000
+ 22866 strings out of 478994
+ 399974 string characters out of 5864751
+ 722719 words of memory out of 5000000
+ 39695 multiletter control sequences out of 15000+600000
  427294 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,17n,102p,1055b,755s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1175,10 +1175,10 @@ exmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf-dist/fonts
 /type1/public/cm-super/sfrm1728.pfb></usr/share/texmf-dist/fonts/type1/public/c
 m-super/sfti0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti109
 5.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb>
-Output written on main.pdf (35 pages, 1340282 bytes).
+Output written on main.pdf (35 pages, 1343337 bytes).
 PDF statistics:
- 884 PDF objects out of 1000 (max. 8388607)
- 779 compressed objects within 8 object streams
- 184 named destinations out of 1000 (max. 500000)
- 311 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 891 PDF objects out of 1000 (max. 8388607)
+ 786 compressed objects within 8 object streams
+ 185 named destinations out of 1000 (max. 500000)
+ 319 words of extra memory for PDF output out of 10000 (max. 10000000)
 

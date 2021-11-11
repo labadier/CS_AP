@@ -151,7 +151,7 @@ class FNN_Classifier(torch.nn.Module):
         return out 
 
 
-def train_classifier(rep, model_name, data_train, data_dev, language, hfeaat = None, splits = 5, epoches = 4, batch_size = 64, interm_layer_size = [64, 32], lr = 1e-5,  decay=0):
+def train_classifier(task, rep, model_name, data_train, data_dev, language, hfeaat = None, splits = 5, epoches = 4, batch_size = 64, interm_layer_size = [64, 32], lr = 1e-5,  decay=0):
  
   overall_acc = 0
   last_printed = None
@@ -202,7 +202,7 @@ def train_classifier(rep, model_name, data_train, data_dev, language, hfeaat = N
               perc = (1+j)*100.0/batches
               last_printed = f'\rEpoch:{epoch+1:3d} of {epoches} step {j+1} of {batches}. {perc:.1f}% loss: {running_loss:.3f}'
     
-              print(last_printed, end="")
+              # print(last_printed, end="")
 
       model.eval()
       history[-1]['loss'].append(running_loss)
@@ -213,6 +213,7 @@ def train_classifier(rep, model_name, data_train, data_dev, language, hfeaat = N
               torch.cuda.empty_cache() 
               inputs, label, features = data['profile'], data['label'].to(model.device), data['handed_features'] 
               dev_out = model(inputs, F = (features if hfeaat['train'] is not None else None), encode = False)
+              
               if k == 0:
                   out = dev_out
                   log = label
@@ -235,9 +236,9 @@ def train_classifier(rep, model_name, data_train, data_dev, language, hfeaat = N
 
           if band == True:
               print(bcolors.OKBLUE + bcolors.BOLD + last_printed + ep_finish_print + '\t[Weights Updated]' + bcolors.ENDC)
-          else: print(ep_finish_print)
+          # else: print(ep_finish_print)
                   
-  print(f"{bcolors.OKGREEN}{bcolors.BOLD}{50*'*'}\nModel {model_name.upper()} Representation {rep} ~~ {language}: {model.best_acc}\n{50*'*'}{bcolors.ENDC}")
+  print(f"{bcolors.OKGREEN}{bcolors.BOLD}{50*'*'}\n TASK: {task.upper()} MODEL: {model_name.upper()} REPRESENTATION: {rep} LRATE: {lr} ~~ LANGUGE: {language} BATCH: {batch_size}: {model.best_acc}\n{50*'*'}{bcolors.ENDC}")
   del trainloader
   del model
   del devloader
@@ -321,11 +322,11 @@ class LSTMAtt_Classifier(torch.nn.Module):
   
         X, _ = self.bilstm(X)
 
-        if self.training:
-          X = X + torch.randn_like(X)*1e-4
+        # if self.training:
+        #   X = X + torch.randn_like(X)*1e-4
         X, _  = self.lstm(X)
-        if self.training:
-          X = X + torch.randn_like(X)*1e-3
+        # if self.training:
+        #   X = X + torch.randn_like(X)*1e-3
 
         if F is None:
           return  self.clasifier(X[:,-1])

@@ -205,7 +205,7 @@ if __name__ == '__main__':
       _, _, labels_train, handed_train = load_Profiling_Data(f'{data_path}/train/{language.lower()}', labeled=True, w_features = phanded_train )
       _, _, labels_dev, handed_dev = load_Profiling_Data(f'{data_path}/dev/{language.lower()}', labeled=True, w_features = phanded_dev )
 
-      history = train_classifier(rep, 'lstm', data_train = [encodings_train, labels_train], data_dev = [encodings_dev, labels_dev], 
+      history = train_classifier(rep, task, rep, 'lstm', data_train = [encodings_train, labels_train], data_dev = [encodings_dev, labels_dev], 
                                   language = language, hfeaat={'train':handed_train, 'dev':handed_dev},splits = splits, epoches= epoches, batch_size = batch_size, 
                                   interm_layer_size = [interm_layer_size, 32, lstm_hidden_size], lr=learning_rate, decay=decay)
       
@@ -218,6 +218,47 @@ if __name__ == '__main__':
       model.load(f'logs/lstm_{language[:2]}_1.pt')
       get_encodings(model, data_path, 'lstm')
       
+    exit(0)
+
+
+  if mode == 'cgnn':
+
+    '''
+      Train Train Graph Concolutional Neural Network
+    ''' 
+    from models.CGNN import train_GCNN, GCN, predicgcn
+    if phase == 'train':
+
+      encodings_train = None
+      encodings_dev = None
+
+      handed_train = None
+      handed_dev = None
+      phanded_train = None
+      phanded_dev = None
+
+      if 't' in rep:
+        encodings_train = torch.load(f'logs/transformers/{task}_train_encodings_{language[:2]}.pt')
+        encodings_dev = torch.load(f'logs/transformers/{task}_dev_encodings_{language[:2]}.pt')
+      elif 'c' in rep:
+        encodings_train = torch.load(f'logs/cnn_lstm/{task}_train_encodings_{language[:2]}.pt')
+        encodings_dev = torch.load(f'logs/cnn_lstm/{task}_dev_encodings_{language[:2]}.pt')
+
+      if 'h' in rep:
+        phanded_train = f'logs/handcrafted/{task}_train_{language[:2].lower()}.json'
+        phanded_dev = f'logs/handcrafted/{task}_dev_{language[:2].lower()}.json'
+
+      _, _, labels_train, handed_train = load_Profiling_Data(f'{data_path}/train/{language.lower()}', labeled=True, w_features = phanded_train )
+      _, _, labels_dev, handed_dev = load_Profiling_Data(f'{data_path}/dev/{language.lower()}', labeled=True, w_features = phanded_dev )
+
+      history = train_GCNN(rep, [encodings_train, handed_train, labels_train], [encodings_dev, handed_dev, labels_dev], language, splits = splits, epoches = epoches, batch_size = batch_size, hidden_channels = interm_layer_size, lr=learning_rate, decay=decay)
+      plot_training(history[-1], f'logs/GNN_{task}_{language}_{learning_rate}', 'acc')
+    
+    elif phase == 'encode':
+      
+      model = GCN(language, interm_layer_size, encodings.shape[-1])
+      model.load(f'logs/gcn_{language[:2]}_1.pt')
+      get_encodings(model, data_path, 'cgnn')
     exit(0)
     
   if mode == 'Impostor':
@@ -282,37 +323,6 @@ if __name__ == '__main__':
     print('Accuracy Test {}: {}'.format(language, np.round(accuracy_score(labels_test, np.int32(np.round(Y_Test/splits, decimals=0))), decimals=3)))
     # save_predictions(idx, np.int32(np.round(Y_Test/splits, decimals=0)), language, output)
     # print(classification_report(labels, np.int32(np.round(Y_Test/splits, decimals=0)), target_names=['No Hate', 'Hate'],  digits=4, zero_division=1))
-      
-
-  if mode == 'cgnn':
-
-    if epoches == -1:
-      epoches = 80
-
-    '''
-      Train Train Graph Concolutional Neural Network
-    ''' 
-    from models.CGNN import train_GCNN, GCN, predicgcn
-    if phase == 'train':
-
-      _, _, labels = load_Profiling_Data(os.path.join(data_path, language.lower()), labeled=True)
-      infosave = data_path.split("/")[-2:]
-      encodings = torch.load(f'logs/{infosave[0]}_{infosave[1]}_encodings_{language[:2]}.pt')
-
-      history = train_GCNN(encodings, labels, language, splits = splits, epoches = epoches, batch_size = batch_size, hidden_channels = interm_layer_size, lr=learning_rate, decay=decay)
-      plot_training(history[-1], language + '_cgnn', 'acc')
-    elif phase == 'test':
-
-      tweets_test, idx  = load_Profiling_Data(os.path.join(test_path, language.lower()), labeled=False)
-      infosave = data_path.split("/")[-2:]
-      encodings = torch.load(f'logs/{infosave[0]}_{infosave[1]}_encodings_{language[:2]}.pt')
-      predicgcn(encodings, idx, language, splits, output, batch_size, interm_layer_size, save_predictions)
-    elif phase == 'encode':
-      
-      model = GCN(language, interm_layer_size, encodings.shape[-1])
-      model.load(f'logs/gcn_{language[:2]}_1.pt')
-      get_encodings(model, data_path, 'cgnn')
-    exit(0)
 
 
   # if mode == 'svm':

@@ -46,9 +46,7 @@ class GCN(torch.nn.Module):
 		self.load_state_dict(torch.load(path, map_location=self.device))
 
 	def save(self, path):
-		if os.path.exists('./logs') == False:
-			os.system('mkdir logs')
-		torch.save(self.state_dict(), os.path.join('logs', path))
+		torch.save(self.state_dict(), path)
 	
 	def get_encodings(self, encodings, batch_size):
 
@@ -81,118 +79,125 @@ class GCN(torch.nn.Module):
 		del devloader
 		return out
 
-def train_GCNN(encodings, target, language, splits = 5, epoches = 4, batch_size = 64, hidden_channels = 64, lr = 1e-5,  decay=2e-5):
-
-	skf = StratifiedKFold(n_splits=splits, shuffle=True, random_state = 23)
-	a = []
-	b = []
-	for i in range(encodings.shape[1]):  
-		a += [i]*int(encodings.shape[1])
-		b += [j for j in range(encodings.shape[1])]
-
-	edges = [a, b]
-	edges = torch.tensor(edges, dtype=torch.long)
-	target = torch.tensor(target)
-	encodings = torch.tensor(encodings, dtype=torch.float)
-	overall_acc = 0
-
-	history = []
-	for i, (train_index, test_index) in enumerate(skf.split(np.zeros_like(target), target)):  
+def train_GCNN(rep, data_train, data_test, language, splits = 5, epoches = 4, batch_size = 64, hidden_channels = 64, lr = 1e-5,  decay=2e-5):
 	
-		history.append({'loss': [], 'acc':[], 'dev_loss': [], 'dev_acc': []})
-		model = GCN(language, hidden_channels, encodings.shape[-1])
-	
-		optimizer = torch.optim.Adam(model.parameters(), lr=lr)
+  a = []
+  b = []
+  for i in range(data_train[0].shape[1]):  
+    a += [i]*int(data_train[0].shape[1])
+    b += [j for j in range(data_train[0].shape[1])]
 
-		data_train = [torch_geometric.data.Data(x=encodings[i], y=target[i], edge_index=edges) for i in train_index]
-		data_test = [torch_geometric.data.Data(x=encodings[i], y=target[i], edge_index=edges) for i in test_index]
-		trainloader = torch_geometric.data.DataLoader(data_train, batch_size=batch_size, shuffle=True, num_workers=4, worker_init_fn=seed_worker)
-		devloader = torch_geometric.data.DataLoader(data_test, batch_size=batch_size, shuffle=True, num_workers=4, worker_init_fn=seed_worker)
-		batches = len(trainloader)
+  edges_train = [a, b]
+  edges_train = torch.tensor(edges_train, dtype=torch.long)
+  target_train = torch.tensor(data_train[2])
+  encodings_train = torch.tensor(data_train[0], dtype=torch.float)
 
-		for epoch in range(epoches):
+  a = []
+  b = []
+  for i in range(data_test[0].shape[1]):  
+    a += [i]*int(data_test[0].shape[1])
+    b += [j for j in range(data_test[0].shape[1])]
 
-			running_loss = 0.0
-			perc = 0
-			acc = 0
-			
-			model.train()
-			last_printed = ''
-			for j, data in enumerate(trainloader, 0):
-
-				torch.cuda.empty_cache()         
- 
-				optimizer.zero_grad()
-				outputs = model(data.x, data.edge_index, data.batch)
-				loss = model.loss_criterion(outputs, data.y.to(model.device))
-				
-				loss.backward()
-				optimizer.step()
-
-				# print statistics
-				outputs = outputs.argmax(dim=1).cpu()
-				with torch.no_grad():
-					if j == 0:
-						acc = ((1.0*(outputs == data.y)).sum()/len(data.y)).numpy()
-						running_loss = loss.item()
-					else: 
-						acc = (acc + ((1.0*(outputs == data.y)).sum()/len(data.y)).numpy())/2.0
-						running_loss = (running_loss + loss.item())/2.0
-
-				if (j+1)*100.0/batches - perc  >= 1 or j == batches-1:
-					perc = (1+j)*100.0/batches
-					last_printed = f'\rEpoch:{epoch+1:3d} of {epoches} step {j+1} of {batches}. {perc:.1f}% loss: {running_loss:.3f}'
-					print(last_printed, end="")
-			
-			model.eval()
-			history[-1]['loss'].append(running_loss)
-			with torch.no_grad():
-				out = None
-				log = None
-				for k, data in enumerate(devloader, 0):
-					torch.cuda.empty_cache() 
-
-					dev_out = model(data.x, data.edge_index, data.batch)
-					if k == 0:
-						out = dev_out
-						log = data.y
-					else: 
-						out = torch.cat((out, dev_out), 0)
-						log = torch.cat((log, data.y), 0)
-
-				dev_loss = model.loss_criterion(out, log.to(model.device)).item()
-				out = out.argmax(dim=1).cpu()
-				dev_acc = ((1.0*(out == log)).sum()/len(log)).cpu().numpy() 
-				history[-1]['acc'].append(acc)
-				history[-1]['dev_loss'].append(dev_loss)
-				history[-1]['dev_acc'].append(dev_acc) 
-
-			band = False
-			if model.best_acc is None or model.best_acc < dev_acc:
-				model.save('gcn_{}_{}.pt'.format(language[:2], i+1))
-				model.best_acc = dev_acc
-				model.best_acc_train = acc
-				band = True
-			elif model.best_acc == dev_acc and (model.best_acc_train is None or model.best_acc_train < acc):
-				model.save('gcn_{}_{}.pt'.format(language[:2], i+1))
-				model.best_acc_train = acc
-				band = True
+  edges_test = [a, b]
+  edges_test = torch.tensor(edges_test, dtype=torch.long)
+  target_test = torch.tensor(data_test[2])
+  encodings_test = torch.tensor(data_test[0], dtype=torch.float)
 
 
-			ep_finish_print = f' acc: {acc:.3f} | dev_loss: {dev_loss:.3f} dev_acc: {dev_acc.reshape(-1)[0]:.3f}'
+  history = [{'loss': [], 'acc':[], 'dev_loss': [], 'dev_acc': []}]
+  model = GCN(language, hidden_channels, encodings_train.shape[-1])
 
-			if band == True:
-				print(bcolors.OKBLUE + bcolors.BOLD + last_printed + ep_finish_print + '\t[Weights Updated]' + bcolors.ENDC)
-			else: print(ep_finish_print)
+  optimizer = torch.optim.Adam(model.parameters(), lr=lr)
 
-		overall_acc += model.best_acc
-		print('Training Finished Split: {}'. format(i+1))
-		del trainloader
-		del model
-		del devloader
-		# break
-	print(f"{bcolors.OKGREEN}{bcolors.BOLD}{50*'*'}\nOveral Accuracy {language}: {overall_acc/splits}\n{50*'*'}{bcolors.ENDC}")
-	return history
+  data_train = [torch_geometric.data.Data(x=encodings_train[i], y=target_train[i], edge_index=edges_train) for i in len(encodings_train)]
+  data_test = [torch_geometric.data.Data(x=encodings_test[i], y=target_test[i], edge_index=edges_test) for i in len(encodings_test)]
+  
+  trainloader = torch_geometric.data.DataLoader(data_train, batch_size=batch_size, shuffle=True, num_workers=4, worker_init_fn=seed_worker)
+  devloader = torch_geometric.data.DataLoader(data_test, batch_size=batch_size, shuffle=True, num_workers=4, worker_init_fn=seed_worker)
+  batches = len(trainloader)
+
+  for epoch in range(epoches):
+
+    running_loss = 0.0
+    perc = 0
+    acc = 0
+    
+    model.train()
+    last_printed = ''
+    for j, data in enumerate(trainloader, 0):
+
+      torch.cuda.empty_cache()         
+
+      optimizer.zero_grad()
+      outputs = model(data.x, data.edge_index, data.batch)
+      loss = model.loss_criterion(outputs, data.y.to(model.device))
+      
+      loss.backward()
+      optimizer.step()
+
+      # print statistics
+      outputs = outputs.argmax(dim=1).cpu()
+      with torch.no_grad():
+        if j == 0:
+          acc = ((1.0*(outputs == data.y)).sum()/len(data.y)).numpy()
+          running_loss = loss.item()
+        else: 
+          acc = (acc + ((1.0*(outputs == data.y)).sum()/len(data.y)).numpy())/2.0
+          running_loss = (running_loss + loss.item())/2.0
+
+      if (j+1)*100.0/batches - perc  >= 1 or j == batches-1:
+        perc = (1+j)*100.0/batches
+        last_printed = f'\rEpoch:{epoch+1:3d} of {epoches} step {j+1} of {batches}. {perc:.1f}% loss: {running_loss:.3f}'
+        print(last_printed, end="")
+    
+    model.eval()
+    history[-1]['loss'].append(running_loss)
+    with torch.no_grad():
+      out = None
+      log = None
+      for k, data in enumerate(devloader, 0):
+        torch.cuda.empty_cache() 
+
+        dev_out = model(data.x, data.edge_index, data.batch)
+        if k == 0:
+          out = dev_out
+          log = data.y
+        else: 
+          out = torch.cat((out, dev_out), 0)
+          log = torch.cat((log, data.y), 0)
+
+      dev_loss = model.loss_criterion(out, log.to(model.device)).item()
+      out = out.argmax(dim=1).cpu()
+      dev_acc = ((1.0*(out == log)).sum()/len(log)).cpu().numpy() 
+      history[-1]['acc'].append(acc)
+      history[-1]['dev_loss'].append(dev_loss)
+      history[-1]['dev_acc'].append(dev_acc) 
+
+    band = False
+    if model.best_acc is None or model.best_acc < dev_acc:
+      model.save(f'gcn_{language}_{rep}.pt')
+      model.best_acc = dev_acc
+      model.best_acc_train = acc
+      band = True
+    elif model.best_acc == dev_acc and (model.best_acc_train is None or model.best_acc_train < acc):
+      model.save(f'gcn_{language}_{rep}.pt')
+      model.best_acc_train = acc
+      band = True
+
+
+    ep_finish_print = f' acc: {acc:.3f} | dev_loss: {dev_loss:.3f} dev_acc: {dev_acc.reshape(-1)[0]:.3f}'
+
+    if band == True:
+      print(bcolors.OKBLUE + bcolors.BOLD + last_printed + ep_finish_print + '\t[Weights Updated]' + bcolors.ENDC)
+    else: print(ep_finish_print)
+
+  overall_acc += model.best_acc
+  print('Training Finished Split: {}'. format(i+1))
+  del trainloader
+  del model
+  del devloader
+  print(f"{bcolors.OKGREEN}{bcolors.BOLD}{50*'*'}\nOveral Accuracy {language}: {overall_acc/splits}\n{50*'*'}{bcolors.ENDC}")
+  return history
 
 
 def predicgcn(encodings, idx, language, splits, output, batch_size, hidden_channels, save_predictions):

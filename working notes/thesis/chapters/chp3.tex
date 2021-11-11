@@ -81,12 +81,12 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
 	 \section{Resultados Experimentales}
 	 
 	 La robustez de los sistemas modulares descansan en el optimo aprendizaje de cada uno de los módulos de manera independiente, en nuestro caso del Codificador y el Clasificador. De manera general para este trabajo se introduce una tarea intermedia semisupervisada para entrenar los modelos Codificadores \footnote{El objeto de predicción de esta tarea semisupervisada, estuvo condicionado por la carencia de anotación a nivel de tweet en cada uno de los corpus y se relaciona con la pertenencia o no a determinado tipo de perfil.}, de esta forma los mismos aprenden relaciones del lenguaje dentro de cada tweet sobre la tarea en cuestión.\\
-	 Para medir el cuan efectivos resulta cada modelo empleamos las métricas \textit{accuracy} (\ref{accuracy}) y\textit{ recall} (\ref{recall}), esta última para los modelos de clasificación sobre la clase positiva en las tareas en las que es necesario la correcta identificacion de una clase sobre otra, i.e., clase positiva (hater) en \textit{Profiling Hate Speech Spreaders on Twitter}  y clase positiva (faker) en \textit{Profiling Fake News Spreaders on Twitter}.
+	 Para medir el cuan efectivos resulta cada modelo empleamos las métricas \textit{accuracy} (\ref{accuracy}) teniendo en cuenta los datos clasificados clasificados correctamente para los ejemplos positivos y negativos (TP y TN) y los clasificados de manera errónea (FP y FN).
+	 %% y\textit{ recall} (\ref{recall}), esta última para los modelos de clasificación sobre la clase positiva en las tareas en las que es necesario la correcta identificacion de una clase sobre otra, i.e., clase positiva (hater) en \textit{Profiling Hate Speech Spreaders on Twitter}  y clase positiva (faker) en \textit{Profiling Fake News Spreaders on Twitter}.
 	 
-	 \begin{flalign}
-	 	acc=~& \frac{TP + TN}{TP + FP + TN + FN}\label{accuracy}\\
-	 	recall =~& \frac{TP}{TP + FN}\label{recall}
-	 \end{flalign}\\
+	 \begin{align}
+	 	acc=~& \frac{TP + TN}{TP + FP + TN + FN}\label{accuracy}
+	 \end{align}\\%recall =~& \frac{TP}{TP + FN}\label{recall}
  
  	\subsection{Codificador CNN - LSTM}
  	
@@ -97,7 +97,7 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
  	Para entrenar este modelo teniendo en cuenta cada uno de los corpus y tareas de AP en las cuales se medirá su desepeño, se analiza la pertenencia o no de un tweet a clase u otra de perfiles, e.g., si el tweet pertenece a la cuenta de un hombre o una mujer, \textit{hater }o \textit{no hater}, etc. De esta manera, se captura no solo las relaciones inherentes al lenguaje presente en el corups frente a la tarea, si no que se aprende como estas relaciones existen atendiendo a un tipo de perfil u otro.
  	\\
  	En el proceso de entrenamiento, el conjunto de datos de entrenamiento de cada uno de los corpus es dividido a una razón de 1:5 en un subconjunto de validación y otro de entrenamiento, de manera que se preserve la distribución uniforme de ejemplos positivos y negativos en cada subconjunto.
- 	Para la arquitectura es añadida una neurona en el tope del modelo encargada de responder la probabilidad de que el tweet pertenezca a una clase de cuenta y los pesos del modelo son ajustados por el oprimizador de Adam \citep{DBLP:journals/corr/KingmaB14} empleando la función de perdida de \textit{Cross-Entropy}.  	\\\\
+ 	Para la arquitectura es añadida una neurona en el tope del modelo encargada de responder la probabilidad de que el tweet pertenezca a una clase de cuenta y los pesos del modelo son ajustados por el oprimizador de Estimación Adaptativa del Momento (\textit{Adaptive Moment Estimation}) Adam \citep{DBLP:journals/corr/KingmaB14} empleando la función de perdida de \textit{Cross-Entropy}.  	\\\\
  	Durante los experimentos exploramos como afectaba la variación hiper-parametro del coeficiente de aprendizaje $\alpha \in \{1e\text{-}3,~15e\text{-}4,~2e\text{-}3,~3e\text{-}3\}$  en el optimizador de Adam a través de cada tarea, i.e., Bots and Gender Profiling at PAN 2019 (\textit{gender}), Profiling Fake News Spreaders on Twitter (\textit{faker}) y Profiling Hate Speech Spreaders on Twitter (\textit{hater}) como se muestra en la \tablename~\ref{cnn_lstm_train} en términos de \textit{accuracy}. Resultando para cada modelo en cada variación de lenguaje valores óptimos de  $alpha$ entre $1e\text{-}3\text{ y }2e\text{-}3$.
  	\\
  	\begin{table}[thb!]
@@ -144,3 +144,49 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
 	
 	
 	\subsection{Clasificador Att-LSTM}
+	
+	Al igual que en los módulos de codificación, este modelo fue entrenado de manera independiente para cada idioma, mediante el optimizador de Adam, de manera que exploramos para cada representación como su combinación con los rasgos de estilo (Sección~\ref{syle_feat}) podría afectar el desempeño del modelo dado un coeficiente de aprendizaje $\alpha$. \\
+	En la \tablename~\ref{att-lstm_train} se muestran los resultados de dicho entrenamiento, evaluado sobre el conjunto de datos de prueba propuesto por los organizadores de cada tarea, donde se puede observar que las modelaciones de los perfiles tomando como elementos de la secuencia tanto de un codificador como del otro arrojaron resultados alentadores. Además en las tareas relacionadas directamente con dispositivos comunicacionales, fundamentalmente en la tarea \textit{hater}, los rasgos de estilo tuvieron un impacto positivo en el \textit{accuracy} del modelos, sin embargo, para la tarea \textit{gender} estos rasgos de estilo al parecer resultaron ruidosos o no  tuvieron influencia en el modelado del perfil por parte de Att-LSTM al emplear ninguna de las dos representaciones aprendidas por los modelos de DL.
+	
+	
+	 	\begin{table}[thb!]
+		\begin{center} 					 		
+			\begin{tabular}{l|c|cccc|cccc} 
+				\specialrule{.1em}{.05em}{.05em}
+				\multirow{2}{*}{Tarea}&\multirow{2}{*}{$\alpha$}&\multicolumn{4}{c}{(EN) Ingles}&\multicolumn{4}{c}{(ES) Español}\\	 			\cline{3-10}
+				&&C1& C2 &C2-STY &C1-STY&C1& C2 &C2-STY &C1-STY\\
+				\specialrule{.1em}{.05em}{.05em} 
+				\multirow{4}{*}{gender} &$5e\text{-}4$&0.797&0.758&0.761&0.800&0.630&0.648&0.650&0.630 \\
+				&$1e\text{-}3$&0.795&\textbf{0.803}&0.789&0.797&0.632&\textbf{0.693}&0.660&0.639 \\
+				&$2e\text{-}3$&0.797&0.802&0.782&0.793&0.635&0.683&0.621&0.637\\
+				&$3e\text{-}3$&0.801&0.753&0.779&0.802&0.632&0.667&0.650&0.632 \\
+				 \hline
+				\multirow{4}{*}{faker} &$5e\text{-}4$&0.690&0.645&0.635&0.694&0.785&0.805&0.800&0.780 \\
+				&$1e\text{-}3$&0.680&0.650&0.645&0.700&0.784&0.805&0.805&0.784\\
+				&$2e\text{-}3$&0.690&0.660&0.665&\textbf{0.704}&0.775&0.810&0.815&0.795\\
+				&$3e\text{-}3$&0.685&0.645&0.655&0.695&0.770&0.810&\textbf{0.820}&0.779 \\
+				\hline
+				\multirow{4}{*}{hater} &$5e\text{-}4$&0.650&0.700&\textbf{0.740}&0.660&0.800&0.789&0.798&0.790 \\
+				&$1e\text{-}3$&0.650&0.730&0.700&0.660&0.790&0.800&0.798&\textbf{0.810} \\
+				&$2e\text{-}3$&0.700&0.709&0.710&0.670&0.780&0.800&\textbf{0.810}&\textbf{0.810}\\
+				&$3e\text{-}3$&0.649&0.719&\textbf{0.740}&0.670&0.790&0.790&0.790&\textbf{0.810}\\
+				\specialrule{.1em}{.05em}{.05em} 
+			\end{tabular}
+			\caption[Entrenamiento de Att-LSTM]{Entrenamiento del modelo Att-LSTM basado en el análisis secuencial del perfil para la combinación de rasgos de los modelos: (i) codificador CNN - LSTM (C1), (ii) codificador transformers y rasgos de estilo (STY)}	
+			\label{att-lstm_train}
+		\end{center}
+	\end{table}	
+	
+	\subsection{Clasificador SGN}
+	
+	
+	
+	
+	EXPLICAR COMO FUSIONASTE LOS RASGOS DE ESTILO  EN LA SECCION DE ARRIBA
+	
+	QUIENES SON USTEDES PABLO VITART??
+	
+	
+	
+	
+	
