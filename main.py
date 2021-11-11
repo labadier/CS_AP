@@ -244,15 +244,16 @@ if __name__ == '__main__':
         encodings_train = torch.load(f'logs/cnn_lstm/{task}_train_encodings_{language[:2]}.pt')
         encodings_dev = torch.load(f'logs/cnn_lstm/{task}_dev_encodings_{language[:2]}.pt')
 
-      if 'h' in rep:
-        phanded_train = f'logs/handcrafted/{task}_train_{language[:2].lower()}.json'
-        phanded_dev = f'logs/handcrafted/{task}_dev_{language[:2].lower()}.json'
+      # if 'h' in rep:
+      phanded_train = f'logs/handcrafted/{task}_train_{language[:2].lower()}.json'
+      phanded_dev = f'logs/handcrafted/{task}_dev_{language[:2].lower()}.json'
 
       _, _, labels_train, handed_train = load_Profiling_Data(f'{data_path}/train/{language.lower()}', labeled=True, w_features = phanded_train )
       _, _, labels_dev, handed_dev = load_Profiling_Data(f'{data_path}/dev/{language.lower()}', labeled=True, w_features = phanded_dev )
 
-      history = train_GCNN(rep, [encodings_train, handed_train, labels_train], [encodings_dev, handed_dev, labels_dev], language, splits = splits, epoches = epoches, batch_size = batch_size, hidden_channels = interm_layer_size, lr=learning_rate, decay=decay)
+      history = train_GCNN(rep, task, [encodings_train, handed_train, labels_train], [encodings_dev, handed_dev, labels_dev], language, splits = splits, epoches = epoches, batch_size = batch_size, hidden_channels = interm_layer_size, lr=learning_rate, decay=decay)
       plot_training(history[-1], f'logs/GNN_{task}_{language}_{learning_rate}', 'acc')
+      plot_training(history[-1], f'logs/GNN_{task}_{language}_{learning_rate}')
     
     elif phase == 'encode':
       
