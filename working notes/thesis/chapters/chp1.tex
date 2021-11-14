@@ -192,12 +192,12 @@ En este epígrafe se realiza un acercamiento hacia los temas y arquitecturas de 
 	\\
 	Muchos diseños de la función de agregación han sido estudiados \citep{kipf2017semisupervised} teniendo en cuenta propiedades de la topología del grafo y la simetría que debe cumplir el análisis de $\mathcal{N}$ i.e., $F$ no puede ser sensible al orden de agregación de la información. En este trabajo, hacemos uso específicamente de las GNN de tipo espectral \citep{Wu_2021} y la clasificación de G. Este tipo de enfoque no difiere mucho de la clasificación de nodos, pues sigue siendo fundamental la determinación de un estado para cada nodo que exprese su información contextual. Esta información contextual es agregada mediante una operación de \textit{pooling} para alimentar una red densa y proceder con la clasificación de la estructura.
 	
-\subsection{Information Gain}
-
-	El índice de \textit{Information Gain }IG (Captura de Información) \citep{10.5555/3091696.3091731,sebastiani2002machine} mide cuanta información aporta un rasgo sobre una clase tomando en cuenta tanto la presencia como la ausencia del término en los documentos pertenecientes a la misma. El IG de un término $t$ en una clase $C$ está definido por:
-	
-	\begin{equation}
-		IG(t, C) = \sum_{c \in \{C, \bar{C}\}} \sum_{x \in \{t, \bar{t}\}} P(x, c) \log_2\frac{P(x, c)}{P(x)P(c)}
-	\end{equation}
-	\\
-	Donde las probabilidades están interpretadas en un espacio de eventos sobre los documentos, e.g., $P(\bar{t}, C)$ indica la probabilidad de que para un documento aleatorio $d$, el término $t$ no ocurra en $d$ y $d$ pertenezca a la categoría $C$. 
+%\subsection{Information Gain}
+%
+%	El índice de \textit{Information Gain }IG (Captura de Información) \citep{10.5555/3091696.3091731,sebastiani2002machine} mide cuanta información aporta un rasgo sobre una clase tomando en cuenta tanto la presencia como la ausencia del término en los documentos pertenecientes a la misma. El IG de un término $t$ en una clase $C$ está definido por:
+%	
+%	\begin{equation}
+%		IG(t, C) = \sum_{c \in \{C, \bar{C}\}} \sum_{x \in \{t, \bar{t}\}} P(x, c) \log_2\frac{P(x, c)}{P(x)P(c)}
+%	\end{equation}
+%	\\
+%	Donde las probabilidades están interpretadas en un espacio de eventos sobre los documentos, e.g., $P(\bar{t}, C)$ indica la probabilidad de que para un documento aleatorio $d$, el término $t$ no ocurra en $d$ y $d$ pertenezca a la categoría $C$. 

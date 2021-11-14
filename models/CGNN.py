@@ -55,28 +55,32 @@ class GCN(torch.nn.Module):
   def save(self, path):
     torch.save(self.state_dict(), path)
 
-  def get_encodings(self, encodings, batch_size):
+  def get_encodings(self, encodings, rep):
 
-    self.eval()    
+    self.eval() 
+    if 'h' in rep:
+      features = torch.tensor(encodings[1], dtype=torch.float)   
+    else: features = torch.zeros((len(encodings[0]), ))
+    
     a = []
     b = []
-    for i in range(encodings.shape[1]):  
-      a += [i]*int(encodings.shape[1])
-      b += [j for j in range(encodings.shape[1])]
+    for i in range(encodings[0].shape[1]):  
+      a += [i]*int(encodings[0].shape[1])
+      b += [j for j in range(encodings[0].shape[1])]
 
     edges = [a, b]
     edges = torch.tensor(edges, dtype=torch.long)
-    encodings = torch.tensor(encodings, dtype=torch.float)
-    data_test = [torch_geometric.data.Data(x=encodings[i], edge_index=edges) for i in range(encodings.shape[0])]
-    devloader = torch_geometric.data.DataLoader(data_test, batch_size=batch_size, shuffle=False, num_workers=4, worker_init_fn=seed_worker)
+    encodings = torch.tensor(encodings[0], dtype=torch.float)
+    
+    data_test = [torch_geometric.data.Data(x=encodings[i], y = features[i], edge_index=edges) for i in range(encodings.shape[0])]
+    devloader = torch_geometric.data.DataLoader(data_test, batch_size=64, shuffle=False, num_workers=4, worker_init_fn=seed_worker)
 		
 
     with torch.no_grad():
       out = None
-      log = None
       for k, data in enumerate(devloader, 0):
         torch.cuda.empty_cache() 
-        dev_out = self.forward(data.x, data.edge_index, data.batch, phase='encode')
+        dev_out = self.forward(data.x, data.edge_index, data.batch, phase='encode', F = (data.y if 'h' in rep else None))
         if k == 0:
           out = dev_out
         else: 

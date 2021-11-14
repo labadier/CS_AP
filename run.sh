@@ -85,13 +85,6 @@ tmode=online
 
 # python main.py -l EN -mode lstm -phase train -dp data/profiling/faker/train -lr 1e-4 -epoch 20 -bs 64 -lstm_size 32 -interm_layer 64 -decay 0
 
-
-
-
-
-
-
-
 # # python main.py -l EN -mode encoder -phase encode -dp data/profiling/faker/train -wp logs  -tmode $tmode -bs 300 -interm_layer $hs
 # # python main.py -l EN -mode encoder -phase encode -dp data/profiling/faker/dev -wp logs  -tmode $tmode -bs 300 -interm_layer $hs
 

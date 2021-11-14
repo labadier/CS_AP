@@ -143,9 +143,10 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
 	Por otro lado el desempeño alcanzado en las tareas \textit{gender} y \textit{hater} es razonable dada la forma en que el mecanismo de atención empleado relaciona la información y a la cantidad de parámetros de estos modelos, lo cual permite que cada neurona  preste atención a estructuras particulares del lenguaje. Esto último pudiera resultar en un sobreajuste a los datos de entrenamiento de no ser por la enorme cantidad datos de diversas fuentes con las que fueron preentrenados y el $\alpha$ suave empleado en el proceso de \textit{finetuning}. 
 	
 	
-	\subsection{Clasificador Att-LSTM}
+	\subsection{Clasificador Att-LSTM}\label{t_attlstm}
 	
-	Al igual que en los módulos de codificación, este modelo fue entrenado de manera independiente para cada idioma, mediante el optimizador de Adam, de manera que exploramos para cada representación como su combinación con los rasgos de estilo (Sección~\ref{syle_feat}) podría afectar el desempeño del modelo dado un coeficiente de aprendizaje $\alpha$. \\
+	Al igual que en los módulos de codificación, este modelo fue entrenado de manera independiente para cada idioma, mediante el optimizador de Adam, de manera que exploramos para cada representación como su combinación con los rasgos de estilo (Sección~\ref{syle_feat}) podría afectar el desempeño del modelo dado un coeficiente de aprendizaje $\alpha$. Esta fusión con los rasgos de estilo fue llevada a cabo introduciendo una capa densa en el modelo para condensar la información del vector de estilo, luego su salida fue concatenada con la salida de la LSTM que contiene la información aprendida directamente de la representación en el espacio latente de los tweets que componen el perfil, siguiendo el flujo del modelo explicado en la Sección~\ref{att-lstm}.
+	\\\\
 	En la \tablename~\ref{att-lstm_train} se muestran los resultados de dicho entrenamiento, evaluado sobre el conjunto de datos de prueba propuesto por los organizadores de cada tarea, donde se puede observar que las modelaciones de los perfiles tomando como elementos de la secuencia tanto de un codificador como del otro arrojaron resultados alentadores. Además en las tareas relacionadas directamente con dispositivos comunicacionales, fundamentalmente en la tarea \textit{hater}, los rasgos de estilo tuvieron un impacto positivo en el \textit{accuracy} del modelos, sin embargo, para la tarea \textit{gender} estos rasgos de estilo al parecer resultaron ruidosos o no  tuvieron influencia en el modelado del perfil por parte de Att-LSTM al emplear ninguna de las dos representaciones aprendidas por los modelos de DL.
 	
 	
@@ -169,7 +170,7 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
 				\multirow{4}{*}{hater} &$5e\text{-}4$&0.650&0.700&\textbf{0.740}&0.660&0.800&0.789&0.798&0.790 \\
 				&$1e\text{-}3$&0.650&0.730&0.700&0.660&0.790&0.800&0.798&\textbf{0.810} \\
 				&$2e\text{-}3$&0.700&0.709&0.710&0.670&0.780&0.800&\textbf{0.810}&\textbf{0.810}\\
-				&$3e\text{-}3$&0.649&0.719&\textbf{0.740}&0.670&0.790&0.790&0.790&\textbf{0.810}\\
+				&$3e\text{-}3$&0.649&0.740&\textbf{0.750}&0.670&0.790&0.790&0.790&\textbf{0.810}\\
 				\specialrule{.1em}{.05em}{.05em} 
 			\end{tabular}
 			\caption[Entrenamiento de Att-LSTM]{Entrenamiento del modelo Att-LSTM basado en el análisis secuencial del perfil para la combinación de rasgos de los modelos: (i) codificador CNN - LSTM (C1), (ii) codificador transformers y rasgos de estilo (STY)}	
@@ -177,16 +178,62 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
 		\end{center}
 	\end{table}	
 	
-	\subsection{Clasificador SGN}
+	\subsection{Clasificador SGN}\label{t_sgn}
 	
 	
+	Para el entrenamiento de la Spectral Graph Network, seguimos un esquema similar al del modelo Att-LSTM, introduciendo una capa densa que condense la información de los rasgos de estilo para concatenar su salida con el pooling descrito en la Sección~\ref{sgn} con la información de los nodos que componen el grafo y luego siguiendo el flujo de la red. Para optimizar los parametros de aprendizaje nuevamente empleamos Adam evaluando coeficientes de aprendizaje en el espacio $[1e\text{-}4, 2e\text{-}4, 5e\text{-}4, 1e\text{-}3, 2e\text{-}3]$. En la \tablename~\ref{sgn_train}, se muestran los resultados de las combinaciones más acertadas sobre este modelo.
+	\begin{table}[thb!]
+		\begin{center} 					 		
+			\begin{tabular}{l|c|cccc|cccc} 
+				\specialrule{.1em}{.05em}{.05em}
+				\multirow{2}{*}{Tarea}&\multirow{2}{*}{$\alpha$}&\multicolumn{4}{c}{(EN) Ingles}&\multicolumn{4}{c}{(ES) Español}\\	 			\cline{3-10}
+				&&C1& C2 &C2-STY &C1-STY&C1& C2 &C2-STY &C1-STY\\
+				\specialrule{.1em}{.05em}{.05em} 
+				\multirow{4}{*}{gender} &$1e\text{-}4$&0.794&0.718&0.750&0.798&0.635&0.610&0.617&0.637 \\
+				&$2e\text{-}4$&0.797&0.758&0.769&0.798&0.635&0.624&0.622&0.637  \\
+				&$5e\text{-}4$&0.805&0.760&0.784&\textbf{0.806}&0.632&\textbf{0.643}&0.624&0.639 \\
+				&$1e\text{-}3$&0.805&0.765&0.784&0.803&0.630&0.626&0.620&0.635 \\
+				\hline
+				\multirow{4}{*}{faker} &$1e\text{-}4$&0.690&0.665&0.660&0.695&0.750&0.805&0.810&0.755  \\
+				&$2e\text{-}4$&0.695&0.650&0.660&\textbf{0.710}&0.750&0.810&0.815&0.765\\
+				&$5e\text{-}4$&0.690&0.650&0.650&0.705&0.770&0.815&0.815&0.780\\
+				&$1e\text{-}3$&0.689&0.654&0.670&0.710&0.765&0.815&\textbf{0.820}&0.780 \\
+				\hline
+				\multirow{4}{*}{hater} &$1e\text{-}4$&0.670&\textbf{0.740}&0.730&0.670&0.800&0.780&0.790&0.810 \\
+				&$2e\text{-}4$&0.670&\textbf{0.740}&0.720&0.670&0.800&0.780&0.790&0.800 \\
+				&$5e\text{-}4$&0.650&0.730&0.709&0.660&0.800&0.800&0.790&0.810\\
+				&$1e\text{-}3$&0.640&0.720&0.710&0.670&0.800&\textbf{0.820}&0.810&0.810 \\
+				\specialrule{.1em}{.05em}{.05em} 
+			\end{tabular}
+			\caption[Entrenamiento de Spectral Graph Network]{Entrenamiento del modelo SGN basado en el análisis secuencial del perfil para la combinación de rasgos de los modelos: (i) codificador CNN - LSTM (C1), (ii) codificador transformers y rasgos de estilo (STY)}	
+			\label{sgn_train}
+		\end{center}
+	\end{table}	
+	\\\\
+	Como es apreciable, a diferencia del modelo Att-LSTM en la tarea \textit{hater} el uso de los rasgos de estilo no aportaron una mejora al desempeño del modelo, lo cual puede ser causado por la forma en la que la información de todo el grafo es agregada mediante el operador convolucional. Sin embargo, al igual que en el resto de las tareas, la diferencia con respecto al uso de estos rasgos ofrece una evidencia muy discreta sobre lo ruidoso que pudieran resultar estos rasgos sobre el modelo.
 	
+	\subsection{ Clasificador Deep Impostor } 	
 	
-	EXPLICAR COMO FUSIONASTE LOS RASGOS DE ESTILO  EN LA SECCION DE ARRIBA
-	
-	QUIENES SON USTEDES PABLO VITART??
-	
-	
-	
-	
+	Para este modelo basados en la cardinalidad del conjunto de datos de entrenamientos variamos la proporción representada por los subconjuntos prototípicos $\bar{H}$ y $\bar{K}$ para las clases positivas y negativas respectivamente en el rango de 0.1 a 0.5 con un incremento de 5 unidades porcentuales. Esto ultimo, teniendo en cuenta la complejidad temporal que implica por cada elemento del conjunto de datos de prueba muestrear aleatoriamente la cantidad prefijada de prototipos negativos por cada prototipo positivo, ademas de la complejidad temporal introducida por el calculo de la similitud coseno sobre dos vectores 64-dimensional como el de los perfiles de usuarios en el espacio latente.
+	\\
+	El criterio para seleccionar la combinación de rasgos empleados por los modelos (i.e., CGN y Att-LSTM) para modelar los perfiles estuvo condicionado por el desempeño de los mismos a la hora de predecir cuando los perfiles pertenecen a la clase positiva o negativa en cada tarea  según se describe en las Secciones \ref{t_sgn} y \ref{t_attlstm}. Tomando como modelado del perfil la salida de la capa intermedia, previa a la neurona encargada de realizar la calificaron.
+	La \tablename~\ref{dim_train} muestra para cada tarea los mejores resultados en accuracy, empleando una proporción $p$.	
+ 	\begin{table}[thb!]
+		\begin{center} 					 		
+			\begin{tabular}{lcc|cc} 
+				\specialrule{.1em}{.05em}{.05em}
+				&\multicolumn{2}{c}{(EN) Ingles}&\multicolumn{2}{c}{(ES) Español}\\	 			\cline{2-5}
+				&~~Att-LSTM~~&~~SGN~~&~~Att-LSTM~~&~~SGN~~\\
+				\specialrule{.1em}{.05em}{.05em} 
+				gender &0.524(0.30)&\textbf{0.780}(0.25)&0.515(0.30)&\textbf{0.633 }(0.25)\\
+				faker  & 0.495(0.35)&\textbf{0.710}(0.25)&0.560(0.35)&\textbf{0.805}(0.25)\\
+				hater  &0.720(0.40)&\textbf{0.750}(0.30)&0.790(0.40)&\textbf{0.800}(0.30) \\
+				\specialrule{.1em}{.05em}{.05em} 
+			\end{tabular}
+			\caption[Metodo Deep Impostor sobre representaciones latentes]{Resultados del método Deep Imposotor. Los valores dentro de los paréntesis indican la proporción representada por $\bar{H}$ y $\bar{K}$.}	
+			\label{dim_train}
+		\end{center}
+	\end{table}	
+	\\\\\\\\
+	Como se puede observar, los mejores resultados fueron obtenidos con las representaciones determinadas a partir del modelado del perfil como un grafo con la red convolucional espectral, sin embargo en todos los casos exceptuando el idioma ingles en la tarea hater, estuvo por debajo del accuracy de la predicción del modelo SGN para el perfil, lo cual demuestra la robustez de los modelos empleados ante este método.
 	

@@ -329,7 +329,7 @@ class LSTMAtt_Classifier(torch.nn.Module):
         #   X = X + torch.randn_like(X)*1e-3
 
         if F is None:
-          return  self.clasifier(X[:,-1])
+          X = X[:,-1]
         else:
           F = self.dense_features(F.to(device=self.device))
           X = torch.cat([X[:,-1], F], dim = -1)
@@ -337,7 +337,7 @@ class LSTMAtt_Classifier(torch.nn.Module):
         X = self.dense(X)
 
         if encode == True:
-            return X[:,-1]
+            return X
 
         return self.clasifier(X)
 
@@ -349,25 +349,25 @@ class LSTMAtt_Classifier(torch.nn.Module):
             os.system('mkdir logs')
         torch.save(self.state_dict(), os.path.join('logs', path))
 
-    def get_encodings(self, encodings, batch_size):
+    def get_encodings(self, encodings, rep):
 
-        self.eval()    
-        devloader = DataLoader(encodings, batch_size=batch_size, shuffle=False, num_workers=4, worker_init_fn=seed_worker)
-    
-        with torch.no_grad():
-            out = None
-            log = None
-            for k, data in enumerate(devloader, 0):
-                torch.cuda.empty_cache() 
+      self.eval()    
+      devloader = DataLoader(FNNData([encodings[0], np.zeros_like(encodings[0]), encodings[1]]), batch_size=64, shuffle=True, num_workers=4, worker_init_fn=seed_worker)
 
-                dev_out = self.forward(data, encode=True)
-                if k == 0:
-                    out = dev_out
-                else: out = torch.cat((out, dev_out), 0)
+      with torch.no_grad():
+          out = None
+          log = None
+          for k, data in enumerate(devloader, 0):
+              torch.cuda.empty_cache() 
+              inputs, features = data['profile'], data['handed_features'] 
+              dev_out = self.forward(inputs, F = (features if 'h' in rep else None), encode = True)
+              if k == 0:
+                  out = dev_out
+              else: out = torch.cat((out, dev_out), 0)
 
-            out = out.cpu().numpy()
-            del devloader
-        return out 
+          out = out.cpu().numpy()
+          del devloader
+      return out 
 
 
 def svm(task_data, language, splits = 5):

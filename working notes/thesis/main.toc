@@ -13,7 +13,6 @@
 \contentsline {subsubsection}{Scaled Dot-Product Attention}{10}{section*.12}%
 \contentsline {subsection}{\numberline {1.2.4}Transformers}{10}{subsection.1.2.4}%
 \contentsline {subsection}{\numberline {1.2.5}Redes Neuronales Convolucionales en Grafos}{12}{subsection.1.2.5}%
-\contentsline {subsection}{\numberline {1.2.6}Information Gain}{13}{subsection.1.2.6}%
 \contentsline {chapter}{\numberline {2}Framework}{14}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Rasgos a Nivel de Tweet}{14}{section.2.1}%
 \contentsline {subsection}{\numberline {2.1.1}CNN - LSTM}{15}{subsection.2.1.1}%
@@ -33,3 +32,4 @@
 \contentsline {subsection}{\numberline {3.2.2}Codificador Transformer}{24}{subsection.3.2.2}%
 \contentsline {subsection}{\numberline {3.2.3}Clasificador Att-LSTM}{25}{subsection.3.2.3}%
 \contentsline {subsection}{\numberline {3.2.4}Clasificador SGN}{26}{subsection.3.2.4}%
+\contentsline {subsection}{\numberline {3.2.5} Clasificador Deep Impostor }{27}{subsection.3.2.5}%
