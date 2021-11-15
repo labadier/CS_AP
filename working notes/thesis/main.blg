@@ -9,46 +9,49 @@ Reallocated singl_function (elt_size=8) to 100 items from 50.
 Database file #1: bibliography.bib
 Warning--entry type for "francisco_rangel_2020_4039435" isn't style-file defined
 --line 593 of file bibliography.bib
+A bad cross reference---entry "giglou:2020"
+refers to entry "pan:2020", which doesn't exist
+Warning--I didn't find a database entry for "pan:2020"
 Reallocated wiz_functions (elt_size=8) to 6000 items from 3000.
-You've used 56 entries,
+You've used 55 entries,
             3571 wiz_defined-function locations,
-            1026 strings with 20125 characters,
-and the built_in function-call counts, 42070 in all, are:
-= -- 3489
-> -- 2248
-< -- 39
-+ -- 717
-- -- 653
-* -- 2889
-:= -- 6291
-add.period$ -- 246
-call.type$ -- 56
-change.case$ -- 559
-chr.to.int$ -- 58
-cite$ -- 56
-duplicate$ -- 2855
-empty$ -- 3018
+            1013 strings with 19946 characters,
+and the built_in function-call counts, 41388 in all, are:
+= -- 3404
+> -- 2253
+< -- 36
++ -- 719
+- -- 656
+* -- 2873
+:= -- 6211
+add.period$ -- 242
+call.type$ -- 55
+change.case$ -- 555
+chr.to.int$ -- 57
+cite$ -- 55
+duplicate$ -- 2798
+empty$ -- 2959
 format.name$ -- 838
-if$ -- 9213
+if$ -- 9039
 int.to.chr$ -- 3
 int.to.str$ -- 1
-missing$ -- 600
-newline$ -- 281
-num.names$ -- 226
-pop$ -- 1364
+missing$ -- 593
+newline$ -- 276
+num.names$ -- 222
+pop$ -- 1358
 preamble$ -- 1
-purify$ -- 440
+purify$ -- 437
 quote$ -- 0
-skip$ -- 1933
+skip$ -- 1866
 stack$ -- 0
-substring$ -- 1101
-swap$ -- 1448
-text.length$ -- 17
+substring$ -- 1056
+swap$ -- 1410
+text.length$ -- 16
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 498
+type$ -- 489
 warning$ -- 0
-while$ -- 206
+while$ -- 200
 width$ -- 0
-write$ -- 726
-(There was 1 warning)
+write$ -- 710
+(There was 1 error message)

@@ -304,3 +304,6 @@ if __name__ == '__main__':
       
     print(f'Accuracy Test: {np.round(accuracy_score(labels_dev, y_hat), decimals=3)}')
     print(classification_report(labels_dev, y_hat, target_names=[f'No {task}', task],  digits=4, zero_division=1))
+
+  if mode == 'svm':
+    svm(task, language)

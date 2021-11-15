@@ -7,7 +7,7 @@ from torch.utils.data import Dataset, DataLoader
 import numpy as np
 from sklearn.metrics.pairwise import euclidean_distances, cosine_similarity
 from sklearn.model_selection import StratifiedKFold
-from utils import bcolors
+from utils import bcolors, load_Profiling_Data
 
 distance = ['eucliean', 'deepmetric']
 similarity = ['cosine']
@@ -427,3 +427,40 @@ class GMU(torch.nn.Module):
             os.system('mkdir logs')
         torch.save(self.state_dict(), os.path.join('logs', path))
 
+
+
+def svm(task, language):
+  
+  from sklearn.svm import SVC
+  from sklearn.ensemble import RandomForestClassifier
+  from sklearn.ensemble import GradientBoostingClassifier
+  from sklearn.ensemble import ExtraTreesClassifier#*
+  from sklearn.metrics import classification_report, accuracy_score
+  from sklearn.feature_extraction.text import TfidfVectorizer
+
+  tweets_train, _, labels_train, _ = load_Profiling_Data(f'data/profiling/{task}/train/{language.lower()}', labeled=True, w_features = None )
+  tweets_test, _, labels_dev, _ = load_Profiling_Data(f'data/profiling/{task}/dev/{language.lower()}', labeled=True, w_features = None )
+  print('train +', len(np.argwhere(labels_train == 1)))
+  print('train -', len(np.argwhere(labels_train == 0)))
+  print('test +', len(np.argwhere(labels_dev == 1)))
+  print('test -', len(np.argwhere(labels_dev == 0)))
+  for i in range(len(tweets_train)):
+    tweets_train[i] = ' '.join(tweets_train[i])
+
+  for i in range(len(tweets_test)):
+    tweets_test[i] = ' '.join(tweets_test[i])
+
+  # Create feature vectors
+  vectorizer = TfidfVectorizer(min_df = 5,
+                              max_df = 0.8,
+                              sublinear_tf = True,
+                              use_idf = True)
+
+  train_vectors = vectorizer.fit_transform(tweets_train)
+  test_vectors = vectorizer.transform(tweets_test)
+
+  model = SVC()
+  model.fit(train_vectors, labels_train)
+  output = model.predict(test_vectors)
+  acc = accuracy_score(labels_dev, output)
+  print(f"{bcolors.OKGREEN}{bcolors.BOLD}{50*'*'}\nAccuracy {task} {language}: {acc}\n{50*'*'}{bcolors.ENDC}")

@@ -28,20 +28,20 @@ Dentro del AP también se ha introducido el Aprendizaje Profundo con resultados 
 \\
 Por otro lado, las necesidades que cubren las tareas de AP incluyen la no sensibilidad de los sistemas ante la variación del idioma en el que la persona postee un mensaje o escriba una carta, es por ello que urge la extensión de los modelos de AI propuestos al esquema multilingüe que predomina en redes sociales como Twitter. \\Este trabajo de tesis se enmarca en el perfilado de autores en redes sociales empleando técnicas de Aprendizaje Profundo para el modelado y la clasificación de los perfiles teniendo en cuenta el enfoque multilingüe propio de este medio. 
 
-\addcontentsline{toc}{section}{Problemática}
+%\addcontentsline{toc}{section}{Problemática}
 \section*{Problemática}
 La mayoría de los trabajos existentes que emplean DL para resolver tareas de perfilado de autores en redes sociales, tanto tradicionales (e.g., determinar rango de edades, sexo, etc.) como las más recientes (e.g. detección de divulgadores de discursos de odio en redes sociales o noticias falsas) ven afectado su desempeño al tratar con las secuencias muy largas que se pueden generar al analizar un perfil completo a la vez, en vez de mensaje a mensaje. La perdida de información (\textit{information vanishing}) en este tipo de secuencias en términos de relaciones a largo plazo que presentan las estructuras sintácticas del lenguaje, es la causa fundamental de esta dificultad. Por esta razón sería conveniente dividir el problema de ``clasificar un perfil'' en subproblemas y construir una arquitectura modular, en la que primero se modele el perfil y luego este sea clasificado.
 \\
 Por otro lado en Cuba existe un limitado tratamiento y aplicación de este tipo de métodos automatizados para llevar acabo tareas de impacto como las mencionadas, ya sea en el área forense o empresarial .
 
-\addcontentsline{toc}{section}{Hipótesis}
+%\addcontentsline{toc}{section}{Hipótesis}
 \section*{Hipótesis}
 Dividir el proceso de clasificación de un perfil dentro de una tarea en: (1) codificar los mensajes individualmente y (2) modelar-clasificar el perfil, puede ayudar a prevenir la perdida de información generada del análisis de largas secuencias. Esto sumado a la capacidad de representar la información no estructurada de los métodos de DL puede influir positivamente en la precisión de las predicciones.  Además, proponer un modelo lo suficientemente robusto, podría incentivar el empleo de esos métodos automatizados  de AP en nuestro país.
 
-\addcontentsline{toc}{section}{Objetivos}
+%\addcontentsline{toc}{section}{Objetivos}
 \section*{Objetivos}
 \subsection*{Objetivo General}
-Diseñar una arquitectura de Aprendizaje Profundo modular para resolver la tarea de Perfilado de Autores en redes sociales teniendo en cuenta un enfoque multilingüe.
+Diseñar una arquitectura modular basada en Aprendizaje Profundo para resolver la tarea de Perfilado de Autores en redes sociales teniendo en cuenta un enfoque multilingüe.
 \subsection*{Objetivos Específicos}
 \begin{enumerate}
 	\item Diseñar una arquitectura que capture rasgos abstractos que permitan clasificar un perfil de usuario de una red social atendiendo tanto a tareas relacionadas con características demográficas de los autores, como con aspectos psicológicos de los mismos.
@@ -55,6 +55,6 @@ Este trabajo esta estructurado en tres capítulos además del introductorio y un
 \begin{itemize}
 	\item En el Capítulo 1 se describen de manera breve métodos del estado del arte así como conceptos básicos relacionados con el Machine Learning necesarios para la comprensión de este trabajo.
 	\item El Capítulo 2 describe las tareas de AP en las que se evaluarán las arquitecturas propuestas, así como los datos anotados sobre los cuales se basan los procesos de entrenamiento y evaluación.
-	\item En el Capítulo 3 se exponen los experimentos realizados en el proceso de ajuste de cada unos de los modelos y sus módulos sobre los lenguajes estudiados. 
+	\item En el Capítulo 3 se exponen los experimentos realizados en el proceso de ajuste de cada unos de los modelos y sus módulos sobre los idiomas estudiados. 
 \end{itemize}
 . 

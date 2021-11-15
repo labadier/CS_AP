@@ -11,7 +11,7 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
 	 
 	 En la tarea Bots and Gender Profiling, dado conjunto de exactamente 100 posts  pertenecientes a un perfil de usuario de Twitter y teniendo en cuenta que no existe ningún tipo anotación a nivel de tweets, debe determinarse si este corresponde a un bot o a un ser humano y para el segundo caso predecirse el genero sexual de la persona.
 	 \\
-	 Para evaluar el desempeño de los modelos propuestos, en nuestro trabajo se prestará atención solamente al problema de discernir entre perfiles de usuarios humano hombres o mujeres. El conjunto de datos de perfiles humanos está construido a partir de cuentas de usuarios tomadas de corpus creados en ediciones previas de la tarea de perfilado de PAN \citep{rangel2017overview, rangel2018overview}. Además los datos se encuentran distribuidos uniformemente tanto para el idioma ingles como para el español, entre las clases `\textit{Male}' y `\textit{Female}' como puede ser observado en la \tablename~\ref{pan19data}.	 
+	 Para evaluar el desempeño de los modelos propuestos, en nuestro trabajo se prestará atención solamente al problema de discernir entre perfiles de usuarios humano hombres o mujeres, empleando el conjuntos de entrenamiento propuesto y de la prueba del \textit{early bird}. El conjunto de datos de perfiles humanos está construido a partir de cuentas de usuarios tomadas de corpus creados en ediciones previas de la tarea de perfilado de PAN \citep{rangel2017overview, rangel2018overview}. Además los datos se encuentran distribuidos uniformemente tanto para el idioma ingles como para el español, entre las clases `\textit{Male}' y `\textit{Female}' como puede ser observado en la \tablename~\ref{pan19data}.	 
 	 		\begin{table}[thb!]
 			 	\begin{center} 					 		
 			 		\begin{tabular}{lcccccc} 
@@ -19,13 +19,13 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
 			 			 \multirow{2}{*}{}&\multicolumn{3}{c}{(EN) Ingles}&\multicolumn{3}{c}{(ES) Español}\\	 			\cline{2-7}
 			 			&~~Female~~&~~Male~~&~~Total~~ &~~Female~~ &~~Male~~&~~Total~~\\
 			 			\specialrule{.1em}{.05em}{.05em} 
-			 			Training & 1030&1030&2060&750&750&1500\\
-			 			Test  &660&660&1320&450&450&900\\
+			 			Training & 720&720&1440&520&520&1040\\
+			 			Test  &310&310&620&230&230&460\\
 			 			\cline{1-7}
-			 			Total &1690&1690&3380&1200&1200&2400\\
+			 			Total &1030&1030&2060&750&750&1500\\
 			 			\specialrule{.1em}{.05em}{.05em} 
 			 		\end{tabular}
-			 		\caption[Corpus Profiling PAN 2019]{Distribución de los datos para la tarea Bots and Gender Profiling at PAN 2019}	
+			 		\caption[Corpus Profiling PAN 2019]{Distribución de los datos disponibles para la tarea Bots and Gender Profiling at PAN 2019}	
 			 		\label{pan19data}	
 			 	\end{center}
 			 \end{table}	
@@ -233,7 +233,37 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
 			\caption[Metodo Deep Impostor sobre representaciones latentes]{Resultados del método Deep Imposotor. Los valores dentro de los paréntesis indican la proporción representada por $\bar{H}$ y $\bar{K}$.}	
 			\label{dim_train}
 		\end{center}
+	\vspace{-10mm}
 	\end{table}	
 	\\\\\\\\
-	Como se puede observar, los mejores resultados fueron obtenidos con las representaciones determinadas a partir del modelado del perfil como un grafo con la red convolucional espectral, sin embargo en todos los casos exceptuando el idioma ingles en la tarea hater, estuvo por debajo del accuracy de la predicción del modelo SGN para el perfil, lo cual demuestra la robustez de los modelos empleados ante este método.
 	
+	Como se puede observar, los mejores resultados fueron obtenidos con las representaciones determinadas a partir del modelado del perfil como un grafo con la red convolucional espectral, sin embargo en todos los casos exceptuando el idioma ingles en la tarea hater, estuvo por debajo del accuracy de la predicción del modelo SGN para el perfil, lo cual demuestra la robustez de los modelos empleados ante este método.
+	\\\\\
+	Finamente, para comparar el desempeño de los modelos propuestos de Deep Learning, se construyo para cada perfil una representación vectorial mediante \textit{tf-idf} sobre BoW, con la cual se entreno una SVM, obteniéndose los resultados mostrados en la \tablename~\ref{train_svm}.
+	\begin{table}[thb!]
+		\begin{center} 					 		
+			\begin{tabular}{lcc} 
+				\specialrule{.1em}{.05em}{.05em}
+				Tarea&EN& ES\\	
+				\specialrule{.1em}{.05em}{.05em} 
+				gender & 0.802&0.639\\
+				faker  &0.705&0.750\\
+				hater &0.700&0.790\\
+				\specialrule{.1em}{.05em}{.05em} 
+			\end{tabular}
+			\caption{Resultados de SVM sobre BoW y tf-idf}\label{train_svm}	
+		\end{center}
+	\end{table}		\\
+	Nuevamente para este modelo de Machine Learning los resultados estan por debajo de los alcanzados con la arquitectura modular propuesta, como se puede observar en la \figurename~\ref{compare}.
+	\begin{figure}[!thb]
+		\centering
+		\subfigure[Idioma Ingles]{\includegraphics[width=0.45\textwidth]{images/compare_en.png}} \hspace{10mm}
+		\subfigure[Idioma Español]{\includegraphics[width=0.45\textwidth]{images/compare_es.png}} 
+		\caption[Resultados conjuntos de los modelos propuestos]{Resultados conjuntos de los modelos propuestos para el perfilado de autores en términos de accuracy}
+		\label{compare}
+	\end{figure}\\
+	Con respecto a las competiciones de PAN 2020 y 2021, sobre la cual tenemos las colecciones completas y las tareas no fueron evaluadas de manera parcial, podemos decir que nuestros modelos alcanzan resultados competitivos y para el caso de PAN 2020 supera el desempeño medio del mejor modelo de Deep Learning \citep{giglou:2020} posicionado con 74.25 frente a 76.5 alcanzado por el modelado basado en grafos del perfil propuesto en este trabajo bajo una arquitectura modular, además, para el idioma español alcanzó el mejor accuracy registrado en la competencia. 
+	\\
+	Para la tarea Profiling Hate Speech Spreaders on Twitter en PAN 2021 nuestra arquitectura SGN alcanzó un certeza media de 78\% frente al 79\% alcanzado frente al mejor modelo, sin embargo, cabe mencionar que nuestra modificación basada en el Método del los Impostores, alcanzó un desempeño, superior para el idioma ingles con respecto a  \citep{sinno:2021} (i.e.,73$+$1).
+	\\
+	Estos resultados, dan evidencia de la robustez de las arquitecturas modulares propuestas y en especial de la representación natural de los perfiles como datos no estructurados a través de los grafos.
