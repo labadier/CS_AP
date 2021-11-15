@@ -1,22 +1,22 @@
 \chapter{Marco Experimental}
 
 
-En este capítulo, son descritos los conjuntos de datos sobre los que se evaluará el desempeño de la estrategia de análisis modular propuesta para abordar el perfilado de autores. Luego se exponen las metricas empleadas y finalmente se presentan los resultados experimentales asociados a cada módulo (i.e., Codificador y Clasificador) de manera independiente y a las combinaciones de los mismos.
+En este capítulo, son descritos los conjuntos de datos sobre los que se evaluará el desempeño de la estrategia de análisis modular propuesta para abordar el perfilado de autores. Luego se exponen las métricas empleadas y finalmente se presentan los resultados experimentales asociados a cada módulo (i.e., Codificador y Clasificador) de manera independiente y a las combinaciones de los mismos.
 	
 \section{Tareas}
 	 
-	 Las colecciones de datos existente relacionadas con tareas de AP mayormente se encuentran anotadas a nivel de perfil y con información relativa a tareas especificas. Para evaluar los modelos propuestos, siguiendo este esquema, en este trabajo se introducen los conjuntos de datos de las tareas compartidas en las ediciones de 2019-2021 de PAN, cada una de estas propuestas con un enfoque multilingüe, analizando el problema para perfiles de usuarios del idioma ingles y español.
+	 Las colecciones de datos existentes relacionadas con tareas de AP mayormente se encuentran anotadas a nivel de perfil y con información relativa a tareas específicas. Para evaluar los modelos propuestos, siguiendo este esquema, en este trabajo se introducen los conjuntos de datos de las tareas compartidas en las ediciones de 2019-2021 de PAN, cada una de estas propuestas con un enfoque multilingüe, analizando el problema para perfiles de usuarios del idioma inglés y español.
 	 
 	 \subsection{Bots and Gender Profiling at PAN 2019}
 	 
 	 En la tarea Bots and Gender Profiling, dado conjunto de exactamente 100 posts  pertenecientes a un perfil de usuario de Twitter y teniendo en cuenta que no existe ningún tipo anotación a nivel de tweets, debe determinarse si este corresponde a un bot o a un ser humano y para el segundo caso predecirse el genero sexual de la persona.
 	 \\
-	 Para evaluar el desempeño de los modelos propuestos, en nuestro trabajo se prestará atención solamente al problema de discernir entre perfiles de usuarios humano hombres o mujeres, empleando el conjuntos de entrenamiento propuesto y de la prueba del \textit{early bird}. El conjunto de datos de perfiles humanos está construido a partir de cuentas de usuarios tomadas de corpus creados en ediciones previas de la tarea de perfilado de PAN \citep{rangel2017overview, rangel2018overview}. Además los datos se encuentran distribuidos uniformemente tanto para el idioma ingles como para el español, entre las clases `\textit{Male}' y `\textit{Female}' como puede ser observado en la \tablename~\ref{pan19data}.	 
+	 Para evaluar el desempeño de los modelos propuestos, en nuestro trabajo se prestará atención solamente al problema de discernir entre perfiles de usuarios humano hombres o mujeres, empleando el conjuntos de entrenamiento propuesto y de la prueba del \textit{early bird}. El conjunto de datos de perfiles humanos está construido a partir de cuentas de usuarios tomadas de corpus creados en ediciones previas de la tarea de perfilado de PAN \citep{rangel2017overview, rangel2018overview}. Además los datos se encuentran distribuidos uniformemente tanto para el idioma inglés como para el español, entre las clases `\textit{Male}' y `\textit{Female}' como puede ser observado en la \tablename~\ref{pan19data}.	 
 	 		\begin{table}[thb!]
 			 	\begin{center} 					 		
 			 		\begin{tabular}{lcccccc} 
 			 			\specialrule{.1em}{.05em}{.05em}
-			 			 \multirow{2}{*}{}&\multicolumn{3}{c}{(EN) Ingles}&\multicolumn{3}{c}{(ES) Español}\\	 			\cline{2-7}
+			 			 \multirow{2}{*}{}&\multicolumn{3}{c}{(EN) Inglés}&\multicolumn{3}{c}{(ES) Español}\\	 			\cline{2-7}
 			 			&~~Female~~&~~Male~~&~~Total~~ &~~Female~~ &~~Male~~&~~Total~~\\
 			 			\specialrule{.1em}{.05em}{.05em} 
 			 			Training & 720&720&1440&520&520&1040\\
@@ -35,13 +35,13 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
 	 Profiling Fake News Spreaders on Twitter, dentro de PAN 2020, introduce el análisis de rasgos de la personalidad de los autores, proponiendo la tarea de discriminar entre usuarios de Twitter que han compartido noticias falsas de aquellos que nunca lo han hecho, basándose en un conjunto de 100 tweets (carentes de algún tipo de anotación) tomados de su perfil.\\
 	 El corpus propuesto por los organizadores de la tarea \citep{francisco_rangel_2020_4039435}, fue construido seleccionando de sitios web  \textit{fact-checking } (comprobadores de hechos) noticias etiquetadas como falsas, luego mediante la búsqueda de tweets relacionados con estas \textit{fake news}, se identificaron a sus correspondientes usuarios como ejemplos positivos de \textit{fake news spreaders} (faker) tomando aquellos con un mayor número de noticias falsas compartidas y teniendo en cuenta que el contenido del tweet no fuera para desmentir la noticia falsa.	 En el caso de que el usuario no hubiera compartido información relacionada con las noticias falsas identificadas, este fue etiquetado como \textit{real news spreader} (no faker).
 	 
-	 El la \tablename~\ref{pan20data} se muestra la distribución uniforme de los perfiles para los idiomas español e ingles en los que fue compartida la tarea.	 
+	 En la \tablename~\ref{pan20data} se muestra la distribución uniforme de los perfiles para los idiomas español e inglés en los que fue compartida la tarea.	 
 	 \\
 	 	\begin{table}[thb!]
 	 	\begin{center} 					 		
 	 		\begin{tabular}{lcccccc} 
 	 			\specialrule{.1em}{.05em}{.05em}
-	 			\multirow{2}{*}{}&\multicolumn{3}{c}{(EN) Ingles}&\multicolumn{3}{c}{(ES) Español}\\	 			\cline{2-7}
+	 			\multirow{2}{*}{}&\multicolumn{3}{c}{(EN) Inglés}&\multicolumn{3}{c}{(ES) Español}\\	 			\cline{2-7}
 	 			&~~faker~~&~~no faker~~&~~Total~~ &~~faker~~ &~~no faker~~&~~Total~~\\
 	 			\specialrule{.1em}{.05em}{.05em} 
 	 			Training & 150&150&300&150&150&300\\
@@ -58,13 +58,13 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
 	 \subsection{Profiling Hate Speech Spreaders on Twitter at PAN 2021}
 	 
 	 Para esta tarea dado un perfil de usuario, debía ser determinado cuando este corresponde a un autor que ha difundido en el pasado un discurso de odio teniendo en cuenta 200 tweets tomados de su perfil.\\
-	 El corpus propuesto por los organizadores fue construido considerando usuarios que han empleado palabras con cierto nivel de toxicidad fundamentalmente relacionadas con la misoginia y xenofobia, ademas se inspeccionaron cuentas de usuarios conocidos como \textit{haters} con apariciones en reportes, asi como su red i.e., followers. Luego para estos usuarios identificados, fueron anotados manualmente los tweets que comunicaban un discurso de odio y finalmente fueron clasificados como \textit{hate speech spreaders} aquellos usuarios con mas de 10 de estos posts. El conjunto de datos esta distribuido uniformemente para las clases divulgador de discurso de odio (\textit{hater})  y no divulgador de discurso de odio (\textit{no hater}) como se muestra en la \tablename~\ref{pan21data}
+	 El corpus propuesto por los organizadores fue construido considerando usuarios que han empleado palabras con cierto nivel de toxicidad fundamentalmente relacionadas con la misoginia y xenofobia, además se inspeccionaron cuentas de usuarios conocidos como \textit{haters} con apariciones en reportes, asi como su red i.e., followers. Luego para estos usuarios identificados, fueron anotados manualmente los tweets que comunicaban un discurso de odio y finalmente fueron clasificados como \textit{hate speech spreaders} aquellos usuarios con mas de 10 de estos posts. El conjunto de datos está distribuido uniformemente para las clases divulgador de discurso de odio (\textit{hater})  y no divulgador de discurso de odio (\textit{no hater}) como se muestra en la \tablename~\ref{pan21data}
 	 \\	 
 	 	\begin{table}[thb!]
 		 	\begin{center} 					 		
 		 		\begin{tabular}{lcccccc} 
 		 			\specialrule{.1em}{.05em}{.05em}
-		 			\multirow{2}{*}{}&\multicolumn{3}{c}{(EN) Ingles}&\multicolumn{3}{c}{(ES) Español}\\	 			\cline{2-7}
+		 			\multirow{2}{*}{}&\multicolumn{3}{c}{(EN) Inglés}&\multicolumn{3}{c}{(ES) Español}\\	 			\cline{2-7}
 		 			&~~hater~~&~~no hater~~&~~Total~~ &~~hater~~ &~~no hater~~&~~Total~~\\
 		 			\specialrule{.1em}{.05em}{.05em} 
 		 			Training & 150&150&300&150&150&300\\
@@ -81,7 +81,7 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
 	 \section{Resultados Experimentales}
 	 
 	 La robustez de los sistemas modulares descansan en el optimo aprendizaje de cada uno de los módulos de manera independiente, en nuestro caso del Codificador y el Clasificador. De manera general para este trabajo se introduce una tarea intermedia semisupervisada para entrenar los modelos Codificadores \footnote{El objeto de predicción de esta tarea semisupervisada, estuvo condicionado por la carencia de anotación a nivel de tweet en cada uno de los corpus y se relaciona con la pertenencia o no a determinado tipo de perfil.}, de esta forma los mismos aprenden relaciones del lenguaje dentro de cada tweet sobre la tarea en cuestión.\\
-	 Para medir el cuan efectivos resulta cada modelo empleamos las métricas \textit{accuracy} (\ref{accuracy}) teniendo en cuenta los datos clasificados clasificados correctamente para los ejemplos positivos y negativos (TP y TN) y los clasificados de manera errónea (FP y FN).
+	 Para medir el cuan efectivos resulta cada modelo empleamos las métricas \textit{accuracy} (\ref{accuracy}) teniendo en cuenta los datos clasificados correctamente para los ejemplos positivos y negativos (TP y TN) y los clasificados de manera errónea (FP y FN).
 	 %% y\textit{ recall} (\ref{recall}), esta última para los modelos de clasificación sobre la clase positiva en las tareas en las que es necesario la correcta identificacion de una clase sobre otra, i.e., clase positiva (hater) en \textit{Profiling Hate Speech Spreaders on Twitter}  y clase positiva (faker) en \textit{Profiling Fake News Spreaders on Twitter}.
 	 
 	 \begin{align}
@@ -94,17 +94,17 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
  	
  	Debido a la finitud de la cardinalidad de los diccionarios en los \textit{embeddings de palabras}, la cual esta dada por la memoria y tiempo disponible para entrenar un modelo de \textit{embedding}, es recurrente que al analizar textos informales como los tweets se pierda información aportada por elementos que no están presentes en el diccionario, pero que si contienen información semántica y de estilo, ejemplo de ello son las palabras con elongación de caracteres (e.g., holaaaa) y/o \textit{typos}. Por ello empleando la arquitectura descrita en la Sección~\ref{cnn-lstm} introducimos el análisis a nivel de caracteres el cual es combinado con el de palabras a través de una fusión multi-fuente directa\footnote{Simple concatenación de los vectores de cada una de las fuentes, i.e., arquitectura a nivel de palabra y de caracteres} enviada a una capa densa de neuronas.
  	\\\\
- 	Para entrenar este modelo teniendo en cuenta cada uno de los corpus y tareas de AP en las cuales se medirá su desepeño, se analiza la pertenencia o no de un tweet a clase u otra de perfiles, e.g., si el tweet pertenece a la cuenta de un hombre o una mujer, \textit{hater }o \textit{no hater}, etc. De esta manera, se captura no solo las relaciones inherentes al lenguaje presente en el corups frente a la tarea, si no que se aprende como estas relaciones existen atendiendo a un tipo de perfil u otro.
+ 	Para entrenar este modelo teniendo en cuenta cada uno de los corpus y tareas de AP en las cuales se medirá su desempeño, se analiza la pertenencia o no de un tweet a clase u otra de perfiles, e.g., si el tweet pertenece a la cuenta de un hombre o una mujer, \textit{hater }o \textit{no hater}, etc. De esta manera, se captura no solo las relaciones inherentes al lenguaje presente en el corups frente a la tarea, si no que se aprende como estas relaciones existen atendiendo a un tipo de perfil u otro.
  	\\
  	En el proceso de entrenamiento, el conjunto de datos de entrenamiento de cada uno de los corpus es dividido a una razón de 1:5 en un subconjunto de validación y otro de entrenamiento, de manera que se preserve la distribución uniforme de ejemplos positivos y negativos en cada subconjunto.
  	Para la arquitectura es añadida una neurona en el tope del modelo encargada de responder la probabilidad de que el tweet pertenezca a una clase de cuenta y los pesos del modelo son ajustados por el oprimizador de Estimación Adaptativa del Momento (\textit{Adaptive Moment Estimation}) Adam \citep{DBLP:journals/corr/KingmaB14} empleando la función de perdida de \textit{Cross-Entropy}.  	\\\\
- 	Durante los experimentos exploramos como afectaba la variación hiper-parametro del coeficiente de aprendizaje $\alpha \in \{1e\text{-}3,~15e\text{-}4,~2e\text{-}3,~3e\text{-}3\}$  en el optimizador de Adam a través de cada tarea, i.e., Bots and Gender Profiling at PAN 2019 (\textit{gender}), Profiling Fake News Spreaders on Twitter (\textit{faker}) y Profiling Hate Speech Spreaders on Twitter (\textit{hater}) como se muestra en la \tablename~\ref{cnn_lstm_train} en términos de \textit{accuracy}. Resultando para cada modelo en cada variación de lenguaje valores óptimos de  $alpha$ entre $1e\text{-}3\text{ y }2e\text{-}3$.
+ 	Durante los experimentos exploramos como afectaba la variación hiper-parametro del coeficiente de aprendizaje $\alpha \in \{1e\text{-}3,~15e\text{-}4,~2e\text{-}3,~3e\text{-}3\}$  en el optimizador de Adam a través de cada tarea, i.e., Bots and Gender Profiling at PAN 2019 (\textit{gender}), Profiling Fake News Spreaders on Twitter (\textit{faker}) y Profiling Hate Speech Spreaders on Twitter (\textit{hater}) como se muestra en la \tablename~\ref{cnn_lstm_train} en términos de \textit{accuracy}. Resultando para cada modelo en cada variación de lenguaje valores óptimos de  $\alpha$ entre $1e\text{-}3\text{ y }2e\text{-}3$.
  	\\
  	\begin{table}[thb!]
  		\begin{center} 					 		
  			\begin{tabular}{l|cccc|cccc} 
  				\specialrule{.1em}{.05em}{.05em}
- 				\multirow{2}{*}{Tarea}&\multicolumn{4}{c}{(EN) Ingles}&\multicolumn{4}{c}{(ES) Español}\\	 			\cline{2-9}
+ 				\multirow{2}{*}{Tarea}&\multicolumn{4}{c}{(EN) Inglés}&\multicolumn{4}{c}{(ES) Español}\\	 			\cline{2-9}
  				&~~$1e\text{-}3$~~&~~$15e\text{-}4$~~&~~$2e\text{-}3$~~ &~~$3e\text{-}3$~~ &~~$1e\text{-}3$~~&~~$15e\text{-}4$~~&~~$2e\text{-}3$~~ &~~$3e\text{-}3$\\
  				\specialrule{.1em}{.05em}{.05em} 
  				gender & \textbf{0.684}&0.68&0.681&0.677&\textbf{0.698}&0.693&0.696&0.691\\
@@ -119,12 +119,12 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
  
  	\subsection{Codificador Transformer}
  	
-	Para el caso de los codificadores basados en arquitecturas transformers, nuestra propuesta emplea un modelo base para cada idioma, a pesar de que ambos tienen la misma configuracion de BERT-base \citep{DBLP:journals/corr/abs-1810-04805} y son preentrenados siguiendo la misma estrategia de RoBERTa \citep{liu2019roberta}, i.e., enmascarando de manera aleatoria el 15\% de las palabras de la entrada del modelo en la tarea de modelado de lenguaje enmascarado (Masked Language Modeling MLM).
+	Para el caso de los codificadores basados en arquitecturas transformers, nuestra propuesta emplea un modelo base para cada idioma, a pesar de que ambos tienen la misma configuración de BERT-base \citep{DBLP:journals/corr/abs-1810-04805} y son preentrenados siguiendo la misma estrategia de RoBERTa \citep{liu2019roberta}, i.e., enmascarando de manera aleatoria el 15\% de las palabras de la secuencia de entrada sobre en la tarea de modelado de lenguaje enmascarado (Masked Language Modeling MLM).
 	\\ 
-	Para el idioma español se emplea el modelo BETO \citep{CaneteCFP2020} y para ingles BERTweet \citep{bertweet}, ambos de la biblioteca Transformers de HuggingFace \footnote{\url{https://huggingface.co/transformers}}. BERTweet fue preentrenado con un corpus de tweets en ingles, mientras que para BETO , se emplearon textos de otras fuentes como wikis en español, OpenSubtitles y ParaCrawl \footnote{\url{https://github.com/josecannete/spanish-corpora}}.
+	Para el idioma español se emplea el modelo BETO \citep{CaneteCFP2020} y para inglés BERTweet \citep{bertweet}, ambos de la biblioteca Transformers de HuggingFace \footnote{\url{https://huggingface.co/transformers}}. BERTweet fue preentrenado con un corpus de tweets en inglés, mientras que para BETO , se emplearon textos de otras fuentes como wikis en español, OpenSubtitles y ParaCrawl \footnote{\url{https://github.com/josecannete/spanish-corpora}}.
 	\\\\
-	En el proceso de finetuning al igual que con la arquitectura CNN - LSTM estos modelos fueron refinados atendiendo a la tarea de predecir cuando un tweet pertenece o no a una clase, siguiendo la estrategia descrita en la Sección~\ref{ref_trans} de aplicar un coeficiente $\alpha$ dinámico a medida que se profundiza en la red, el cual ha sido empleado con resultados alentadores por \citep{palomino-ochoa-luna-2020-palomino,Sem}. Los parámetros de los modelos fueron ajustados empleando el optimizador RMSprop \citep{hinton2012lecture} con un descenso $\delta$ de learning rate lineal por cada epoch, bajo la función de perdida de \textit{Cross-Entropy} y con el mismo esquema de partición de los datos 1:5.	\\
-	En la \tablename~\ref{transf_finet} se muestra el \textit{accuracy} obtenido para cada tarea en el proceso de refinado, donde se hace evidente un mejor desempeño respecto a los resultados alcanzados con la arquitectura CNN - LSTM de la \tablename~\ref{cnn_lstm_train}. 
+	En el proceso de finetuning al igual que con la arquitectura CNN - LSTM estos modelos fueron refinados atendiendo a la tarea de predecir cuando un tweet pertenece o no a una clase, siguiendo la estrategia descrita en la Sección~\ref{ref_trans} de aplicar un coeficiente $\alpha$ dinámico a medida que se profundiza en la red, el cual ha sido empleada con resultados alentadores por \citep{palomino-ochoa-luna-2020-palomino,Sem}. Los parámetros de los modelos fueron ajustados empleando el optimizador RMSprop \citep{hinton2012lecture} con un descenso $\delta$ de learning rate lineal por cada epoch, bajo la función de perdida de \textit{Cross-Entropy} y con el mismo esquema de partición de los datos 1:5.	\\
+	En la \tablename~\ref{transf_finet} se muestra el \textit{accuracy} obtenido para cada tarea en el proceso de refinado sobre los datos de validación, donde se hace evidente un mejor desempeño respecto a los resultados alcanzados con la arquitectura CNN - LSTM de la \tablename~\ref{cnn_lstm_train}. 
 		\begin{table}[thb!]
 		\begin{center} 					 		
 			\begin{tabular}{lcc} 
@@ -147,14 +147,14 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
 	
 	Al igual que en los módulos de codificación, este modelo fue entrenado de manera independiente para cada idioma, mediante el optimizador de Adam, de manera que exploramos para cada representación como su combinación con los rasgos de estilo (Sección~\ref{syle_feat}) podría afectar el desempeño del modelo dado un coeficiente de aprendizaje $\alpha$. Esta fusión con los rasgos de estilo fue llevada a cabo introduciendo una capa densa en el modelo para condensar la información del vector de estilo, luego su salida fue concatenada con la salida de la LSTM que contiene la información aprendida directamente de la representación en el espacio latente de los tweets que componen el perfil, siguiendo el flujo del modelo explicado en la Sección~\ref{att-lstm}.
 	\\\\
-	En la \tablename~\ref{att-lstm_train} se muestran los resultados de dicho entrenamiento, evaluado sobre el conjunto de datos de prueba propuesto por los organizadores de cada tarea, donde se puede observar que las modelaciones de los perfiles tomando como elementos de la secuencia tanto de un codificador como del otro arrojaron resultados alentadores. Además en las tareas relacionadas directamente con dispositivos comunicacionales, fundamentalmente en la tarea \textit{hater}, los rasgos de estilo tuvieron un impacto positivo en el \textit{accuracy} del modelos, sin embargo, para la tarea \textit{gender} estos rasgos de estilo al parecer resultaron ruidosos o no  tuvieron influencia en el modelado del perfil por parte de Att-LSTM al emplear ninguna de las dos representaciones aprendidas por los modelos de DL.
+	En la \tablename~\ref{att-lstm_train} se muestran los resultados de dicho entrenamiento sobre el conjunto de datos de prueba propuesto por los organizadores de cada tarea, donde se puede observar que las modelaciones de los perfiles tomando como elementos de la secuencia tanto las representaciones generados por el codificador Transformer como por CNN - LSTM, arrojaron resultados alentadores. Además en las tareas relacionadas directamente con dispositivos comunicativos, fundamentalmente en la tarea \textit{hater}, los rasgos de estilo tuvieron un impacto positivo en el \textit{accuracy} del modelos, sin embargo, para la tarea \textit{gender} estos rasgos de estilo al parecer resultaron ruidosos o no  tuvieron influencia en el modelado del perfil por parte de Att-LSTM al emplear ninguna de las dos representaciones aprendidas con DL.
 	
 	
 	 	\begin{table}[thb!]
 		\begin{center} 					 		
 			\begin{tabular}{l|c|cccc|cccc} 
 				\specialrule{.1em}{.05em}{.05em}
-				\multirow{2}{*}{Tarea}&\multirow{2}{*}{$\alpha$}&\multicolumn{4}{c}{(EN) Ingles}&\multicolumn{4}{c}{(ES) Español}\\	 			\cline{3-10}
+				\multirow{2}{*}{Tarea}&\multirow{2}{*}{$\alpha$}&\multicolumn{4}{c}{(EN) Inglés}&\multicolumn{4}{c}{(ES) Español}\\	 			\cline{3-10}
 				&&C1& C2 &C2-STY &C1-STY&C1& C2 &C2-STY &C1-STY\\
 				\specialrule{.1em}{.05em}{.05em} 
 				\multirow{4}{*}{gender} &$5e\text{-}4$&0.797&0.758&0.761&0.800&0.630&0.648&0.650&0.630 \\
@@ -181,12 +181,13 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
 	\subsection{Clasificador SGN}\label{t_sgn}
 	
 	
-	Para el entrenamiento de la Spectral Graph Network, seguimos un esquema similar al del modelo Att-LSTM, introduciendo una capa densa que condense la información de los rasgos de estilo para concatenar su salida con el pooling descrito en la Sección~\ref{sgn} con la información de los nodos que componen el grafo y luego siguiendo el flujo de la red. Para optimizar los parametros de aprendizaje nuevamente empleamos Adam evaluando coeficientes de aprendizaje en el espacio $[1e\text{-}4, 2e\text{-}4, 5e\text{-}4, 1e\text{-}3, 2e\text{-}3]$. En la \tablename~\ref{sgn_train}, se muestran los resultados de las combinaciones más acertadas sobre este modelo.
+	Para el entrenamiento de la Spectral Graph Network, seguimos un esquema similar al del modelo Att-LSTM, introduciendo una capa densa que condense la información de los rasgos de estilo para concatenar su salida con el pooling de la información de los nodos que componen el grafo, según fue descrito en el Sección ~\ref{sgn} y luego siguiendo el flujo de la red. \\
+	Para optimizar los parámetros de aprendizaje nuevamente empleamos Adam evaluando coeficientes de aprendizaje en el espacio $[1e\text{-}4, 2e\text{-}4, 5e\text{-}4, 1e\text{-}3, 2e\text{-}3]$. En la \tablename~\ref{sgn_train}, se muestran los resultados de las combinaciones más acertadas sobre este modelo.
 	\begin{table}[thb!]
 		\begin{center} 					 		
 			\begin{tabular}{l|c|cccc|cccc} 
 				\specialrule{.1em}{.05em}{.05em}
-				\multirow{2}{*}{Tarea}&\multirow{2}{*}{$\alpha$}&\multicolumn{4}{c}{(EN) Ingles}&\multicolumn{4}{c}{(ES) Español}\\	 			\cline{3-10}
+				\multirow{2}{*}{Tarea}&\multirow{2}{*}{$\alpha$}&\multicolumn{4}{c}{(EN) Inglés}&\multicolumn{4}{c}{(ES) Español}\\	 			\cline{3-10}
 				&&C1& C2 &C2-STY &C1-STY&C1& C2 &C2-STY &C1-STY\\
 				\specialrule{.1em}{.05em}{.05em} 
 				\multirow{4}{*}{gender} &$1e\text{-}4$&0.794&0.718&0.750&0.798&0.635&0.610&0.617&0.637 \\
@@ -210,11 +211,11 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
 		\end{center}
 	\end{table}	
 	\\\\
-	Como es apreciable, a diferencia del modelo Att-LSTM en la tarea \textit{hater} el uso de los rasgos de estilo no aportaron una mejora al desempeño del modelo, lo cual puede ser causado por la forma en la que la información de todo el grafo es agregada mediante el operador convolucional. Sin embargo, al igual que en el resto de las tareas, la diferencia con respecto al uso de estos rasgos ofrece una evidencia muy discreta sobre lo ruidoso que pudieran resultar estos rasgos sobre el modelo.
+	Como es apreciable, a diferencia del modelo Att-LSTM en la tarea \textit{hater} el uso de los rasgos de estilo no aportó una mejora al desempeño del modelo, lo cual puede ser causado por la forma en la que la información de todo el grafo es agregada mediante el operador convolucional. Sin embargo, al igual que en el resto de las tareas, la diferencia con respecto al uso de estos rasgos ofrece una evidencia muy discreta sobre lo ruidoso que pudieran resultar los mismos sobre el modelo.
 	
 	\subsection{ Clasificador Deep Impostor } 	
 	
-	Para este modelo basados en la cardinalidad del conjunto de datos de entrenamientos variamos la proporción representada por los subconjuntos prototípicos $\bar{H}$ y $\bar{K}$ para las clases positivas y negativas respectivamente en el rango de 0.1 a 0.5 con un incremento de 5 unidades porcentuales. Esto ultimo, teniendo en cuenta la complejidad temporal que implica por cada elemento del conjunto de datos de prueba muestrear aleatoriamente la cantidad prefijada de prototipos negativos por cada prototipo positivo, ademas de la complejidad temporal introducida por el calculo de la similitud coseno sobre dos vectores 64-dimensional como el de los perfiles de usuarios en el espacio latente.
+	Para este modelo basados en la cardinalidad del conjunto de datos de entrenamiento fue refinada la proporción representada por los subconjuntos prototípicos $\bar{H}$ y $\bar{K}$ para las clases positivas y negativas respectivamente en el rango de 0.1 a 0.5 con un incremento de 5 unidades porcentuales. Esto último, teniendo en cuenta la complejidad temporal que implica por cada elemento del conjunto de datos de prueba muestrear aleatoriamente la cantidad prefijada de prototipos negativos por cada prototipo positivo, además de la complejidad temporal introducida por el cálculo de la similitud coseno sobre dos vectores 64-dimensionales como los de los perfiles de usuarios en el espacio latente.
 	\\
 	El criterio para seleccionar la combinación de rasgos empleados por los modelos (i.e., CGN y Att-LSTM) para modelar los perfiles estuvo condicionado por el desempeño de los mismos a la hora de predecir cuando los perfiles pertenecen a la clase positiva o negativa en cada tarea  según se describe en las Secciones \ref{t_sgn} y \ref{t_attlstm}. Tomando como modelado del perfil la salida de la capa intermedia, previa a la neurona encargada de realizar la calificaron.
 	La \tablename~\ref{dim_train} muestra para cada tarea los mejores resultados en accuracy, empleando una proporción $p$.	
@@ -222,7 +223,7 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
 		\begin{center} 					 		
 			\begin{tabular}{lcc|cc} 
 				\specialrule{.1em}{.05em}{.05em}
-				&\multicolumn{2}{c}{(EN) Ingles}&\multicolumn{2}{c}{(ES) Español}\\	 			\cline{2-5}
+				&\multicolumn{2}{c}{(EN) Inglés}&\multicolumn{2}{c}{(ES) Español}\\	 			\cline{2-5}
 				&~~Att-LSTM~~&~~SGN~~&~~Att-LSTM~~&~~SGN~~\\
 				\specialrule{.1em}{.05em}{.05em} 
 				gender &0.524(0.30)&\textbf{0.780}(0.25)&0.515(0.30)&\textbf{0.633 }(0.25)\\
@@ -230,16 +231,16 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
 				hater  &0.720(0.40)&\textbf{0.750}(0.30)&0.790(0.40)&\textbf{0.800}(0.30) \\
 				\specialrule{.1em}{.05em}{.05em} 
 			\end{tabular}
-			\caption[Metodo Deep Impostor sobre representaciones latentes]{Resultados del método Deep Imposotor. Los valores dentro de los paréntesis indican la proporción representada por $\bar{H}$ y $\bar{K}$.}	
+			\caption[Método Deep Impostor sobre representaciones latentes]{Resultados del método Deep Imposotor. Los valores dentro de los paréntesis indican la proporción representada por $\bar{H}$ y $\bar{K}$.}	
 			\label{dim_train}
 		\end{center}
 	\vspace{-10mm}
 	\end{table}	
 	\\\\\\\\
 	
-	Como se puede observar, los mejores resultados fueron obtenidos con las representaciones determinadas a partir del modelado del perfil como un grafo con la red convolucional espectral, sin embargo en todos los casos exceptuando el idioma ingles en la tarea hater, estuvo por debajo del accuracy de la predicción del modelo SGN para el perfil, lo cual demuestra la robustez de los modelos empleados ante este método.
+	Como se puede observar, los mejores resultados fueron obtenidos con las representaciones determinadas a partir del modelado del perfil como un grafo con la red convolucional espectral, sin embargo en todos los casos exceptuando el idioma inglés en la tarea hater, estuvo por debajo del accuracy de la predicción del modelo SGN para el perfil, lo cual demuestra la robustez de los modelos de DL ante este método.
 	\\\\\
-	Finamente, para comparar el desempeño de los modelos propuestos de Deep Learning, se construyo para cada perfil una representación vectorial mediante \textit{tf-idf} sobre BoW, con la cual se entreno una SVM, obteniéndose los resultados mostrados en la \tablename~\ref{train_svm}.
+	Finamente, para comparar el desempeño de los modelos propuestos, se construyó para cada perfil una representación vectorial mediante \textit{tf-idf} sobre BoW, con la cual se entreno una SVM, obteniéndose los resultados mostrados en la \tablename~\ref{train_svm}.
 	\begin{table}[thb!]
 		\begin{center} 					 		
 			\begin{tabular}{lcc} 
@@ -254,16 +255,16 @@ En este capítulo, son descritos los conjuntos de datos sobre los que se evaluar
 			\caption{Resultados de SVM sobre BoW y tf-idf}\label{train_svm}	
 		\end{center}
 	\end{table}		\\
-	Nuevamente para este modelo de Machine Learning los resultados estan por debajo de los alcanzados con la arquitectura modular propuesta, como se puede observar en la \figurename~\ref{compare}.
+	Nuevamente para este modelo de Machine Learning los resultados están por debajo de los alcanzados con la arquitectura modular propuesta, como se puede observar en la \figurename~\ref{compare}.
 	\begin{figure}[!thb]
 		\centering
-		\subfigure[Idioma Ingles]{\includegraphics[width=0.45\textwidth]{images/compare_en.png}} \hspace{10mm}
+		\subfigure[Idioma Inglés]{\includegraphics[width=0.45\textwidth]{images/compare_en.png}} \hspace{10mm}
 		\subfigure[Idioma Español]{\includegraphics[width=0.45\textwidth]{images/compare_es.png}} 
 		\caption[Resultados conjuntos de los modelos propuestos]{Resultados conjuntos de los modelos propuestos para el perfilado de autores en términos de accuracy}
 		\label{compare}
 	\end{figure}\\
-	Con respecto a las competiciones de PAN 2020 y 2021, sobre la cual tenemos las colecciones completas y las tareas no fueron evaluadas de manera parcial, podemos decir que nuestros modelos alcanzan resultados competitivos y para el caso de PAN 2020 supera el desempeño medio del mejor modelo de Deep Learning \citep{giglou:2020} posicionado con 74.25 frente a 76.5 alcanzado por el modelado basado en grafos del perfil propuesto en este trabajo bajo una arquitectura modular, además, para el idioma español alcanzó el mejor accuracy registrado en la competencia. 
+	Con respecto a las competiciones de PAN 2020 y 2021, sobre la cual tenemos las colecciones completas y las tareas no fueron evaluadas de manera parcial, podemos decir que nuestros modelos alcanzan resultados competitivos y para el caso de PAN 2020 supera el desempeño medio del mejor modelo de Deep Learning \citep{giglou:2020} posicionado con 74.25 frente a 76.5 alcanzado por el modelado del perfil basado en grafos propuesto en este trabajo bajo una arquitectura modular, además para el idioma español alcanzó el mejor accuracy registrado en la competencia. 
 	\\
-	Para la tarea Profiling Hate Speech Spreaders on Twitter en PAN 2021 nuestra arquitectura SGN alcanzó un certeza media de 78\% frente al 79\% alcanzado frente al mejor modelo, sin embargo, cabe mencionar que nuestra modificación basada en el Método del los Impostores, alcanzó un desempeño, superior para el idioma ingles con respecto a  \citep{sinno:2021} (i.e.,73$+$1).
+	Para la tarea Profiling Hate Speech Spreaders on Twitter en PAN 2021 nuestra arquitectura SGN alcanzó un certeza media de 78\% frente al 79\% alcanzado por el mejor modelo, sin embargo, cabe mencionar que nuestra modificación basada en el Método del los Impostores, alcanzó un desempeño, superior para el idioma inglés con respecto a  \citep{sinno:2021} (i.e.,73$+$1).
 	\\
 	Estos resultados, dan evidencia de la robustez de las arquitecturas modulares propuestas y en especial de la representación natural de los perfiles como datos no estructurados a través de los grafos.

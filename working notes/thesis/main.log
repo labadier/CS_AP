@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.6.26)  15 NOV 2021 09:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.6.26)  15 NOV 2021 14:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1099,27 +1099,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 148--151
  []
 
 [25]
-Underfull \hbox (badness 10000) in paragraph at lines 184--214
+Underfull \hbox (badness 10000) in paragraph at lines 184--215
 
  []
 
 [26]
-Underfull \hbox (badness 10000) in paragraph at lines 217--239
+Underfull \hbox (badness 10000) in paragraph at lines 218--240
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 217--239
+Underfull \hbox (badness 10000) in paragraph at lines 218--240
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 217--239
+Underfull \hbox (badness 10000) in paragraph at lines 218--240
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 217--239
+Underfull \hbox (badness 10000) in paragraph at lines 218--240
 
  []
 
@@ -1127,20 +1127,30 @@ Underfull \hbox (badness 10000) in paragraph at lines 217--239
 <images/compare_en.png, id=690, 462.528pt x 346.896pt>
 File: images/compare_en.png Graphic file (type png)
 <use images/compare_en.png>
-Package pdftex.def Info: images/compare_en.png  used on input line 260.
+Package pdftex.def Info: images/compare_en.png  used on input line 261.
 (pdftex.def)             Requested size: 199.60895pt x 149.70757pt.
 <images/compare_es.png, id=691, 462.528pt x 346.896pt>
 File: images/compare_es.png Graphic file (type png)
 <use images/compare_es.png>
-Package pdftex.def Info: images/compare_es.png  used on input line 261.
+Package pdftex.def Info: images/compare_es.png  used on input line 262.
 (pdftex.def)             Requested size: 199.60895pt x 149.70757pt.
 ) (./chapters/concl.tex
-Underfull \hbox (badness 10000) in paragraph at lines 240--2
+Underfull \hbox (badness 10000) in paragraph at lines 241--2
 
  []
 
 [28 <./images/compare_en.png> <./images/compare_es.png>] [29]
-Underfull \hbox (badness 10000) in paragraph at lines 4--13
+Underfull \hbox (badness 10000) in paragraph at lines 4--10
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 4--10
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 11--14
 
  []
 
@@ -1162,11 +1172,11 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  22893 strings out of 478994
  400284 string characters out of 5864751
- 735103 words of memory out of 5000000
+ 735108 words of memory out of 5000000
  39707 multiletter control sequences out of 15000+600000
  427294 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,17n,102p,1055b,755s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 102i,17n,102p,1056b,755s stack positions out of 5000i,500n,10000p,200000b,80000s
 pdfTeX warning (dest): name{Hfootnote.13} has been referenced but does not ex
 ist, replaced by a fixed one
 
@@ -1228,7 +1238,7 @@ exmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf-dist/fonts
 /type1/public/cm-super/sfrm1728.pfb></usr/share/texmf-dist/fonts/type1/public/c
 m-super/sfti0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti109
 5.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb>
-Output written on main.pdf (40 pages, 1379366 bytes).
+Output written on main.pdf (40 pages, 1379988 bytes).
 PDF statistics:
  933 PDF objects out of 1000 (max. 8388607)
  818 compressed objects within 9 object streams

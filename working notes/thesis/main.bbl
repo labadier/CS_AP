@@ -3,7 +3,7 @@
 
 \bibitem[{Agarwala et~al.(2017)Agarwala, Inoue, and Sly}]{agarwala2017music}
 Nipun Agarwala, Yuki Inoue, and Alex Sly. 2017.
-\newblock Music composition using recurrent neural networks.
+\newblock {Music composition using recurrent neural networks}.
 \newblock \emph{CS 224n: Natural Language Processing with Deep Learning,
   Spring}.
 
@@ -44,7 +44,7 @@ Angelo Basile, Gareth Dwyer, Maria Medvedeva, Josine Rawee, Hessel Haagsma, and
 \bibitem[{Bojanowski et~al.(2016)Bojanowski, Grave, Joulin, and
   Mikolov}]{bojanowski2016enriching}
 Piotr Bojanowski, Edouard Grave, Armand Joulin, and Tomas Mikolov. 2016.
-\newblock Enriching word vectors with subword information.
+\newblock {Enriching Word Vectors with Subword Information}.
 \newblock \emph{arXiv preprint arXiv:1607.04606}.
 
 \bibitem[{Brown et~al.(1988)Brown, Conference~on Fixed Point Theory~(1986,
@@ -53,8 +53,8 @@ R.F. Brown, Calif.) Conference~on Fixed Point Theory~(1986, Berkeley,
   American~Mathematical Society, and Calif.) International Congress~of
   Mathematicians~(1986, Berkeley. 1988.
 \newblock \href {https://books.google.com.cu/books?id=vegbCAAAQBAJ}
-  {\emph{Fixed Point Theory and Its Applications: Proceedings of a Conference
-  Held at the International Congress of Mathematicians, August 4-6, 1986}}.
+  {\emph{{Fixed Point Theory and Its Applications: Proceedings of a Conference
+  Held at the International Congress of Mathematicians, August 4-6, 1986}}}.
 \newblock Contemporary mathematics - American Mathematical Society. American
   Mathematical Society.
 
@@ -93,8 +93,8 @@ Jacob Devlin, Ming{-}Wei Chang, Kenton Lee, and Kristina Toutanova. 2018.
 
 \bibitem[{Dias and Paraboni(2019)}]{DBLP:conf/clef/DiasP19}
 Rafael Felipe~Sandroni Dias and Ivandr{\'{e}} Paraboni. 2019.
-\newblock \href {http://ceur-ws.org/Vol-2380/paper\_61.pdf} {Combined {CNN+RNN}
-  bot and gender profiling}.
+\newblock \href {http://ceur-ws.org/Vol-2380/paper\_61.pdf} {{Combined
+  {CNN+RNN} Bot and Gender Profiling}}.
 \newblock In \emph{Working Notes of {CLEF} 2019 - Conference and Labs of the
   Evaluation Forum, Lugano, Switzerland, September 9-12, 2019}, volume 2380 of
   \emph{{CEUR} Workshop Proceedings}. CEUR-WS.org.
@@ -111,7 +111,7 @@ Rafael Felipe~Sandroni Dias and Ivandr{\'{e}} Paraboni. 2019.
 \bibitem[{Hinton et~al.(2012)Hinton, Srivastava, and
   Swersky}]{hinton2012lecture}
 Geoffrey Hinton, Nitish Srivastava, and Kevin Swersky. 2012.
-\newblock Lecture 6a overview of mini--batch gradient descent.
+\newblock {Lecture 6a overview of mini--batch gradient descent}.
 \newblock \emph{Coursera Lecture slides https://class. coursera.
   org/neuralnets-2012-001/lecture,[Online}.
 
@@ -119,8 +119,8 @@ Geoffrey Hinton, Nitish Srivastava, and Kevin Swersky. 2012.
   et~al.}]{hochreiter2001gradient}
 Sepp Hochreiter, Yoshua Bengio, Paolo Frasconi, J{\"u}rgen Schmidhuber, et~al.
   2001.
-\newblock Gradient flow in recurrent nets: the difficulty of learning long-term
-  dependencies.
+\newblock {Gradient flow in recurrent nets: the difficulty of learning
+  long-term dependencies}.
 
 \bibitem[{Iyer and Vosoughi(2020)}]{iyer:2020}
 Aarish Iyer and Soroush Vosoughi. 2020.
@@ -147,8 +147,8 @@ Youngjun Joo and Inchon Hwang. 2019.
 
 \bibitem[{Kingma and Ba(2015)}]{DBLP:journals/corr/KingmaB14}
 Diederik~P. Kingma and Jimmy Ba. 2015.
-\newblock \href {http://arxiv.org/abs/1412.6980} {Adam: {A} method for
-  stochastic optimization}.
+\newblock \href {http://arxiv.org/abs/1412.6980} {{Adam: {A} Method for
+  Stochastic Optimization}}.
 \newblock In \emph{3rd International Conference on Learning Representations,
   {ICLR} 2015, San Diego, CA, USA, May 7-9, 2015, Conference Track
   Proceedings}.
@@ -172,7 +172,7 @@ Roberto Labadie, Mariano Jason~Rodirguez Cisneros, Reynier~Ortega Bueno, and
 \bibitem[{LeCun et~al.(1998)LeCun, Bottou, Bengio, and
   Haffner}]{lecun1998gradient}
 Yann LeCun, L{\'e}on Bottou, Yoshua Bengio, and Patrick Haffner. 1998.
-\newblock Gradient-based learning applied to document recognition.
+\newblock {Gradient-based learning applied to document recognition}.
 \newblock \emph{Proceedings of the IEEE}, 86(11):2278--2324.
 
 \bibitem[{Liu et~al.(2019)Liu, Ott, Goyal, Du, Joshi, Chen, Levy, Lewis,
@@ -210,8 +210,8 @@ Tomas Mikolov, Ilya Sutskever, Kai Chen, Gregory~S. Corrado, and Jeffrey Dean.
   2013.
 \newblock \href
   {http://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality}
-  {Distributed representations of words and phrases and their
-  compositionality}.
+  {{Distributed Representations of Words and Phrases and their
+  Compositionality}}.
 \newblock In \emph{Advances in Neural Information Processing Systems 26: 27th
   Annual Conference on Neural Information Processing Systems 2013. Proceedings
   of a meeting held December 5-8, 2013, Lake Tahoe, Nevada, United States},
@@ -220,8 +220,8 @@ Tomas Mikolov, Ilya Sutskever, Kai Chen, Gregory~S. Corrado, and Jeffrey Dean.
 \bibitem[{Newman et~al.(2008)Newman, Groom, Handelman, and
   Pennebaker}]{Newman2008GenderDI}
 M.~Newman, Carla~J. Groom, Lori~D. Handelman, and J.~Pennebaker. 2008.
-\newblock Gender differences in language use: An analysis of 14,000 text
-  samples.
+\newblock {Gender Differences in Language Use: An Analysis of 14,000 Text
+  Samples}.
 \newblock \emph{Discourse Processes}, 45:211 -- 236.
 
 \bibitem[{Nguyen et~al.(2020)Nguyen, Vu, and Nguyen}]{bertweet}
@@ -234,8 +234,8 @@ Dat~Quoc Nguyen, Thanh Vu, and Anh~Tuan Nguyen. 2020.
   Franco-Arcega, and y~G{\'o}mez}]{OrtegaMendoza2018EmphasizingPI}
 R.~M. Ortega-Mendoza, A.~P. L{\'o}pez-Monroy, A.~Franco-Arcega, and M.~Montes
   y~G{\'o}mez. 2018.
-\newblock Emphasizing personal information for author profiling: New approaches
-  for term selection and weighting.
+\newblock {Emphasizing personal information for Author Profiling: New
+  approaches for term selection and weighting}.
 \newblock \emph{Knowl. Based Syst.}, 145:169--181.
 
 \bibitem[{Palomino and Ochoa-Luna(2020)}]{palomino-ochoa-luna-2020-palomino}
@@ -250,22 +250,22 @@ Daniel Palomino and Jos{\'e} Ochoa-Luna. 2020.
 \bibitem[{Pennebaker et~al.(2015)Pennebaker, Boyd, Jordan, and
   Blackburn}]{pennebaker2015development}
 {James W.} Pennebaker, Ryan Boyd, Kayla Jordan, and Kate Blackburn. 2015.
-\newblock \href {https://doi.org/10.15781/T29G6Z} {\emph{The development and
-  psychometric properties of LIWC2015}}.
+\newblock \href {https://doi.org/10.15781/T29G6Z} {\emph{{The development and
+  psychometric properties of LIWC2015}}}.
 \newblock University of Texas at Austin.
 
 \bibitem[{Pennington et~al.(2014)Pennington, Socher, and
   Manning}]{pennington2014glove}
 Jeffrey Pennington, Richard Socher, and Christopher~D. Manning. 2014.
-\newblock \href {http://www.aclweb.org/anthology/D14-1162} {Glove: Global
-  vectors for word representation}.
+\newblock \href {http://www.aclweb.org/anthology/D14-1162} {{GloVe: Global
+  Vectors for Word Representation}}.
 \newblock In \emph{Empirical Methods in Natural Language Processing (EMNLP)},
   pages 1532--1543.
 
 \bibitem[{Petr{\'{\i}}k and Chud{\'{a}}(2019)}]{DBLP:conf/clef/PetrikC19}
 Juraj Petr{\'{\i}}k and Daniela Chud{\'{a}}. 2019.
-\newblock \href {http://ceur-ws.org/Vol-2380/paper\_214.pdf} {Bots and gender
-  profiling with convolutional hierarchical recurrent neural network}.
+\newblock \href {http://ceur-ws.org/Vol-2380/paper\_214.pdf} {{Bots and Gender
+  Profiling with Convolutional Hierarchical Recurrent Neural Network}}.
 \newblock In \emph{Working Notes of {CLEF} 2019 - Conference and Labs of the
   Evaluation Forum, Lugano, Switzerland, September 9-12, 2019}, volume 2380 of
   \emph{{CEUR} Workshop Proceedings}. CEUR-WS.org.
@@ -315,34 +315,34 @@ Francisco Rangel and Paolo Rosso. 2019.
   Giachanou}]{francisco_rangel_2020_4039435}
 Francisco Rangel, Paolo Rosso, Bilal Ghanem, and Anastasia Giachanou.
   2020{\natexlab{b}}.
-\newblock \href {https://doi.org/10.5281/zenodo.4039435} {Profiling fake news
-  spreaders on twitter}.
+\newblock \href {https://doi.org/10.5281/zenodo.4039435} {{Profiling Fake News
+  Spreaders on Twitter}}.
 
 \bibitem[{Rangel et~al.(2018{\natexlab{b}})Rangel, Rosso, Montes-y G{\'o}mez,
   Potthast, and Stein}]{rangel2018overview}
 Francisco Rangel, Paolo Rosso, Manuel Montes-y G{\'o}mez, Martin Potthast, and
   Benno Stein. 2018{\natexlab{b}}.
-\newblock Overview of the 6th author profiling task at pan 2018: multimodal
-  gender identification in twitter.
+\newblock {Overview of the 6th author profiling task at pan 2018: multimodal
+  gender identification in twitter}.
 \newblock \emph{Working Notes Papers of the CLEF}, pages 1--38.
 
 \bibitem[{Rangel et~al.(2017)Rangel, Rosso, Potthast, and
   Stein}]{rangel2017overview}
 Francisco Rangel, Paolo Rosso, Martin Potthast, and Benno Stein. 2017.
-\newblock Overview of the 5th author profiling task at pan 2017: Gender and
-  language variety identification in twitter.
+\newblock {Overview of the 5th author profiling task at pan 2017: Gender and
+  language variety identification in twitter}.
 \newblock \emph{Working notes papers of the CLEF}, pages 1613--0073.
 
 \bibitem[{Rangel et~al.(2021)Rangel, Sarrac{\'e}n, Chulvi, Fersini, and
   Rosso}]{rangel2021profiling}
 Francisco Rangel, GLDLP Sarrac{\'e}n, BERTa Chulvi, Elisabetta Fersini, and
   Paolo Rosso. 2021.
-\newblock Profiling hate speech spreaders on twitter task at pan 2021.
+\newblock {Profiling Hate Speech Spreaders on Twitter Task at PAN 2021}.
 \newblock In \emph{CLEF}.
 
 \bibitem[{Reddy et~al.(2016)Reddy, Vardhan, and Reddy}]{reddy2016survey}
 T~Raghunadha Reddy, B~Vishnu Vardhan, and P~Vijaypal Reddy. 2016.
-\newblock A survey on authorship profiling techniques.
+\newblock {A survey on authorship profiling techniques}.
 \newblock \emph{International Journal of Applied Engineering Research},
   11(5):3092--3102.
 
@@ -355,8 +355,8 @@ Youssra Riahi and S.~Riahi. 2018.
   Daelemans}]{Rosso2019}
 Paolo Rosso, Martin Potthast, Benno Stein, Efstathios Stamatatos, Francisco
   Rangel, and Walter Daelemans. 2019.
-\newblock \href {https://doi.org/10.1007/978-3-030-22948-1_19} {Evolution of
-  the pan lab on digital text forensics}.
+\newblock \href {https://doi.org/10.1007/978-3-030-22948-1_19} {{Evolution of
+  the PAN Lab on Digital Text Forensics}}.
 \newblock In Nicola Ferro and Carol Peters, editors, \emph{{Information
   Retrieval Evaluation in a Changing World: Lessons Learned from 20 Years of
   CLEF}}, pages 461--485. Springer International Publishing, Cham.
@@ -370,14 +370,14 @@ Paolo Rosso and Francisco Rangel~Pardo. 2020.
 \bibitem[{Schler et~al.(2006)Schler, Koppel, Argamon, and
   Pennebaker}]{schler2006effects}
 Jonathan Schler, Moshe Koppel, Shlomo Argamon, and James~W Pennebaker. 2006.
-\newblock Effects of age and gender on blogging.
+\newblock {Effects of age and gender on blogging.}
 \newblock In \emph{AAAI spring symposium: Computational approaches to analyzing
   weblogs}, volume~6, pages 199--205.
 
 \bibitem[{Schuster and Paliwal(1997)}]{DBLP:journals/tsp/SchusterP97}
 Mike Schuster and Kuldip~K. Paliwal. 1997.
-\newblock \href {https://doi.org/10.1109/78.650093} {Bidirectional recurrent
-  neural networks}.
+\newblock \href {https://doi.org/10.1109/78.650093} {{Bidirectional recurrent
+  neural networks}}.
 \newblock \emph{{IEEE} Trans. Signal Process.}, 45(11):2673--2681.
 
 \bibitem[{Schwartz et~al.(2013)Schwartz, Eichstaedt, Kern, Dziurzynski,
@@ -386,8 +386,8 @@ Mike Schuster and Kuldip~K. Paliwal. 1997.
 H.~A. Schwartz, J.~Eichstaedt, Margaret~L. Kern, Lukasz Dziurzynski, Stephanie
   Ramones, Megha Agrawal, Achal Shah, M.~Kosinski, D.~Stillwell, M.~Seligman,
   and L.~Ungar. 2013.
-\newblock Personality, gender, and age in the language of social media: The
-  open-vocabulary approach.
+\newblock {Personality, Gender, and Age in the Language of Social Media: The
+  Open-Vocabulary Approach}.
 \newblock \emph{PLoS ONE}, 8.
 
 \bibitem[{Seidman(2013)}]{seidman2013authorship}
@@ -407,8 +407,8 @@ Marco Siino, Elisa~Di Nuovo, Ilenia Tinnirello, and Marco~La Cascia. 2021.
   Erhan, Vanhoucke, and Rabinovich}]{szegedy2014going}
 Christian Szegedy, Wei Liu, Yangqing Jia, Pierre Sermanet, Scott Reed, Dragomir
   Anguelov, Dumitru Erhan, Vincent Vanhoucke, and Andrew Rabinovich. 2014.
-\newblock \href {http://arxiv.org/abs/1409.4842} {Going deeper with
-  convolutions}.
+\newblock \href {http://arxiv.org/abs/1409.4842} {{Going Deeper with
+  Convolutions}}.
 
 \bibitem[{Valencia{-}Valencia et~al.(2019)Valencia{-}Valencia,
   G{\'{o}}mez{-}Adorno, Rhodes, and
@@ -426,13 +426,14 @@ Alex~I. Valencia{-}Valencia, Helena G{\'{o}}mez{-}Adorno, Christopher~Stephens
   Gomez, Kaiser, and Polosukhin}]{vaswani2017attention}
 Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones,
   Aidan~N. Gomez, Lukasz Kaiser, and Illia Polosukhin. 2017.
-\newblock \href {http://arxiv.org/abs/1706.03762} {Attention is all you need}.
+\newblock \href {http://arxiv.org/abs/1706.03762} {{Attention Is All You
+  Need}}.
 
 \bibitem[{Wu et~al.(2021)Wu, Pan, Chen, Long, Zhang, and Yu}]{Wu_2021}
 Zonghan Wu, Shirui Pan, Fengwen Chen, Guodong Long, Chengqi Zhang, and
   Philip~S. Yu. 2021.
-\newblock \href {https://doi.org/10.1109/tnnls.2020.2978386} {A comprehensive
-  survey on graph neural networks}.
+\newblock \href {https://doi.org/10.1109/tnnls.2020.2978386} {{A Comprehensive
+  Survey on Graph Neural Networks}}.
 \newblock \emph{IEEE Transactions on Neural Networks and Learning Systems},
   32(1):4–24.
 

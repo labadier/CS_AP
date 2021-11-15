@@ -9,18 +9,15 @@ Reallocated singl_function (elt_size=8) to 100 items from 50.
 Database file #1: bibliography.bib
 Warning--entry type for "francisco_rangel_2020_4039435" isn't style-file defined
 --line 593 of file bibliography.bib
-A bad cross reference---entry "giglou:2020"
-refers to entry "pan:2020", which doesn't exist
-Warning--I didn't find a database entry for "pan:2020"
 Reallocated wiz_functions (elt_size=8) to 6000 items from 3000.
 You've used 55 entries,
             3571 wiz_defined-function locations,
-            1013 strings with 19946 characters,
-and the built_in function-call counts, 41388 in all, are:
+            1012 strings with 19990 characters,
+and the built_in function-call counts, 41376 in all, are:
 = -- 3404
 > -- 2253
 < -- 36
-+ -- 719
++ -- 713
 - -- 656
 * -- 2873
 := -- 6211
@@ -44,7 +41,7 @@ purify$ -- 437
 quote$ -- 0
 skip$ -- 1866
 stack$ -- 0
-substring$ -- 1056
+substring$ -- 1050
 swap$ -- 1410
 text.length$ -- 16
 text.prefix$ -- 0
@@ -54,4 +51,4 @@ warning$ -- 0
 while$ -- 200
 width$ -- 0
 write$ -- 710
-(There was 1 error message)
+(There was 1 warning)

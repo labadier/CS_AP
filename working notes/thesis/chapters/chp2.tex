@@ -11,11 +11,11 @@
 	De manera general sus principales contribuciones son:
 
 	\begin{itemize}
-			\item Se propone un framework para el perfilado semi-supervisado de autores en redes sociales. El mismo lleva a cabo el aprendizaje de rasgos abstractos para la representación en un espacio latente de los tweets, y construye a partir de los mismos el modelado del perfil.
+			\item Se propone un framework para el perfilado semi-supervisado de autores en redes sociales. El mismo, lleva a cabo el aprendizaje de rasgos abstractos para la representación en un espacio latente de los tweets, y construye a partir de los mismos el modelado del perfil.
 			
-			\item Es presentada una combinación de rasgos de estilo a niveles de palabra, oración y otras estructuras gramaticales, para evaluar su influencia sobre la representación exclusiva mediante features extraidos por los modelos de DL. 
+			\item Es presentada una combinación de rasgos de estilo a niveles de palabra, oración y otras estructuras gramaticales, para evaluar su influencia sobre la representación exclusiva mediante features extraídos por los modelos de DL. 
 		
-			\item  Se exponen distintas arquitecturas para modelar tweets y perfiles de usuarios dentro del mismo framework, que relacionen de manera diferente la información para realizar un estudio comparativo. Además se propone una clasificador para combinar estas modelaciones, basado en ML tradicional.	
+			\item  Se exponen distintas arquitecturas para modelar tweets y perfiles de usuarios dentro del mismo framework, que relacionen de manera diferente la información para realizar un estudio comparativo. Además, se propone una clasificador para combinar estas modelaciones, basado en ML tradicional.	
 	\end{itemize}
 
 	\section{Rasgos a Nivel de Tweet}
@@ -38,7 +38,7 @@
 	\\
 	Cada elemento de la secuencia es codificado por un \textit{embedding} de palabras o caracteres según sea el caso del análisis. En el primero, el modelo emplea un embedding preentrenado con representaciones fijas aprendidas mediante \textit{Word2Vec} de Google \citep{DBLP:conf/nips/MikolovSCCD13}. Mientras que a nivel de caracteres estas representaciones son inicializadas de manera aleatoria y aprendidas durante el proceso de entrenamiento del modelo completo.
 	\\
-	Como salida de esta capa de embedding obtenemos una matriz de valores reales $E \in \Re^{l\times d}$, con $l$ la longitud de la secuencia y  $d$ la dimensionalidad de la representación vectorial de sus elementos. Luego es aplicada la operación convolución en $1D$ mediante una capa de red convolucional, simulando el análisis de \textit{n-gramas} de palabras o caracteres sobre la representación del embedding que en este punto ya ha capturado ciertas relaciones de contexto entre los elementos del texto.
+	Como salida de esta capa de embedding es obtenida una matriz de valores reales $E \in \Re^{l\times d}$, con $l$ la longitud de la secuencia y  $d$ la dimensionalidad de la representación vectorial de sus elementos. Luego es aplicada la operación convolución en $1D$ mediante una capa de red convolucional, simulando el análisis de \textit{n-gramas} de palabras o caracteres sobre la representación del embedding que en este punto ya ha capturado ciertas relaciones de contexto entre los elementos del texto.
 	\\
 	Esta capa convolucional estará compuesta por filtros de distintos tamaños de ventana (3, 4, 5) inspirada en las Redes de Entradas (\textit{Inception Neural Networks}) \citep{szegedy2014going} para capturar relaciones espaciales dentro de la secuencia a corto plazo. Para cada tamaño de ventada (i.e., 3, 4 y 5) se emplean además 32 filtros que aprenden estas relaciones de manera independiente. 
 	\\
@@ -52,16 +52,16 @@
 	
 	Teniendo en cuenta que al analizar individualmente los tweets la cantidad de información a procesar es reducida considerablemente y la capacidad de ``comprensión'' del lenguaje que han demostrado los modelos basados en arquitecturas Transformers (TM), se propone el empleo de modelos pre-entrenados para modelar representaciones abstractas de los tweets. Para ello primeramente se realiza un proceso de refinado (\textit{fine-tuning}) empleando la librería HuggingFace Transformers\footnote{\url{https://huggingface.co/transformers}} con datos que respondan a la tarea sobre la cual se llevará a cabo el perfilado. 
 	\\\\
-	En el proceso de \textit{fine-tuning} se añade una capa intermedia que recibe los vectores de la secuancia de salida del TM. En esta secuencia de features, se preserva solamente el vector asociado al \textit{token} [CLS]. Luego esta capa intermedia se apila una capa de salida encargada de realizar las predicciones para la tarea sobre la cual  se refina el modelo.
+	En el proceso de \textit{fine-tuning} se añade una capa intermedia que recibe los vectores de la secuancia de salida del TM. En esta secuencia de features, se preserva solamente el vector asociado al \textit{token} [CLS]. Luego, esta capa intermedia se apila una capa de salida encargada de realizar las predicciones para la tarea sobre la cual  se refina el modelo.
 	\\
-	Para cada uno de los bloques codificadores del encoder del Transformer es empleado un coeficiente de aprendizaje \textit{learning rate} distinto teniendo en cuenta un refinado gradual-discriminativo de cada bloque, incrementándolo a medida que la red se vuelve mas profunda. Esto es, $\alpha_i = \lambda_i \alpha_0 \text{ y } \lambda_i = \lambda_{i-1} + 0\text{.}1$, donde $\alpha_i$ representa el \textit{learning rate} del $i-esima$ bloque y $\lambda_i$ es un multiplicador para determinar $\alpha_i$ a partir de $\alpha_0$. Empleando este \textit{learning rate} dinámico se preserva la mayor cantidad de informacion aprendida durante el proceso de pre-entrenado el las capas más superficiales, encargadas de capturar rasgos generales, y se sesga el aprendizaje de las capas más profundas hacia la tarea específica abordada en el perfilado.
+	Para cada uno de los bloques codificadores del encoder del Transformer es empleado un coeficiente de aprendizaje \textit{learning rate} distinto teniendo en cuenta un refinado gradual-discriminativo de cada bloque, incrementándolo a medida que la red se vuelve mas profunda. Esto es, $\alpha_i = \lambda_i \alpha_0 \text{ y } \lambda_i = \lambda_{i-1} + 0\text{.}1$, donde $\alpha_i$ representa el \textit{learning rate} del $i-esimo$ bloque y $\lambda_i$ es un multiplicador para determinar $\alpha_i$ a partir de $\alpha_0$. Empleando este \textit{learning rate} dinámico se preserva la mayor cantidad de información aprendida durante el proceso de pre-entrenado el las capas más superficiales, encargadas de capturar rasgos generales, y se sesga el aprendizaje de las capas más profundas hacia la tarea específica abordada en el perfilado.
 	\section{Modelado  y Clasificación del Perfil}
 	
 	Una vez sintetizada la información abstracta de los tweets, es importante la forma en la que se relaciona cada uno para clasificar el perfil, para ello se propone asumir el conjunto de los tweets como i) una secuencia y ii) una estructura basada en grafos.
 	
 	\subsection{Modelado Secuencial. Att-LSTM}\label{att-lstm}
 	
-	Aun cuando no existe necesariamente una relación temporal que exprese particularidades del estilo de escritura del perfil, es posible agregar la información de los tweets mediante una LSTM. Para ello, en el proceso de entrenamiento se construye una secuencia con los tweets, y en cada ciclo de entrenamiento (i.e., \textit{epoch}) de la red neuronal, esta secuencia es permutada aleatoriamente para evitar que el modelo capture erroneamente cualquier relación temporal. La \figurename~\ref{att_lstm} muestra la arquitectura general del modelo \textbf{Att-LSTM} (\textit{Attention- Long Short Term Memory}) empleada para modelar como secuencia el perfil y clasificarlo.
+	Aun cuando no existe necesariamente una relación temporal que exprese particularidades del estilo de escritura del perfil, es posible agregar la información de los tweets mediante una LSTM. Para ello, en el proceso de entrenamiento se construye una secuencia con los tweets, y en cada ciclo de entrenamiento (i.e., \textit{epoch}) de la red neuronal, esta secuencia es permutada aleatoriamente para evitar que el modelo capture erróneamente cualquier relación temporal. La \figurename~\ref{att_lstm} muestra la arquitectura general del modelo \textbf{Att-LSTM} (\textit{Attention- Long Short Term Memory}) empleada para modelar como secuencia el perfil y clasificarlo.
 	
 	\begin{figure}[!thb]
 		\begin{center}
@@ -75,14 +75,14 @@
 	\\
 	La Bi-LSTM no detecta solamente relaciones de un elemento con los previos en la secuencia sino que también lo relaciona con los que aparecen posteriormente, de esta forma se capturan las relaciones independientes de la posición de cada tweet dentro de la secuencia.
 	\\ 
-	La salida de la Bi-LSTM es enviada a una capa de \textit{self-attention} para emplear la misma estrategia propuesta en la \textcolor{darkblue}{Sección~\ref{cnn-lstm}} y luego a una capa de LSTM simple, donde nuevamente se preserva el último estado oculto y se condensa su información en una capa densa. Este modelado el perfil, finalmente es enviado otra capa densa encargada de clasificar el perfil según la tarea para la que se entrene el modelo.
+	La salida de la Bi-LSTM es enviada a una capa de \textit{self-attention} para emplear la misma estrategia propuesta en la \textcolor{darkblue}{Sección~\ref{cnn-lstm}} y luego a una capa de LSTM simple, donde nuevamente se preserva el último estado oculto y se condensa su información en una capa densa. Este modelado del perfil, finalmente es enviado otra capa densa encargada de clasificar el perfil según la tarea para la que se entrene el modelo.
 	
 	\subsection{Modelado basado en Grafo. SGN}\label{sgn}
 	
 	Dentro de las redes sociales en muchas ocasiones la información contextual es compartida de manera dispersa, e.g., el contenido de una idea relacionada con la difusión de odio puede ser construido relacionando la información de diferentes posts no necesariamente subidos de manera secuencial. Algunos trabajos han mostrado la importancia del contenido en tareas de AP \citep{OrtegaMendoza2018EmphasizingPI}, afirmando que rasgos basados en contenido a veces son más discriminativos que rasgos de estilo \citep{reddy2016survey}. Todo esto sugiere la idea de emplear una modelación no euclidiana del conjunto de tweets codificados y compartir la información de un tweets a los otros mientras que su información individual es transformada para expresar como este pertenece a su contexto.
 	Las Redes Neuronales basadas en Grafo están especializadas en aprender patrones de este tipo de representaciones no estructuradas.
 	\\
-	El perfil es por tanto modelado con una representación basada en grafos, donde cada nodo es un tweet y cada uno de ellos esta conectado con todos los otros. Luego, este grafo es procesado por una Red Neuronal Convolucional Espectral de Grafos (\textit{Spectral Graph Convolutional Neural Network SGN}).
+	El perfil es por tanto modelado con una representación basada en grafos, donde cada nodo es un tweet y cada uno de ellos está conectado con todos los otros. Luego, este grafo es procesado por una Red Neuronal Convolucional Espectral de Grafos (\textit{Spectral Graph Convolutional Neural Network SGN}).
 	\\
 	El hecho de que cada nodo en el grafo modelado este conectado a todos los otros, hace que luego de un ciclo de paso de mensajes, un nodo individual, tenga conocimiento sobre cada nodo en el grafo, empleando el operador convolucional propuesto en \citep{kipf2017semisupervised} definido como:
 	
@@ -90,7 +90,7 @@
 		X' = ReLU(\hat{D}^{-\frac{1}{2}}\hat{A}\hat{D}^{-\frac{1}{2}}X\Theta)
 	\end{align}
 	
-	Donde $X$ es la matris de representaciones vectoriales de los nodos, $\hat{A} = A + I$ es la matriz de adyacencia $A$ agregada a la matriz identidad $I$ lo que implica que autoconexiones para cada nodo son introducidas a la representación para que en el proceso de agregación se preserve su información original. La matriz $D$ es una matriz diagonal que contiene el grado del nodo $i-esimo$, i.e., $D_{ii} = |V|$ con $V$ el conjunto de los vértices. Finalmente, $\Theta$ es la matriz de parámetros de aprendizaje para determinar la codificación de cada nodo con sus rasgos que junto a la Matriz Laplaciana Normalizada expresan el nivel de variación entre los rasgos de los nodos dentro del grafo.
+	Donde $X$ es la matriz de representaciones vectoriales de los nodos, $\hat{A} = A + I$ es la matriz de adyacencia $A$ agregada a la matriz identidad $I$ lo que implica que autoconexiones para cada nodo son introducidas a la representación para que en el proceso de agregación se preserve su información original. La matriz $D$ es una matriz diagonal que contiene el grado del nodo $i-esimo$, i.e., $D_{ii} = |V|$ con $V$ el conjunto de los vértices. Finalmente, $\Theta$ es la matriz de parámetros de aprendizaje para determinar la codificación de cada nodo a partir de sus rasgos que junto a la Matriz Laplaciana Normalizada expresan el nivel de variación entre los rasgos de los nodos dentro del grafo.
 	\\
 	Dada la formulación matricial de esta operación, a nivel de nodo esta queda definida como: 
 	
@@ -108,15 +108,15 @@
 	 
 	 Un hecho interesante de sobre los modelos de DL es que a pesar de ser potentes a la hora de detectar rasgos abstractos que permitan particionar el espacio de representaciones en diferentes clases, cuando la cantidad de datos disponibles para el entrenamiento no es suficiente, su desempeño se ve afectado. Por esto se propone emplear las modelaciones  en un espacio latente de los perfiles descritas en la Sección~\ref{att-lstm} y Sección~\ref{sgn} con el Método Profundo de los Impostores \textit{(Deep Impostor Method DIM)} basado en el Método de los Impostores \citep{seidman2013authorship}, para realizar un estudio comparativo del desempeño en la clasificación binaria.
 	 \\\\
-	 Como en el método original, para realizar una predicción sobre un objeto desconocido (en este caso un perfil de autor) es definido previamente un conjunto $H$ y $K$ de ejemplos positivos y negativos respectivamente y el objeto desconocido $u$.
+	 Como en el método original, para realizar una predicción sobre un objeto desconocido (en este caso un perfil del usuario) es definido previamente un conjunto $H$ y $K$ de ejemplos positivos y negativos respectivamente y el objeto desconocido $u$.
 	 \\
-	 De $H$ es muestreado de manera uniforme un subconjunto $\bar{H}$ como prototipos de la clase positiva y es analizado para cada $\bar{H}_i$ si $u$ es mas similar a este prototipo que a los elementos de un conjunto $\bar{K}_i$, i.e., $\mathcal{F}(u, \bar{H}_i) > \mathcal{F}(u, \bar{K}_{ij})$ donde $\mathcal{F}$ es una función de similitud; en este caso coseno. Luego de esto, se dice que $u$ teniendo en cuenta $\bar{H}_i$ es un candidato a pertenecer a una clase positiva según un voto por mayoría, esto es:
+	 De $H$ es muestreado de manera uniforme un subconjunto $\bar{H}$ como prototipos de la clase positiva y es analizado para cada $\bar{H}_i$ si $u$ es más similar a este prototipo que a los elementos de un conjunto $\bar{K}_i$, i.e., $\mathcal{F}(u, \bar{H}_i) > \mathcal{F}(u, \bar{K}_{ij})$ donde $\mathcal{F}$ es una función de similitud; en este caso coseno. Luego de esto, se dice que $u$ teniendo en cuenta $\bar{H}_i$ es un candidato a pertenecer a una clase positiva según un voto por mayoría, esto es:
 	 
 	\begin{equation*}
 	 	P_i(u,  \bar{H}_i) = 
 	 	\begin{cases}
 	 		1 & \text{if}~~ \sum\limits_{j}^{|\bar{K}_{i}|}[\mathcal{F}(u, \bar{H}_i) > \mathcal{F}(u, \bar{K}_{ij})] > \frac{|\bar{K}_{i}|}{2}\\
-	 		0 & e.c.o.c
+	 		0 & e.o.c
 	 	\end{cases}
 	 \end{equation*}	  
 	 \\
@@ -128,7 +128,7 @@
 	 	\hat{y}(u)  = 
 	 	\begin{cases}
 	 		1 & \text{if}~~ \sum\limits_{i}^{|\bar{H}|} P_i(u, \bar{H}_i) > \frac{|\bar{H}|}{2}\\
-	 		0 & \text{otherwise}
+	 		0 & \text{e.o.c}
 	 	\end{cases}
 	 \end{equation*}	
 	 
@@ -151,7 +151,7 @@
 	 \begin{figure}[!thb]
 	 	\centering
  	 	\includegraphics[width=.65\linewidth, , height=.2\textheight]{images/trepre.eps}
-	 	\caption[Rasgos Manuales]{Representación de perfil mediante rasgos manuales}
+	 	\caption[Rasgos de Estilo]{Representación de perfil mediante rasgos de estilo manualmente extraídos}
 	 	\label{trepre}
 	 \end{figure}
 	 

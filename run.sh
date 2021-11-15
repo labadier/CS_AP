@@ -5,12 +5,12 @@ tmode=online
 # clear
 
 ############################################# Train - Encode CNN_LSTM_Encoder ############################################
-# python main.py -l ES -mode CNN_LSTM_Encoder -phase train -dp data/profiling/faker/train -lr 2e-3 -epoch 12 -bs 64 -decay 0 -task faker
-# python main.py -l EN -mode CNN_LSTM_Encoder -phase train -dp data/profiling/faker/train -lr 2e-3 -epoch 12 -bs 64 -decay 0 -task faker
-# python main.py -l ES -mode CNN_LSTM_Encoder -phase train -dp data/profiling/hater/train -lr 2e-3 -epoch 12 -bs 64 -decay 0 -task hater
-# python main.py -l EN -mode CNN_LSTM_Encoder -phase train -dp data/profiling/hater/train -lr 2e-3 -epoch 12 -bs 64 -decay 0 -task hater
-# python main.py -l ES -mode CNN_LSTM_Encoder -phase train -dp data/profiling/bot/train -lr 2e-3 -epoch 12 -bs 64 -decay 0 -task bot
-# python main.py -l EN -mode CNN_LSTM_Encoder -phase train -dp data/profiling/bot/train -lr 2e-3 -epoch 12 -bs 64 -decay 0 -task bot
+python main.py -l ES -mode CNN_LSTM_Encoder -phase train -dp data/profiling/faker/train -lr 2e-3 -epoch 12 -bs 64 -decay 0 -task faker
+python main.py -l EN -mode CNN_LSTM_Encoder -phase train -dp data/profiling/faker/train -lr 2e-3 -epoch 12 -bs 64 -decay 0 -task faker
+python main.py -l ES -mode CNN_LSTM_Encoder -phase train -dp data/profiling/hater/train -lr 2e-3 -epoch 12 -bs 64 -decay 0 -task hater
+python main.py -l EN -mode CNN_LSTM_Encoder -phase train -dp data/profiling/hater/train -lr 2e-3 -epoch 12 -bs 64 -decay 0 -task hater
+python main.py -l ES -mode CNN_LSTM_Encoder -phase train -dp data/profiling/bot/train -lr 2e-3 -epoch 12 -bs 64 -decay 0 -task bot
+python main.py -l EN -mode CNN_LSTM_Encoder -phase train -dp data/profiling/bot/train -lr 2e-3 -epoch 12 -bs 64 -decay 0 -task bot
 
 # python main.py -l ES -mode CNN_LSTM_Encoder -phase train -dp data/profiling/faker/train -lr 1e-3 -epoch 12 -bs 64 -decay 0 -task faker
 # python main.py -l EN -mode CNN_LSTM_Encoder -phase train -dp data/profiling/faker/train -lr 1e-3 -epoch 12 -bs 64 -decay 0 -task faker

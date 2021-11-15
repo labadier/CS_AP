@@ -9,5 +9,5 @@
 \contentsline {table}{\numberline {3.5}{\ignorespaces Finetuning Transformers en cada tarea con $\alpha =1e\text {-}5,~\delta = 2e\text {-}5, ~\lambda =0.1$}}{25}{table.3.5}%
 \contentsline {table}{\numberline {3.6}{\ignorespaces Entrenamiento de Att-LSTM}}{26}{table.3.6}%
 \contentsline {table}{\numberline {3.7}{\ignorespaces Entrenamiento de Spectral Graph Network}}{27}{table.3.7}%
-\contentsline {table}{\numberline {3.8}{\ignorespaces Metodo Deep Impostor sobre representaciones latentes}}{28}{table.3.8}%
+\contentsline {table}{\numberline {3.8}{\ignorespaces Método Deep Impostor sobre representaciones latentes}}{28}{table.3.8}%
 \contentsline {table}{\numberline {3.9}{\ignorespaces Resultados de SVM sobre BoW y tf-idf}}{28}{table.3.9}%
