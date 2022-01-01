@@ -22,15 +22,21 @@
 \gdef\HyperFirstAtBeginDocument#1{#1}
 \providecommand\HyField@AuxAddToFields[1]{}
 \providecommand\HyField@AuxAddToCoFields[2]{}
+\providecommand\ACRO[1]{}
 \pgfsyspdfmark {pgfid1}{4736286}{47362867}
+\@writefile{toc}{\acswitchoff }
+\@writefile{lof}{\acswitchoff }
+\@writefile{lot}{\acswitchoff }
 \babel@aux{spanish}{}
+\@input{intro/resumen.aux}
+\@writefile{toc}{\contentsline {chapter}{Abstract}{\es@scroman  {iii}}{chapter*.3}\protected@file@percent }
 \citation{Riahi2018BigDA}
 \citation{Rosso2019,article}
 \citation{rangel:2018,rangel:2019,f6032ffbacb14369b7a45d1ba9bd0b8c}
 \citation{rangel2021profiling}
 \citation{rangel:2020}
 \citation{electronics8030292}
-\@writefile{toc}{\contentsline {chapter}{Introducción}{1}{chapter*.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{Introducción}{1}{chapter*.6}\protected@file@percent }
 \citation{DBLP:conf/clef/Pizarro19,DBLP:conf/clef/Valencia-Valencia19}
 \citation{pennebaker2015development}
 \citation{schler2006effects}
@@ -48,8 +54,10 @@
 \citation{martinc:2017}
 \citation{DBLP:conf/clef/Pizarro19}
 \citation{DBLP:conf/clef/Johansson19}
+\citation{polignano:2019}
 \citation{pizarro:2020}
 \citation{buda:2020}
+\citation{giglou:2020}
 \citation{sinno:2021}
 \citation{Newman2008GenderDI}
 \citation{Schwartz2013PersonalityGA}
@@ -58,42 +66,42 @@
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {1.1}Estado del Arte}{5}{section.1.1}\protected@file@percent }
 \newlabel{SOTA}{{1.1}{5}{Estado del Arte}{section.1.1}{}}
-\citation{agarwala2017music}
 \@writefile{toc}{\contentsline {section}{\numberline {1.2}Marco Teórico}{7}{section.1.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.1}LSTM: Long Short-Term Memory Neural Networks}{7}{subsection.1.2.1}\protected@file@percent }
-\newlabel{rrn_form}{{1.1}{7}{LSTM: Long Short-Term Memory Neural Networks}{equation.1.2.1}{}}
-\citation{lecun1998gradient}
+\citation{agarwala2017music}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.1}LSTM: Long Short-Term Memory Neural Networks}{8}{subsection.1.2.1}\protected@file@percent }
+\newlabel{rrn_form}{{1.1}{8}{LSTM: Long Short-Term Memory Neural Networks}{equation.1.2.1}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1.1}{\ignorespaces Red Neuronal Recurrente}}{8}{figure.1.1}\protected@file@percent }
 \newlabel{rnn}{{1.1}{8}{Red Neuronal Recurrente}{figure.1.1}{}}
 \newlabel{lstm_gates}{{1.2}{8}{LSTM: Long Short-Term Memory Neural Networks}{equation.1.2.2}{}}
-\newlabel{lstm_pu}{{1.3}{8}{LSTM: Long Short-Term Memory Neural Networks}{equation.1.2.3}{}}
-\newlabel{lstm_hstate}{{1.4}{8}{LSTM: Long Short-Term Memory Neural Networks}{equation.1.2.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.2}Redes Neuronales Convolucionales sobre secuencias}{8}{subsection.1.2.2}\protected@file@percent }
+\citation{lecun1998gradient}
+\newlabel{lstm_pu}{{1.3}{9}{LSTM: Long Short-Term Memory Neural Networks}{equation.1.2.3}{}}
+\newlabel{lstm_hstate}{{1.4}{9}{LSTM: Long Short-Term Memory Neural Networks}{equation.1.2.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.2}Redes Neuronales Convolucionales sobre secuencias}{9}{subsection.1.2.2}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1.2}{\ignorespaces Operación Convolución. CNN}}{9}{figure.1.2}\protected@file@percent }
 \newlabel{cnn}{{1.2}{9}{Operación Convolución. CNN}{figure.1.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.3}Mecanismos de Atención}{9}{subsection.1.2.3}\protected@file@percent }
-\newlabel{atencion}{{1.2.3}{9}{Mecanismos de Atención}{subsection.1.2.3}{}}
-\citation{vaswani2017attention}
-\citation{vaswani2017attention}
-\citation{vaswani2017attention}
-\@writefile{toc}{\contentsline {subsubsection}{Self-Attention}{10}{section*.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.3}Mecanismos de Atención}{10}{subsection.1.2.3}\protected@file@percent }
+\newlabel{atencion}{{1.2.3}{10}{Mecanismos de Atención}{subsection.1.2.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Self-Attention}{10}{section*.14}\protected@file@percent }
 \newlabel{attention}{{1.8}{10}{Self-Attention}{equation.1.2.8}{}}
-\@writefile{toc}{\contentsline {subsubsection}{Scaled Dot-Product Attention}{10}{section*.12}\protected@file@percent }
-\newlabel{dotP-att}{{1.9}{10}{Scaled Dot-Product Attention}{equation.1.2.9}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.4}Transformers}{10}{subsection.1.2.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{Scaled Dot-Product Attention}{10}{section*.15}\protected@file@percent }
+\citation{vaswani2017attention}
+\citation{vaswani2017attention}
+\citation{vaswani2017attention}
+\newlabel{dotP-att}{{1.9}{11}{Scaled Dot-Product Attention}{equation.1.2.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2.4}Transformers}{11}{subsection.1.2.4}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1.3}{\ignorespaces Arquitectura Transformer}}{11}{figure.1.3}\protected@file@percent }
 \newlabel{transformer}{{1.3}{11}{Arquitectura Transformer}{figure.1.3}{}}
 \citation{Wu_2021}
 \citation{brown1988fixed}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2.5}Redes Neuronales Convolucionales en Grafos}{12}{subsection.1.2.5}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {1.4}{\ignorespaces Relación de Estructura en los Datos}}{12}{figure.1.4}\protected@file@percent }
-\newlabel{euclidian-non}{{1.4}{12}{Relación de Estructura en los Datos}{figure.1.4}{}}
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Datos Estructurados Euclideanos}}}{12}{figure.1.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Datos con Estructura No Euclideana}}}{12}{figure.1.4}\protected@file@percent }
 \citation{kipf2017semisupervised}
 \citation{Wu_2021}
+\@writefile{lof}{\contentsline {figure}{\numberline {1.4}{\ignorespaces Relación de Estructura en los Datos}}{13}{figure.1.4}\protected@file@percent }
+\newlabel{euclidian-non}{{1.4}{13}{Relación de Estructura en los Datos}{figure.1.4}{}}
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Datos Estructurados Euclideanos}}}{13}{figure.1.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Datos con Estructura No Euclideana}}}{13}{figure.1.4}\protected@file@percent }
 \citation{hochreiter2001gradient}
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}Framework}{14}{chapter.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Arquitectura. Diseño Modular}{14}{chapter.2}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{toc}{\contentsline {section}{\numberline {2.1}Rasgos a Nivel de Tweet}{14}{section.2.1}\protected@file@percent }
@@ -152,83 +160,103 @@
 \@writefile{lot}{\contentsline {table}{\numberline {3.4}{\ignorespaces CNN-LSTM $\alpha $ tuning }}{24}{table.3.4}\protected@file@percent }
 \newlabel{cnn_lstm_train}{{3.4}{24}{CNN-LSTM $\alpha $ tuning}{table.3.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2.2}Codificador Transformer}{24}{subsection.3.2.2}\protected@file@percent }
-\@writefile{lot}{\contentsline {table}{\numberline {3.5}{\ignorespaces Finetuning Transformers en cada tarea con $\alpha =1e\text  {-}5,~\delta = 2e\text  {-}5, ~\lambda =0.1$}}{25}{table.3.5}\protected@file@percent }
-\newlabel{transf_finet}{{3.5}{25}{Finetuning Transformers en cada tarea con $\alpha =1e\text {-}5,~\delta = 2e\text {-}5, ~\lambda =0.1$}{table.3.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}Clasificador Att-LSTM}{25}{subsection.3.2.3}\protected@file@percent }
-\newlabel{t_attlstm}{{3.2.3}{25}{Clasificador Att-LSTM}{subsection.3.2.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.5}{\ignorespaces Refinado de modelos Transformers en cada tarea con $\alpha =1e\text  {-}5,~\delta = 2e\text  {-}5, ~\lambda =0.1$.}}{25}{table.3.5}\protected@file@percent }
+\newlabel{transf_finet}{{3.5}{25}{Refinado de modelos Transformers en cada tarea con $\alpha =1e\text {-}5,~\delta = 2e\text {-}5, ~\lambda =0.1$}{table.3.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.3}Clasificador Att-LSTM}{26}{subsection.3.2.3}\protected@file@percent }
+\newlabel{t_attlstm}{{3.2.3}{26}{Clasificador Att-LSTM}{subsection.3.2.3}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {3.6}{\ignorespaces Entrenamiento de Att-LSTM}}{26}{table.3.6}\protected@file@percent }
 \newlabel{att-lstm_train}{{3.6}{26}{Entrenamiento de Att-LSTM}{table.3.6}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2.4}Clasificador SGN}{26}{subsection.3.2.4}\protected@file@percent }
 \newlabel{t_sgn}{{3.2.4}{26}{Clasificador SGN}{subsection.3.2.4}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.7}{\ignorespaces Entrenamiento de Spectral Graph Network}}{27}{table.3.7}\protected@file@percent }
-\newlabel{sgn_train}{{3.7}{27}{Entrenamiento de Spectral Graph Network}{table.3.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.5} Clasificador Deep Impostor }{27}{subsection.3.2.5}\protected@file@percent }
+\citation{giglou:2020}
+\citation{buda:2020}
+\citation{pizarro:2020}
+\citation{koloski:2020a}
 \citation{giglou:2020}
 \citation{sinno:2021}
+\citation{sinno:2021}
+\citation{balouchzahi:2021}
+\citation{tamayo:2021}
+\citation{carracedo:2021}
+\@writefile{lot}{\contentsline {table}{\numberline {3.7}{\ignorespaces Entrenamiento de Spectral Graph Network}}{27}{table.3.7}\protected@file@percent }
+\newlabel{sgn_train}{{3.7}{27}{Entrenamiento de Spectral Graph Network}{table.3.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2.5}Clasificador Deep Impostor }{27}{subsection.3.2.5}\protected@file@percent }
 \@writefile{lot}{\contentsline {table}{\numberline {3.8}{\ignorespaces Método Deep Impostor sobre representaciones latentes}}{28}{table.3.8}\protected@file@percent }
 \newlabel{dim_train}{{3.8}{28}{Método Deep Impostor sobre representaciones latentes}{table.3.8}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {3.9}{\ignorespaces Resultados de SVM sobre BoW y tf-idf}}{28}{table.3.9}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3.9}{\ignorespaces Resultados de SVM sobre BoW y tf-idf.}}{28}{table.3.9}\protected@file@percent }
 \newlabel{train_svm}{{3.9}{28}{Resultados de SVM sobre BoW y tf-idf}{table.3.9}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {3.1}{\ignorespaces Resultados conjuntos de los modelos propuestos}}{28}{figure.3.1}\protected@file@percent }
 \newlabel{compare}{{3.1}{28}{Resultados conjuntos de los modelos propuestos}{figure.3.1}{}}
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(a)}{\ignorespaces {Idioma Inglés}}}{28}{figure.3.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {subfigure}{\numberline{(b)}{\ignorespaces {Idioma Español}}}{28}{figure.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {chapter}{Conclusiones}{29}{figure.3.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3.10}{\ignorespaces Resultados PAN 2020}}{29}{table.3.10}\protected@file@percent }
+\newlabel{pan20result}{{3.10}{29}{Resultados PAN 2020}{table.3.10}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3.11}{\ignorespaces Resultados PAN 2021}}{29}{table.3.11}\protected@file@percent }
+\newlabel{pan21result}{{3.11}{29}{Resultados PAN 2021}{table.3.11}{}}
+\@writefile{toc}{\contentsline {chapter}{Conclusiones y Trabajo Futuro}{29}{table.3.11}\protected@file@percent }
 \bibstyle{style/acl_natbib}
-\bibdata{bibliography}
+\bibdata{conclusions/bibliography}
 \bibcite{agarwala2017music}{{1}{2017}{{Agarwala et~al.}}{{Agarwala, Inoue, and Sly}}}
 \bibcite{electronics8030292}{{2}{2019}{{Alom et~al.}}{{Alom, Taha, Yakopcic, Westberg, Sidike, Nasrin, Hasan, Van~Essen, Awwal, and Asari}}}
 \bibcite{bakhteev:2020}{{3}{2020}{{Bakhteev et~al.}}{{Bakhteev, Ogaltsov, and Ostroukhov}}}
-\bibcite{baruah:2020}{{4}{2020}{{Baruah et~al.}}{{Baruah, Das, Barbhuiya, and Dey}}}
-\bibcite{basile:2017}{{5}{2017}{{Basile et~al.}}{{Basile, Dwyer, Medvedeva, Rawee, Haagsma, and Nissim}}}
-\bibcite{bojanowski2016enriching}{{6}{2016}{{Bojanowski et~al.}}{{Bojanowski, Grave, Joulin, and Mikolov}}}
-\bibcite{brown1988fixed}{{7}{1988}{{Brown et~al.}}{{Brown, Conference~on Fixed Point Theory~(1986, Society, and International Congress~of Mathematicians~(1986}}}
-\bibcite{buda:2020}{{8}{2020}{{Buda and Bolonyai}}{{}}}
-\bibcite{CaneteCFP2020}{{9}{2020}{{Cañete et~al.}}{{Cañete, Chaperon, Fuentes, Ho, Kang, and Pérez}}}
-\bibcite{f6032ffbacb14369b7a45d1ba9bd0b8c}{{10}{2020}{{Cimino et~al.}}{{Cimino, Dell{\textquoteright }Orletta, and Nissim}}}
-\bibcite{DBLP:journals/corr/abs-1810-04805}{{11}{2018}{{Devlin et~al.}}{{Devlin, Chang, Lee, and Toutanova}}}
-\bibcite{DBLP:conf/clef/DiasP19}{{12}{2019}{{Dias and Paraboni}}{{}}}
-\bibcite{giglou:2020}{{13}{2020}{{Giglou et~al.}}{{Giglou, Razmara, Rahgouy, and Sanaei}}}
-\bibcite{hinton2012lecture}{{14}{2012}{{Hinton et~al.}}{{Hinton, Srivastava, and Swersky}}}
-\bibcite{hochreiter2001gradient}{{15}{2001}{{Hochreiter et~al.}}{{Hochreiter, Bengio, Frasconi, Schmidhuber et~al.}}}
-\bibcite{iyer:2020}{{16}{2020}{{Iyer and Vosoughi}}{{}}}
-\bibcite{DBLP:conf/clef/Johansson19}{{17}{2019}{{Johansson}}{{}}}
-\bibcite{DBLP:conf/clef/JooH19}{{18}{2019}{{Joo and Hwang}}{{}}}
-\bibcite{DBLP:journals/corr/KingmaB14}{{19}{2015}{{Kingma and Ba}}{{}}}
-\bibcite{kipf2017semisupervised}{{20}{2017}{{Kipf and Welling}}{{}}}
-\bibcite{Sem}{{21}{2021}{{Labadie et~al.}}{{Labadie, Cisneros, Bueno, and Rosso}}}
-\bibcite{lecun1998gradient}{{22}{1998}{{LeCun et~al.}}{{LeCun, Bottou, Bengio, and Haffner}}}
-\bibcite{liu2019roberta}{{23}{2019}{{Liu et~al.}}{{Liu, Ott, Goyal, Du, Joshi, Chen, Levy, Lewis, Zettlemoyer, and Stoyanov}}}
-\bibcite{DBLP:conf/clef/Lopez-Santillan19}{{24}{2019}{{L{\'{o}}pez{-}Santill{\'{a}}n et~al.}}{{L{\'{o}}pez{-}Santill{\'{a}}n, Gonz{\'{a}}lez{-}Gurrola, Montes{-}y{-}G{\'{o}}mez, Alonso, and Prieto{-}Ordaz}}}
-\bibcite{martinc:2017}{{25}{2017}{{Martinc et~al.}}{{Martinc, \v {S}krjanec, Zupan, and Pollak}}}
-\bibcite{DBLP:conf/nips/MikolovSCCD13}{{26}{2013}{{Mikolov et~al.}}{{Mikolov, Sutskever, Chen, Corrado, and Dean}}}
-\bibcite{Newman2008GenderDI}{{27}{2008}{{Newman et~al.}}{{Newman, Groom, Handelman, and Pennebaker}}}
-\bibcite{bertweet}{{28}{2020}{{Nguyen et~al.}}{{Nguyen, Vu, and Nguyen}}}
-\bibcite{OrtegaMendoza2018EmphasizingPI}{{29}{2018}{{Ortega-Mendoza et~al.}}{{Ortega-Mendoza, L{\'o}pez-Monroy, Franco-Arcega, and y~G{\'o}mez}}}
-\bibcite{palomino-ochoa-luna-2020-palomino}{{30}{2020}{{Palomino and Ochoa-Luna}}{{}}}
-\bibcite{pennebaker2015development}{{31}{2015}{{Pennebaker et~al.}}{{Pennebaker, Boyd, Jordan, and Blackburn}}}
-\bibcite{pennington2014glove}{{32}{2014}{{Pennington et~al.}}{{Pennington, Socher, and Manning}}}
-\bibcite{DBLP:conf/clef/PetrikC19}{{33}{2019}{{Petr{\'{\i }}k and Chud{\'{a}}}}{{}}}
-\bibcite{DBLP:conf/clef/Pizarro19}{{34}{2019}{{Pizarro}}{{}}}
-\bibcite{pizarro:2020}{{35}{2020}{{Pizarro}}{{}}}
-\bibcite{rangel:2020}{{36}{2020{a}}{{Rangel et~al.}}{{Rangel, Giachanou, Ghanem, and Rosso}}}
-\bibcite{rangel:2018}{{37}{2018{a}}{{Rangel et~al.}}{{Rangel, {Montes{-}y{-}G{\'{o}}mez}, Potthast, and Stein}}}
-\bibcite{rangel:2019}{{38}{2019}{{Rangel and Rosso}}{{}}}
-\bibcite{francisco_rangel_2020_4039435}{{39}{2020{b}}{{Rangel et~al.}}{{Rangel, Rosso, Ghanem, and Giachanou}}}
-\bibcite{rangel2018overview}{{40}{2018{b}}{{Rangel et~al.}}{{Rangel, Rosso, Montes-y G{\'o}mez, Potthast, and Stein}}}
-\bibcite{rangel2017overview}{{41}{2017}{{Rangel et~al.}}{{Rangel, Rosso, Potthast, and Stein}}}
-\bibcite{rangel2021profiling}{{42}{2021}{{Rangel et~al.}}{{Rangel, Sarrac{\'e}n, Chulvi, Fersini, and Rosso}}}
-\bibcite{reddy2016survey}{{43}{2016}{{Reddy et~al.}}{{Reddy, Vardhan, and Reddy}}}
-\bibcite{Riahi2018BigDA}{{44}{2018}{{Riahi and Riahi}}{{}}}
-\bibcite{Rosso2019}{{45}{2019}{{Rosso et~al.}}{{Rosso, Potthast, Stein, Stamatatos, Rangel, and Daelemans}}}
-\bibcite{article}{{46}{2020}{{Rosso and Rangel~Pardo}}{{}}}
-\bibcite{schler2006effects}{{47}{2006}{{Schler et~al.}}{{Schler, Koppel, Argamon, and Pennebaker}}}
-\bibcite{DBLP:journals/tsp/SchusterP97}{{48}{1997}{{Schuster and Paliwal}}{{}}}
-\bibcite{Schwartz2013PersonalityGA}{{49}{2013}{{Schwartz et~al.}}{{Schwartz, Eichstaedt, Kern, Dziurzynski, Ramones, Agrawal, Shah, Kosinski, Stillwell, Seligman, and Ungar}}}
-\bibcite{seidman2013authorship}{{50}{2013}{{Seidman}}{{}}}
-\bibcite{sinno:2021}{{51}{2021}{{Siino et~al.}}{{Siino, Nuovo, Tinnirello, and Cascia}}}
-\bibcite{szegedy2014going}{{52}{2014}{{Szegedy et~al.}}{{Szegedy, Liu, Jia, Sermanet, Reed, Anguelov, Erhan, Vanhoucke, and Rabinovich}}}
-\bibcite{DBLP:conf/clef/Valencia-Valencia19}{{53}{2019}{{Valencia{-}Valencia et~al.}}{{Valencia{-}Valencia, G{\'{o}}mez{-}Adorno, Rhodes, and Pineda}}}
-\bibcite{vaswani2017attention}{{54}{2017}{{Vaswani et~al.}}{{Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, and Polosukhin}}}
-\bibcite{Wu_2021}{{55}{2021}{{Wu et~al.}}{{Wu, Pan, Chen, Long, Zhang, and Yu}}}
-\gdef \@abspage@last{40}
+\bibcite{balouchzahi:2021}{{4}{2021}{{Balouchzahi et~al.}}{{Balouchzahi, Shashirekha, and Sidorov}}}
+\bibcite{baruah:2020}{{5}{2020}{{Baruah et~al.}}{{Baruah, Das, Barbhuiya, and Dey}}}
+\bibcite{basile:2017}{{6}{2017}{{Basile et~al.}}{{Basile, Dwyer, Medvedeva, Rawee, Haagsma, and Nissim}}}
+\bibcite{bojanowski2016enriching}{{7}{2017}{{Bojanowski et~al.}}{{Bojanowski, Grave, Joulin, and Mikolov}}}
+\bibcite{brown1988fixed}{{8}{1988}{{Brown et~al.}}{{Brown, Conference~on Fixed Point Theory~(1986, Society, and International Congress~of Mathematicians~(1986}}}
+\bibcite{buda:2020}{{9}{2020}{{Buda and Bolonyai}}{{}}}
+\bibcite{carracedo:2021}{{10}{2021}{{Carracedo and Mond{\'{e}}jar}}{{}}}
+\@writefile{toc}{\contentsline {chapter}{Referencias Bibliográficas}{32}{chapter*.16}\protected@file@percent }
+\bibcite{CaneteCFP2020}{{11}{2020}{{Cañete et~al.}}{{Cañete, Chaperon, Fuentes, Ho, Kang, and Pérez}}}
+\bibcite{f6032ffbacb14369b7a45d1ba9bd0b8c}{{12}{2020}{{Cimino et~al.}}{{Cimino, Dell{\textquoteright }Orletta, and Nissim}}}
+\bibcite{DBLP:journals/corr/abs-1810-04805}{{13}{2018}{{Devlin et~al.}}{{Devlin, Chang, Lee, and Toutanova}}}
+\bibcite{DBLP:conf/clef/DiasP19}{{14}{2019}{{Dias and Paraboni}}{{}}}
+\bibcite{giglou:2020}{{15}{2020}{{Giglou et~al.}}{{Giglou, Razmara, Rahgouy, and Sanaei}}}
+\bibcite{hinton2012lecture}{{16}{2012}{{Hinton et~al.}}{{Hinton, Srivastava, and Swersky}}}
+\bibcite{hochreiter2001gradient}{{17}{2001}{{Hochreiter et~al.}}{{Hochreiter, Bengio, Frasconi, Schmidhuber et~al.}}}
+\bibcite{iyer:2020}{{18}{2020}{{Iyer and Vosoughi}}{{}}}
+\bibcite{DBLP:conf/clef/Johansson19}{{19}{2019}{{Johansson}}{{}}}
+\bibcite{DBLP:conf/clef/JooH19}{{20}{2019}{{Joo and Hwang}}{{}}}
+\bibcite{DBLP:journals/corr/KingmaB14}{{21}{2015}{{Kingma and Ba}}{{}}}
+\bibcite{kipf2017semisupervised}{{22}{2017}{{Kipf and Welling}}{{}}}
+\bibcite{koloski:2020a}{{23}{2020}{{Koloski et~al.}}{{Koloski, Pollak, and {\v S}krlj}}}
+\bibcite{Sem}{{24}{2021}{{Labadie et~al.}}{{Labadie, Rodriguez, Ortega, and Rosso}}}
+\bibcite{tamayo:2021}{{25}{2021}{{{Labadie Tamayo} et~al.}}{{{Labadie Tamayo}, {Castro Castro}, and {Ortega Bueno}}}}
+\bibcite{lecun1998gradient}{{26}{1998}{{LeCun et~al.}}{{LeCun, Bottou, Bengio, and Haffner}}}
+\bibcite{liu2019roberta}{{27}{2019}{{Liu et~al.}}{{Liu, Ott, Goyal, Du, Joshi, Chen, Levy, Lewis, Zettlemoyer, and Stoyanov}}}
+\bibcite{DBLP:conf/clef/Lopez-Santillan19}{{28}{2019}{{L{\'{o}}pez{-}Santill{\'{a}}n et~al.}}{{L{\'{o}}pez{-}Santill{\'{a}}n, Gonz{\'{a}}lez{-}Gurrola, Montes{-}y{-}G{\'{o}}mez, Alonso, and Prieto{-}Ordaz}}}
+\bibcite{martinc:2017}{{29}{2017}{{Martinc et~al.}}{{Martinc, \v {S}krjanec, Zupan, and Pollak}}}
+\bibcite{DBLP:conf/nips/MikolovSCCD13}{{30}{2013}{{Mikolov et~al.}}{{Mikolov, Sutskever, Chen, Corrado, and Dean}}}
+\bibcite{Newman2008GenderDI}{{31}{2008}{{Newman et~al.}}{{Newman, Groom, Handelman, and Pennebaker}}}
+\bibcite{bertweet}{{32}{2020}{{Nguyen et~al.}}{{Nguyen, Vu, and Nguyen}}}
+\bibcite{OrtegaMendoza2018EmphasizingPI}{{33}{2018}{{Ortega-Mendoza et~al.}}{{Ortega-Mendoza, L{\'o}pez-Monroy, Franco-Arcega, and y~G{\'o}mez}}}
+\bibcite{palomino-ochoa-luna-2020-palomino}{{34}{2020}{{Palomino and Ochoa-Luna}}{{}}}
+\bibcite{pennebaker2015development}{{35}{2015}{{Pennebaker et~al.}}{{Pennebaker, Boyd, Jordan, and Blackburn}}}
+\bibcite{pennington2014glove}{{36}{2014}{{Pennington et~al.}}{{Pennington, Socher, and Manning}}}
+\bibcite{DBLP:conf/clef/PetrikC19}{{37}{2019}{{Petr{\'{\i }}k and Chud{\'{a}}}}{{}}}
+\bibcite{DBLP:conf/clef/Pizarro19}{{38}{2019}{{Pizarro}}{{}}}
+\bibcite{pizarro:2020}{{39}{2020}{{Pizarro}}{{}}}
+\bibcite{polignano:2019}{{40}{2019}{{Polignano et~al.}}{{Polignano, {de Pinto}, Lops, and Semeraro}}}
+\bibcite{rangel:2020}{{41}{2020{a}}{{Rangel et~al.}}{{Rangel, Giachanou, Ghanem, and Rosso}}}
+\bibcite{rangel:2018}{{42}{2018{a}}{{Rangel et~al.}}{{Rangel, {Montes{-}y{-}G{\'{o}}mez}, Potthast, and Stein}}}
+\bibcite{rangel:2019}{{43}{2019}{{Rangel and Rosso}}{{}}}
+\bibcite{francisco_rangel_2020_4039435}{{44}{2020{b}}{{Rangel et~al.}}{{Rangel, Rosso, Ghanem, and Giachanou}}}
+\bibcite{rangel2018overview}{{45}{2018{b}}{{Rangel et~al.}}{{Rangel, Rosso, Montes-y G{\'o}mez, Potthast, and Stein}}}
+\bibcite{rangel2017overview}{{46}{2017}{{Rangel et~al.}}{{Rangel, Rosso, Potthast, and Stein}}}
+\bibcite{rangel2021profiling}{{47}{2021}{{Rangel et~al.}}{{Rangel, Rosso, Sarracén, Fersini, and Chulvi}}}
+\bibcite{reddy2016survey}{{48}{2016}{{Reddy et~al.}}{{Reddy, Vardhan, and Reddy}}}
+\bibcite{Riahi2018BigDA}{{49}{2018}{{Riahi and Riahi}}{{}}}
+\bibcite{Rosso2019}{{50}{2019}{{Rosso et~al.}}{{Rosso, Potthast, Stein, Stamatatos, Rangel, and Daelemans}}}
+\bibcite{article}{{51}{2020}{{Rosso and Rangel~Pardo}}{{}}}
+\bibcite{schler2006effects}{{52}{2006}{{Schler et~al.}}{{Schler, Koppel, Argamon, and Pennebaker}}}
+\bibcite{DBLP:journals/tsp/SchusterP97}{{53}{1997}{{Schuster and Paliwal}}{{}}}
+\bibcite{Schwartz2013PersonalityGA}{{54}{2013}{{Schwartz et~al.}}{{Schwartz, Eichstaedt, Kern, Dziurzynski, Ramones, Agrawal, Shah, Kosinski, Stillwell, Seligman, and Ungar}}}
+\bibcite{seidman2013authorship}{{55}{2013}{{Seidman}}{{}}}
+\bibcite{sinno:2021}{{56}{2021}{{Siino et~al.}}{{Siino, Nuovo, Tinnirello, and Cascia}}}
+\bibcite{szegedy2014going}{{57}{2014}{{Szegedy et~al.}}{{Szegedy, Liu, Jia, Sermanet, Reed, Anguelov, Erhan, Vanhoucke, and Rabinovich}}}
+\bibcite{DBLP:conf/clef/Valencia-Valencia19}{{58}{2019}{{Valencia{-}Valencia et~al.}}{{Valencia{-}Valencia, G{\'{o}}mez{-}Adorno, Rhodes, and Pineda}}}
+\bibcite{vaswani2017attention}{{59}{2017}{{Vaswani et~al.}}{{Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, and Polosukhin}}}
+\bibcite{Wu_2021}{{60}{2021}{{Wu et~al.}}{{Wu, Pan, Chen, Long, Zhang, and Yu}}}
+\@writefile{toc}{\contentsline {chapter}{Acrónimos}{38}{chapter*.17}\protected@file@percent }
+\ACRO{readaux}
+\gdef \@abspage@last{47}

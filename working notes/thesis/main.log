@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.6.26)  15 NOV 2021 14:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/Arch Linux) (preloaded format=pdflatex 2021.12.2)  5 DEC 2021 22:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -696,34 +696,647 @@ Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 \c@blind@pangramcount=\count330
 \c@blind@pangrammax=\count331
 )
+(/usr/share/texmf-dist/tex/latex/acro/acro.sty
+(/usr/share/texmf-dist/tex/latex/l3packages/l3keys2e/l3keys2e.sty
+(/usr/share/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2021-02-18 L3 programming layer (loader) 
+
 (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count332
 \l__pdf_internal_box=\box62
-) (./main.aux
-LaTeX Info: Redefining \. on input line 26.
-LaTeX Info: Redefining \% on input line 26.
+))
+Package: l3keys2e 2021-03-12 LaTeX2e option processing using LaTeX3 keys
 )
+Package: acro 2021/01/16 v3.5 typeset acronyms and other abbreviations (CN)
+\g__acro_version_int=\count333
+\l__acro_tmpa_int=\count334
+\l__acro_tmpb_int=\count335
+\l__acro_tmpc_int=\count336
+\l__acro_tmpd_int=\count337
+
+LaTeX3 Info: Defining command \AcroStyle with sig. 'smO{}' on line 442.
+
+Loading module `base' ...
+Loading module `interface' ...
+
+LaTeX3 Info: Defining command \AcroAddRow with sig. '+m' on line 644.
+
+
+LaTeX3 Info: Defining command \AcroRerun with sig. '' on line 647.
+
+
+LaTeX3 Info: Defining command \AcroPropertiesMap with sig. '+m' on line 650.
+
+
+LaTeX3 Info: Defining command \AcroAcronymsMap with sig. '+m' on line 653.
+
+
+LaTeX3 Info: Defining command \AcroMapBreak with sig. '' on line 655.
+
+
+LaTeX3 Info: Defining command \AcroPropertiesSet with sig. 'm+m' on line 658.
+
+
+LaTeX3 Info: Defining command \AcroMap with sig. 'm+m' on line 661.
+
+
+LaTeX3 Info: Defining command \AcroNeedPackage with sig. 'm' on line 670.
+
+
+LaTeX3 Info: Defining command \acsetup with sig. '+m' on line 675.
+
+
+LaTeX3 Info: Defining command \acroloadstyle with sig. 'm' on line 678.
+
+
+LaTeX3 Info: Defining command \acroifstarredTF with sig. '' on line 681.
+
+
+LaTeX3 Info: Defining command \acroifstarredT with sig. '' on line 684.
+
+
+LaTeX3 Info: Defining command \acroifstarredF with sig. '' on line 687.
+
+
+LaTeX3 Info: Defining command \acroifusedTF with sig. 'm' on line 690.
+
+
+LaTeX3 Info: Defining command \acroifusedT with sig. 'm' on line 693.
+
+
+LaTeX3 Info: Defining command \acroifusedF with sig. 'm' on line 696.
+
+
+LaTeX3 Info: Defining command \acuse with sig. 'm' on line 699.
+
+
+LaTeX3 Info: Defining command \acuseall with sig. '' on line 702.
+
+
+LaTeX3 Info: Defining command \acreset with sig. 'm' on line 705.
+
+
+LaTeX3 Info: Defining command \acresetall with sig. '' on line 708.
+
+
+LaTeX3 Info: Defining command \acsimple with sig. 'mm' on line 711.
+
+
+LaTeX3 Info: Defining command \acbarrier with sig. '' on line 714.
+
+
+LaTeX3 Info: Defining command \acswitchoff with sig. '' on line 717.
+
+
+LaTeX3 Info: Defining command \acswitchon with sig. '' on line 720.
+
+
+LaTeX3 Info: Defining command \DeclareAcroProperty with sig. 'st?t!t|t>m' on
+(LaTeX3)     line 734.
+
+
+LaTeX3 Info: Defining command \DeclareAcroPropertyAlias with sig.
+(LaTeX3)     'st?t!t|t>mm' on line 748.
+
+
+LaTeX3 Info: Defining command \MakeAcroPropertyAlias with sig. 'mm' on line
+(LaTeX3)     751.
+
+
+LaTeX3 Info: Defining command \NewAcroPreset with sig. 'm+m' on line 754.
+
+
+LaTeX3 Info: Defining command \RenewAcroPreset with sig. 'm+m' on line 757.
+
+
+LaTeX3 Info: Defining command \DeclareAcroPreset with sig. 'm+m' on line 760.
+
+
+LaTeX3 Info: Defining command \UseAcroTemplate with sig. 'O{acronym}mO{1}' on
+(LaTeX3)     line 764.
+
+
+LaTeX3 Info: Defining command \NewAcroTemplate with sig. 'O{acronym}m+m' on
+(LaTeX3)     line 767.
+
+
+LaTeX3 Info: Defining command \RenewAcroTemplate with sig. 'O{acronym}m+m' on
+(LaTeX3)     line 770.
+
+
+LaTeX3 Info: Defining command \SetupAcroTemplate with sig. 'O{acronym}m+m' on
+(LaTeX3)     line 773.
+
+
+LaTeX3 Info: Defining command \SetupNextAcroTemplate with sig. 'O{acronym}m+m'
+(LaTeX3)     on line 776.
+
+
+LaTeX3 Info: Defining command \DeclareAcronym with sig. 'm+m' on line 779.
+
+
+LaTeX3 Info: Defining command \DeclareAcroEnding with sig. 'mmm' on line 782.
+
+
+LaTeX3 Info: Defining command \DeclareAcroArticle with sig. 'mm' on line 785.
+
+
+LaTeX3 Info: Defining command \DeclareAcroTranslation with sig. 'm+m' on line
+(LaTeX3)     788.
+
+
+LaTeX3 Info: Defining command \AddAcroTranslations with sig. 'm+m' on line
+(LaTeX3)     791.
+
+
+LaTeX3 Info: Defining command \acrotranslate with sig. 'm' on line 794.
+
+
+LaTeX3 Info: Defining command \aciftrailing with sig. '' on line 797.
+
+
+LaTeX3 Info: Defining command \acfootnote with sig. 'm' on line 800.
+
+
+LaTeX3 Info: Defining command \acgobbletrail with sig. '' on line 803.
+
+
+LaTeX3 Info: Defining command \acdot with sig. '' on line 805.
+
+
+LaTeX3 Info: Defining command \acspace with sig. '' on line 806.
+
+
+LaTeX3 Info: Defining command \abbrdot with sig. '' on line 807.
+
+
+LaTeX3 Info: Defining command \acroupper with sig. '' on line 809.
+
+
+LaTeX3 Info: Defining command \acrofull with sig. '' on line 810.
+
+
+LaTeX3 Info: Defining command \printacronyms with sig. 'o' on line 819.
+
+
+LaTeX3 Info: Defining command \acroheading with sig. '' on line 823.
+
+
+LaTeX3 Info: Defining command \acropreamble with sig. '' on line 824.
+
+
+LaTeX3 Info: Defining command \acropostamble with sig. '' on line 825.
+
+
+LaTeX3 Info: Defining command \acrolistname with sig. '' on line 828.
+
+
+LaTeX3 Info: Defining command \acronymsmapTF with sig. '+m+m+m' on line 841.
+
+
+LaTeX3 Info: Defining command \acronymsmapT with sig. '+m+m' on line 844.
+
+
+LaTeX3 Info: Defining command \acronymsmapF with sig. '+m+m' on line 847.
+
+
+LaTeX3 Info: Defining command \acronymsmap with sig. '+m' on line 850.
+
+
+LaTeX3 Info: Defining command \acrofield with sig. 'mm' on line 853.
+
+
+LaTeX3 Info: Defining command \acroprintfield with sig. 'mm' on line 863.
+
+
+LaTeX3 Info: Defining command \acroiffieldTF with sig. '+m+m+m+m' on line 866.
+
+
+LaTeX3 Info: Defining command \acroifanyfieldTF with sig. 'mm+m+m' on line
+(LaTeX3)     869.
+
+
+LaTeX3 Info: Defining command \acroifallfieldsTF with sig. 'mm+m+m' on line
+(LaTeX3)     872.
+
+
+LaTeX3 Info: Defining command \acroifpagefieldTF with sig. 'm' on line 875.
+
+
+LaTeX3 Info: Defining command \acrowrite with sig. 'm' on line 878.
+
+
+LaTeX3 Info: Defining command \acroshow with sig. 'm' on line 881.
+
+
+LaTeX3 Info: Defining command \acrodonotuse with sig. '' on line 884.
+
+
+LaTeX3 Info: Defining command \acroformat with sig. 'mm' on line 887.
+
+
+LaTeX3 Info: Defining command \acrogroupcite with sig. '' on line 898.
+
+
+LaTeX3 Info: Defining command \acrocite with sig. '' on line 901.
+
+
+LaTeX3 Info: Defining command \acroifpropertyTF with sig. 'm' on line 904.
+
+
+LaTeX3 Info: Defining command \acroifpropertyT with sig. 'm' on line 907.
+
+
+LaTeX3 Info: Defining command \acroifpropertyF with sig. 'm' on line 910.
+
+
+LaTeX3 Info: Defining command \acroifbooleanTF with sig. 'm' on line 913.
+
+
+LaTeX3 Info: Defining command \acroifbooleanT with sig. 'm' on line 916.
+
+
+LaTeX3 Info: Defining command \acroifbooleanF with sig. 'm' on line 919.
+
+
+LaTeX3 Info: Defining command \acroifTF with sig. 'm' on line 922.
+
+
+LaTeX3 Info: Defining command \acroifT with sig. 'm' on line 924.
+
+
+LaTeX3 Info: Defining command \acroifF with sig. 'm' on line 926.
+
+
+LaTeX3 Info: Defining command \acroifanyTF with sig. 'm+m+m' on line 929.
+
+
+LaTeX3 Info: Defining command \acroifanyT with sig. 'm+m' on line 931.
+
+
+LaTeX3 Info: Defining command \acroifanyF with sig. 'm+m' on line 933.
+
+
+LaTeX3 Info: Defining command \acroifallTF with sig. 'm+m+m' on line 936.
+
+
+LaTeX3 Info: Defining command \acroifallT with sig. 'm+m' on line 938.
+
+
+LaTeX3 Info: Defining command \acroifallF with sig. 'm+m' on line 940.
+
+
+LaTeX3 Info: Defining command \acroifsingleTF with sig. '+m+m' on line 943.
+
+
+LaTeX3 Info: Defining command \acroifsingleT with sig. '+m' on line 945.
+
+
+LaTeX3 Info: Defining command \acroifsingleF with sig. '+m' on line 947.
+
+
+LaTeX3 Info: Defining command \acroiffirstTF with sig. '+m+m' on line 950.
+
+
+LaTeX3 Info: Defining command \acroiffirstT with sig. '+m' on line 952.
+
+
+LaTeX3 Info: Defining command \acroiffirstF with sig. '+m' on line 954.
+
+
+LaTeX3 Info: Defining command \acroiftagTF with sig. 'm+m+m' on line 957.
+
+
+LaTeX3 Info: Defining command \acroiftagT with sig. 'm+m' on line 959.
+
+
+LaTeX3 Info: Defining command \acroiftagF with sig. 'm+m' on line 961.
+
+
+LaTeX3 Info: Defining command \acropages with sig. 'mm' on line 964.
+
+
+LaTeX3 Info: Defining command \acronopagerange with sig. '' on line 967.
+
+
+LaTeX3 Info: Defining command \acroneedpages with sig. '' on line 970.
+
+
+LaTeX3 Info: Defining command \acropagefill with sig. '' on line 973.
+
+
+LaTeX3 Info: Defining command \acrodotfill with sig. '' on line 975.
+
+
+LaTeX3 Info: Defining command \acroifpagesTF with sig. '' on line 978.
+
+
+LaTeX3 Info: Defining command \acroifpagesT with sig. '' on line 981.
+
+
+LaTeX3 Info: Defining command \acroifpagesF with sig. '' on line 984.
+
+
+LaTeX3 Info: Defining command \acroifchapterTF with sig. '' on line 987.
+
+
+LaTeX3 Info: Defining command \acroifchapterT with sig. '' on line 990.
+
+
+LaTeX3 Info: Defining command \acroifchapterF with sig. '' on line 993.
+
+Loading module `aux' ...
+Loading module `properties' ...
+Loading module `acronyms' ...
+Loading module `formatting' ...
+Loading module `ppfixes' ...
+Loading module `tools' ...
+\l__acro_minimal_usage_int=\count338
+\l__acro_nest_int=\count339
+\g_acro_barrier_int=\count340
+\g_acro_barrier_total_int=\count341
+Loading module `commands' ...
+
+LaTeX3 Info: Defining command \NewAcroCommand with sig. 'mm+m' on line 3333.
+
+
+LaTeX3 Info: Defining command \RenewAcroCommand with sig. 'mm+m' on line 3338.
+
+
+LaTeX3 Info: Defining command \DeclareAcroCommand with sig. 'mm+m' on line
+(LaTeX3)     3343.
+
+
+LaTeX3 Info: Defining command \ProvideAcroCommand with sig. 'mm+m' on line
+(LaTeX3)     3348.
+
+Loading module `templates' ...
+Loading module `list' ...
+Loading module `pages' ...
+\l__acro_pages_seq_threshold_int=\count342
+Loading module `locale' ...
+
+(/usr/share/texmf-dist/tex/latex/translations/translations.sty
+Package: translations 2021/01/17 v1.10a internationalization of LaTeX2e package
+s (CN)
+
+(/usr/share/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count343
+))
+Loading module `pdfsupport' ...
+Loading module `patch' ...
+Loading module `definitions' ...
+
+LaTeX3 Info: Defining command \baseac with sig. 'm' on line 5116.
+
+
+LaTeX3 Info: Defining command \ac with sig. 'so' on line 5116.
+
+
+LaTeX3 Info: Defining command \baseacp with sig. 'm' on line 5118.
+
+
+LaTeX3 Info: Defining command \acp with sig. 'so' on line 5118.
+
+
+LaTeX3 Info: Defining command \baseiac with sig. 'm' on line 5120.
+
+
+LaTeX3 Info: Defining command \iac with sig. 'so' on line 5120.
+
+
+LaTeX3 Info: Defining command \baseAc with sig. 'm' on line 5122.
+
+
+LaTeX3 Info: Defining command \Ac with sig. 'so' on line 5122.
+
+
+LaTeX3 Info: Defining command \baseAcp with sig. 'm' on line 5124.
+
+
+LaTeX3 Info: Defining command \Acp with sig. 'so' on line 5124.
+
+
+LaTeX3 Info: Defining command \baseIac with sig. 'm' on line 5126.
+
+
+LaTeX3 Info: Defining command \Iac with sig. 'so' on line 5126.
+
+
+LaTeX3 Info: Defining command \baseacs with sig. 'm' on line 5129.
+
+
+LaTeX3 Info: Defining command \acs with sig. 'so' on line 5129.
+
+
+LaTeX3 Info: Defining command \baseacsp with sig. 'm' on line 5131.
+
+
+LaTeX3 Info: Defining command \acsp with sig. 'so' on line 5131.
+
+
+LaTeX3 Info: Defining command \baseiacs with sig. 'm' on line 5133.
+
+
+LaTeX3 Info: Defining command \iacs with sig. 'so' on line 5133.
+
+
+LaTeX3 Info: Defining command \baseAcs with sig. 'm' on line 5135.
+
+
+LaTeX3 Info: Defining command \Acs with sig. 'so' on line 5135.
+
+
+LaTeX3 Info: Defining command \baseAcsp with sig. 'm' on line 5137.
+
+
+LaTeX3 Info: Defining command \Acsp with sig. 'so' on line 5137.
+
+
+LaTeX3 Info: Defining command \baseIacs with sig. 'm' on line 5139.
+
+
+LaTeX3 Info: Defining command \Iacs with sig. 'so' on line 5139.
+
+
+LaTeX3 Info: Defining command \baseacl with sig. 'm' on line 5142.
+
+
+LaTeX3 Info: Defining command \acl with sig. 'so' on line 5142.
+
+
+LaTeX3 Info: Defining command \baseaclp with sig. 'm' on line 5144.
+
+
+LaTeX3 Info: Defining command \aclp with sig. 'so' on line 5144.
+
+
+LaTeX3 Info: Defining command \baseiacl with sig. 'm' on line 5146.
+
+
+LaTeX3 Info: Defining command \iacl with sig. 'so' on line 5146.
+
+
+LaTeX3 Info: Defining command \baseAcl with sig. 'm' on line 5148.
+
+
+LaTeX3 Info: Defining command \Acl with sig. 'so' on line 5148.
+
+
+LaTeX3 Info: Defining command \baseAclp with sig. 'm' on line 5150.
+
+
+LaTeX3 Info: Defining command \Aclp with sig. 'so' on line 5150.
+
+
+LaTeX3 Info: Defining command \baseIacl with sig. 'm' on line 5152.
+
+
+LaTeX3 Info: Defining command \Iacl with sig. 'so' on line 5152.
+
+
+LaTeX3 Info: Defining command \baseaca with sig. 'm' on line 5155.
+
+
+LaTeX3 Info: Defining command \aca with sig. 'so' on line 5155.
+
+
+LaTeX3 Info: Defining command \baseacap with sig. 'm' on line 5157.
+
+
+LaTeX3 Info: Defining command \acap with sig. 'so' on line 5157.
+
+
+LaTeX3 Info: Defining command \baseiaca with sig. 'm' on line 5159.
+
+
+LaTeX3 Info: Defining command \iaca with sig. 'so' on line 5159.
+
+
+LaTeX3 Info: Defining command \baseAca with sig. 'm' on line 5161.
+
+
+LaTeX3 Info: Defining command \Aca with sig. 'so' on line 5161.
+
+
+LaTeX3 Info: Defining command \baseAcap with sig. 'm' on line 5163.
+
+
+LaTeX3 Info: Defining command \Acap with sig. 'so' on line 5163.
+
+
+LaTeX3 Info: Defining command \baseIaca with sig. 'm' on line 5165.
+
+
+LaTeX3 Info: Defining command \Iaca with sig. 'so' on line 5165.
+
+
+LaTeX3 Info: Defining command \baseacf with sig. 'm' on line 5168.
+
+
+LaTeX3 Info: Defining command \acf with sig. 'so' on line 5168.
+
+
+LaTeX3 Info: Defining command \baseacfp with sig. 'm' on line 5170.
+
+
+LaTeX3 Info: Defining command \acfp with sig. 'so' on line 5170.
+
+
+LaTeX3 Info: Defining command \baseiacf with sig. 'm' on line 5172.
+
+
+LaTeX3 Info: Defining command \iacf with sig. 'so' on line 5172.
+
+
+LaTeX3 Info: Defining command \baseAcf with sig. 'm' on line 5174.
+
+
+LaTeX3 Info: Defining command \Acf with sig. 'so' on line 5174.
+
+
+LaTeX3 Info: Defining command \baseAcfp with sig. 'm' on line 5176.
+
+
+LaTeX3 Info: Defining command \Acfp with sig. 'so' on line 5176.
+
+
+LaTeX3 Info: Defining command \baseIacf with sig. 'm' on line 5178.
+
+
+LaTeX3 Info: Defining command \Iacf with sig. 'so' on line 5178.
+
+
+LaTeX3 Info: Defining command \baseacshow with sig. 'm' on line 5181.
+
+
+LaTeX3 Info: Defining command \acshow with sig. 'so' on line 5181.
+
+
+LaTeX3 Info: Defining command \acroplural with sig. '' on line 5184.
+
+
+LaTeX3 Info: Defining command \acroindefinite with sig. '' on line 5186.
+
+
+LaTeX3 Info: Defining command \nospace with sig. '' on line 5188.
+
+Loading module `upgrade' ...
+)
+\@input{conclusions/acronyms.aux}
+\openout2 = `conclusions/acronyms.aux'.
+
+(./conclusions/acronyms.tex
+\g__acro_lstm_int=\count344
+\g__acro_dl_int=\count345
+\g__acro_hci_int=\count346
+\g__acro_nlp_int=\count347
+\g__acro_tm_int=\count348
+\g__acro_cv_int=\count349
+\g__acro_ai_int=\count350
+\g__acro_ap_int=\count351
+\g__acro_pan_int=\count352
+\g__acro_evalita_int=\count353
+\g__acro_ml_int=\count354
+\g__acro_bow_int=\count355
+\g__acro_LR_int=\count356
+\g__acro_svm_int=\count357
+\g__acro_rf_int=\count358
+\g__acro_rnn_int=\count359
+\g__acro_cnn_int=\count360
+\g__acro_pos_int=\count361
+\g__acro_gru_int=\count362
+\g__acro_gnn_int=\count363
+\g__acro_sgn_int=\count364
+\g__acro_bert_int=\count365
+\g__acro_roberta_int=\count366
+\g__acro_rmsprop_int=\count367
+) (./main.aux
+LaTeX Info: Redefining \. on input line 30.
+LaTeX Info: Redefining \% on input line 30.
+ (./intro/resumen.aux) (./main.acr))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 30.
-LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -761,16 +1374,16 @@ LaTeX Font Info:    ... okay on input line 30.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count333
+\scratchcounter=\count368
 \scratchdimen=\dimen285
 \scratchbox=\box63
-\nofMPsegments=\count334
-\nofMParguments=\count335
+\nofMPsegments=\count369
+\nofMParguments=\count370
 \everyMPshowfont=\toks41
-\MPscratchCnt=\count336
+\MPscratchCnt=\count371
 \MPscratchDim=\dimen286
-\MPnumerator=\count337
-\makeMPintoPDFobject=\count338
+\MPnumerator=\count372
+\makeMPintoPDFobject=\count373
 \everyMPtoPDFconversion=\toks42
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -781,9 +1394,9 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Info: Redefining \. on input line 30.
-LaTeX Info: Redefining \% on input line 30.
-Package hyperref Info: Link coloring ON on input line 30.
+LaTeX Info: Redefining \. on input line 32.
+LaTeX Info: Redefining \% on input line 32.
+Package hyperref Info: Link coloring ON on input line 32.
 
 (/usr/share/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -794,112 +1407,168 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count339
+\c@section@level=\count374
 )
-LaTeX Info: Redefining \ref on input line 30.
-LaTeX Info: Redefining \pageref on input line 30.
-LaTeX Info: Redefining \nameref on input line 30.
+LaTeX Info: Redefining \ref on input line 32.
+LaTeX Info: Redefining \pageref on input line 32.
+LaTeX Info: Redefining \nameref on input line 32.
 
 (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 34.
+\l__acro_aux_file_iow=\write5
+\openout5 = `main.acr'.
+
+
+(/usr/share/texmf-dist/tex/latex/translations/translations-basic-dictionary-spa
+nish.trsl
+File: translations-basic-dictionary-spanish.trsl (spanish translation file `tra
+nslations-basic-dictionary')
+)
+Package translations Info: loading dictionary `translations-basic-dictionary' f
+or `spanish'. on input line 32.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 36.
 
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 34.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
 
 
 (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<images/logo.png, id=127, 192.72pt x 78.2925pt>
+<images/logo.png, id=143, 192.72pt x 78.2925pt>
 File: images/logo.png Graphic file (type png)
 <use images/logo.png>
-Package pdftex.def Info: images/logo.png  used on input line 53.
+Package pdftex.def Info: images/logo.png  used on input line 55.
 (pdftex.def)             Requested size: 195.17635pt x 79.28983pt.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <18> not available
-(Font)              size <17.28> substituted on input line 53.
+(Font)              size <17.28> substituted on input line 55.
 
-LaTeX Font Info:    Calculating math sizes for size <18> on input line 53.
+LaTeX Font Info:    Calculating math sizes for size <18> on input line 55.
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <18> not available
-(Font)              size <17.28> substituted on input line 53.
+(Font)              size <17.28> substituted on input line 55.
 
 
 LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <12.59995> not available
-(Font)              size <12> substituted on input line 53.
+(Font)              size <12> substituted on input line 55.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <18> not available
-(Font)              size <17.28> substituted on input line 53.
+(Font)              size <17.28> substituted on input line 55.
 
 
 LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <12.59995> not available
-(Font)              size <12> substituted on input line 53.
+(Font)              size <12> substituted on input line 55.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <18> not available
-(Font)              size <17.28> substituted on input line 53.
+(Font)              size <17.28> substituted on input line 55.
 
 
 LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <12.59995> not available
-(Font)              size <12> substituted on input line 53.
+(Font)              size <12> substituted on input line 55.
 
 
-Overfull \hbox (7.64839pt too wide) in paragraph at lines 53--53
+Overfull \hbox (7.64839pt too wide) in paragraph at lines 55--55
  [][] 
  []
 
 
-Overfull \hbox (32.72842pt too wide) in paragraph at lines 32--55
+Overfull \hbox (32.72842pt too wide) in paragraph at lines 34--57
 [][] [] 
  []
 
-<images/portada.png, id=129, 679.53876pt x 1730.465pt>
+<images/portada.png, id=145, 679.53876pt x 1730.465pt>
 File: images/portada.png Graphic file (type png)
 <use images/portada.png>
-Package pdftex.def Info: images/portada.png  used on input line 55.
+Package pdftex.def Info: images/portada.png  used on input line 57.
 (pdftex.def)             Requested size: 294.86078pt x 794.96739pt.
 [1
 
+
+
+
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./images/portada.png> <./i
-mages/logo.png>] (./main.toc
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
-)
-\tf@toc=\write5
-\openout5 = `main.toc'.
+mages/logo.png>] (./intro/Acknowledgements.tex
+Underfull \hbox (badness 10000) in paragraph at lines 6--7
 
- [1
+ []
 
-] (./main.lof
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
-)
-\tf@lof=\write6
-\openout6 = `main.lof'.
-
- [2
-
-] (./main.lot
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
-)
-\tf@lot=\write7
-\openout7 = `main.lot'.
-
- [3
+) [1
 
 ]
-(./intro/intro.tex
+\openout2 = `intro/resumen.aux'.
+
+ (./intro/resumen.tex
+(/usr/share/texmf-dist/tex/generic/babel/locale/en/babel-english.tex
+Package babel Info: Importing basic data for english
+(babel)             from babel-en.ini. Reported on input line 11.
+)
+Underfull \hbox (badness 10000) in paragraph at lines 5--11
+
+ []
+
+) [2
+
+
+] (./intro/abstract.tex
+Underfull \hbox (badness 10000) in paragraph at lines 4--10
+
+ []
+
+)
+Overfull \hbox (7.99149pt too wide) in paragraph at lines 12--64
+[]\T1/cmr/bx/n/10.95 Key words: \T1/cmr/m/n/10.95 Author Pro-fi-ling, Deep Lear
+-ning, Trans-for-mers, Con-vo-lu-tio-nal Net-works in Graphs.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 12--64
+
+ []
+
+[3
+
+
+
+] (./main.toc
+LaTeX Info: Redefining \. on input line 2.
+LaTeX Info: Redefining \% on input line 2.
+ [4
+
+])
+\tf@toc=\write6
+\openout6 = `main.toc'.
+
+ [5] (./main.lof
+LaTeX Info: Redefining \. on input line 2.
+LaTeX Info: Redefining \% on input line 2.
+)
+\tf@lof=\write7
+\openout7 = `main.lof'.
+
+ [6
+
+] (./main.lot
+LaTeX Info: Redefining \. on input line 2.
+LaTeX Info: Redefining \% on input line 2.
+)
+\tf@lot=\write8
+\openout8 = `main.lot'.
+
+ [7
+
+] (./intro/intro.tex
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 6
 .
- (/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
+
+(/usr/share/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 Underfull \hbox (badness 10000) in paragraph at lines 4--30
@@ -938,13 +1607,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--34
 
 [5
 
-] [6]
-<images/rnn.png, id=389, 702.625pt x 183.68625pt>
+] [6] [7]
+<images/rnn.png, id=455, 702.625pt x 183.68625pt>
 File: images/rnn.png Graphic file (type png)
 <use images/rnn.png>
 Package pdftex.def Info: images/rnn.png  used on input line 51.
 (pdftex.def)             Requested size: 250.0pt x 65.3562pt.
- [7] [8 <./images/rnn.png>]
+ [8 <./images/rnn.png>]
 Package epstopdf Info: Source file: <images/cnn.eps>
 (epstopdf)                    date: 2021-08-08 15:19:00
 (epstopdf)                    size: 90923 bytes
@@ -955,31 +1624,31 @@ Package epstopdf Info: Source file: <images/cnn.eps>
 o.pdf images/cnn.eps>
 (epstopdf)             \includegraphics on input line 101.
 Package epstopdf Info: Output file is already uptodate.
-<images/cnn-eps-converted-to.pdf, id=422, 277.035pt x 236.885pt>
+<images/cnn-eps-converted-to.pdf, id=476, 277.035pt x 236.885pt>
 File: images/cnn-eps-converted-to.pdf Graphic file (type pdf)
 <use images/cnn-eps-converted-to.pdf>
 Package pdftex.def Info: images/cnn-eps-converted-to.pdf  used on input line 10
 1.
-(pdftex.def)             Requested size: 250.0pt x 213.76924pt.
+(pdftex.def)             Requested size: 245.0pt x 209.4932pt.
  [9 <./images/cnn-eps-converted-to.pdf>]
-<images/transformer.png, id=436, 771.63281pt x 1207.51125pt>
+[10]
+<images/transformer.png, id=502, 771.63281pt x 1207.51125pt>
 File: images/transformer.png Graphic file (type png)
 <use images/transformer.png>
 Package pdftex.def Info: images/transformer.png  used on input line 155.
-(pdftex.def)             Requested size: 221.78972pt x 317.0962pt.
-
-[10] [11 <./images/transformer.png>]
-<images/cnn-gnn.png, id=459, 511.15968pt x 481.04718pt>
+(pdftex.def)             Requested size: 208.47316pt x 298.0815pt.
+ [11 <./images/transformer.png>]
+<images/cnn-gnn.png, id=517, 511.15968pt x 481.04718pt>
 File: images/cnn-gnn.png Graphic file (type png)
 <use images/cnn-gnn.png>
-Package pdftex.def Info: images/cnn-gnn.png  used on input line 170.
+Package pdftex.def Info: images/cnn-gnn.png  used on input line 173.
 (pdftex.def)             Requested size: 155.25517pt x 146.10626pt.
-<images/gnn-gnn.png, id=460, 505.89pt x 450.9347pt>
+<images/gnn-gnn.png, id=518, 505.89pt x 450.9347pt>
 File: images/gnn-gnn.png Graphic file (type png)
 <use images/gnn-gnn.png>
-Package pdftex.def Info: images/gnn-gnn.png  used on input line 171.
+Package pdftex.def Info: images/gnn-gnn.png  used on input line 174.
 (pdftex.def)             Requested size: 155.25517pt x 138.39153pt.
- [12 <./images/cnn-gnn.png> <./images/gnn-gnn.png>]) (./chapters/chp2.tex [13]
+ [12]) (./chapters/chp2.tex [13 <./images/cnn-gnn.png> <./images/gnn-gnn.png>]
 Cap\'{\i }tulo 2.
 
 Underfull \hbox (badness 10000) in paragraph at lines 4--12
@@ -999,7 +1668,7 @@ Package epstopdf Info: Source file: <images/cnn_lstm.eps>
 ted-to.pdf images/cnn_lstm.eps>
 (epstopdf)             \includegraphics on input line 33.
 Package epstopdf Info: Output file is already uptodate.
-<images/cnn_lstm-eps-converted-to.pdf, id=496, 454.69875pt x 200.75pt>
+<images/cnn_lstm-eps-converted-to.pdf, id=553, 454.69875pt x 200.75pt>
 File: images/cnn_lstm-eps-converted-to.pdf Graphic file (type pdf)
 <use images/cnn_lstm-eps-converted-to.pdf>
 Package pdftex.def Info: images/cnn_lstm-eps-converted-to.pdf  used on input li
@@ -1026,7 +1695,7 @@ Package epstopdf Info: Source file: <images/att_lstm.eps>
 ted-to.pdf images/att_lstm.eps>
 (epstopdf)             \includegraphics on input line 68.
 Package epstopdf Info: Output file is already uptodate.
-<images/att_lstm-eps-converted-to.pdf, id=523, 204.765pt x 130.4875pt>
+<images/att_lstm-eps-converted-to.pdf, id=579, 204.765pt x 130.4875pt>
 File: images/att_lstm-eps-converted-to.pdf Graphic file (type pdf)
 <use images/att_lstm-eps-converted-to.pdf>
 Package pdftex.def Info: images/att_lstm-eps-converted-to.pdf  used on input li
@@ -1053,7 +1722,7 @@ Package epstopdf Info: Source file: <images/trepre.eps>
 d-to.pdf images/trepre.eps>
 (epstopdf)             \includegraphics on input line 153.
 Package epstopdf Info: Output file is already uptodate.
-<images/trepre-eps-converted-to.pdf, id=573, 181.67876pt x 91.34125pt>
+<images/trepre-eps-converted-to.pdf, id=632, 181.67876pt x 91.34125pt>
 File: images/trepre-eps-converted-to.pdf Graphic file (type pdf)
 <use images/trepre-eps-converted-to.pdf>
 Package pdftex.def Info: images/trepre-eps-converted-to.pdf  used on input line
@@ -1079,106 +1748,95 @@ Underfull \hbox (badness 10000) in paragraph at lines 93--94
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--119
+Underfull \hbox (badness 10000) in paragraph at lines 95--118
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--119
+Underfull \hbox (badness 10000) in paragraph at lines 95--118
 
  []
 
 [23]
-Underfull \hbox (badness 10000) in paragraph at lines 122--144
+Underfull \hbox (badness 10000) in paragraph at lines 120--142
 
  []
 
 [24]
-Underfull \hbox (badness 10000) in paragraph at lines 148--151
+Underfull \hbox (badness 10000) in paragraph at lines 146--149
 
  []
 
-[25]
-Underfull \hbox (badness 10000) in paragraph at lines 184--215
-
- []
-
-[26]
-Underfull \hbox (badness 10000) in paragraph at lines 218--240
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 218--240
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 218--240
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 218--240
-
- []
-
-[27]
-<images/compare_en.png, id=690, 462.528pt x 346.896pt>
+[25] [26]
+<images/compare_en.png, id=751, 462.528pt x 346.896pt>
 File: images/compare_en.png Graphic file (type png)
 <use images/compare_en.png>
-Package pdftex.def Info: images/compare_en.png  used on input line 261.
+Package pdftex.def Info: images/compare_en.png  used on input line 257.
 (pdftex.def)             Requested size: 199.60895pt x 149.70757pt.
-<images/compare_es.png, id=691, 462.528pt x 346.896pt>
+<images/compare_es.png, id=752, 462.528pt x 346.896pt>
 File: images/compare_es.png Graphic file (type png)
 <use images/compare_es.png>
-Package pdftex.def Info: images/compare_es.png  used on input line 262.
+Package pdftex.def Info: images/compare_es.png  used on input line 258.
 (pdftex.def)             Requested size: 199.60895pt x 149.70757pt.
-) (./chapters/concl.tex
-Underfull \hbox (badness 10000) in paragraph at lines 241--2
-
- []
-
-[28 <./images/compare_en.png> <./images/compare_es.png>] [29]
-Underfull \hbox (badness 10000) in paragraph at lines 4--10
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 4--10
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 11--14
+) (./conclusions/concl.tex [27] [28 <./images/compare_en.png> <./images/compare
+_es.png>] [29]
+Underfull \hbox (badness 10000) in paragraph at lines 4--11
 
  []
 
 [30
 
-]) (./main.bbl [31] [32
+] [31]) (./conclusions/bibliography.tex (./main.bbl [32
 
-] [33] [34] [35]) [36] (./main.aux
-LaTeX Info: Redefining \. on input line 26.
-LaTeX Info: Redefining \% on input line 26.
-)
+
+] [33] [34] [35]
+[36]) [37]) (./conclusiones/acro.tex [38
+
+
+]) [39]
+
+Package acro Warning: Acronym properties may have changed. Rerun to get them
+(acro)                synchronized.
+
+(./main.aux
+LaTeX Info: Redefining \. on input line 30.
+LaTeX Info: Redefining \% on input line 30.
+ (./intro/resumen.aux) (./main.acr))
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.72pt have occurred.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E8A32DC7AFFB336E9CD003108CE1E99D;5820.
+(rerunfilecheck)             Checksum: 64D81EBEDC2D5DD056C77599C21FBA1B;6451.
  ) 
 Here is how much of TeX's memory you used:
- 22893 strings out of 478994
- 400284 string characters out of 5864751
- 735108 words of memory out of 5000000
- 39707 multiletter control sequences out of 15000+600000
- 427294 words of font info for 85 fonts, out of 8000000 for 9000
+ 29754 strings out of 478994
+ 630327 string characters out of 5864751
+ 938919 words of memory out of 5000000
+ 46489 multiletter control sequences out of 15000+600000
+ 435862 words of font info for 112 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,17n,102p,1056b,755s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Hfootnote.13} has been referenced but does not ex
+ 102i,17n,102p,1869b,755s stack positions out of 5000i,500n,10000p,200000b,80000s
+pdfTeX warning (dest): name{Hfootnote.19} has been referenced but does not ex
 ist, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.18} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.17} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.16} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.15} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.14} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{Hfootnote.13} has been referenced but does not exis
+t, replaced by a fixed one
 
 pdfTeX warning (dest): name{Hfootnote.12} has been referenced but does not exis
 t, replaced by a fixed one
@@ -1237,11 +1895,13 @@ b></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/t
 exmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb></usr/share/texmf-dist/fonts
 /type1/public/cm-super/sfrm1728.pfb></usr/share/texmf-dist/fonts/type1/public/c
 m-super/sfti0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfti109
-5.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb>
-Output written on main.pdf (40 pages, 1379988 bytes).
+5.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0900.pfb></usr/sha
+re/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb></usr/share/texmf-dist/f
+onts/type1/public/cm-super/sfxc1095.pfb>
+Output written on main.pdf (47 pages, 1463475 bytes).
 PDF statistics:
- 933 PDF objects out of 1000 (max. 8388607)
- 818 compressed objects within 9 object streams
- 195 named destinations out of 1000 (max. 500000)
- 313 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1055 PDF objects out of 1200 (max. 8388607)
+ 930 compressed objects within 10 object streams
+ 219 named destinations out of 1000 (max. 500000)
+ 345 words of extra memory for PDF output out of 10000 (max. 10000000)
 

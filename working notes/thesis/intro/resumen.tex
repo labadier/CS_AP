@@ -1,0 +1,12 @@
+\chapter*{Resumen}
+
+\addcontentsline{toc}{chapter}{Resumen}
+
+El Procesamiento del Lenguaje Natural abarca un conjunto de tareas que van dirigidas al análisis de datos del lenguaje natural, permitiendo a los sistemas computarizados entender de alguna manera el contenido de un documento para hacer inferencias a partir de este. Determinar de manera automatizada características de una persona como su género, inclinaciones políticas, edad y otros aspectos demográficos y psicológicos, conforman ejemplos de procesamiento del lenguaje natural; específicamente pertenecen al grupo de tareas de perfilado de autor.
+\\
+En este trabajo se propone una solución a tareas de perfilado de usuarios de Twitter basada en Inteligencia Artificial y con un enfoque multilingüe. El modelo desarrollado emplea técnicas de \ac{dl}, las cuales han sido estudiadas por otros autores. Sin embargo, en este trabajo se introduce un tratamiento modular al perfilado de autores y el uso de las Redes Neuronales Basadas en Grafos para modelar las relaciones entre los elementos que componen un perfil de usuario. Además se realiza un estudio comparativo con otras arquitecturas como las \ac{lstm} y se introduce una modificación del Método de los Impostores originalmente empleado para la tarea de Verificación de Autoría, de manera que este sea capaz de tratar representaciones basadas en DL para clasificar el perfil.
+\\
+Para llevar a cabo el perfilado siguiendo una estrategia modular: i) se modelan los elementos del perfil i.e, tweets, a través modelos neuronales Transformers o de Redes Convolucionales a niveles de palabras y caracteres; ii) las codificaciones de los tweets de un perfil son interpretadas como una secuencia o como nodos dentro de un grafo, los cuales son procesados con una \ac{lstm} o una Red Convolucional en Grafos respectivamente, para modelar y clasificar el perfil. \\Los resultados experimentales muestran que el modelo propuesto alcanza un desempeño significativo dentro del estado del arte en las tareas evaluadas.
+\\
+
+\textbf{Palabras clave:} Perfilado de Autores, Deep Learning, Transformers, Redes Convolucionales en Grafos.

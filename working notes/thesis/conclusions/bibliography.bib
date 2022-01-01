@@ -198,7 +198,7 @@
 	year =                2018
 }
 
-@Article{electronics8030292,
+@article{electronics8030292,
 	AUTHOR = {Alom, Md Zahangir and Taha, Tarek M. and Yakopcic, Chris and Westberg, Stefan and Sidike, Paheding and Nasrin, Mst Shamima and Hasan, Mahmudul and Van Essen, Brian C. and Awwal, Abdul A. S. and Asari, Vijayan K.},
 	TITLE = "{A State-of-the-Art Survey on Deep Learning Theory and Architectures}",
 	JOURNAL = {Electronics},
@@ -314,9 +314,11 @@
 
 @article{bojanowski2016enriching,
 	title="{Enriching Word Vectors with Subword Information}",
-	author={Bojanowski, Piotr and Grave, Edouard and Joulin, Armand and Mikolov, Tomas},
-	journal={arXiv preprint arXiv:1607.04606},
-	year={2016}
+	author={Piotr Bojanowski and Edouard Grave and Armand Joulin and Tomas Mikolov},
+	journal={Transactions of the Association for Computational Linguistics},
+	year={2017},
+	volume={5},
+	pages={135-146}
 }
 
 @InProceedings{basile:2017,
@@ -506,14 +508,19 @@
 	publisher={ACM New York, NY, USA}
 }
 
-@inproceedings{rangel2021profiling,
-	title="{Profiling Hate Speech Spreaders on Twitter Task at PAN 2021}",
-	author={Rangel, Francisco and Sarrac{\'e}n, GLDLP and Chulvi, BERTa and Fersini, Elisabetta and Rosso, Paolo},
-	booktitle={CLEF},
-	year={2021}
+@InProceedings{rangel2021profiling,
+	author =              {Francisco Rangel and Paolo Rosso and Gretel Liz De La Peña Sarracén and Elisabetta Fersini and BERTa Chulvi},
+	booktitle =           {{CLEF 2021 Labs and Workshops, Notebook Papers}},
+	crossref =            {pan:2021},
+	editor =              {Guglielmo Faggioli, Nicola Ferro, Alexis Joly, Maria Maistro, Florina Piroi},
+	month =               {},
+	publisher =           {CEUR-WS.org},
+	title =               "{Profiling Hate Speech Spreaders on Twitter Task at PAN 2021}",
+	url =                 {},
+	year =                2021
 }
 
-@misc{hochreiter2001gradient,
+@inproceedings{hochreiter2001gradient,
 	title="{Gradient flow in recurrent nets: the difficulty of learning long-term dependencies}",
 	author={Hochreiter, Sepp and Bengio, Yoshua and Frasconi, Paolo and Schmidhuber, J{\"u}rgen and others},
 	year={2001},
@@ -590,7 +597,7 @@
 	year={2018}
 }
 
-@dataset{francisco_rangel_2020_4039435,
+@misc{francisco_rangel_2020_4039435,
 	author       = {Francisco Rangel and
 	Paolo Rosso and
 	Bilal Ghanem and
@@ -598,9 +605,7 @@
 	title        = "{Profiling Fake News Spreaders on Twitter}",
 	month        = feb,
 	year         = 2020,
-	publisher    = {Zenodo},
-	doi          = {10.5281/zenodo.4039435},
-	url          = {https://doi.org/10.5281/zenodo.4039435}
+	note = {Zenodo,\url{https://doi.org/10.5281/zenodo.4039435} },
 }
 
 @inproceedings{DBLP:journals/corr/KingmaB14,
@@ -621,9 +626,13 @@
 @article{liu2019roberta,
 	title="{RoBERTa: A Robustly Optimized BERT Pretraining Approach}", 
 	author={Yinhan Liu and Myle Ott and Naman Goyal and Jingfei Du and Mandar Joshi and Danqi Chen and Omer Levy and Mike Lewis and Luke Zettlemoyer and Veselin Stoyanov},
+	journal={ArXiv},
 	year={2019},
-	journal={arXiv preprint arXiv:1907.11692}, 
+	volume={abs/1907.11692}
 }
+
+
+
 @article{DBLP:journals/corr/abs-1810-04805,
 	author    = {Jacob Devlin and
 	Ming{-}Wei Chang and
@@ -671,16 +680,26 @@
 }
 
 @inproceedings{Sem,
-	author    = {Roberto Labadie  and Mariano Jason Rodirguez Cisneros and Reynier Ortega Bueno and Paolo Rosso},
-	title     = "{A Transformer-based Approach for Detecting and Rating Humor and Offense}",
-	booktitle = {Proceedings of the 15th International Workshop on Semantic Evaluation},
-	year      = {2021},
+	title = "{R}o{M}a at {S}em{E}val-2021 Task 7: A Transformer-based Approach for Detecting and Rating Humor and Offense",
+	author = "Labadie, Roberto  and
+	Rodriguez, Mariano Jason  and
+	Ortega, Reynier  and
+	Rosso, Paolo",
+	booktitle = "Proceedings of the 15th International Workshop on Semantic Evaluation (SemEval-2021)",
+	month = aug,
+	year = "2021",
+	address = "Online",
+	publisher = "Association for Computational Linguistics",
+	url = "https://aclanthology.org/2021.semeval-1.37",
+	doi = "10.18653/v1/2021.semeval-1.37",
+	pages = "297--305",
+	abstract = "In this paper we describe the systems used by the RoMa team in the shared task on Detecting and Rating Humor and Offense (HaHackathon) at SemEval 2021. Our systems rely on data representations learned through fine-tuned neural language models. Particularly, we explore two distinct architectures. The first one is based on a Siamese Neural Network (SNN) combined with a graph-based clustering method. The SNN model is used for learning a latent space where instances of humor and non-humor can be distinguished. The clustering method is applied to build prototypes of both classes which are used for training and classifying new messages. The second one combines neural language model representations with a linear regression model which makes the final ratings. Our systems achieved the best results for humor classification using model one, whereas for offensive and humor rating the second model obtained better performance. In the case of the controversial humor prediction, the most significant improvement was achieved by a fine-tuning of the neural language model. In general, the results achieved are encouraging and give us a starting point for further improvements.",
 }
 
 @article{hinton2012lecture,
 	title="{Lecture 6a overview of mini--batch gradient descent}",
 	author={Hinton, Geoffrey and Srivastava, Nitish and Swersky, Kevin},
-	journal={Coursera Lecture slides https://class. coursera. org/neuralnets-2012-001/lecture,[Online},
+	journal={Coursera Lecture slides https://class. coursera. org/neuralnets-2012-001/lecture,[Online]},
 	year={2012}
 }
 
@@ -693,4 +712,58 @@
 	title =               "{LSACoNet: A Combination of Lexical and Conceptual Features for Analysis of Fake News Spreaders on Twitter---Notebook for PAN at CLEF 2020}",
 	url =                 {http://ceur-ws.org/Vol-2696/},
 	year =                2020
+}
+
+@InProceedings{polignano:2019,
+	author =              {Marco Polignano and {Marco Giuseppe} {de Pinto} and Pasquale Lops and Giovanni Semeraro},
+	booktitle =           {{CLEF 2019 Labs and Workshops, Notebook Papers}},
+	editor =              {Linda Cappellato and Nicola Ferro and {David {E.}} Losada and Henning M{\"{u}}ller},
+	month =               sep,
+	publisher =           {CEUR-WS.org},
+	title =               {{Identification Of Bot Accounts In Twitter Using 2D CNNs On User-generated Contents}},
+	url =                 {http://ceur-ws.org/Vol-2380/},
+	year =                2019
+}
+
+@InProceedings{koloski:2020a,
+	author =              {Bo{\v s}ko Koloski and Senja Pollak and Bla{\v z} {\v S}krlj},
+	booktitle =           {{CLEF 2020 Labs and Workshops, Notebook Papers}},
+	editor =              {Linda Cappellato and Carsten Eickhoff and Nicola Ferro and Aur{\'e}lie N{\'e}v{\'e}ol},
+	month =               sep,
+	publisher =           {CEUR-WS.org},
+	title =               {{Multilingual Detection of Fake News Spreaders via Sparse Matrix Factorization---Notebook for PAN at CLEF 2020}},
+	url =                 {http://ceur-ws.org/Vol-2696/},
+	year =                2020
+}
+@InProceedings{tamayo:2021,
+	author =              {Roberto {Labadie Tamayo} and Daniel {Castro Castro} and Reynier {Ortega Bueno}},
+	booktitle =           {{CLEF 2021 Labs and Workshops, Notebook Papers}},
+	editor =              {Guglielmo Faggioli and Nicola Ferro and Alexis Joly and Maria Maistro and Florina Piroi},
+	month =               sep,
+	publisher =           {CEUR-WS.org},
+	title =               {{Deep Modeling of Latent Representations for Twitter Profiles on Hate Speech Spreaders Identification Task---Notebook for PAN at CLEF 2021}},
+	url =                 {http://ceur-ws.org/Vol-2936/paper-177.pdf},
+	year =                2021
+}
+
+@InProceedings{carracedo:2021,
+	author =              {{{\'{A}}ngel And{\'{u}}jar} Carracedo and Raquel Jim{\'{e}}nez Mond{\'{e}}jar},
+	booktitle =           {{CLEF 2021 Labs and Workshops, Notebook Papers}},
+	editor =              {Guglielmo Faggioli and Nicola Ferro and Alexis Joly and Maria Maistro and Florina Piroi},
+	month =               sep,
+	publisher =           {CEUR-WS.org},
+	title =               {{Profiling Hate Speech Spreaders on Twitter---Notebook for PAN at CLEF 2021}},
+	url =                 {http://ceur-ws.org/Vol-2936/paper-152.pdf},
+	year =                2021
+}
+
+@InProceedings{balouchzahi:2021,
+	author =              {Fazlourrahman Balouchzahi and {Hosahalli Lakshmaiah} Shashirekha and Grigori Sidorov},
+	booktitle =           {{CLEF 2021 Labs and Workshops, Notebook Papers}},
+	editor =              {Guglielmo Faggioli and Nicola Ferro and Alexis Joly and Maria Maistro and Florina Piroi},
+	month =               sep,
+	publisher =           {CEUR-WS.org},
+	title =               {{HSSD: Hate Speech Spreader Detection using N-grams and Voting Classifier---Notebook for PAN at CLEF 2021}},
+	url =                 {http://ceur-ws.org/Vol-2936/paper-156.pdf},
+	year =                2021
 }

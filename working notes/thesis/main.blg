@@ -1,54 +1,57 @@
 This is BibTeX, Version 0.99d (TeX Live 2021/Arch Linux)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
+A level-1 auxiliary file: intro/resumen.aux
 The style file: style/acl_natbib.bst
 Reallocated glb_str_ptr (elt_size=8) to 20 items from 10.
 Reallocated global_strs (elt_size=200001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=8) to 20 items from 10.
 Reallocated singl_function (elt_size=8) to 100 items from 50.
-Database file #1: bibliography.bib
-Warning--entry type for "francisco_rangel_2020_4039435" isn't style-file defined
---line 593 of file bibliography.bib
+Database file #1: conclusions/bibliography.bib
+A bad cross reference---entry "rangel2021profiling"
+refers to entry "pan:2021", which doesn't exist
+Warning--I didn't find a database entry for "pan:2021"
 Reallocated wiz_functions (elt_size=8) to 6000 items from 3000.
-You've used 55 entries,
+Warning--empty booktitle in hochreiter2001gradient
+You've used 60 entries,
             3571 wiz_defined-function locations,
-            1012 strings with 19990 characters,
-and the built_in function-call counts, 41376 in all, are:
-= -- 3404
-> -- 2253
-< -- 36
-+ -- 713
-- -- 656
-* -- 2873
-:= -- 6211
-add.period$ -- 242
-call.type$ -- 55
-change.case$ -- 555
-chr.to.int$ -- 57
-cite$ -- 55
-duplicate$ -- 2798
-empty$ -- 2959
-format.name$ -- 838
-if$ -- 9039
+            1037 strings with 21372 characters,
+and the built_in function-call counts, 45318 in all, are:
+= -- 3759
+> -- 2413
+< -- 38
++ -- 763
+- -- 701
+* -- 3126
+:= -- 6772
+add.period$ -- 271
+call.type$ -- 60
+change.case$ -- 606
+chr.to.int$ -- 62
+cite$ -- 61
+duplicate$ -- 3077
+empty$ -- 3281
+format.name$ -- 900
+if$ -- 9942
 int.to.chr$ -- 3
 int.to.str$ -- 1
-missing$ -- 593
-newline$ -- 276
-num.names$ -- 222
-pop$ -- 1358
+missing$ -- 652
+newline$ -- 303
+num.names$ -- 242
+pop$ -- 1487
 preamble$ -- 1
-purify$ -- 437
+purify$ -- 472
 quote$ -- 0
-skip$ -- 1866
+skip$ -- 2059
 stack$ -- 0
-substring$ -- 1050
-swap$ -- 1410
-text.length$ -- 16
+substring$ -- 1160
+swap$ -- 1550
+text.length$ -- 17
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 489
-warning$ -- 0
-while$ -- 200
+type$ -- 534
+warning$ -- 1
+while$ -- 219
 width$ -- 0
-write$ -- 710
-(There was 1 warning)
+write$ -- 785
+(There was 1 error message)

@@ -14,8 +14,9 @@
 \usepackage{sectsty}
 \usepackage{amssymb,amsmath}
 \usepackage{blindtext}
-%\usepackage{chngcntr}
-%\counterwithin{table}{section}
+%%\counterwithin{table}{section}
+\usepackage{acro}
+\include{conclusions/acronyms}
 
 \backgroundsetup{
 	scale=1,
@@ -25,6 +26,7 @@
 	hshift=-159,
 	contents={\includegraphics[width=0.48\paperwidth,height=\paperheight]{images/portada.png}}
 }
+
 
 
 \begin{document}
@@ -44,8 +46,8 @@
 				\vspace{10mm}
 				\begin{tabular}{rp{0.7\textwidth}ll}
 					{\Large \bf Autor:} & {\Large Roberto Labadie Tamayo} \\[.5cm]
-					{\Large \bf Tutores:} & {\Large Dr. Daniel Castro Castro} \\[.5cm]
-					& {\Large M.Sc. Reynier Ortega Bueno} \\[.5cm]
+					{\Large \bf Tutores:} & {\Large Dr.C Daniel Castro Castro} \\[.1cm]
+					& {\Large M.Sc. Reynier Ortega Bueno} \\[.9cm]
 				\end{tabular}
 				
 				\vspace{10mm}
@@ -53,24 +55,28 @@
 			}
 	\end{minipage}
 	\end{titlepage}
-	
 	\pagenumbering{roman}
 	\thispagestyle{empty} 	
 	\chapterfont{\flushright}
+	\input{intro/Acknowledgements}
+	\include{intro/resumen}
+	\input{intro/abstract}
 	\renewcommand{\contentsname}{Contenido} \tableofcontents
 	\renewcommand{\listfigurename}{Lista de Figuras} \listoffigures	
 	\renewcommand{\listtablename}{Lista de Tablas} \listoftables
 	\renewcommand{\tablename}{Tabla}
 	\clearpage
-
 	
+
 	\input{intro/intro}
 	\input{chapters/chp1}
 	\input{chapters/chp2}
 	\input{chapters/chp3}
-	\input{chapters/concl}
+	\input{conclusions/concl}
 	\bibliographystyle{style/acl_natbib}
-	\renewcommand{\bibname}{Referencias Bibliográficas}
-	\bibliography{bibliography}
+	\input{conclusions/bibliography}
+	\input{conclusiones/acro}
+
+	
 	
 \end{document}

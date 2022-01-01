@@ -1,4 +1,4 @@
-\begin{thebibliography}{55}
+\begin{thebibliography}{60}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{Agarwala et~al.(2017)Agarwala, Inoue, and Sly}]{agarwala2017music}
@@ -24,6 +24,16 @@ Oleg Bakhteev, Aleksandr Ogaltsov, and Petr Ostroukhov. 2020.
 \newblock In \emph{{CLEF 2020 Labs and Workshops, Notebook Papers}}.
   CEUR-WS.org.
 
+\bibitem[{Balouchzahi et~al.(2021)Balouchzahi, Shashirekha, and
+  Sidorov}]{balouchzahi:2021}
+Fazlourrahman Balouchzahi, {Hosahalli Lakshmaiah} Shashirekha, and Grigori
+  Sidorov. 2021.
+\newblock \href {http://ceur-ws.org/Vol-2936/paper-156.pdf} {{HSSD: Hate Speech
+  Spreader Detection using N-grams and Voting Classifier---Notebook for PAN at
+  CLEF 2021}}.
+\newblock In \emph{{CLEF 2021 Labs and Workshops, Notebook Papers}}.
+  CEUR-WS.org.
+
 \bibitem[{Baruah et~al.(2020)Baruah, Das, Barbhuiya, and Dey}]{baruah:2020}
 Arup Baruah, {Kaushik Amar} Das, {Ferdous Ahmed} Barbhuiya, and Kuntal Dey.
   2020.
@@ -41,11 +51,12 @@ Angelo Basile, Gareth Dwyer, Maria Medvedeva, Josine Rawee, Hessel Haagsma, and
 \newblock In \emph{{CLEF 2017 Evaluation Labs and Workshop -- Working Notes
   Papers, 11-14 September, Dublin, Ireland}}. CEUR-WS.org.
 
-\bibitem[{Bojanowski et~al.(2016)Bojanowski, Grave, Joulin, and
+\bibitem[{Bojanowski et~al.(2017)Bojanowski, Grave, Joulin, and
   Mikolov}]{bojanowski2016enriching}
-Piotr Bojanowski, Edouard Grave, Armand Joulin, and Tomas Mikolov. 2016.
+Piotr Bojanowski, Edouard Grave, Armand Joulin, and Tomas Mikolov. 2017.
 \newblock {Enriching Word Vectors with Subword Information}.
-\newblock \emph{arXiv preprint arXiv:1607.04606}.
+\newblock \emph{Transactions of the Association for Computational Linguistics},
+  5:135--146.
 
 \bibitem[{Brown et~al.(1988)Brown, Conference~on Fixed Point Theory~(1986,
   Society, and International Congress~of Mathematicians~(1986}]{brown1988fixed}
@@ -64,6 +75,14 @@ Jakab Buda and Flora Bolonyai. 2020.
   N-grams and Statistical Featuresto Identify Fake News Spreaders on
   Twitter---Notebook for PAN at CLEF 2020}}.
 \newblock In \emph{{CLEF 2020 Labs and Workshops, Notebook Papers}}.
+  CEUR-WS.org.
+
+\bibitem[{Carracedo and Mond{\'{e}}jar(2021)}]{carracedo:2021}
+{{\'{A}}ngel And{\'{u}}jar} Carracedo and Raquel~Jim{\'{e}}nez Mond{\'{e}}jar.
+  2021.
+\newblock \href {http://ceur-ws.org/Vol-2936/paper-152.pdf} {{Profiling Hate
+  Speech Spreaders on Twitter---Notebook for PAN at CLEF 2021}}.
+\newblock In \emph{{CLEF 2021 Labs and Workshops, Notebook Papers}}.
   CEUR-WS.org.
 
 \bibitem[{Cañete et~al.(2020)Cañete, Chaperon, Fuentes, Ho, Kang, and
@@ -113,7 +132,7 @@ Rafael Felipe~Sandroni Dias and Ivandr{\'{e}} Paraboni. 2019.
 Geoffrey Hinton, Nitish Srivastava, and Kevin Swersky. 2012.
 \newblock {Lecture 6a overview of mini--batch gradient descent}.
 \newblock \emph{Coursera Lecture slides https://class. coursera.
-  org/neuralnets-2012-001/lecture,[Online}.
+  org/neuralnets-2012-001/lecture,[Online]}.
 
 \bibitem[{Hochreiter et~al.(2001)Hochreiter, Bengio, Frasconi, Schmidhuber
   et~al.}]{hochreiter2001gradient}
@@ -121,6 +140,7 @@ Sepp Hochreiter, Yoshua Bengio, Paolo Frasconi, J{\"u}rgen Schmidhuber, et~al.
   2001.
 \newblock {Gradient flow in recurrent nets: the difficulty of learning
   long-term dependencies}.
+\newblock A field guide to dynamical recurrent neural networks. IEEE Press.
 
 \bibitem[{Iyer and Vosoughi(2020)}]{iyer:2020}
 Aarish Iyer and Soroush Vosoughi. 2020.
@@ -161,13 +181,33 @@ Thomas~N. Kipf and Max Welling. 2017.
   {ICLR} 2017, Toulon, France, April 24-26, 2017, Conference Track
   Proceedings}. OpenReview.net.
 
-\bibitem[{Labadie et~al.(2021)Labadie, Cisneros, Bueno, and Rosso}]{Sem}
-Roberto Labadie, Mariano Jason~Rodirguez Cisneros, Reynier~Ortega Bueno, and
-  Paolo Rosso. 2021.
-\newblock {A Transformer-based Approach for Detecting and Rating Humor and
-  Offense}.
+\bibitem[{Koloski et~al.(2020)Koloski, Pollak, and {\v S}krlj}]{koloski:2020a}
+Bo{\v s}ko Koloski, Senja Pollak, and Bla{\v z} {\v S}krlj. 2020.
+\newblock \href {http://ceur-ws.org/Vol-2696/} {{Multilingual Detection of Fake
+  News Spreaders via Sparse Matrix Factorization---Notebook for PAN at CLEF
+  2020}}.
+\newblock In \emph{{CLEF 2020 Labs and Workshops, Notebook Papers}}.
+  CEUR-WS.org.
+
+\bibitem[{Labadie et~al.(2021)Labadie, Rodriguez, Ortega, and Rosso}]{Sem}
+Roberto Labadie, Mariano~Jason Rodriguez, Reynier Ortega, and Paolo Rosso.
+  2021.
+\newblock \href {https://doi.org/10.18653/v1/2021.semeval-1.37} {{R}o{M}a at
+  {S}em{E}val-2021 task 7: A transformer-based approach for detecting and
+  rating humor and offense}.
 \newblock In \emph{Proceedings of the 15th International Workshop on Semantic
-  Evaluation}.
+  Evaluation (SemEval-2021)}, pages 297--305, Online. Association for
+  Computational Linguistics.
+
+\bibitem[{{Labadie Tamayo} et~al.(2021){Labadie Tamayo}, {Castro Castro}, and
+  {Ortega Bueno}}]{tamayo:2021}
+Roberto {Labadie Tamayo}, Daniel {Castro Castro}, and Reynier {Ortega Bueno}.
+  2021.
+\newblock \href {http://ceur-ws.org/Vol-2936/paper-177.pdf} {{Deep Modeling of
+  Latent Representations for Twitter Profiles on Hate Speech Spreaders
+  Identification Task---Notebook for PAN at CLEF 2021}}.
+\newblock In \emph{{CLEF 2021 Labs and Workshops, Notebook Papers}}.
+  CEUR-WS.org.
 
 \bibitem[{LeCun et~al.(1998)LeCun, Bottou, Bengio, and
   Haffner}]{lecun1998gradient}
@@ -180,7 +220,7 @@ Yann LeCun, L{\'e}on Bottou, Yoshua Bengio, and Patrick Haffner. 1998.
 Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Mandar Joshi, Danqi Chen, Omer
   Levy, Mike Lewis, Luke Zettlemoyer, and Veselin Stoyanov. 2019.
 \newblock {RoBERTa: A Robustly Optimized BERT Pretraining Approach}.
-\newblock \emph{arXiv preprint arXiv:1907.11692}.
+\newblock \emph{ArXiv}, abs/1907.11692.
 
 \bibitem[{L{\'{o}}pez{-}Santill{\'{a}}n
   et~al.(2019)L{\'{o}}pez{-}Santill{\'{a}}n, Gonz{\'{a}}lez{-}Gurrola,
@@ -285,6 +325,15 @@ Juan Pizarro. 2020.
 \newblock In \emph{{CLEF 2020 Labs and Workshops, Notebook Papers}}.
   CEUR-WS.org.
 
+\bibitem[{Polignano et~al.(2019)Polignano, {de Pinto}, Lops, and
+  Semeraro}]{polignano:2019}
+Marco Polignano, {Marco Giuseppe} {de Pinto}, Pasquale Lops, and Giovanni
+  Semeraro. 2019.
+\newblock \href {http://ceur-ws.org/Vol-2380/} {{Identification Of Bot Accounts
+  In Twitter Using 2D CNNs On User-generated Contents}}.
+\newblock In \emph{{CLEF 2019 Labs and Workshops, Notebook Papers}}.
+  CEUR-WS.org.
+
 \bibitem[{Rangel et~al.(2020{\natexlab{a}})Rangel, Giachanou, Ghanem, and
   Rosso}]{rangel:2020}
 Francisco Rangel, Anastasia Giachanou, Bilal Ghanem, and Paolo Rosso.
@@ -315,8 +364,8 @@ Francisco Rangel and Paolo Rosso. 2019.
   Giachanou}]{francisco_rangel_2020_4039435}
 Francisco Rangel, Paolo Rosso, Bilal Ghanem, and Anastasia Giachanou.
   2020{\natexlab{b}}.
-\newblock \href {https://doi.org/10.5281/zenodo.4039435} {{Profiling Fake News
-  Spreaders on Twitter}}.
+\newblock {Profiling Fake News Spreaders on Twitter}.
+\newblock Zenodo,\url{https://doi.org/10.5281/zenodo.4039435}.
 
 \bibitem[{Rangel et~al.(2018{\natexlab{b}})Rangel, Rosso, Montes-y G{\'o}mez,
   Potthast, and Stein}]{rangel2018overview}
@@ -333,12 +382,13 @@ Francisco Rangel, Paolo Rosso, Martin Potthast, and Benno Stein. 2017.
   language variety identification in twitter}.
 \newblock \emph{Working notes papers of the CLEF}, pages 1613--0073.
 
-\bibitem[{Rangel et~al.(2021)Rangel, Sarrac{\'e}n, Chulvi, Fersini, and
-  Rosso}]{rangel2021profiling}
-Francisco Rangel, GLDLP Sarrac{\'e}n, BERTa Chulvi, Elisabetta Fersini, and
-  Paolo Rosso. 2021.
+\bibitem[{Rangel et~al.(2021)Rangel, Rosso, Sarracén, Fersini, and
+  Chulvi}]{rangel2021profiling}
+Francisco Rangel, Paolo Rosso, Gretel Liz De La~Peña Sarracén, Elisabetta
+  Fersini, and BERTa Chulvi. 2021.
 \newblock {Profiling Hate Speech Spreaders on Twitter Task at PAN 2021}.
-\newblock In \emph{CLEF}.
+\newblock In \emph{{CLEF 2021 Labs and Workshops, Notebook Papers}}.
+  CEUR-WS.org.
 
 \bibitem[{Reddy et~al.(2016)Reddy, Vardhan, and Reddy}]{reddy2016survey}
 T~Raghunadha Reddy, B~Vishnu Vardhan, and P~Vijaypal Reddy. 2016.
